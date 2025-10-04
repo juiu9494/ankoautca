@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About Us - Canal 1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+      color: white;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    header {
+      text-align: center;
+      padding: 20px 0;
+      margin-bottom: 30px;
+    }
+    
+    .logo-container {
+      margin-bottom: 20px;
+    }
+    
+    .logo {
+      max-width: 300px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .subtitle {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 20px;
+    }
+    
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 30px;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #fdbb2d;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .card h2 i {
+      font-size: 1.3rem;
+    }
+    
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    
+    @media (max-width: 768px) {
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .mission-vision {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    
+    @media (max-width: 768px) {
+      .mission-vision {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .team-section {
+      margin-bottom: 40px;
+    }
+    
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+    
+    .team-member {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 25px;
+      transition: all 0.3s ease;
+    }
+    
+    .team-member:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.15);
+    }
+    
+    .member-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 15px;
+      border: 3px solid #fdbb2d;
+    }
+    
+    .member-name {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    
+    .member-position {
+      color: #fdbb2d;
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+    
+    .member-bio {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+    
+    .values-section {
+      margin-bottom: 40px;
+    }
+    
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+    }
+    
+    .value-item {
+      text-align: center;
+      padding: 20px;
+    }
+    
+    .value-icon {
+      font-size: 2.5rem;
+      color: #fdbb2d;
+      margin-bottom: 15px;
+    }
+    
+    .value-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    
+    .stats-section {
+      margin-bottom: 40px;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+    }
+    
+    .stat-item {
+      text-align: center;
+      padding: 20px;
+    }
+    
+    .stat-value {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #fdbb2d;
+      margin-bottom: 5px;
+    }
+    
+    .stat-label {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    
+    .quote {
+      font-style: italic;
+      text-align: center;
+      padding: 20px;
+      margin: 30px 0;
+      border-left: 3px solid #fdbb2d;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 0 10px 10px 0;
+    }
+    
+    .quote-author {
+      margin-top: 10px;
+      font-weight: 600;
+      color: #fdbb2d;
+    }
+    
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background-color: #fdbb2d;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+    }
+    
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+    }
+    
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #fdbb2d;
+      border: 4px solid #1a2a6c;
+      top: 15px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+    
+    .left {
+      left: 0;
+    }
+    
+    .right {
+      left: 50%;
+    }
+    
+    .left::after {
+      right: -10px;
+    }
+    
+    .right::after {
+      left: -10px;
+    }
+    
+    .timeline-content {
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+    
+    .timeline-year {
+      font-weight: bold;
+      color: #fdbb2d;
+      margin-bottom: 5px;
+    }
+    
+    @media (max-width: 768px) {
+      .timeline::after {
+        left: 31px;
+      }
+      
+      .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+      
+      .timeline-item::after {
+        left: 21px;
+      }
+      
+      .right {
+        left: 0;
+      }
+    }
+        nav {
+  display: flex;
+  justify-content: center;
+  gap: 40px; /* espace entre les liens */
+  background-color: #facc00;
+  border-radius: 10px;
+  padding: 20px 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #1e90ff;
+  color: rgb(0, 0, 0);
+}
+   .alert-message {
+      margin: 20px auto;
+      max-width: 800px;
+      background: linear-gradient(135deg, #ff9800, #ff5722);
+      color: white;
+      padding: 20px 30px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeInSlide 1.2s ease-out forwards;
+    }
+
+    @keyframes fadeInSlide {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+     <p class="alert-message">
+    ⚠️ High-quality match streams — this site is funded by community support and advertising to stay alive and provide you with the best possible experience.
+  </p>
+    <nav>
+                <a href="index.html">Home</a>
+                <a href="Contact.html">Contact</a>
+    </nav>
+
+  <div class="container">
+    <header>
+      <div class="logo-container">
+        <img src="logo streaming.png" alt="Canal 1 Logo" class="logo">
+      </div>
+      <h1>About Canal 1</h1>
+      <p class="subtitle">Leading the future of digital streaming</p>
+    </header>
+    
+    <div class="about-content">
+      <div class="card">
+        <h2><i class="fas fa-play-circle"></i> Our Story</h2>
+        <p>ankoautca  was founded in 2025 with a simple vision: to revolutionize the way people consume digital content. What started as a small streaming platform has grown into a leading media company serving millions of viewers worldwide.</p>
+        <p>Our journey began when our founder recognized the growing demand for high-quality, accessible streaming services that cater to diverse audiences with varied interests.</p>
+        <p>Today, we continue to innovate and expand our offerings, staying true to our core mission of delivering exceptional entertainment experiences.</p>
+      </div>
+      
+      <div class="card">
+        <h2><i class="fas fa-bullseye"></i> What We Do</h2>
+        <p>At ankoautca, we specialize in creating and distributing premium digital content across multiple platforms. Our services include:</p>
+        <ul style="margin-left: 20px; margin-top: 10px;">
+          <li>Live streaming of exclusive events</li>
+          <li>On-demand video content library</li>
+          <li>Original series and documentaries</li>
+          <li>Interactive viewer experiences</li>
+          <li>Multi-platform accessibility</li>
+        </ul>
+        <p>We partner with content creators, production studios, and brands to deliver unique entertainment experiences that captivate audiences.</p>
+      </div>
+    </div>
+    
+    <div class="mission-vision">
+      <div class="card">
+        <h2><i class="fas fa-flag"></i> Our Mission</h2>
+        <p>To democratize premium entertainment by making high-quality streaming content accessible to everyone, everywhere. We believe that great stories should have no boundaries.</p>
+        <p>We're committed to:</p>
+        <ul style="margin-left: 20px; margin-top: 10px;">
+          <li>Innovating the streaming experience</li>
+          <li>Supporting diverse content creators</li>
+          <li>Expanding global access to entertainment</li>
+          <li>Maintaining the highest quality standards</li>
+        </ul>
+      </div>
+      
+      <div class="card">
+        <h2><i class="fas fa-eye"></i> Our Vision</h2>
+        <p>To become the world's most beloved streaming platform, recognized for our commitment to quality, innovation, and audience satisfaction.</p>
+        <p>We envision a future where:</p>
+        <ul style="margin-left: 20px; margin-top: 10px;">
+          <li>Content transcends geographical limitations</li>
+          <li>Viewers actively shape their entertainment experience</li>
+          <li>Technology enhances storytelling</li>
+          <li>Creativity flourishes without constraints</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="quote">
+      <p>we don't just stream content – we create experiences that connect people across the globe. Our success is measured by the smiles we bring to our viewers' faces."</p>
+      <p class="quote-author">- Alexandre Dubois, CEO & Founder</p>
+    </div>
+    
+    <div class="team-section">
+      <div class="card">
+        <h2><i class="fas fa-users"></i> Leadership Team</h2>
+        <div class="team-grid">
+          <div class="team-member">
+            <img src="https://via.placeholder.com/150/1a2a6c/ffffff?text=AD" alt="Alexandre Dubois" class="member-photo">
+            <div class="member-name">Alexandre Dubois</div>
+            <div class="member-position">CEO & Founder</div>
+            <div class="member-bio">Visionary leader with 15+ years in media and technology. Alexandre founded Canal 1 with a mission to transform digital entertainment.</div>
+          </div>
+          
+          <div class="team-member">
+            <img src="https://via.placeholder.com/150/b21f1f/ffffff?text=MS" alt="Marie Schmidt" class="member-photo">
+            <div class="member-name">Marie Schmidt</div>
+            <div class="member-position">Chief Content Officer</div>
+            <div class="member-bio">Award-winning producer with an eye for compelling stories. Marie leads our content strategy and original productions.</div>
+          </div>
+          
+          <div class="team-member">
+            <img src="https://via.placeholder.com/150/fdbb2d/1a2a6c?text=JR" alt="James Rodriguez" class="member-photo">
+            <div class="member-name">James Rodriguez</div>
+            <div class="member-position">CTO</div>
+            <div class="member-bio">Technology innovator specializing in streaming infrastructure. James ensures our platform delivers seamless viewing experiences.</div>
+          </div>
+          
+          <div class="team-member">
+            <img src="https://via.placeholder.com/150/1a2a6c/ffffff?text=LT" alt="Lisa Tanaka" class="member-photo">
+            <div class="member-name">Lisa Tanaka</div>
+            <div class="member-position">Chief Marketing Officer</div>
+            <div class="member-bio">Brand strategist with a passion for connecting audiences with content they love. Lisa drives our global growth initiatives.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="values-section">
+      <div class="card">
+        <h2><i class="fas fa-heart"></i> Our Values</h2>
+        <div class="values-grid">
+          <div class="value-item">
+            <div class="value-icon"><i class="fas fa-users"></i></div>
+            <div class="value-title">Audience First</div>
+            <p>We prioritize our viewers' experience in every decision we make.</p>
+          </div>
+          
+          <div class="value-item">
+            <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
+            <div class="value-title">Innovation</div>
+            <p>We constantly push boundaries to improve the streaming experience.</p>
+          </div>
+          
+          <div class="value-item">
+            <div class="value-icon"><i class="fas fa-handshake"></i></div>
+            <div class="value-title">Integrity</div>
+            <p>We operate with transparency and honesty in all our relationships.</p>
+          </div>
+          
+          <div class="value-item">
+            <div class="value-icon"><i class="fas fa-globe"></i></div>
+            <div class="value-title">Diversity</div>
+            <p>We celebrate diverse voices and perspectives in our content and team.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="stats-section">
+      <div class="card">
+        <h2><i class="fas fa-chart-line"></i> By The Numbers</h2>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-value">5M+</div>
+            <div class="stat-label">Active Viewers</div>
+          </div>
+          
+          <div class="stat-item">
+            <div class="stat-value">150+</div>
+            <div class="stat-label">Countries Served</div>
+          </div>
+          
+          <div class="stat-item">
+            <div class="stat-value">10K+</div>
+            <div class="stat-label">Content Hours</div>
+          </div>
+          
+          <div class="stat-item">
+            <div class="stat-value">98%</div>
+            <div class="stat-label">Viewer Satisfaction</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card">
+      <h2><i class="fas fa-history"></i> Our Journey</h2>
+      <div class="timeline">
+        <div class="timeline-item left">
+          <div class="timeline-content">
+            <div class="timeline-year">2025</div>
+            <p> in real time Canal 1 founded with a small team and big vision for streaming innovation.</p>
+          </div>
+        </div>
+        <div class="timeline-item right">
+          <div class="timeline-content">
+            <div class="timeline-year">2026</div>
+            <p> Prediction Launched our first original series, reaching 100,000 subscribers.</p>
+          </div>
+        </div>
+        <div class="timeline-item left">
+          <div class="timeline-content">
+            <div class="timeline-year">2027</div>
+            <p>Prediction Expanded to international markets with localized content.</p>
+          </div>
+        </div>
+        <div class="timeline-item right">
+          <div class="timeline-content">
+            <div class="timeline-year">2028</div>
+            <p>Prediction Reached 1 million active users and launched mobile app.</p>
+          </div>
+        </div>
+        <div class="timeline-item left">
+          <div class="timeline-content">
+            <div class="timeline-year">2029</div>
+            <p> Prediction Surpassed 5 million viewers and introduced interactive features.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <footer>
+      <p> &copy; 2023 - All Rights Reserved ankoautca </p>
+  
+    </footer>
+  </div>
+
+  <script>
+    // Simple animation for stats counting
+    document.addEventListener('DOMContentLoaded', function() {
+      const statValues = document.querySelectorAll('.stat-value');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const stat = entry.target;
+            const target = parseInt(stat.textContent);
+            let current = 0;
+            const increment = target / 50;
+            
+            const timer = setInterval(() => {
+              current += increment;
+              if (current >= target) {
+                stat.textContent = target + (stat.textContent.includes('%') ? '%' : '+');
+                clearInterval(timer);
+              } else {
+                stat.textContent = Math.floor(current) + (stat.textContent.includes('%') ? '%' : '+');
+              }
+            }, 30);
+            
+            observer.unobserve(stat);
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      statValues.forEach(stat => {
+        observer.observe(stat);
+      });
+    });
+  </script>
+</body>
+</html>
