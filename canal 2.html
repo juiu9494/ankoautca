@@ -12,61 +12,61 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
             background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
             color: white;
             min-height: 100vh;
             padding: 20px;
         }
-        
+
         .container {
-            max-width: 1200px;
+            max-width: 500px;
             margin: 0 auto;
         }
-        
+
         header {
             text-align: center;
             padding: 20px 0;
             margin-bottom: 30px;
         }
-        
+
         .logo-container {
             margin-bottom: 20px;
         }
-        
+
         .logo {
             max-width: 300px;
             height: auto;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
-        
+
         h1 {
             font-size: 2.8rem;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
-        
+
         .subtitle {
             font-size: 1.2rem;
             opacity: 0.9;
             margin-bottom: 20px;
         }
-        
+
         .dashboard {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
             margin-bottom: 40px;
         }
-        
+
         @media (max-width: 768px) {
             .dashboard {
                 grid-template-columns: 1fr;
             }
         }
-        
+
         .card {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
@@ -76,12 +76,12 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
+
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
         }
-        
+
         .card h2 {
             font-size: 1.5rem;
             margin-bottom: 20px;
@@ -90,21 +90,21 @@
             align-items: center;
             gap: 10px;
         }
-        
+
         .card h2 i {
             font-size: 1.3rem;
         }
-        
+
         .form-group {
             margin-bottom: 20px;
         }
-        
+
         label {
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
         }
-        
+
         input, select, textarea {
             width: 100%;
             padding: 12px 15px;
@@ -114,11 +114,11 @@
             color: #333;
             font-size: 1rem;
         }
-        
+
         input:focus, select:focus, textarea:focus {
             outline: 2px solid #fdbb2d;
         }
-        
+
         button {
             background: #fdbb2d;
             color: #1a2a6c;
@@ -133,23 +133,23 @@
             align-items: center;
             gap: 8px;
         }
-        
+
         button:hover {
             background: #ffcc44;
             transform: scale(1.05);
         }
-        
+
         .player-section {
             margin-bottom: 40px;
         }
-        
+
         .player-container {
             background: rgba(0, 0, 0, 0.3);
             border-radius: 15px;
             padding: 20px;
             text-align: center;
         }
-        
+
         .player-placeholder {
             height: 300px;
             background: rgba(0, 0, 0, 0.5);
@@ -160,19 +160,19 @@
             align-items: center;
             margin-bottom: 20px;
         }
-        
+
         .player-placeholder i {
             font-size: 4rem;
             color: #fdbb2d;
             margin-bottom: 15px;
         }
-        
+
         .player-controls {
             display: flex;
             justify-content: center;
             gap: 15px;
         }
-        
+
         footer {
             text-align: center;
             padding: 20px;
@@ -181,20 +181,20 @@
             font-size: 0.9rem;
             opacity: 0.8;
         }
-        
+
         .toggle-switch {
             position: relative;
             display: inline-block;
             width: 60px;
             height: 30px;
         }
-        
+
         .toggle-switch input {
             opacity: 0;
             width: 0;
             height: 0;
         }
-        
+
         .slider {
             position: absolute;
             cursor: pointer;
@@ -206,7 +206,7 @@
             transition: .4s;
             border-radius: 34px;
         }
-        
+
         .slider:before {
             position: absolute;
             content: "";
@@ -218,22 +218,22 @@
             transition: .4s;
             border-radius: 50%;
         }
-        
+
         input:checked + .slider {
             background-color: #fdbb2d;
         }
-        
+
         input:checked + .slider:before {
             transform: translateX(30px);
         }
-        
+
         .switch-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 15px;
         }
-        
+
         .status-indicator {
             display: flex;
             align-items: center;
@@ -243,7 +243,7 @@
             background: rgba(0, 0, 0, 0.2);
             border-radius: 8px;
         }
-        
+
         .status-dot {
             width: 12px;
             height: 12px;
@@ -251,68 +251,75 @@
             background: #4CAF50;
             animation: pulse 2s infinite;
         }
-        
+
         @keyframes pulse {
             0% { opacity: 1; }
             50% { opacity: 0.5; }
             100% { opacity: 1; }
         }
-            nav {
-  display: flex;
-  justify-content: center;
-  gap: 40px; /* espace entre les liens */
-  background-color: #facc00;
-    border-radius: 10px;
-  padding: 20px 0;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
 
-nav a {
-  text-decoration: none;
-  color: #333;
-  font-size: 20px;
-  font-family: 'Segoe UI', sans-serif;
-  padding: 10px 15px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 40px; /* espace entre les liens */
+            background-color: #facc00;
+            border-radius: 10px;
+            padding: 20px 0;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
 
-nav a:hover {
-  background-color: #1e90ff;
-  color: rgb(0, 0, 0);
-}
-   .alert-message {
-      margin: 20px auto;
-      max-width: 800px;
-      background: linear-gradient(135deg, #ff9800, #ff5722);
-      color: white;
-      padding: 20px 30px;
-      font-size: 1.2rem;
-      font-weight: bold;
-      text-align: center;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      opacity: 0;
-      transform: translateY(-20px);
-      animation: fadeInSlide 1.2s ease-out forwards;
-    }
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 20px;
+            font-family: 'Segoe UI', sans-serif;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
 
-    @keyframes fadeInSlide {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+        nav a:hover {
+            background-color: #1e90ff;
+            color: rgb(0, 0, 0);
+        }
 
+        .alert-message {
+            margin: 20px auto;
+            max-width: 800px;
+            background: linear-gradient(135deg, #ff9800, #ff5722);
+            color: white;
+            padding: 20px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeInSlide 1.2s ease-out forwards;
+        }
+
+        @keyframes fadeInSlide {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .responsive-iframe {
+            width: 100%;
+            height: 300px; /* Adjust as needed */
+            border: none;
+        }
     </style>
 </head>
 <body>
-       <p class="alert-message">
-    ⚠️ High-quality match streams — this site is funded by community support and advertising to stay alive and provide you with the best possible experience.
-  </p>
-       <nav>
-             <a href="index.html">Home</a>
-                <a href="Contact.html">Contact</a>
+    <p class="alert-message">
+        ⚠️ High-quality match streams — this site is funded by community support and advertising to stay alive and provide you with the best possible experience.
+    </p>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="Contact.html">Contact</a>
     </nav>
     <div class="container">
         <header>
@@ -327,18 +334,18 @@ nav a:hover {
             <div class="card">
                 <h2><i class="fas fa-play-circle"></i> Stream Preview</h2>
                 <div class="player-container">
-                    <!-- Placeholder for your iframe -->
-                   <iframe 
-  src="https://sportzonline.st/channels/hd/hd2.php"  
-  frameborder="0" 
-  allowfullscreen>
-</iframe>
+                    <iframe
+                        class="responsive-iframe"
+                        src="https://embedsports.top/embed/alpha/leeds-united-vs-tottenham-hotspur/1"
+                        frameborder="0"
+                        allowfullscreen>
+                    </iframe>
                 </div>
             </div>
         </div>
-        
+
         <footer>
-            <p>Canal 1 &copy; 2023 - All Rights Reserved</p>
+            <p>ankoautca &copy; 2023 - All Rights Reserved</p>
             <p>Channel Configuration - Version 2.1.4</p>
         </footer>
     </div>
@@ -350,20 +357,20 @@ nav a:hover {
             const toggleSwitches = document.querySelectorAll('.toggle-switch input');
             const startButton = document.querySelector('.player-controls button:first-child');
             const stopButton = document.querySelector('.player-controls button:nth-child(2)');
-            
+
             saveButton.addEventListener('click', function() {
                 alert('Canal 1 settings have been saved successfully!');
             });
-            
+
             toggleSwitches.forEach(switchEl => {
                 switchEl.addEventListener('change', function() {
                     const status = this.checked ? 'enabled' : 'disabled';
                     console.log(`Option ${status}`);
                 });
             });
-            
+
             let isStreaming = false;
-            
+
             startButton.addEventListener('click', function() {
                 if (!isStreaming) {
                     isStreaming = true;
@@ -375,7 +382,7 @@ nav a:hover {
                     this.innerHTML = '<i class="fas fa-play"></i> Start Stream';
                 }
             });
-            
+
             stopButton.addEventListener('click', function() {
                 isStreaming = false;
                 startButton.innerHTML = '<i class="fas fa-play"></i> Start Stream';
@@ -384,5 +391,7 @@ nav a:hover {
         });
     </script>
 </body>
-
 </html>
+
+
+
