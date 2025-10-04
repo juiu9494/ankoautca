@@ -1,350 +1,550 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>About Us - Canal 1</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    
-    body {
-      background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnkoAutca - Premium Sports Streaming</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #ff6b35;
+            --primary-dark: #e55a2b;
+            --secondary: #1a1a2e;
+            --dark: #0f0f1a;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --success: #28a745;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--dark), var(--secondary));
+            color: var(--light);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            max-width: 300px;
+            height: auto;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 3px;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 0.5rem 1rem;
+        }
+
+        .search-box input {
+            background: transparent;
+            border: none;
+            color: var(--light);
+            padding: 0.3rem;
+            width: 180px;
+            outline: none;
+        }
+
+        .search-box i {
+            color: var(--gray);
+        }
+
+        .btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 3rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--primary), #ffd166);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: #ccc;
+        }
+
+        .live-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(220, 53, 69, 0.2);
+            color: #dc3545;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .live-badge::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: #dc3545;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        /* Matches Section */
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            color: var(--primary);
+        }
+
+        .matches-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem 3rem;
+        }
+
+        .matches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .match-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .match-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 107, 53, 0.3);
+        }
+
+        .match-header {
+            background: rgba(26, 26, 46, 0.8);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .league {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        .league i {
+            color: var(--primary);
+        }
+
+        .match-time {
+            background: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .match-teams {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .team {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            width: 40%;
+        }
+
+        .team-logo {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .team-name {
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .vs {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .match-stream {
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        .stream-container {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .stream-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .quality-selector {
+            display: flex;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+
+        .quality-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: var(--light);
+            padding: 0.4rem 0.8rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quality-btn.active {
+            background: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(15, 15, 26, 0.9);
+            padding: 3rem 2rem 2rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+            color: var(--primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--light);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Loading Screen */
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader {
+            text-align: center;
+        }
+
+        .spinner {
+            width: 70px;
+            height: 70px;
+            border: 5px solid rgba(255, 107, 53, 0.3);
+            border-top: 5px solid var(--primary);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            animation: spin 1.5s linear infinite;
+        }
+
+        .loader-logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, var(--primary), #ffd166);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .loader-text {
+            color: #ccc;
+            font-size: 1rem;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .logo {
+                max-width: 250px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .logo {
+                max-width: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .matches-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-actions {
+                display: none;
+            }
+            
+            .logo {
+                max-width: 180px;
+            }
+            
+            header {
+                padding: 1rem;
+            }
+            
+            .nav-container {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .logo {
+                max-width: 150px;
+            }
+            
+            .hero {
+                padding: 2rem 1rem;
+            }
+            
+            .matches-container {
+                padding: 0 1rem 2rem;
+            }
+        }
+        .watch-btn {
+      background-color: #ff4b2b;       /* Rouge orangé */
       color: white;
-      min-height: 100vh;
-      padding: 20px;
+      padding: 14px 28px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
-    
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    
-    header {
-      text-align: center;
-      padding: 20px 0;
-      margin-bottom: 30px;
-    }
-    
-    .logo-container {
-      margin-bottom: 20px;
-    }
-    
-    .logo {
-      max-width: 300px;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    }
-    
-    h1 {
-      font-size: 2.8rem;
-      margin-bottom: 10px;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    }
-    
-    .subtitle {
-      font-size: 1.2rem;
-      opacity: 0.9;
-      margin-bottom: 20px;
-    }
-    
-    .card {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border-radius: 15px;
-      padding: 25px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      margin-bottom: 30px;
-    }
-    
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-    }
-    
-    .card h2 {
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-      color: #fdbb2d;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    
-    .card h2 i {
-      font-size: 1.3rem;
-    }
-    
-    .about-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-      margin-bottom: 40px;
-    }
-    
-    @media (max-width: 768px) {
-      .about-content {
-        grid-template-columns: 1fr;
-      }
-    }
-    
-    .mission-vision {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-      margin-bottom: 40px;
-    }
-    
-    @media (max-width: 768px) {
-      .mission-vision {
-        grid-template-columns: 1fr;
-      }
-    }
-    
-    .team-section {
-      margin-bottom: 40px;
-    }
-    
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-    }
-    
-    .team-member {
-      text-align: center;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
-      padding: 25px;
-      transition: all 0.3s ease;
-    }
-    
-    .team-member:hover {
-      transform: translateY(-5px);
-      background: rgba(255, 255, 255, 0.15);
-    }
-    
-    .member-photo {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: 0 auto 15px;
-      border: 3px solid #fdbb2d;
-    }
-    
-    .member-name {
-      font-size: 1.3rem;
-      font-weight: 600;
-      margin-bottom: 5px;
-    }
-    
-    .member-position {
-      color: #fdbb2d;
-      font-weight: 500;
-      margin-bottom: 15px;
-    }
-    
-    .member-bio {
-      font-size: 0.9rem;
-      opacity: 0.9;
-    }
-    
-    .values-section {
-      margin-bottom: 40px;
-    }
-    
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 25px;
-    }
-    
-    .value-item {
-      text-align: center;
-      padding: 20px;
-    }
-    
-    .value-icon {
-      font-size: 2.5rem;
-      color: #fdbb2d;
-      margin-bottom: 15px;
-    }
-    
-    .value-title {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-    
-    .stats-section {
-      margin-bottom: 40px;
-    }
-    
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 25px;
-    }
-    
-    .stat-item {
-      text-align: center;
-      padding: 20px;
-    }
-    
-    .stat-value {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #fdbb2d;
-      margin-bottom: 5px;
-    }
-    
-    .stat-label {
-      font-size: 1rem;
-      opacity: 0.9;
-    }
-    
-    footer {
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      font-size: 0.9rem;
-      opacity: 0.8;
-    }
-    
-    .quote {
-      font-style: italic;
-      text-align: center;
-      padding: 20px;
-      margin: 30px 0;
-      border-left: 3px solid #fdbb2d;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 0 10px 10px 0;
-    }
-    
-    .quote-author {
-      margin-top: 10px;
-      font-weight: 600;
-      color: #fdbb2d;
-    }
-    
-    .timeline {
-      position: relative;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    
-    .timeline::after {
-      content: '';
-      position: absolute;
-      width: 6px;
-      background-color: #fdbb2d;
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      margin-left: -3px;
-    }
-    
-    .timeline-item {
-      padding: 10px 40px;
-      position: relative;
-      width: 50%;
-      box-sizing: border-box;
-    }
-    
-    .timeline-item::after {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background-color: #fdbb2d;
-      border: 4px solid #1a2a6c;
-      top: 15px;
-      border-radius: 50%;
-      z-index: 1;
-    }
-    
-    .left {
-      left: 0;
-    }
-    
-    .right {
-      left: 50%;
-    }
-    
-    .left::after {
-      right: -10px;
-    }
-    
-    .right::after {
-      left: -10px;
-    }
-    
-    .timeline-content {
-      padding: 20px;
-      background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-    }
-    
-    .timeline-year {
-      font-weight: bold;
-      color: #fdbb2d;
-      margin-bottom: 5px;
-    }
-    
-    @media (max-width: 768px) {
-      .timeline::after {
-        left: 31px;
-      }
-      
-      .timeline-item {
-        width: 100%;
-        padding-left: 70px;
-        padding-right: 25px;
-      }
-      
-      .timeline-item::after {
-        left: 21px;
-      }
-      
-      .right {
-        left: 0;
-      }
-    }
-        nav {
-  display: flex;
-  justify-content: center;
-  gap: 40px; /* espace entre les liens */
-  background-color: #facc00;
-  border-radius: 10px;
-  padding: 20px 0;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
 
-nav a {
-  text-decoration: none;
-  color: #333;
-  font-size: 20px;
-  font-family: 'Segoe UI', sans-serif;
-  padding: 10px 15px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
+    .watch-btn:hover {
+      background-color: #ff3a1a;
+      transform: scale(1.05);
+    }
 
-nav a:hover {
-  background-color: #1e90ff;
-  color: rgb(0, 0, 0);
-}
-   .alert-message {
+    .watch-btn:active {
+      transform: scale(0.98);
+    }
+    .alert-message {
       margin: 20px auto;
       max-width: 800px;
       background: linear-gradient(135deg, #ff9800, #ff5722);
@@ -366,247 +566,341 @@ nav a:hover {
         transform: translateY(0);
       }
     }
-  </style>
+
+
+    </style>
 </head>
 <body>
-     <p class="alert-message">
+   <p class="alert-message">
     ⚠️ High-quality match streams — this site is funded by community support and advertising to stay alive and provide you with the best possible experience.
   </p>
-    <nav>
-                <a href="index.html">Home</a>
-                <a href="Contact.html">Contact</a>
-    </nav>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader">
+            <div class="spinner"></div>
+            <div class="loader-logo">ANKOAUTCA</div>
+           <p style="font-weight: 700; font-size: 24px;">
+            Streaming without ads or interruptions.
+           </p>
+            <div class="loader-text">Loading Mode Premium Free ...
+                <p>Welcome to the ultimate website every match streams flawlessly</p>
+            </div>
+        </div>
+    </div>
 
-  <div class="container">
+    <!-- Header -->
     <header>
-      <div class="logo-container">
-        <img src="logo streaming.png" alt="Canal 1 Logo" class="logo">
-      </div>
-      <h1>About Canal 1</h1>
-      <p class="subtitle">Leading the future of digital streaming</p>
+        
+        <div class="nav-container">
+            <div class="logo-container">
+                <img src="logo streaming.png" alt="AnkoAutca" class="logo">
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="Contact.html">Contact</a>
+                 <a href="About us.html"> About us</a>
+            </div>
+            </div>
+        </div>
     </header>
-    
-    <div class="about-content">
-      <div class="card">
-        <h2><i class="fas fa-play-circle"></i> Our Story</h2>
-        <p>ankoautca  was founded in 2025 with a simple vision: to revolutionize the way people consume digital content. What started as a small streaming platform has grown into a leading media company serving millions of viewers worldwide.</p>
-        <p>Our journey began when our founder recognized the growing demand for high-quality, accessible streaming services that cater to diverse audiences with varied interests.</p>
-        <p>Today, we continue to innovate and expand our offerings, staying true to our core mission of delivering exceptional entertainment experiences.</p>
-      </div>
-      
-      <div class="card">
-        <h2><i class="fas fa-bullseye"></i> What We Do</h2>
-        <p>At ankoautca, we specialize in creating and distributing premium digital content across multiple platforms. Our services include:</p>
-        <ul style="margin-left: 20px; margin-top: 10px;">
-          <li>Live streaming of exclusive events</li>
-          <li>On-demand video content library</li>
-          <li>Original series and documentaries</li>
-          <li>Interactive viewer experiences</li>
-          <li>Multi-platform accessibility</li>
-        </ul>
-        <p>We partner with content creators, production studios, and brands to deliver unique entertainment experiences that captivate audiences.</p>
-      </div>
-    </div>
-    
-    <div class="mission-vision">
-      <div class="card">
-        <h2><i class="fas fa-flag"></i> Our Mission</h2>
-        <p>To democratize premium entertainment by making high-quality streaming content accessible to everyone, everywhere. We believe that great stories should have no boundaries.</p>
-        <p>We're committed to:</p>
-        <ul style="margin-left: 20px; margin-top: 10px;">
-          <li>Innovating the streaming experience</li>
-          <li>Supporting diverse content creators</li>
-          <li>Expanding global access to entertainment</li>
-          <li>Maintaining the highest quality standards</li>
-        </ul>
-      </div>
-      
-      <div class="card">
-        <h2><i class="fas fa-eye"></i> Our Vision</h2>
-        <p>To become the world's most beloved streaming platform, recognized for our commitment to quality, innovation, and audience satisfaction.</p>
-        <p>We envision a future where:</p>
-        <ul style="margin-left: 20px; margin-top: 10px;">
-          <li>Content transcends geographical limitations</li>
-          <li>Viewers actively shape their entertainment experience</li>
-          <li>Technology enhances storytelling</li>
-          <li>Creativity flourishes without constraints</li>
-        </ul>
-      </div>
-    </div>
-    
-    <div class="quote">
-      <p>we don't just stream content – we create experiences that connect people across the globe. Our success is measured by the smiles we bring to our viewers' faces."</p>
-      <p class="quote-author">- Alexandre Dubois, CEO & Founder</p>
-    </div>
-    
-    <div class="team-section">
-      <div class="card">
-        <h2><i class="fas fa-users"></i> Leadership Team</h2>
-        <div class="team-grid">
-          <div class="team-member">
-            <img src="https://via.placeholder.com/150/1a2a6c/ffffff?text=AD" alt="Alexandre Dubois" class="member-photo">
-            <div class="member-name">Alexandre Dubois</div>
-            <div class="member-position">CEO & Founder</div>
-            <div class="member-bio">Visionary leader with 15+ years in media and technology. Alexandre founded Canal 1 with a mission to transform digital entertainment.</div>
-          </div>
-          
-          <div class="team-member">
-            <img src="https://via.placeholder.com/150/b21f1f/ffffff?text=MS" alt="Marie Schmidt" class="member-photo">
-            <div class="member-name">Marie Schmidt</div>
-            <div class="member-position">Chief Content Officer</div>
-            <div class="member-bio">Award-winning producer with an eye for compelling stories. Marie leads our content strategy and original productions.</div>
-          </div>
-          
-          <div class="team-member">
-            <img src="https://via.placeholder.com/150/fdbb2d/1a2a6c?text=JR" alt="James Rodriguez" class="member-photo">
-            <div class="member-name">James Rodriguez</div>
-            <div class="member-position">CTO</div>
-            <div class="member-bio">Technology innovator specializing in streaming infrastructure. James ensures our platform delivers seamless viewing experiences.</div>
-          </div>
-          
-          <div class="team-member">
-            <img src="https://via.placeholder.com/150/1a2a6c/ffffff?text=LT" alt="Lisa Tanaka" class="member-photo">
-            <div class="member-name">Lisa Tanaka</div>
-            <div class="member-position">Chief Marketing Officer</div>
-            <div class="member-bio">Brand strategist with a passion for connecting audiences with content they love. Lisa drives our global growth initiatives.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="values-section">
-      <div class="card">
-        <h2><i class="fas fa-heart"></i> Our Values</h2>
-        <div class="values-grid">
-          <div class="value-item">
-            <div class="value-icon"><i class="fas fa-users"></i></div>
-            <div class="value-title">Audience First</div>
-            <p>We prioritize our viewers' experience in every decision we make.</p>
-          </div>
-          
-          <div class="value-item">
-            <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
-            <div class="value-title">Innovation</div>
-            <p>We constantly push boundaries to improve the streaming experience.</p>
-          </div>
-          
-          <div class="value-item">
-            <div class="value-icon"><i class="fas fa-handshake"></i></div>
-            <div class="value-title">Integrity</div>
-            <p>We operate with transparency and honesty in all our relationships.</p>
-          </div>
-          
-          <div class="value-item">
-            <div class="value-icon"><i class="fas fa-globe"></i></div>
-            <div class="value-title">Diversity</div>
-            <p>We celebrate diverse voices and perspectives in our content and team.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="stats-section">
-      <div class="card">
-        <h2><i class="fas fa-chart-line"></i> By The Numbers</h2>
-        <div class="stats-grid">
-          <div class="stat-item">
-            <div class="stat-value">5M+</div>
-            <div class="stat-label">Active Viewers</div>
-          </div>
-          
-          <div class="stat-item">
-            <div class="stat-value">150+</div>
-            <div class="stat-label">Countries Served</div>
-          </div>
-          
-          <div class="stat-item">
-            <div class="stat-value">10K+</div>
-            <div class="stat-label">Content Hours</div>
-          </div>
-          
-          <div class="stat-item">
-            <div class="stat-value">98%</div>
-            <div class="stat-label">Viewer Satisfaction</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="card">
-      <h2><i class="fas fa-history"></i> Our Journey</h2>
-      <div class="timeline">
-        <div class="timeline-item left">
-          <div class="timeline-content">
-            <div class="timeline-year">2025</div>
-            <p> in real time Canal 1 founded with a small team and big vision for streaming innovation.</p>
-          </div>
-        </div>
-        <div class="timeline-item right">
-          <div class="timeline-content">
-            <div class="timeline-year">2026</div>
-            <p> Prediction Launched our first original series, reaching 100,000 subscribers.</p>
-          </div>
-        </div>
-        <div class="timeline-item left">
-          <div class="timeline-content">
-            <div class="timeline-year">2027</div>
-            <p>Prediction Expanded to international markets with localized content.</p>
-          </div>
-        </div>
-        <div class="timeline-item right">
-          <div class="timeline-content">
-            <div class="timeline-year">2028</div>
-            <p>Prediction Reached 1 million active users and launched mobile app.</p>
-          </div>
-        </div>
-        <div class="timeline-item left">
-          <div class="timeline-content">
-            <div class="timeline-year">2029</div>
-            <p> Prediction Surpassed 5 million viewers and introduced interactive features.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <footer>
-      <p> &copy; 2023 - All Rights Reserved ankoautca </p>
-  
-    </footer>
-  </div>
 
-  <script>
-    // Simple animation for stats counting
-    document.addEventListener('DOMContentLoaded', function() {
-      const statValues = document.querySelectorAll('.stat-value');
-      
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const stat = entry.target;
-            const target = parseInt(stat.textContent);
-            let current = 0;
-            const increment = target / 50;
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="live-badge">LIVE NOW</div>
+        <h1>Ultra HD Sports Streaming</h1>
+        <p>Watch all your football matches, boxing fights and sports events live and in high quality. Free service funded by the community.</p>
+        <button class="btn"><i class="fas fa-play-circle"></i> Watch Live</button>
+        <button class="btn btn-outline"><i class="fas fa-calendar-alt"></i> Schedule</button>
+    </section>
+
+    <!-- Matches Section -->
+    <section class="matches-container">
+        <h2 class="section-title"><i class="fas fa-trophy"></i> Today's Football Events</h2>
+        <h1 align="center"><img src="dataset-cover-removebg-preview.png" widt="200px"></h1>
+     
+
+
+        <div class="matches-grid">
+            <!-- Match 1 -->
+            <div class="match-card">
+                <div class="match-header">
+                    <div class="league"><i class="fas fa-futbol"></i> Premier league </div>
+                    <div class="match-time">12:30</div>
+                </div>
+                <div class="match-teams">
+                    <div class="team">
+                        <div class="team-logo">LU</div>
+                        <div class="team-name">Leeds United</div>
+                    </div>
+                    <div class="vs">VS</div>
+                    <div class="team">
+                        <div class="team-logo">TH</div>
+                        <div class="team-name"> Tottenham Hotspur</div>
+                    </div>
+                </div>
+                <div class="match-stream">
+                    <div class="stream-container">
+                        <!-- Paste your iframe here -->
+                    </div>
+                    <div class="quality-selector">
+                        <button class="quality-btn active">HD</button>
+                        <button class="quality-btn">FULL HD</button>
+                      
+                         <button class="watch-btn" onclick="window.location.href='canal 1.html'"> ▶️ Watch now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Match 2 -->
+            <div class="match-card">
+                <div class="match-header">
+                    <div class="league"><i class="fas fa-futbol"></i> La liga</div>
+                    <div class="match-time">13:00</div>
+                </div>
+                <div class="match-teams">
+                    <div class="team">
+                        <div class="team-logo">RO</div>
+                        <div class="team-name">Real Oviedo </div>
+                    </div>
+                    <div class="vs">VS</div>
+                    <div class="team">
+                        <div class="team-logo">LV</div>
+                        <div class="team-name"> Levante</div>
+                    </div>
+                </div>
+                <div class="match-stream">
+                    <div class="stream-container">
+                        <!-- Paste your iframe here -->
+                    </div>
+                    <div class="quality-selector">
+                        <button class="quality-btn active">HD</button>
+                        <button class="quality-btn">FULL HD</button>
+                        <button class="watch-btn" onclick="window.location.href='canal 1.html'">
+    ▶️ Watch now
+  </button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Match 3 -->
+            <div class="match-card">
+                <div class="match-header">
+                    <div class="league"><i class="fas fa-futbol"></i> Serie A </div>
+                    <div class="match-time">14:00</div>
+                </div>
+                <div class="match-teams">
+                    <div class="team">
+                        <div class="team-logo"> LZ </div>
+                        <div class="team-name">Lazio</div>
+                    </div>
+                    <div class="vs">VS</div>
+                    <div class="team">
+                        <div class="team-logo">TR</div>
+                        <div class="team-name">Torino </div>
+                    </div>
+                     
+                </div>
+                <div class="match-stream">
+                    <div class="stream-container">
+                        <!-- Paste your iframe here -->
+                    </div>
+                    <div class="quality-selector">
+                        <button class="quality-btn active">HD</button>
+                        <button class="quality-btn">FULL HD</button>
+                        <button class="watch-btn" onclick="window.location.href='canal 1.html'">
+    ▶️ Watch now
+  </button>
+
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Match 4 -->
+            <div class="match-card">
+                <div class="match-header">
+                    <div class="league"><i class="fas fa-futbol"></i>Bundesliga</div>
+                    <div class="match-time">14:30</div>
+                </div>
+                <div class="match-teams">
+                    <div class="team">
+                        <div class="team-logo"> BL </div>
+                        <div class="team-name">Bayer Leverkusen</div>
+                    </div>
+                    <div class="vs">VS</div>
+                    <div class="team">
+                        <div class="team-logo"> UB</div>
+                        <div class="team-name"> Union Berlin </div>
+                    </div>
+                </div>
+                <div class="match-stream">
+                    <div class="stream-container">
+                        <!-- Paste your iframe here -->
+                    </div>
+                    <div class="quality-selector">
+                        <button class="quality-btn active">HD</button>
+                        <button class="quality-btn">FULL HD</button>
+                        <button class="watch-btn" onclick="window.location.href='canal 1.html'">
+    ▶️ Watch now
+  </button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Match 5 -->
+            <div class="match-card">
+                <div class="match-header">
+                    <div class="league"><i class="fas fa-futbol"></i> Premier League</div>
+                    <div class="match-time">15:00</div>
+                </div>
+                <div class="match-teams">
+                    <div class="team">
+                        <div class="team-logo">ARS</div>
+                        <div class="team-name">Arsenal</div>
+                    </div>
+                    <div class="vs">VS</div>
+                    <div class="team">
+                        <div class="team-logo">WHU</div>
+                        <div class="team-name">West Ham United </div>
+                    </div>
+                </div>
+                <div class="match-stream">
+                    <div class="stream-container">
+                        <!-- Paste your iframe here -->
+                    </div>
+                    <div class="quality-selector">
+                        <button class="quality-btn active">HD</button>
+                        <button class="quality-btn">FULL HD</button>
+                         <button class="watch-btn" onclick="window.location.href='canal 1.html'">
+    ▶️ Watch now
+  </button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Match 6 - Boxing -->
+            <div class="match-card">
+                <div class="match-header">
+                    <div class="league"><i class="fas fa-fist-raised"></i> Premier league</div>
+                    <div class="match-time">17:30</div>
+                </div>
+                <div class="match-teams">
+                    <div class="team">
+                        <div class="team-logo">CH</div>
+                        <div class="team-name">Chelsea</div>
+                    </div>
+                    <div class="vs">VS</div>
+                    <div class="team">
+                        <div class="team-logo">LV</div>
+                        <div class="team-name"> Liverpool </div>
+                    </div>
+                </div>
+                <div class="match-stream">
+                    <div class="stream-container">
+                        <!-- Paste your iframe here -->
+                    </div>
+                    <div class="quality-selector">
+                        <button class="quality-btn active">HD</button>
+                        <button class="quality-btn">FULL HD</button>
+                         <button class="watch-btn" onclick="window.location.href='canal 1.html'">
+    ▶️ Watch now
+  </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>AnkoAutca</h3>
+                <p>Join the community on Telegram</p>
+                <div class="social-links">
+                    <a href="https://t.me/+6HEGwv-u5WxmMzc0"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
             
-            const timer = setInterval(() => {
-              current += increment;
-              if (current >= target) {
-                stat.textContent = target + (stat.textContent.includes('%') ? '%' : '+');
-                clearInterval(timer);
-              } else {
-                stat.textContent = Math.floor(current) + (stat.textContent.includes('%') ? '%' : '+');
-              }
-            }, 30);
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Live Matches</a></li>
+                    <li><a href="#">Leagues</a></li>
+                    <li><a href="#">TV Schedule</a></li>
+                    <li><a href="#">Highlights</a></li>
+                </ul>
+            </div>
             
-            observer.unobserve(stat);
-          }
+            <div class="footer-column">
+                <h3>Legal</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Legal Notice</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Cookies</a></li>
+                    <li><a href="#">DMCA</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Support</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Report an Issue</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Service Status</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 AnkoAutca. All rights reserved. | This site is funded by the community and advertising to remain free.</p>
+            <p style="margin-top: 10px; font-size: 1.1rem; font-weight: bold;">High-quality match streams, this site is funded by community support and advertising to stay alive and provide you with the best possible experience</p>
+        </div>
+    </footer>
+
+    <script>
+        // Loading screen functionality
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loading-screen').style.opacity = '0';
+                setTimeout(function() {
+                    document.getElementById('loading-screen').style.display = 'none';
+                }, 500);
+            }, 2000);
         });
-      }, { threshold: 0.5 });
-      
-      statValues.forEach(stat => {
-        observer.observe(stat);
-      });
-    });
-  </script>
+
+        // Quality selector buttons
+        document.querySelectorAll('.quality-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.parentElement.querySelectorAll('.quality-btn').forEach(b => {
+                    b.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+
+        // Live badge animation
+        setInterval(() => {
+            document.querySelector('.live-badge').style.animation = 'pulse 1.5s infinite';
+        }, 100);
+
+        // Function to add iframe to stream container
+        function addStream(container, iframeCode) {
+            const streamContainer = document.querySelectorAll('.stream-container')[container];
+            streamContainer.innerHTML = iframeCode;
+        }
+        
+
+        // Example: addStream(0, '<iframe src="your-stream-url" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>');
+    </script>
 </body>
 </html>
-
