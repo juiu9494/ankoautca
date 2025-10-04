@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us - Canal 1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+      color: white;
+      min-height: 100vh;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .container {
+      max-width: 600px;
+      width: 100%;
+    }
+    
+    header {
+      text-align: center;
+      padding: 20px 0;
+      margin-bottom: 30px;
+    }
+    
+    .logo-container {
+      margin-bottom: 20px;
+    }
+    
+    .logo {
+      max-width: 300px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .subtitle {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 20px;
+    }
+    
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #fdbb2d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    
+    .card h2 i {
+      font-size: 1.3rem;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    
+    input, select, textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border-radius: 8px;
+      border: none;
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
+      font-size: 1rem;
+    }
+    
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid #fdbb2d;
+    }
+    
+    button {
+      background: #fdbb2d;
+      color: #1a2a6c;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: block;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    button:hover {
+      background: #ffcc44;
+      transform: scale(1.05);
+    }
+    
+    .error {
+      color: #ff6b6b;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+    
+    .success {
+      color: #4CAF50;
+      font-weight: bold;
+      margin-top: 10px;
+      text-align: center;
+      padding: 10px;
+      background: rgba(76, 175, 80, 0.2);
+      border-radius: 8px;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    
+    .thank-you {
+      text-align: center;
+      margin-top: 20px;
+      font-style: italic;
+      opacity: 0.9;
+    }
+       .alert-message {
+      margin: 20px auto;
+      max-width: 800px;
+      background: linear-gradient(135deg, #ff9800, #ff5722);
+      color: white;
+      padding: 20px 30px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeInSlide 1.2s ease-out forwards;
+    }
+
+    @keyframes fadeInSlide {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+        nav {
+  display: flex;
+  justify-content: center;
+  gap: 40px; /* espace entre les liens */
+  background-color: #facc00;
+  padding: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #1e90ff;
+  color: rgb(0, 0, 0);
+}
+
+  </style>
+</head>
+<body>
+     <p class="alert-message">
+    ⚠️ High-quality match streams — this site is funded by community support and advertising to stay alive and provide you with the best possible experience.
+  </p>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="Contact.html">Contact</a>
+    </nav>
+  <div class="container">
+    <header>
+      <div class="logo-container">
+        <img src="logo streaming.png" alt="Canal 1 Logo" class="logo">
+      </div>
+      <h1>Contact Us</h1>
+      <p class="subtitle">We'd love to hear from you</p>
+    </header>
+    
+    <div class="card">
+      <h2><i class="fas fa-envelope"></i> Send us a message</h2>
+      <form action="https://formspree.io/f/manpjdlv"method="POST">
+      
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" required>
+          <div id="nameError" class="error"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Your Email</label>
+          <input type="email" id="email" name="email" required>
+          <div id="emailError" class="error"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <select id="subject" name="subject" required>
+            <option value="">Select a subject</option>
+            <option value="general">General Inquiry</option>
+            <option value="technical">Technical Support</option>
+            <option value="partnership">Partnership</option>
+            <option value="feedback">Feedback</option>
+            <option value="ads">Ads</option>
+            <option value="other">Other</option>
+          </select>
+          <div id="subjectError" class="error"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+          <div id="messageError" class="error"></div>
+        </div>
+
+        <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+        <div id="formMessage" class="success"></div>
+      </form>
+      
+      <p class="thank-you">Thank you for collaborating with us!</p>
+    </div>
+    
+    <footer>
+      <p>&copy; 2023 - All Rights Reserved ankoautka</p>
+    </footer>
+  </div>
+
+  <script>
+    // Secure form validation
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Clear errors
+      document.getElementById('nameError').textContent = '';
+      document.getElementById('emailError').textContent = '';
+      document.getElementById('subjectError').textContent = '';
+      document.getElementById('messageError').textContent = '';
+      document.getElementById('formMessage').textContent = '';
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value.trim();
+
+      let hasError = false;
+
+      // Check name
+      if (name.length < 2) {
+        document.getElementById('nameError').textContent = 'Please enter a valid name.';
+        hasError = true;
+      }
+
+      // Check email
+      const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+      if (!emailPattern.test(email)) {
+        document.getElementById('emailError').textContent = 'Please enter a valid email address.';
+        hasError = true;
+      }
+
+      // Check subject
+      if (!subject) {
+        document.getElementById('subjectError').textContent = 'Please select a subject.';
+        hasError = true;
+      }
+
+      // Check message
+      if (message.length < 10) {
+        document.getElementById('messageError').textContent = 'Your message must be at least 10 characters.';
+        hasError = true;
+      }
+
+      // If no errors, simulate sending
+      if (!hasError) {
+        document.getElementById('formMessage').textContent = 'Your message has been sent successfully! Thank you for contacting us.';
+        document.getElementById('contactForm').reset();
+        
+        // Reset form message after 5 seconds
+        setTimeout(() => {
+          document.getElementById('formMessage').textContent = '';
+        }, 5000);
+      }
+    });
+  </script>
+</body>
+</html>
