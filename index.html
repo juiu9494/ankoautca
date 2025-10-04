@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnkoAutca - Premium Sports Streaming</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #ff6b35;
+            --primary-dark: #e55a2b;
+            --secondary: #1a1a2e;
+            --dark: #0f0f1a;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --success: #28a745;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--dark), var(--secondary));
+            color: var(--light);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            max-width: 300px;
+            height: auto;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 3px;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 0.5rem 1rem;
+        }
+
+        .search-box input {
+            background: transparent;
+            border: none;
+            color: var(--light);
+            padding: 0.3rem;
+            width: 180px;
+            outline: none;
+        }
+
+        .search-box i {
+            color: var(--gray);
+        }
+
+        .btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 3rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--primary), #ffd166);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: #ccc;
+        }
+
+        .live-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(220, 53, 69, 0.2);
+            color: #dc3545;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .live-badge::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: #dc3545;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        /* Matches Section */
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            color: var(--primary);
+        }
+
+        .matches-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem 3rem;
+        }
+
+        .matches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .match-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .match-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 107, 53, 0.3);
+        }
+
+        .match-header {
+            background: rgba(26, 26, 46, 0.8);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .league {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        .league i {
+            color: var(--primary);
+        }
+
+        .match-time {
+            background: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .match-teams {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .team {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            width: 40%;
+        }
+
+        .team-logo {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .team-name {
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .vs {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .match-stream {
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        .stream-container {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .stream-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .quality-selector {
+            display: flex;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+
+        .quality-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: var(--light);
+            padding: 0.4rem 0.8rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quality-btn.active {
+            background: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(15, 15, 26, 0.9);
+            padding: 3rem 2rem 2rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+            color: var(--primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--light);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Loading Screen */
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader {
+            text-align: center;
+        }
+
+        .spinner {
+            width: 70px;
+            height: 70px;
+            border: 5px solid rgba(255, 107, 53, 0.3);
+            border-top: 5px solid var(--primary);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            animation: spin 1.5s linear infinite;
+        }
+
+        .loader-logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, var(--primary), #ffd166);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .loader-text {
+            color: #ccc;
+            font-size: 1rem;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .logo {
+                max-width: 250px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .logo {
+                max-width: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .matches-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-actions {
+                display: none;
+            }
+            
+            .logo {
+                max-width: 180px;
+            }
+            
+            header {
+                padding: 1rem;
+            }
+            
+            .nav-container {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .logo {
+                max-width: 150px;
+            }
+            
+            .hero {
+                padding: 2rem 1rem;
+            }
+            
+            .matches-container {
+                padding: 0 1rem 2rem;
+            }
+        }
+        .watch-btn {
+      background-color: #ff4b2b;       /* Rouge orangé */
+      color: white;
+      padding: 14px 28px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .watch-btn:hover {
+      background-color: #ff3a1a;
+      transform: scale(1.05);
+    }
+
+    .watch-btn:active {
+      transform: scale(0.98);
+    }
+    .alert-message {
+      margin: 20px auto;
+      max-width: 800px;
+      background: linear-gradient(135deg, #ff9800, #ff5722);
+      color: white;
+      padding: 20px 30px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeInSlide 1.2s ease-out forwards;
+    }
+
+    @keyframes fadeInSlide {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+    </style>
+</head>
+<body>
+   <p class="alert-message">
+    ⚠️ High-quality match streams — this site is funded by community support and advertising to stay alive and provide you with the best possible experience.
+  </p>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader">
+            <div class="spinner"></div>
+            <div class="loader-logo">ANKOAUTCA</div>
+           <p style="font-weight: 700; font-size: 24px;">
+            Streaming without ads or interruptions.
+           </p>
+            <div class="loader-text">Loading Mode Premium Free ...
+                <p>Welcome to the ultimate website every match streams flawlessly</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        
+        <div class="nav-container">
+            <div class="logo-container">
+                <img src="logo streaming.png" alt="AnkoAutca" class="logo">
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="Contact.html">Contact</a>
+                 <a href="About us.html"> About us</a>
+            </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="live-badge">LIVE NOW</div>
+        <h1>Ultra HD Sports Streaming</h1>
+        <p>Watch all your football matches, boxing fights and sports events live and in high quality. Free service funded by the community.</p>
+        <button class="btn"><i class="fas fa-play-circle"></i> Watch Live</button>
+        <button class="btn btn-outline"><i class="fas fa-calendar-alt"></i> Schedule</button>
+    </section>
+
+    <!-- Matches Section -->
+    <section class="matches-container">
+        <h2 class="section-title"><i class="fas fa-trophy"></i> Today's Football Events</h2>
+        <h1 align="center"><img src="dataset-cover-removebg-preview.png" widt="200px"></h1>
+     
+
+
+        <div class="matches-grid">
+            <!-- Match 1 -->
+            <div class="match-card">
+                <div class="match-header">
+                    <div class="league"><i class="fas fa-futbol"></i> Premier league </div>
+                    <div class="match-time">12:30</div>
+                </div>
+                <div class="match-teams">
+                    <div class="team">
+                        <div class="team-logo">LU</div>
+                        <div class="team-name">Leeds United</div>
+                    </div>
+                    <div class="vs">VS</div>
+                    <div class="team">
+                        <div class="team-logo">TH</div>
+                        <div class="team-name"> Tottenham Hotspur</div>
+                    </div>
+                </div>
+                <div class="match-stream">
+                    <div class="stream-container">
+                        <!-- Paste your iframe here -->
+                    </div>
+                    <div class="quality-selector">
+                        <button class="quality-btn active">HD</button>
+                        <button class="quality-btn">FULL HD</button>
+                      
+                         <button class="watch-btn" onclick="window.location.href='canal 1.html'"> ▶️ Watch now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Match 2 -->
+            <div class="match-card">
+                <div class="match-header">
+                    <div class="league"><i class="fas fa-futbol"></i> La liga</div>
+                    <div class="match-time">13:00</div>
+                </div>
+                <div class="match-teams">
+                    <div class="team">
+                        <div class="team-logo">RO</div>
+                        <div class="team-name">Real Oviedo </div>
+                    </div>
+                    <div class="vs">VS</div>
+                    <div class="team">
+                        <div class="team-logo">LV</div>
+                        <div class="team-name"> Levante</div>
+                    </div>
+                </div>
+                <div class="match-stream">
+                    <div class="stream-container">
+                        <!-- Paste your iframe here -->
+                    </div>
+                    <div class="quality-selector">
+                        <button class="quality-btn active">HD</button>
+                        <button class="quality-btn">FULL HD</button>
+                        <button class="watch-btn" onclick="window.location.href='canal 2.html'">
+    ▶️ Watch now
+  </button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Match 3 -->
+            <div class="match-card">
+                <div class="match-header">
+                    <div class="league"><i class="fas fa-futbol"></i> Serie A </div>
+                    <div class="match-time">14:00</div>
+                </div>
+                <div class="match-teams">
+                    <div class="team">
+                        <div class="team-logo"> LZ </div>
+                        <div class="team-name">Lazio</div>
+                    </div>
+                    <div class="vs">VS</div>
+                    <div class="team">
+                        <div class="team-logo">TR</div>
+                        <div class="team-name">Torino </div>
+                    </div>
+                     
+                </div>
+                <div class="match-stream">
+                    <div class="stream-container">
+                        <!-- Paste your iframe here -->
+                    </div>
+                    <div class="quality-selector">
+                        <button class="quality-btn active">HD</button>
+                        <button class="quality-btn">FULL HD</button>
+                        <button class="watch-btn" onclick="window.location.href='canal 3.html'">
+    ▶️ Watch now
+  </button>
+
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Match 4 -->
+            <div class="match-card">
+                <div class="match-header">
+                    <div class="league"><i class="fas fa-futbol"></i>Bundesliga</div>
+                    <div class="match-time">14:30</div>
+                </div>
+                <div class="match-teams">
+                    <div class="team">
+                        <div class="team-logo"> BL </div>
+                        <div class="team-name">Bayer Leverkusen</div>
+                    </div>
+                    <div class="vs">VS</div>
+                    <div class="team">
+                        <div class="team-logo"> UB</div>
+                        <div class="team-name"> Union Berlin </div>
+                    </div>
+                </div>
+                <div class="match-stream">
+                    <div class="stream-container">
+                        <!-- Paste your iframe here -->
+                    </div>
+                    <div class="quality-selector">
+                        <button class="quality-btn active">HD</button>
+                        <button class="quality-btn">FULL HD</button>
+                        <button class="watch-btn" onclick="window.location.href='canal 4.html'">
+    ▶️ Watch now
+  </button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Match 5 -->
+            <div class="match-card">
+                <div class="match-header">
+                    <div class="league"><i class="fas fa-futbol"></i> Premier League</div>
+                    <div class="match-time">15:00</div>
+                </div>
+                <div class="match-teams">
+                    <div class="team">
+                        <div class="team-logo">ARS</div>
+                        <div class="team-name">Arsenal</div>
+                    </div>
+                    <div class="vs">VS</div>
+                    <div class="team">
+                        <div class="team-logo">WHU</div>
+                        <div class="team-name">West Ham United </div>
+                    </div>
+                </div>
+                <div class="match-stream">
+                    <div class="stream-container">
+                        <!-- Paste your iframe here -->
+                    </div>
+                    <div class="quality-selector">
+                        <button class="quality-btn active">HD</button>
+                        <button class="quality-btn">FULL HD</button>
+                         <button class="watch-btn" onclick="window.location.href='canal 5.html'">
+    ▶️ Watch now
+  </button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Match 6 - Boxing -->
+            <div class="match-card">
+                <div class="match-header">
+                    <div class="league"><i class="fas fa-fist-raised"></i> Premier league</div>
+                    <div class="match-time">17:30</div>
+                </div>
+                <div class="match-teams">
+                    <div class="team">
+                        <div class="team-logo">CH</div>
+                        <div class="team-name">Chelsea</div>
+                    </div>
+                    <div class="vs">VS</div>
+                    <div class="team">
+                        <div class="team-logo">LV</div>
+                        <div class="team-name"> Liverpool </div>
+                    </div>
+                </div>
+                <div class="match-stream">
+                    <div class="stream-container">
+                        <!-- Paste your iframe here -->
+                    </div>
+                    <div class="quality-selector">
+                        <button class="quality-btn active">HD</button>
+                        <button class="quality-btn">FULL HD</button>
+                         <button class="watch-btn" onclick="window.location.href='canal 6.html'">
+    ▶️ Watch now
+  </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>AnkoAutca</h3>
+                <p>Join the community on Telegram</p>
+                <div class="social-links">
+                    <a href="https://t.me/+6HEGwv-u5WxmMzc0"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Live Matches</a></li>
+                    <li><a href="#">Leagues</a></li>
+                    <li><a href="#">TV Schedule</a></li>
+                    <li><a href="#">Highlights</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Legal</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Legal Notice</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Cookies</a></li>
+                    <li><a href="#">DMCA</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Support</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Report an Issue</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Service Status</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 AnkoAutca. All rights reserved. | This site is funded by the community and advertising to remain free.</p>
+            <p style="margin-top: 10px; font-size: 1.1rem; font-weight: bold;">High-quality match streams, this site is funded by community support and advertising to stay alive and provide you with the best possible experience</p>
+        </div>
+    </footer>
+
+    <script>
+        // Loading screen functionality
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loading-screen').style.opacity = '0';
+                setTimeout(function() {
+                    document.getElementById('loading-screen').style.display = 'none';
+                }, 500);
+            }, 2000);
+        });
+
+        // Quality selector buttons
+        document.querySelectorAll('.quality-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.parentElement.querySelectorAll('.quality-btn').forEach(b => {
+                    b.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+
+        // Live badge animation
+        setInterval(() => {
+            document.querySelector('.live-badge').style.animation = 'pulse 1.5s infinite';
+        }, 100);
+
+        // Function to add iframe to stream container
+        function addStream(container, iframeCode) {
+            const streamContainer = document.querySelectorAll('.stream-container')[container];
+            streamContainer.innerHTML = iframeCode;
+        }
+        
+
+        // Example: addStream(0, '<iframe src="your-stream-url" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>');
+    </script>
+</body>
+</html>
