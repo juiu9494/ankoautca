@@ -1,682 +1,559 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GlobalServices - Plateforme Universelle</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 100vh;
-        }
+    :root {
+      --bg: #0a0a0f;
+      --surface: #111118;
+      --border: #1e1e2e;
+      --accent: #7cffd4;
+      --accent2: #ff6b6b;
+      --text: #e8e8f0;
+      --muted: #5a5a7a;
+    }
 
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.2);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Mono', monospace;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;  /* Changé de center à flex-start */
+      justify-content: center;
+      padding: 2rem;
+      /* CORRECTION: Supprimer overflow: hidden */
+      overflow-y: auto;  /* Permet le scroll vertical */
+      position: relative;
+    }
 
-        .header-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    /* Animated background grid - ajusté pour rester en place pendant le scroll */
+    body::before {
+      content: '';
+      position: fixed;  /* Changé de fixed à fixed (reste en place) */
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image:
+        linear-gradient(rgba(124,255,212,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(124,255,212,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      animation: gridMove 20s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
 
-        .logo h1 {
-            font-size: 2rem;
-            font-weight: bold;
-            background: linear-gradient(45deg, #fff, #f0f0f0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    @keyframes gridMove {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(40px); }
+    }
 
-        .nav-buttons {
-            display: flex;
-            gap: 1rem;
-        }
+    .container {
+      width: 100%;
+      max-width: 540px;
+      position: relative;
+      z-index: 1;
+      margin: 2rem auto;  /* Ajout de marge automatique */
+      padding-bottom: 2rem;  /* Espace en bas pour le scroll */
+    }
 
-        .btn {
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
+    .tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
 
-        .btn-primary {
-            background: linear-gradient(45deg, #ff6b6b, #feca57);
-            color: white;
-        }
+    .tag::before {
+      content: '';
+      width: 20px;
+      height: 1px;
+      background: var(--accent);
+    }
 
-        .btn-secondary {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            backdrop-filter: blur(10px);
-        }
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.05;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.02em;
+    }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
+    h1 span {
+      color: var(--accent);
+    }
 
-        /* Categories Grid */
-        .categories-section {
-            max-width: 1400px;
-            margin: 2rem auto;
-            padding: 0 2rem;
-        }
+    .subtitle {
+      color: var(--muted);
+      font-size: 0.78rem;
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.05em;
+    }
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #1e3c72;
-            font-size: 2.5rem;
-        }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 1.5rem;  /* Espace après la carte */
+    }
 
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
 
-        .category-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.2);
-            backdrop-filter: blur(10px);
-        }
+    .field {
+      margin-bottom: 1.4rem;
+    }
 
-        .category-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
+    label {
+      display: block;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
 
-        .category-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
+    input, textarea, select {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.9rem;
+      padding: 0.75rem 1rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      resize: none;
+    }
 
-        .category-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(124,255,212,0.08);
+    }
 
-        .category-desc {
-            color: #666;
-            margin-bottom: 1rem;
-        }
+    textarea { min-height: 110px; }
 
-        .category-card:hover .category-desc {
-            color: rgba(255,255,255,0.9);
-        }
+    select option { background: var(--bg); }
 
-        /* Annonces Grid */
-        .annonces-section {
-            max-width: 1400px;
-            margin: 3rem auto;
-            padding: 0 2rem;
-        }
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
 
-        .annonces-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
+    .btn {
+      width: 100%;
+      margin-top: 0.5rem;
+      padding: 0.85rem;
+      background: var(--accent);
+      color: #0a0a0f;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: transform 0.15s, opacity 0.15s, box-shadow 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
 
-        .annonce-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(124,255,212,0.2); }
+    .btn:active { transform: translateY(0); }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 
-        .annonce-card:hover {
-            transform: scale(1.03);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
+    .status {
+      margin-top: 1rem;
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      display: none;
+      align-items: center;
+      gap: 0.5rem;
+    }
 
-        .annonce-image {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
+    .status.success {
+      display: flex;
+      background: rgba(124,255,212,0.08);
+      border: 1px solid rgba(124,255,212,0.25);
+      color: var(--accent);
+    }
 
-        .annonce-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: linear-gradient(45deg, #ff6b6b, #feca57);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-weight: bold;
-        }
+    .status.error {
+      display: flex;
+      background: rgba(255,107,107,0.08);
+      border: 1px solid rgba(255,107,107,0.25);
+      color: var(--accent2);
+    }
 
-        .annonce-content {
-            padding: 1.5rem;
-        }
+    .server-url {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: rgba(124,255,212,0.04);
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
 
-        .annonce-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
+    .server-url strong { 
+      color: var(--accent); 
+      display: flex; 
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.3rem; 
+      font-size: 0.65rem; 
+      letter-spacing: 0.1em; 
+      text-transform: uppercase; 
+    }
 
-        .annonce-price {
-            font-size: 1.5rem;
-            color: #2a5298;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
+    .server-url input {
+      background: transparent;
+      border: 1px solid var(--border);  /* Ajout d'une bordure subtile */
+      border-radius: 4px;
+      padding: 0.5rem;
+      font-size: 0.75rem;
+      color: var(--text);
+      margin-top: 0.3rem;
+      width: 100%;
+    }
 
-        .annonce-location {
-            color: #666;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+    .server-url input:focus { 
+      border-color: var(--accent);
+      outline: none;
+    }
 
-        .annonce-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 1rem;
-            border-top: 1px solid #eee;
-        }
+    .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent2);
+      display: inline-block;
+      animation: pulse 2s infinite;
+    }
 
-        .btn-details {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
+    .dot.connected { background: var(--accent); animation: none; }  /* Pas d'animation quand connecté */
 
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-        }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
 
-        .modal.active {
-            display: flex;
-        }
+    /* Barre de scroll personnalisée (optionnel) */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
 
-        .modal-content {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            max-width: 500px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-            position: relative;
-        }
+    ::-webkit-scrollbar-track {
+      background: var(--surface);
+    }
 
-        .close-modal {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #666;
-        }
+    ::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 4px;
+    }
 
-        .form-group {
-            margin-bottom: 1rem;
-        }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent);
+    }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #333;
-            font-weight: 600;
-        }
+    /* Petit indicateur de scroll (optionnel) */
+    .scroll-indicator {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      padding: 0.5rem 1rem;
+      font-size: 0.7rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      z-index: 100;
+      backdrop-filter: blur(5px);
+      opacity: 0.7;
+      transition: opacity 0.3s;
+      pointer-events: none;  /* Ne bloque pas les clics */
+    }
 
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
+    .scroll-indicator:hover {
+      opacity: 1;
+    }
 
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #2a5298;
-        }
-
-        /* Loading Spinner */
-        .spinner {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #2a5298;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .categories-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    .scroll-indicator svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--accent);
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <div class="logo">
-                <h1>GlobalServices</h1>
-                <p>La plateforme universelle de services</p>
-            </div>
-            <div class="nav-buttons">
-                <button class="btn btn-secondary" onclick="openModal('login')">Connexion</button>
-                <button class="btn btn-primary" onclick="openModal('register')">Inscription</button>
-                <button class="btn btn-secondary" onclick="openModal('post')">Publier une annonce</button>
-            </div>
-        </div>
-    </header>
+  <!-- Indicateur de scroll (optionnel) -->
+  <div class="scroll-indicator" id="scrollIndicator">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="12" y1="5" x2="12" y2="19"/>
+      <polyline points="19 12 12 19 5 12"/>
+    </svg>
+    <span id="scrollText">Scroller pour voir plus</span>
+  </div>
 
-    <main>
-        <section class="categories-section">
-            <h2 class="section-title">Nos Services</h2>
-            <div class="categories-grid" id="categoriesGrid"></div>
-        </section>
+<div class="container">
+  <div class="tag">Formulaire de contact</div>
+  <h1>Envoie<br/>moi un <span>message</span></h1>
+  <p class="subtitle">// les données arrivent directement dans ton terminal</p>
 
-        <section class="annonces-section">
-            <h2 class="section-title">Annonces Récentes</h2>
-            <div class="annonces-grid" id="annoncesGrid"></div>
-        </section>
-    </main>
-
-    <!-- Modals -->
-    <div class="modal" id="loginModal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('login')">&times;</span>
-            <h2>Connexion</h2>
-            <form id="loginForm" onsubmit="handleLogin(event)">
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" id="loginEmail" required>
-                </div>
-                <div class="form-group">
-                    <label>Mot de passe</label>
-                    <input type="password" id="loginPassword" required>
-                </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%;">Se connecter</button>
-            </form>
-        </div>
+  <div class="card">
+    <div class="row">
+      <div class="field">
+        <label>Prénom</label>
+        <input type="text" id="prenom" placeholder="Jean" />
+      </div>
+      <div class="field">
+        <label>Nom</label>
+        <input type="text" id="nom" placeholder="Dupont" />
+      </div>
     </div>
 
-    <div class="modal" id="registerModal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('register')">&times;</span>
-            <h2>Inscription</h2>
-            <form id="registerForm" onsubmit="handleRegister(event)">
-                <div class="form-group">
-                    <label>Nom complet</label>
-                    <input type="text" id="registerName" required>
-                </div>
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" id="registerEmail" required>
-                </div>
-                <div class="form-group">
-                    <label>Mot de passe</label>
-                    <input type="password" id="registerPassword" required>
-                </div>
-                <div class="form-group">
-                    <label>Téléphone</label>
-                    <input type="tel" id="registerPhone" required>
-                </div>
-                <div class="form-group">
-                    <label>Pays</label>
-                    <select id="registerCountry" required>
-                        <option value="">Sélectionnez un pays</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%;">S'inscrire</button>
-            </form>
-        </div>
+    <div class="field">
+      <label>Email</label>
+      <input type="email" id="email" placeholder="jean@exemple.com" />
     </div>
 
-    <div class="modal" id="postModal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('post')">&times;</span>
-            <h2>Publier une annonce</h2>
-            <form id="postForm" onsubmit="handlePost(event)">
-                <div class="form-group">
-                    <label>Catégorie</label>
-                    <select id="postCategory" required>
-                        <option value="">Sélectionnez une catégorie</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Titre</label>
-                    <input type="text" id="postTitle" required>
-                </div>
-                <div class="form-group">
-                    <label>Description</label>
-                    <textarea id="postDescription" rows="4" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Prix (en €)</label>
-                    <input type="number" id="postPrice" required>
-                </div>
-                <div class="form-group">
-                    <label>Localisation</label>
-                    <input type="text" id="postLocation" required>
-                </div>
-                <div class="form-group">
-                    <label>Image URL</label>
-                    <input type="url" id="postImage" required>
-                </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%;">Publier</button>
-            </form>
-        </div>
+    <div class="field">
+      <label>Sujet</label>
+      <select id="sujet">
+        <option value="">— choisir —</option>
+        <option>Question générale</option>
+        <option>Collaboration</option>
+        <option>Projet</option>
+        <option>Autre</option>
+      </select>
     </div>
 
-    <script>
-        // Configuration API
-        const API_URL = 'http://localhost:5000/api';
+    <div class="field">
+      <label>Message</label>
+      <textarea id="message" placeholder="Ton message ici…"></textarea>
+    </div>
 
-        // États
-        let currentUser = null;
-        let categories = [];
-        let annonces = [];
+    <button type="button" class="btn" id="sendBtn" onclick="envoyerFormulaire()">
+      <span>Envoyer</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <line x1="22" y1="2" x2="11" y2="13"/>
+        <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+      </svg>
+    </button>
 
-        // Initialisation
-        document.addEventListener('DOMContentLoaded', () => {
-            loadCategories();
-            loadAnnonces();
-            loadCountries();
-            checkAuthStatus();
-        });
+    <div class="status" id="statusBox"></div>
+  </div>
 
-        // Charger les catégories
-        async function loadCategories() {
-            try {
-                const response = await fetch(`${API_URL}/categories`);
-                categories = await response.json();
-                displayCategories();
-                populateCategorySelect();
-            } catch (error) {
-                console.error('Erreur chargement catégories:', error);
-            }
-        }
+  <!-- Config URL serveur -->
+  <div class="server-url">
+    <strong>
+      <span class="dot" id="statusDot"></span>
+      URL de ton serveur Python
+    </strong>
+    <input type="text" id="serverUrl" value="http://localhost:5000/submit" placeholder="http://localhost:5000/submit" />
+    <div style="margin-top:0.8rem; padding-top:0.8rem; border-top:1px dashed var(--border);">
+      <small style="color: var(--accent); display: block; margin-bottom: 0.3rem;">📝 Instructions:</small>
+      <ol style="margin-left: 1.2rem; line-height: 1.6; opacity: 0.8;">
+        <li>Lance <code style="background: var(--bg); padding: 0.2rem 0.4rem; border-radius: 4px;">python server.py</code> dans ton terminal</li>
+        <li>Remplis le formulaire</li>
+        <li>Clique sur Envoyer</li>
+        <li>Le message apparaît dans ton terminal</li>
+      </ol>
+    </div>
+  </div>
+</div>
 
-        // Afficher les catégories
-        function displayCategories() {
-            const grid = document.getElementById('categoriesGrid');
-            grid.innerHTML = categories.map(cat => `
-                <div class="category-card" onclick="filterByCategory('${cat.id}')">
-                    <div class="category-icon">${cat.icon}</div>
-                    <h3 class="category-title">${cat.name}</h3>
-                    <p class="category-desc">${cat.description}</p>
-                    <small>${cat.count} annonces</small>
-                </div>
-            `).join('');
-        }
+<script>
+  // Gestion de l'indicateur de scroll
+  window.addEventListener('scroll', function() {
+    const indicator = document.getElementById('scrollIndicator');
+    const scrollText = document.getElementById('scrollText');
+    
+    // Si on a scrollé vers le bas
+    if (window.scrollY > 100) {
+      indicator.style.opacity = '0.3';
+      scrollText.textContent = 'Haut de page ↑';
+    } else {
+      indicator.style.opacity = '0.7';
+      scrollText.textContent = 'Scroller pour voir plus ↓';
+    }
+  });
 
-        // Remplir le select des catégories
-        function populateCategorySelect() {
-            const select = document.getElementById('postCategory');
-            select.innerHTML = '<option value="">Sélectionnez une catégorie</option>' +
-                categories.map(cat => `<option value="${cat.id}">${cat.name}</option>`).join('');
-        }
+  // Version corrigée de la fonction d'envoi
+  async function envoyerFormulaire() {
+    console.log('Fonction envoyerFormulaire appelée');
+    
+    const btn = document.getElementById('sendBtn');
+    const statusBox = document.getElementById('statusBox');
+    const serverUrl = document.getElementById('serverUrl').value.trim();
 
-        // Charger les annonces
-        async function loadAnnonces() {
-            try {
-                const response = await fetch(`${API_URL}/annonces`);
-                annonces = await response.json();
-                displayAnnonces(annonces);
-            } catch (error) {
-                console.error('Erreur chargement annonces:', error);
-            }
-        }
+    // Récupération des valeurs
+    const prenom = document.getElementById('prenom').value.trim();
+    const nom = document.getElementById('nom').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const sujet = document.getElementById('sujet').value;
+    const message = document.getElementById('message').value.trim();
 
-        // Afficher les annonces
-        function displayAnnonces(annoncesToShow) {
-            const grid = document.getElementById('annoncesGrid');
-            if (annoncesToShow.length === 0) {
-                grid.innerHTML = '<p style="text-align: center; grid-column: 1/-1;">Aucune annonce trouvée</p>';
-                return;
-            }
+    const data = {
+      prenom: prenom,
+      nom: nom,
+      email: email,
+      sujet: sujet || "Non spécifié",
+      message: message,
+      date: new Date().toLocaleString('fr-FR')
+    };
 
-            grid.innerHTML = annoncesToShow.map(annonce => `
-                <div class="annonce-card">
-                    <div class="annonce-image" style="background-image: url('${annonce.image}')">
-                        <span class="annonce-badge">${annonce.category}</span>
-                    </div>
-                    <div class="annonce-content">
-                        <h3 class="annonce-title">${annonce.title}</h3>
-                        <div class="annonce-price">${annonce.price} €</div>
-                        <div class="annonce-location">📍 ${annonce.location}</div>
-                        <p>${annonce.description.substring(0, 100)}...</p>
-                        <div class="annonce-footer">
-                            <span>👤 ${annonce.publisher}</span>
-                            <button class="btn-details" onclick="showDetails('${annonce.id}')">Voir détails</button>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
+    // Validation
+    if (!prenom) {
+      showStatus('error', '⚠ Le prénom est requis.');
+      return;
+    }
+    
+    if (!email) {
+      showStatus('error', '⚠ L\'email est requis.');
+      return;
+    }
+    
+    if (!email.includes('@') || !email.includes('.')) {
+      showStatus('error', '⚠ Format d\'email invalide.');
+      return;
+    }
+    
+    if (!message) {
+      showStatus('error', '⚠ Le message est requis.');
+      return;
+    }
 
-        // Charger les pays
-        async function loadCountries() {
-            try {
-                const response = await fetch('https://restcountries.com/v3.1/all');
-                const countries = await response.json();
-                const select = document.getElementById('registerCountry');
-                select.innerHTML = '<option value="">Sélectionnez un pays</option>' +
-                    countries.sort((a, b) => a.name.common.localeCompare(b.name.common))
-                        .map(c => `<option value="${c.cca2}">${c.name.common}</option>`).join('');
-            } catch (error) {
-                console.error('Erreur chargement pays:', error);
-            }
-        }
+    btn.disabled = true;
+    btn.innerHTML = '<span>Envoi en cours...</span>';
 
-        // Gestionnaires d'événements
-        function openModal(type) {
-            document.getElementById(`${type}Modal`).classList.add('active');
-        }
+    try {
+      console.log('Envoi vers:', serverUrl);
+      console.log('Données:', data);
 
-        function closeModal(type) {
-            document.getElementById(`${type}Modal`).classList.remove('active');
-        }
+      const res = await fetch(serverUrl, {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
 
-        async function handleLogin(event) {
-            event.preventDefault();
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
+      console.log('Réponse reçue:', res.status);
 
-            try {
-                const response = await fetch(`${API_URL}/login`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email, password })
-                });
+      if (res.ok) {
+        showStatus('success', '✓ Message envoyé ! Vérifie ton terminal.');
+        
+        document.getElementById('statusDot').classList.add('connected');
+        
+        // Réinitialiser le formulaire
+        document.getElementById('prenom').value = '';
+        document.getElementById('nom').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('sujet').value = '';
+        document.getElementById('message').value = '';
+        
+        setTimeout(() => {
+          document.getElementById('statusDot').classList.remove('connected');
+        }, 3000);
+      } else {
+        const errorText = await res.text();
+        showStatus('error', `✗ Erreur serveur (${res.status}): ${errorText}`);
+      }
+    } catch (e) {
+      console.error('Erreur:', e);
+      showStatus('error', '✗ Impossible de joindre le serveur. Lance ton script Python !');
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = '<span>Envoyer</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>';
+    }
+  }
 
-                const data = await response.json();
-                if (response.ok) {
-                    currentUser = data.user;
-                    localStorage.setItem('token', data.token);
-                    alert('Connexion réussie!');
-                    closeModal('login');
-                    checkAuthStatus();
-                } else {
-                    alert(data.error);
-                }
-            } catch (error) {
-                alert('Erreur de connexion');
-            }
-        }
+  function showStatus(type, msg) {
+    const box = document.getElementById('statusBox');
+    box.className = 'status ' + type;
+    box.textContent = msg;
+    
+    // Scroll automatique vers le message de statut
+    box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
 
-        async function handleRegister(event) {
-            event.preventDefault();
-            const userData = {
-                name: document.getElementById('registerName').value,
-                email: document.getElementById('registerEmail').value,
-                password: document.getElementById('registerPassword').value,
-                phone: document.getElementById('registerPhone').value,
-                country: document.getElementById('registerCountry').value
-            };
+  // Test de connexion au serveur
+  window.addEventListener('load', function() {
+    const serverUrl = document.getElementById('serverUrl').value.trim();
+    testServerConnection(serverUrl);
+  });
 
-            try {
-                const response = await fetch(`${API_URL}/register`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(userData)
-                });
+  async function testServerConnection(url) {
+    try {
+      const res = await fetch(url, {
+        method: 'OPTIONS'
+      });
+      if (res.ok || res.status === 405) {
+        document.getElementById('statusDot').classList.add('connected');
+        console.log('Serveur accessible');
+      }
+    } catch (e) {
+      console.log('Serveur non accessible (normal si pas encore lancé)');
+    }
+  }
+</script>
 
-                const data = await response.json();
-                if (response.ok) {
-                    alert('Inscription réussie! Vous pouvez maintenant vous connecter.');
-                    closeModal('register');
-                } else {
-                    alert(data.error);
-                }
-            } catch (error) {
-                alert('Erreur d\'inscription');
-            }
-        }
+<!-- Serveur Python de test (à créer dans un fichier séparé server.py) -->
+<!-- 
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 
-        async function handlePost(event) {
-            event.preventDefault();
-            
-            if (!currentUser) {
-                alert('Veuillez vous connecter pour publier une annonce');
-                openModal('login');
-                return;
-            }
+app = Flask(__name__)
+CORS(app)
 
-            const annonceData = {
-                category: document.getElementById('postCategory').value,
-                title: document.getElementById('postTitle').value,
-                description: document.getElementById('postDescription').value,
-                price: document.getElementById('postPrice').value,
-                location: document.getElementById('postLocation').value,
-                image: document.getElementById('postImage').value,
-                publisher: currentUser.name,
-                publisherId: currentUser.id
-            };
+@app.route('/submit', methods=['POST', 'OPTIONS'])
+def submit():
+    if request.method == 'OPTIONS':
+        return '', 200
+        
+    data = request.json
+    print("\n" + "="*50)
+    print("NOUVEAU MESSAGE REÇU:")
+    print("="*50)
+    print(f"De: {data.get('prenom')} {data.get('nom')}")
+    print(f"Email: {data.get('email')}")
+    print(f"Sujet: {data.get('sujet')}")
+    print(f"Message: {data.get('message')}")
+    print(f"Date: {data.get('date')}")
+    print("="*50 + "\n")
+    
+    return jsonify({"status": "ok", "message": "Message reçu"}), 200
 
-            try {
-                const response = await fetch(`${API_URL}/annonces`, {
-                    method: 'POST',
-                    headers: { 
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`
-                    },
-                    body: JSON.stringify(annonceData)
-                });
-
-                const data = await response.json();
-                if (response.ok) {
-                    alert('Annonce publiée avec succès!');
-                    closeModal('post');
-                    loadAnnonces(); // Recharger les annonces
-                } else {
-                    alert(data.error);
-                }
-            } catch (error) {
-                alert('Erreur lors de la publication');
-            }
-        }
-
-        function filterByCategory(categoryId) {
-            const filtered = annonces.filter(a => a.categoryId === categoryId);
-            displayAnnonces(filtered);
-        }
-
-        function showDetails(annonceId) {
-            const annonce = annonces.find(a => a.id === annonceId);
-            if (annonce) {
-                alert(`
-                    Titre: ${annonce.title}
-                    Prix: ${annonce.price} €
-                    Localisation: ${annonce.location}
-                    Description: ${annonce.description}
-                    Publié par: ${annonce.publisher}
-                `);
-            }
-        }
-
-        function checkAuthStatus() {
-            const token = localStorage.getItem('token');
-            if (token) {
-                // Vérifier la validité du token
-                fetch(`${API_URL}/verify`, {
-                    headers: { 'Authorization': `Bearer ${token}` }
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.valid) {
-                        currentUser = data.user;
-                    } else {
-                        localStorage.removeItem('token');
-                    }
-                });
-            }
-        }
-    </script>
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000, debug=True)
+-->
 </body>
 </html>
