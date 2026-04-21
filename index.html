@@ -8,37 +8,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
-
-<!-- Firebase SDK -->
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-  import { getDatabase, ref, set, push, onChildAdded, onValue, off, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
-
-  // ⚠️ REMPLACEZ PAR VOTRE CONFIGURATION FIREBASE ⚠️
-  const firebaseConfig = {
-    apiKey: "AIzaSyDz6tXbH4f8hQ2NpL3mK9vR1wXyZ5aBcD0",
-    authDomain: "ankoautca-demo.firebaseapp.com",
-    databaseURL: "https://ankoautca-demo-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "ankoautca-demo",
-    storageBucket: "ankoautca-demo.appspot.com",
-    messagingSenderId: "123456789012",
-    appId: "1:123456789012:web:abc123def456"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const db = getDatabase(app);
-  window.firebaseDB = db;
-  window.firebaseRef = ref;
-  window.firebasePush = push;
-  window.firebaseSet = set;
-  window.firebaseOnChildAdded = onChildAdded;
-  window.firebaseOnValue = onValue;
-  window.firebaseOff = off;
-  window.firebaseServerTimestamp = serverTimestamp;
-</script>
-
 <style>
-/* ----- STYLES (identiques à la version mobile optimisée) ----- */
+/* ----- STYLES (identiques, mobile-first) ----- */
 :root {
   --ink: #0a0e17;
   --surface: #0f1520;
@@ -462,10 +433,10 @@ body::before {
   <div class="ls-logo">AnkoAutca</div>
   <div class="ls-sub">L'Italia che connette</div>
   <div class="ls-bar"><div class="ls-fill"></div></div>
-  <div class="ls-msg" id="lsMsg">Connessione a Firebase...</div>
+  <div class="ls-msg" id="lsMsg">Avvio in corso...</div>
 </div>
 
-<!-- MODAL NICKNAME -->
+<!-- MODAL OBBLIGATORIA -->
 <div id="nicknameModal">
   <div class="nick-card">
     <h2>👋 Benvenuto in AnkoAutca</h2>
@@ -492,15 +463,16 @@ body::before {
   </div>
 </div>
 
-<!-- APP -->
+<!-- APP PRINCIPALE -->
 <div class="app" id="mainApp">
   <div class="sidebar">
     <div class="s-logo">Anko<span>autca</span></div>
-    <div class="nav-btn active" data-view="chat"><i class="fas fa-comments"></i><span>Chat</span></div>
-    <div class="nav-btn" data-view="market"><i class="fas fa-store"></i><span>Market</span></div>
-    <div class="nav-btn" data-view="map"><i class="fas fa-map-marked-alt"></i><span>Mappa</span></div>
-    <div class="nav-btn" data-view="rules"><i class="fas fa-shield-halved"></i><span>Regole</span></div>
+    <div class="nav-btn active" data-view="chat" title="Chat"><i class="fas fa-comments"></i><span>Chat</span></div>
+    <div class="nav-btn" data-view="market" title="Mercato"><i class="fas fa-store"></i><span>Market</span></div>
+    <div class="nav-btn" data-view="map" title="Mappa"><i class="fas fa-map-marked-alt"></i><span>Mappa</span></div>
+    <div class="nav-btn" data-view="rules" title="Regole"><i class="fas fa-shield-halved"></i><span>Regole</span></div>
   </div>
+
   <div class="main">
     <div class="topbar">
       <div class="region-pick">
@@ -510,18 +482,22 @@ body::before {
       <div class="user-chip">
         <div class="avatar" id="userAvatar">?</div>
         <span id="nickDisplay">Ospite</span>
-        <button class="edit-btn" id="editNickBtn"><i class="fas fa-pen"></i></button>
+        <button class="edit-btn" id="editNickBtn" title="Modifica nickname"><i class="fas fa-pen"></i></button>
       </div>
     </div>
+
     <div class="views">
+      <!-- CHAT -->
       <div class="view active" id="view-chat">
         <div class="chat-filters" id="catContainer"></div>
-        <div class="msgs-wrap" id="msgs"><div class="empty-msg"><i class="fas fa-comments"></i>Nessun messaggio</div></div>
+        <div class="msgs-wrap" id="msgs"><div class="empty-msg"><i class="fas fa-comments"></i>Seleziona una categoria</div></div>
         <div class="chat-bar">
-          <input type="text" id="chatIn" placeholder="Scrivi un messaggio..." maxlength="400">
+          <input type="text" id="chatIn" placeholder="Scrivi un messaggio..." maxlength="400" autocomplete="off">
           <button class="btn-send" id="sendBtn"><i class="fas fa-paper-plane"></i> Invia</button>
         </div>
       </div>
+
+      <!-- MARKET -->
       <div class="view" id="view-market">
         <div class="market-topbar">
           <h2>Annunci · <span id="mktRegion">Italia</span></h2>
@@ -529,17 +505,23 @@ body::before {
         </div>
         <div class="market-grid" id="mktGrid"></div>
       </div>
-      <div class="view" id="view-map"><div id="mapContainer"></div></div>
+
+      <!-- MAPPA -->
+      <div class="view" id="view-map">
+        <div id="mapContainer"></div>
+      </div>
+
+      <!-- REGOLE -->
       <div class="view" id="view-rules">
-        <h2 style="font-family:var(--font-head);font-size:clamp(1.3rem,5vw,1.6rem);font-weight:800;color:white;margin-bottom:20px">📜 Regole della Comunità</h2>
-        <div style="max-width:600px;display:flex;flex-direction:column;gap:14px">
-          <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r-card);padding:20px">
+        <h2 style="font-family:var(--font-head);font-size:1.6rem;font-weight:800;color:white;margin-bottom:24px">📜 Regole della Comunità</h2>
+        <div style="max-width:600px;display:flex;flex-direction:column;gap:16px">
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r-card);padding:24px">
             <h3 style="font-family:var(--font-head);color:var(--accent3);margin-bottom:12px">💬 Chat</h3>
             <div class="rule-item"><i class="fas fa-check-circle"></i><span>Rispetta tutti gli utenti</span></div>
             <div class="rule-item"><i class="fas fa-check-circle"></i><span>Niente parolacce o insulti</span></div>
             <div class="rule-item"><i class="fas fa-check-circle"></i><span>Niente spam</span></div>
           </div>
-          <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r-card);padding:20px">
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r-card);padding:24px">
             <h3 style="font-family:var(--font-head);color:var(--gold);margin-bottom:12px">🛒 Market</h3>
             <div class="rule-item"><i class="fas fa-check-circle"></i><span>Solo articoli legali</span></div>
             <div class="rule-item"><i class="fas fa-check-circle"></i><span>Descrizioni oneste</span></div>
@@ -550,7 +532,7 @@ body::before {
   </div>
 </div>
 
-<!-- MODAL MODIFICA NICK -->
+<!-- MODAL MODIFICA NICKNAME -->
 <div class="overlay" id="nickOverlay">
   <div class="modal">
     <h3>✏️ Modifica Nickname</h3>
@@ -568,7 +550,7 @@ body::before {
   <div class="modal" style="max-width:500px">
     <h3>🛒 Pubblica un annuncio</h3>
     <label class="field-label">Nome prodotto *</label>
-    <input type="text" id="pName" placeholder="es. Bicicletta" maxlength="80">
+    <input type="text" id="pName" placeholder="es. Bicicletta da montagna" maxlength="80">
     <label class="field-label">Prezzo (€) *</label>
     <input type="number" id="pPrice" placeholder="0.00" min="0" step="0.01">
     <label class="field-label">Descrizione</label>
@@ -587,12 +569,23 @@ body::before {
 </div>
 
 <!-- BAN NOTICE -->
-<div id="banNotice"><i class="fas fa-ban"></i><p id="banText"></p></div>
+<div id="banNotice">
+  <i class="fas fa-ban"></i>
+  <p id="banText"></p>
+</div>
+
 <!-- TOAST -->
-<div id="toast"><i id="toastIcon"></i><p id="toastMsg"></p></div>
+<div id="toast">
+  <i id="toastIcon"></i>
+  <p id="toastMsg"></p>
+</div>
 
 <script>
-// ========== CONFIG ==========
+// ==================== CONFIG ====================
+const STORAGE_KEY = 'ankoautca_public_v1';
+const NICK_KEY = 'anko_nick_v6';
+const GENDER_KEY = 'anko_gender_v6';
+const BAN_KEY = 'anko_ban_v6';
 const REGIONS = [
   {nome:"Abruzzo",coords:[42.354,13.392]},
   {nome:"Basilicata",coords:[40.640,15.805]},
@@ -628,21 +621,23 @@ const CATS = [
 ];
 const FORBIDDEN_WORDS = ['cazzo','minchia','vaffanculo','stronzo','puttana','merda','porco dio','fanculo','deficiente','idiota','cretino','imbecille','negro','frocio'];
 
-// ========== STATO ==========
+// ==================== STATO ====================
 let nickname = '';
 let userGender = '';
 let currentRegion = 'Lazio';
 let currentCat = 'general';
 let mapInstance = null;
-let messagesListener = null;
-let productsListener = null;
+let appData = { messages: [], products: [] };
 
-// Ban system (locale)
+// BroadcastChannel per sincronizzare tra schede
+const channel = new BroadcastChannel('ankoautca_channel');
+
+// ==================== BAN SYSTEM ====================
 function getBanStatus() {
-  try { return JSON.parse(localStorage.getItem('anko_ban_v6') || '{"banned":false,"count":0}'); }
+  try { return JSON.parse(localStorage.getItem(BAN_KEY) || '{"banned":false,"count":0}'); }
   catch { return { banned: false, count: 0 }; }
 }
-function saveBanStatus(s) { localStorage.setItem('anko_ban_v6', JSON.stringify(s)); }
+function saveBanStatus(s) { localStorage.setItem(BAN_KEY, JSON.stringify(s)); }
 function isCurrentlyBanned() {
   const s = getBanStatus();
   if (!s.banned) return false;
@@ -670,7 +665,42 @@ function containsForbiddenWord(text) {
   return FORBIDDEN_WORDS.some(w => lower.includes(w.toLowerCase()));
 }
 
-// ========== TOAST ==========
+// ==================== STORAGE & SYNC ====================
+function loadData() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) appData = JSON.parse(raw);
+    if (!appData.messages) appData.messages = [];
+    if (!appData.products) appData.products = [];
+  } catch { appData = { messages: [], products: [] }; }
+}
+function saveData() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(appData)); } catch {}
+}
+// Quando si riceve un aggiornamento da un altro tab
+channel.onmessage = (event) => {
+  if (event.data.type === 'NEW_MESSAGE') {
+    const msg = event.data.message;
+    // Verifica che sia per la regione/categoria attuali
+    if (msg.region === currentRegion && msg.cat === currentCat) {
+      appendMessageToUI(msg);
+    }
+    // Aggiorna comunque i dati locali
+    appData.messages.push(msg);
+  } else if (event.data.type === 'NEW_PRODUCT') {
+    const prod = event.data.product;
+    if (prod.region === currentRegion) {
+      renderMarket();
+    }
+    appData.products.push(prod);
+  } else if (event.data.type === 'RELOAD_CHAT') {
+    if (currentRegion && currentCat) renderChatFromData();
+  } else if (event.data.type === 'RELOAD_MARKET') {
+    renderMarket();
+  }
+};
+
+// ==================== TOAST ====================
 function showToast(msg, type='success') {
   const t = document.getElementById('toast'), ti = document.getElementById('toastIcon'), tm = document.getElementById('toastMsg');
   t.className = 'show ' + type;
@@ -680,7 +710,7 @@ function showToast(msg, type='success') {
   t._timer = setTimeout(() => t.classList.remove('show'), 3500);
 }
 
-// ========== UTILS ==========
+// ==================== UTILS ====================
 function esc(t) { const d=document.createElement('div'); d.textContent=t; return d.innerHTML; }
 function avatarInitial(n) { return n ? n.charAt(0).toUpperCase() : '?'; }
 function timeAgo(ts) {
@@ -693,50 +723,18 @@ function timeAgo(ts) {
   return new Date(ts).toLocaleDateString('it');
 }
 
-// ========== FIREBASE ==========
-const db = window.firebaseDB;
-const ref = window.firebaseRef;
-const push = window.firebasePush;
-const set = window.firebaseSet;
-const onChildAdded = window.firebaseOnChildAdded;
-const onValue = window.firebaseOnValue;
-const off = window.firebaseOff;
-const serverTimestamp = window.firebaseServerTimestamp;
-
-function sendMessageToFB(text) {
-  const msgRef = ref(db, `messages/${currentRegion}/${currentCat}`);
-  const newMsgRef = push(msgRef);
-  set(newMsgRef, {
-    nick: nickname,
-    text: text,
-    ts: Date.now(),
-    timestamp: serverTimestamp()
-  });
+// ==================== RENDER CHAT ====================
+function renderChatFromData() {
+  const box = document.getElementById('msgs');
+  const msgs = appData.messages.filter(m => m.region===currentRegion && m.cat===currentCat).sort((a,b)=>a.ts-b.ts);
+  box.innerHTML = '';
+  if (!msgs.length) {
+    box.innerHTML = '<div class="empty-msg"><i class="fas fa-comments"></i>Nessun messaggio</div>';
+    return;
+  }
+  msgs.forEach(m => appendMessageToUI(m, false));
 }
-
-function publishProductToFB(name, price, desc, img) {
-  const prodRef = ref(db, `products/${currentRegion}`);
-  const newProdRef = push(prodRef);
-  set(newProdRef, {
-    name, price, desc, img, seller: nickname,
-    ts: Date.now(),
-    timestamp: serverTimestamp()
-  });
-}
-
-// ========== RENDER CHAT (con listener Firebase) ==========
-function startChatListener() {
-  if (messagesListener) off(messagesListener);
-  const msgRef = ref(db, `messages/${currentRegion}/${currentCat}`);
-  messagesListener = onChildAdded(msgRef, (snapshot) => {
-    const msg = snapshot.val();
-    if (!msg) return;
-    appendMessageToUI(msg);
-  });
-  // Pulisce i messaggi vecchi e aspetta nuovi
-  document.getElementById('msgs').innerHTML = '';
-}
-function appendMessageToUI(m) {
+function appendMessageToUI(m, scroll = true) {
   const box = document.getElementById('msgs');
   if (box.children.length === 1 && box.children[0].classList.contains('empty-msg')) box.innerHTML = '';
   const own = m.nick === nickname;
@@ -751,22 +749,13 @@ function appendMessageToUI(m) {
     </div>
   `;
   box.appendChild(div);
-  box.scrollTop = box.scrollHeight;
+  if (scroll) box.scrollTop = box.scrollHeight;
 }
 
-// ========== RENDER MARKET (con listener Firebase) ==========
-function startMarketListener() {
-  if (productsListener) off(productsListener);
-  const prodRef = ref(db, `products/${currentRegion}`);
-  productsListener = onValue(prodRef, (snapshot) => {
-    const prods = [];
-    snapshot.forEach(child => prods.push({ id: child.key, ...child.val() }));
-    renderMarketGrid(prods);
-  });
-}
-function renderMarketGrid(prods) {
+// ==================== RENDER MARKET ====================
+function renderMarket() {
   const grid = document.getElementById('mktGrid');
-  prods.sort((a,b) => b.ts - a.ts);
+  const prods = appData.products.filter(p => p.region===currentRegion).sort((a,b)=>b.ts-a.ts);
   if (!prods.length) {
     grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--muted)"><i class="fas fa-store"></i> Nessun annuncio</div>';
     return;
@@ -787,61 +776,42 @@ function renderMarketGrid(prods) {
   }).join('');
 }
 
-// ========== INIZIO ==========
-function initApp() {
-  initRegions();
-  initCats();
-  startChatListener();
-  startMarketListener();
-  // Nav
-  document.querySelectorAll('.nav-btn').forEach(b => b.addEventListener('click', ()=>setView(b.dataset.view)));
-  document.getElementById('sendBtn').addEventListener('click', sendMessageHandler);
-  document.getElementById('chatIn').addEventListener('keypress', e=> { if(e.key==='Enter') sendMessageHandler(); });
-  document.getElementById('editNickBtn').addEventListener('click', ()=>{
-    document.getElementById('nickEditIn').value = nickname;
-    openOverlay('nickOverlay');
-  });
-  document.getElementById('nickSaveBtn').addEventListener('click', ()=>{
-    const v = document.getElementById('nickEditIn').value.trim();
-    if (v && v.length>=3) { setNicknameAndGender(v, userGender); closeOverlay('nickOverlay'); showToast('Nickname aggiornato'); }
-    else showToast('Nickname troppo corto','error');
-  });
-  document.getElementById('nickCancelBtn').addEventListener('click', ()=>closeOverlay('nickOverlay'));
-  document.getElementById('openSellBtn').addEventListener('click', ()=>openOverlay('sellOverlay'));
-  document.getElementById('sellCancelBtn').addEventListener('click', ()=>closeOverlay('sellOverlay'));
-  document.getElementById('sellConfirmBtn').addEventListener('click', publishProductHandler);
-  document.getElementById('pImg').addEventListener('change', e => {
-    const f = e.target.files[0], ua = document.getElementById('uploadArea'), ui = document.getElementById('uploadIcon'), ut = document.getElementById('uploadTxt');
-    if (f) { ua.classList.add('has-file'); ui.className = 'fas fa-check-circle'; ut.textContent = f.name; }
-    else { ua.classList.remove('has-file'); ui.className = 'fas fa-cloud-upload-alt'; ut.textContent = 'Clicca o trascina un\'immagine'; }
-  });
-  ['nickOverlay','sellOverlay'].forEach(id => document.getElementById(id).addEventListener('click', e => { if(e.target===document.getElementById(id)) closeOverlay(id); }));
-  if (isCurrentlyBanned()) { const s = getBanStatus(); showBanNotice(s.permanent, s.until); }
-}
-
-function sendMessageHandler() {
+// ==================== INVIO MESSAGGI ====================
+function sendMessage() {
   const inp = document.getElementById('chatIn');
   const text = inp.value.trim();
   if (!text) return;
   inp.value = '';
   if (isCurrentlyBanned()) { const s = getBanStatus(); showBanNotice(s.permanent, s.until); return; }
   if (containsForbiddenWord(text)) { applyBan(); return; }
-  sendMessageToFB(text);
+  const msg = { region: currentRegion, cat: currentCat, nick: nickname, text, ts: Date.now() };
+  appData.messages.push(msg);
+  saveData();
+  appendMessageToUI(msg);
+  channel.postMessage({ type: 'NEW_MESSAGE', message: msg });
 }
 
-async function publishProductHandler() {
+// ==================== PUBBLICAZIONE PRODOTTO ====================
+async function publishProduct() {
   const name = document.getElementById('pName').value.trim();
   const price = document.getElementById('pPrice').value;
   const desc = document.getElementById('pDesc').value.trim();
   const imgFile = document.getElementById('pImg').files[0];
-  if (!name || !price) { showToast('Nome e prezzo obbligatori','error'); return; }
+  if (!name || !price) { showToast('Inserisci nome e prezzo', 'error'); return; }
+  const btn = document.getElementById('sellConfirmBtn');
+  btn.disabled = true; btn.textContent = 'Pubblicazione...';
   let img = null;
   if (imgFile) {
     img = await new Promise(res => { const r = new FileReader(); r.onload = () => res(r.result); r.readAsDataURL(imgFile); });
   }
-  publishProductToFB(name, price, desc, img);
+  const prod = { region: currentRegion, name, price, desc, img, seller: nickname, ts: Date.now() };
+  appData.products.push(prod);
+  saveData();
+  renderMarket();
+  channel.postMessage({ type: 'NEW_PRODUCT', product: prod });
   closeOverlay('sellOverlay');
-  showToast('Annuncio pubblicato!');
+  showToast('Annuncio pubblicato! 🎉');
+  btn.disabled = false; btn.textContent = 'Pubblica annuncio';
   ['pName','pPrice','pDesc'].forEach(id=>document.getElementById(id).value='');
   document.getElementById('pImg').value='';
   document.getElementById('uploadArea').classList.remove('has-file');
@@ -849,14 +819,15 @@ async function publishProductHandler() {
   document.getElementById('uploadTxt').textContent = 'Clicca o trascina un\'immagine';
 }
 
+// ==================== REGIONI E CATEGORIE ====================
 function initRegions() {
   const sel = document.getElementById('regionSelect');
   sel.innerHTML = REGIONS.map(r => `<option ${r.nome===currentRegion?'selected':''}>${r.nome}</option>`).join('');
   sel.addEventListener('change', () => {
     currentRegion = sel.value;
     document.getElementById('mktRegion').textContent = currentRegion;
-    startChatListener();
-    startMarketListener();
+    renderChatFromData();
+    renderMarket();
     if (mapInstance) {
       const r = REGIONS.find(x=>x.nome===currentRegion);
       if (r) mapInstance.flyTo({ center:[r.coords[1],r.coords[0]], zoom:8, pitch:55, duration:1500 });
@@ -870,57 +841,102 @@ function initCats() {
     currentCat = el.dataset.cat;
     c.querySelectorAll('.cf-tag').forEach(x=>x.classList.remove('active'));
     el.classList.add('active');
-    startChatListener();
+    renderChatFromData();
   }));
 }
+
+// ==================== NAVIGAZIONE ====================
 function setView(id) {
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById('view-'+id).classList.add('active');
   document.querySelector(`[data-view="${id}"]`).classList.add('active');
   if (id==='map') setTimeout(initMap, 100);
+  if (id==='market') renderMarket();
 }
+
+// ==================== MAPPA ====================
 function initMap() {
   if (mapInstance) return;
   mapInstance = new maplibregl.Map({
     container: 'mapContainer',
     style: 'https://demotiles.maplibre.org/style.json',
     center: [12.496, 41.903],
-    zoom: 6, pitch: 55
+    zoom: 6,
+    pitch: 55
   });
-  mapInstance.on('load', ()=>{
+  mapInstance.on('load', () => {
     mapInstance.addSource('sat', { type:'raster', tiles:['https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'], tileSize:256 });
     mapInstance.addLayer({ id:'sat-layer', type:'raster', source:'sat' });
     REGIONS.forEach(r => {
       new maplibregl.Marker({ color: r.nome===currentRegion ? '#4a90e8' : '#7bb3f5' })
         .setLngLat([r.coords[1], r.coords[0]])
-        .setPopup(new maplibregl.Popup({ offset:25 }).setHTML(`<strong>${r.nome}</strong>`))
+        .setPopup(new maplibregl.Popup({ offset:25 }).setHTML(`<strong>${r.nome}</strong><br><small>${appData.products.filter(p=>p.region===r.nome).length} annunci</small>`))
         .addTo(mapInstance);
     });
   });
 }
+
+// ==================== MODALI ====================
 function openOverlay(id) { document.getElementById(id).classList.add('open'); }
 function closeOverlay(id) { document.getElementById(id).classList.remove('open'); }
+
+// ==================== NICKNAME ====================
 function setNicknameAndGender(nick, gender) {
   nickname = nick; userGender = gender;
   document.getElementById('nickDisplay').textContent = nick;
   document.getElementById('userAvatar').textContent = avatarInitial(nick);
   const av = document.getElementById('userAvatar');
   av.style.background = gender==='uomo' ? 'linear-gradient(135deg, #3a6cb5, #4a90e8)' : (gender==='donna' ? 'linear-gradient(135deg, #b53a6c, #e84a9e)' : 'linear-gradient(135deg, var(--accent), #7b2fbe)');
-  localStorage.setItem('anko_nick_v6', nick);
-  localStorage.setItem('anko_gender_v6', gender);
+  localStorage.setItem(NICK_KEY, nick);
+  localStorage.setItem(GENDER_KEY, gender);
 }
 
-// AVVIO
+// ==================== INIT ====================
+function initApp() {
+  loadData();
+  initRegions();
+  initCats();
+  renderChatFromData();
+  renderMarket();
+  // Nav
+  document.querySelectorAll('.nav-btn').forEach(b => b.addEventListener('click', ()=>setView(b.dataset.view)));
+  document.getElementById('sendBtn').addEventListener('click', sendMessage);
+  document.getElementById('chatIn').addEventListener('keypress', e=>{ if(e.key==='Enter') sendMessage(); });
+  document.getElementById('editNickBtn').addEventListener('click', ()=>{
+    document.getElementById('nickEditIn').value = nickname;
+    openOverlay('nickOverlay');
+  });
+  document.getElementById('nickSaveBtn').addEventListener('click', ()=>{
+    const v = document.getElementById('nickEditIn').value.trim();
+    if (v && v.length>=3) { setNicknameAndGender(v, userGender); closeOverlay('nickOverlay'); showToast('Nickname aggiornato'); }
+    else showToast('Nickname troppo corto','error');
+  });
+  document.getElementById('nickCancelBtn').addEventListener('click', ()=>closeOverlay('nickOverlay'));
+  document.getElementById('openSellBtn').addEventListener('click', ()=>openOverlay('sellOverlay'));
+  document.getElementById('sellCancelBtn').addEventListener('click', ()=>closeOverlay('sellOverlay'));
+  document.getElementById('sellConfirmBtn').addEventListener('click', publishProduct);
+  document.getElementById('pImg').addEventListener('change', e => {
+    const f = e.target.files[0], ua = document.getElementById('uploadArea'), ui = document.getElementById('uploadIcon'), ut = document.getElementById('uploadTxt');
+    if (f) { ua.classList.add('has-file'); ui.className = 'fas fa-check-circle'; ut.textContent = f.name; }
+    else { ua.classList.remove('has-file'); ui.className = 'fas fa-cloud-upload-alt'; ut.textContent = 'Clicca o trascina un\'immagine'; }
+  });
+  ['nickOverlay','sellOverlay'].forEach(id => {
+    document.getElementById(id).addEventListener('click', e => { if(e.target===document.getElementById(id)) closeOverlay(id); });
+  });
+  if (isCurrentlyBanned()) { const s = getBanStatus(); showBanNotice(s.permanent, s.until); }
+}
+
+// ==================== AVVIO ====================
 const lsMsgEl = document.getElementById('lsMsg');
-const lsMessages = ['Avvio in corso...','Connessione a Firebase...','Caricamento regioni...','Quasi pronto...'];
+const lsMessages = ['Avvio in corso...','Caricamento regioni...','Quasi pronto...','Benvenuto in AnkoAutca!'];
 let lsIdx = 0;
 const lsInterval = setInterval(() => { lsIdx++; if(lsIdx < lsMessages.length) lsMsgEl.textContent = lsMessages[lsIdx]; else clearInterval(lsInterval); }, 500);
 setTimeout(() => {
   document.getElementById('loadingScreen').style.opacity = '0';
   setTimeout(() => document.getElementById('loadingScreen').style.display = 'none', 800);
-  const savedNick = localStorage.getItem('anko_nick_v6');
-  const savedGender = localStorage.getItem('anko_gender_v6');
+  const savedNick = localStorage.getItem(NICK_KEY);
+  const savedGender = localStorage.getItem(GENDER_KEY);
   if (savedNick && savedGender) {
     setNicknameAndGender(savedNick, savedGender);
     document.getElementById('nicknameModal').style.display = 'none';
@@ -931,7 +947,7 @@ setTimeout(() => {
   }
 }, 2800);
 
-// GESTIONE MODAL INIZIALE
+// Gestione modal iniziale
 const genderUomo = document.getElementById('genderUomo'), genderDonna = document.getElementById('genderDonna');
 const mandNick = document.getElementById('mandatoryNick'), confirmBtn = document.getElementById('confirmNick');
 let selectedGender = '';
