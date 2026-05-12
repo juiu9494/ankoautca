@@ -1,5 +1,128 @@
-<!-- ========================= -->
-<!-- ===== Sport.html ===== -->
-<!-- ========================= -->
-<title>Sport</title>
-<h1>Sport</h1>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie Sportive</title>
+
+<style>
+body{
+  font-family: Arial, sans-serif;
+  margin:0;
+  background:#f5f5f5;
+  color:#222;
+}
+
+header{
+  background:#0d47a1;
+  color:white;
+  padding:20px;
+  text-align:center;
+}
+
+.container{
+  max-width:1000px;
+  margin:20px auto;
+  padding:0 15px;
+}
+
+.news-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:15px;
+}
+
+.card{
+  background:white;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+.card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+
+.card-content{
+  padding:15px;
+}
+
+.card h3{
+  margin:0 0 10px;
+  font-size:18px;
+}
+
+.card p{
+  font-size:14px;
+  color:#555;
+}
+
+.tag{
+  display:inline-block;
+  background:#0d47a1;
+  color:white;
+  padding:3px 8px;
+  font-size:12px;
+  border-radius:5px;
+  margin-bottom:10px;
+}
+
+footer{
+  text-align:center;
+  padding:20px;
+  font-size:13px;
+  color:#777;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>⚽ Notizie Sportive</h1>
+  <p>Ultime notizie su calcio, basket e altri sport</p>
+</header>
+
+<div class="container">
+
+  <div class="news-grid">
+
+    <div class="card">
+      <img src="https://picsum.photos/600/400?1" alt="Sport">
+      <div class="card-content">
+        <span class="tag">Calcio</span>
+        <h3>Vittoria spettacolare in Champions League</h3>
+        <p>Una squadra ribalta la partita negli ultimi minuti con un gol incredibile.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://picsum.photos/600/400?2" alt="Sport">
+      <div class="card-content">
+        <span class="tag">Basket</span>
+        <h3>Record di punti battuto in NBA</h3>
+        <p>Una stella del basket realizza una prestazione storica da record.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://picsum.photos/600/400?3" alt="Sport">
+      <div class="card-content">
+        <span class="tag">Tennis</span>
+        <h3>Finale del Grande Slam attesissima</h3>
+        <p>Due leggende si sfidano in una finale molto attesa dagli appassionati.</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  © 2026 - Notizie Sportive
+</footer>
+
+</body>
+</html>
