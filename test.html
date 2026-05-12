@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Test</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body style="font-family:Arial;padding:40px;">
+
+<h2>🔐 Test Connexion Admin</h2>
+<input type="password" id="pw" placeholder="Password" style="padding:10px;font-size:16px;">
+<button onclick="test()" style="padding:10px 20px;font-size:16px;">Tester</button>
+<p id="result"></p>
+
+<script>
+const SUPABASE_URL = 'https://rmugngceojbarttctsoo.supabase.co';
+// Mets ta clé ici :
+const SUPABASE_KEY = 'TA_CLE_ANON';
+
+const supa = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+async function test() {
+  const pw = document.getElementById('pw').value;
+  const r = document.getElementById('result');
+  
+  // Étape 1 : Tester connexion Supabase
+  const { data: testData, error: testError } = await supa.from('visitor_real').select('count', { count: 'exact', head: true });
+  
+  if (testError) {
+    r.innerHTML = '❌ Erreur connexion Supabase : ' + testError.message;
+    r.style.color = 'red';
+    return;
+  }
+  
+  // Étape 2 : Hasher et vérifier
+  const hashBuffer = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(pw));
+  const hashHex = Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2,'0')).join('');
+  
+  const { data, error } = await supa.from('admins').select('*').eq('password_hash', hashHex).single();
+  
+  if (data) {
+    r.innerHTML = '✅ CONNEXION RÉUSSIE !<br>Username : ' + data.username + '<br>Hash : ' + hashHex;
+    r.style.color = 'green';
+  } else {
+    r.innerHTML = '❌ Mot de passe refusé<br>Hash généré : ' + hashHex + '<br>Erreur : ' + (error?.message || 'Aucun admin trouvé');
+    r.style.color = 'red';
+  }
+}
+</script>
+</body>
+</html>
