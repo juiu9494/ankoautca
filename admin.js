@@ -1,6 +1,6 @@
 // admin.js - Dashboard temps réel avec Supabase
-const SUPABASE_URL = 'https://TON_PROJET.supabase.co';
-const SUPABASE_KEY = 'TA_CLE_ANON'; // Clé publique
+const SUPABASE_URL = 'https://supabase.com/dashboard/project/rmugngceojbarttctsoo';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJtdWduZ2Nlb2piYXJ0dGN0c29vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2MDE5NjIsImV4cCI6MjA5NDE3Nzk2Mn0.DAKlMEZ8B2QaWTzr1Y9Y_SeUWLdZIIa-CgfCh4RN3pc'; // Clé publique
 
 const { createClient } = supabase;
 const supa = createClient(SUPABASE_URL, SUPABASE_KEY);
@@ -21,7 +21,7 @@ async function loadData() {
   // 2. En ligne (5 dernières minutes)
   const fiveMinAgo = new Date(now - 5 * 60 * 1000).toISOString();
   const { count: onlineCount } = await supa
-    .from('visitors')
+    .from('visitor_real')
     .select('*', { count: 'exact', head: true })
     .gte('timestamp', fiveMinAgo);
   
@@ -30,14 +30,14 @@ async function loadData() {
   
   // 3. Pages vues
   const { count: pageViewsCount } = await supa
-    .from('visitors')
+    .from('visitor_real')
     .select('*', { count: 'exact', head: true });
   
   document.getElementById('pageViews').textContent = pageViewsCount || 0;
   
   // 4. Temps moyen
   const { data: timeData } = await supa
-    .from('visitors')
+    .from('visitor_real')
     .select('timeOnPage')
     .not('timeOnPage', 'is', null);
   
@@ -48,7 +48,7 @@ async function loadData() {
   
   // 5. Visiteurs en direct
   const { data: liveData } = await supa
-    .from('visitors')
+    .from('visitor_real')
     .select('*')
     .gte('timestamp', fiveMinAgo)
     .order('timestamp', { ascending: false })
