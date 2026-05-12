@@ -3,236 +3,539 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ANKOAUTCA - Admin Dashboard</title>
+<title>ANKOAUTCA — Admin Panel</title>
+<meta name="robots" content="noindex, nofollow">
+
+<!-- Supabase -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Sans+3:wght@300;400;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+<!-- Tabler Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
 <style>
 :root {
-  --bg: #0f0f1a;
-  --card: #1a1a2e;
-  --accent: #e94560;
-  --text: #e0e0e0;
+  --red: #C0121C;
+  --red-dark: #8B0000;
+  --black: #0A0A0A;
+  --dark: #1a1a1a;
+  --gray-900: #222;
+  --gray-700: #444;
+  --gray-500: #777;
+  --gray-300: #ccc;
+  --gray-100: #f4f4f2;
+  --white: #fff;
   --green: #00c853;
   --blue: #2196f3;
   --orange: #ff9800;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Source Sans 3', Arial, sans-serif;
+  --font-serif: 'Source Serif 4', Georgia, serif;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font-body);background:#0f0f1a;color:#e0e0e0;font-size:14px;min-height:100vh}
+a{text-decoration:none;color:inherit}
 
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-}
+/* ═══════════ LOGIN ═══════════ */
+.login-overlay{position:fixed;inset:0;background:#0f0f1a;display:flex;align-items:center;justify-content:center;z-index:9999}
+.login-card{background:#1a1a2e;border:1px solid #333;border-radius:12px;padding:40px;width:100%;max-width:400px;text-align:center}
+.login-icon{font-size:48px;margin-bottom:12px}
+.login-logo{font-family:var(--font-display);font-size:32px;font-weight:900;color:white;margin-bottom:2px}
+.login-logo span{color:var(--red)}
+.login-subtitle{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#888;margin-bottom:24px}
+.login-input{width:100%;padding:12px;background:#0f0f1a;border:1.5px solid #333;border-radius:6px;color:white;font-family:var(--font-body);font-size:14px;margin-bottom:10px;outline:none;transition:border-color .2s}
+.login-input:focus{border-color:var(--red)}
+.login-btn{width:100%;padding:12px;background:var(--red);color:white;border:none;border-radius:6px;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:1px;cursor:pointer;transition:background .2s}
+.login-btn:hover{background:var(--red-dark)}
+.login-btn:disabled{opacity:.5;cursor:not-allowed}
+.login-error{color:var(--red);font-size:12px;margin-top:8px;min-height:18px}
 
-.admin-header {
-  background: var(--card);
-  padding: 16px 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 2px solid var(--accent);
-}
+/* ═══════════ DASHBOARD ═══════════ */
+.dashboard{display:none}
+.dashboard.show{display:block}
 
-.logo { font-size: 24px; font-weight: 900; color: var(--accent); }
+/* Top bar */
+.admin-topbar{background:var(--black);padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:54px;border-bottom:3px solid var(--red);position:sticky;top:0;z-index:100}
+.admin-logo{font-family:var(--font-display);font-size:20px;font-weight:900;color:white}
+.admin-logo span{color:var(--red)}
+.admin-topbar-right{display:flex;align-items:center;gap:12px;font-size:12px}
+.live-dot{width:8px;height:8px;background:var(--green);border-radius:50%;animation:pulse 1.5s infinite;display:inline-block;margin-right:6px}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.btn-sm{background:transparent;border:1px solid #555;color:#ccc;padding:6px 12px;font-size:11px;font-weight:600;border-radius:4px;cursor:pointer;transition:all .2s}
+.btn-sm:hover{background:#333;color:white}
+.btn-danger{background:var(--red);color:white;border:none}
+.btn-danger:hover{background:var(--red-dark)}
 
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 16px;
-  padding: 24px;
-}
+/* Container */
+.admin-container{max-width:1400px;margin:0 auto;padding:16px 20px}
 
-.stat-card {
-  background: var(--card);
-  border-radius: 12px;
-  padding: 20px;
-  border: 1px solid rgba(255,255,255,0.05);
-}
+/* Navigation tabs */
+.nav-tabs{display:flex;gap:0;margin-bottom:20px;border-bottom:2px solid #333}
+.nav-tab{padding:10px 20px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#888;cursor:pointer;border-bottom:3px solid transparent;transition:all .2s;background:none;border-top:none;border-left:none;border-right:none;font-family:var(--font-body)}
+.nav-tab:hover{color:#ccc}
+.nav-tab.active{color:white;border-bottom-color:var(--red)}
+.tab-content{display:none}
+.tab-content.active{display:block}
 
-.stat-value {
-  font-size: 36px;
-  font-weight: bold;
-  margin: 8px 0;
-}
+/* Stats */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:20px}
+.stat-card{background:#1a1a2e;border:1px solid #2a2a3e;border-radius:8px;padding:16px 18px;position:relative;overflow:hidden}
+.stat-card:hover{border-color:#444}
+.stat-card-value{font-family:var(--font-display);font-size:34px;font-weight:900;color:white;line-height:1}
+.stat-card-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#888;margin-top:4px}
+.accent-left{position:absolute;top:0;left:0;width:3px;height:100%}
+.a-red{background:var(--red)}.a-green{background:var(--green)}.a-blue{background:var(--blue)}.a-orange{background:var(--orange)}
 
-.stat-label {
-  color: #888;
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
+/* Cards */
+.card{background:#1a1a2e;border:1px solid #2a2a3e;border-radius:8px;padding:20px;margin-bottom:16px}
+.card-title{font-family:var(--font-display);font-size:16px;font-weight:700;color:white;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.card-title i{color:var(--red)}
 
-.stat-icon {
-  font-size: 24px;
-  margin-bottom: 8px;
-}
+/* Table */
+table{width:100%;border-collapse:collapse}
+th{text-align:left;padding:10px 14px;font-size:10px;text-transform:uppercase;letter-spacing:1px;color:#888;background:rgba(0,0,0,.2);position:sticky;top:0}
+td{padding:10px 14px;font-size:12px;border-bottom:1px solid rgba(255,255,255,.03)}
+tr:hover td{background:rgba(192,18,28,.05)}
+.badge{display:inline-block;padding:3px 8px;border-radius:3px;font-size:10px;font-weight:700}
+.badge-yes{background:#002200;color:var(--green)}
+.badge-no{background:#220000;color:var(--red)}
+.badge-draft{background:#332200;color:var(--orange)}
 
-.live-table {
-  margin: 24px;
-  background: var(--card);
-  border-radius: 12px;
-  overflow: hidden;
-}
+/* Forms */
+.form-group{margin-bottom:14px}
+.form-group label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#888;margin-bottom:5px}
+.form-input,.form-select,.form-textarea{width:100%;padding:10px 12px;background:#0f0f1a;border:1.5px solid #333;border-radius:6px;color:white;font-family:var(--font-body);font-size:13px;outline:none;transition:border-color .2s}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--red)}
+.form-textarea{min-height:120px;resize:vertical;font-family:var(--font-serif)}
+.form-select{appearance:none;cursor:pointer}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:600px){.form-row{grid-template-columns:1fr}}
+.btn{padding:10px 20px;border-radius:6px;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:1px;cursor:pointer;border:none;transition:all .2s;font-family:var(--font-body)}
+.btn-primary{background:var(--red);color:white}
+.btn-primary:hover{background:var(--red-dark)}
+.btn-outline{background:transparent;border:1.5px solid var(--red);color:var(--red)}
+.btn-outline:hover{background:var(--red);color:white}
+.btn-danger{background:#8B0000;color:white}
+.btn-danger:hover{background:#660000}
+.btn-success{background:#0d6b0d;color:white}
+.btn-success:hover{background:#0a4f0a}
 
-.table-header {
-  padding: 16px 24px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  font-weight: bold;
-  display: flex;
-  justify-content: space-between;
-}
+/* Article cards */
+.articles-grid-admin{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.article-card-admin{background:#1a1a2e;border:1px solid #2a2a3e;border-radius:8px;overflow:hidden;transition:all .2s}
+.article-card-admin:hover{border-color:var(--red)}
+.article-card-img{aspect-ratio:16/9;background:#111;overflow:hidden;position:relative}
+.article-card-img img{width:100%;height:100%;object-fit:cover}
+.article-card-body{padding:14px}
+.article-card-cat{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--red);margin-bottom:6px}
+.article-card-title{font-family:var(--font-display);font-size:15px;font-weight:700;color:white;margin-bottom:6px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.article-card-meta{font-size:10px;color:#888;display:flex;gap:8px;align-items:center}
+.article-card-actions{display:flex;gap:6px;margin-top:10px}
+.btn-xs{padding:5px 10px;font-size:10px;border-radius:4px;cursor:pointer;border:none;font-weight:700;transition:all .2s}
 
-.live-dot {
-  width: 8px;
-  height: 8px;
-  background: var(--green);
-  border-radius: 50%;
-  display: inline-block;
-  animation: pulse 1.5s infinite;
-  margin-right: 8px;
-}
+/* Charts */
+.charts-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+@media(max-width:800px){.charts-grid{grid-template-columns:1fr}}
+.bar-chart{display:flex;align-items:flex-end;gap:3px;height:180px}
+.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px}
+.bar-val{font-size:9px;font-weight:700;color:#aaa}
+.bar-fill{width:100%;background:var(--red);border-radius:3px 3px 0 0;min-height:2px}
+.bar-lbl{font-size:8px;color:#666}
 
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
-}
+/* Toggle */
+.toggle{position:relative;display:inline-block;width:40px;height:22px}
+.toggle input{opacity:0;width:0;height:0}
+.toggle-slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background:#333;border-radius:22px;transition:.3s}
+.toggle-slider:before{position:absolute;content:"";height:16px;width:16px;left:3px;bottom:3px;background:white;border-radius:50%;transition:.3s}
+.toggle input:checked+.toggle-slider{background:var(--red)}
+.toggle input:checked+.toggle-slider:before{transform:translateX(18px)}
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
+/* Modal */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:200;display:flex;align-items:center;justify-content:center}
+.modal{background:#1a1a2e;border:1px solid #333;border-radius:12px;padding:24px;width:100%;max-width:800px;max-height:90vh;overflow-y:auto}
+.modal-title{font-family:var(--font-display);font-size:18px;font-weight:700;color:white;margin-bottom:20px}
+.modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:16px}
 
-th {
-  text-align: left;
-  padding: 12px 24px;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #888;
-  background: rgba(0,0,0,0.2);
-}
-
-td {
-  padding: 12px 24px;
-  font-size: 13px;
-  border-bottom: 1px solid rgba(255,255,255,0.03);
-}
-
-tr:hover td {
-  background: rgba(233,69,96,0.05);
-}
-
-.badge {
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 11px;
-  font-weight: bold;
-}
-
-.badge-new { background: var(--green); color: white; }
-.badge-returning { background: var(--blue); color: white; }
-
-.charts-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  padding: 0 24px 24px;
-}
-
-.chart-card {
-  background: var(--card);
-  border-radius: 12px;
-  padding: 20px;
-  min-height: 300px;
-}
-
-@media(max-width: 768px) {
-  .charts-section { grid-template-columns: 1fr; }
-}
-
-.refresh-btn {
-  background: var(--accent);
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.auto-refresh {
-  font-size: 12px;
-  color: #888;
+/* Responsive */
+@media(max-width:600px){
+  .admin-topbar-right{gap:6px;font-size:10px}
+  .admin-logo{font-size:16px}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .stat-card-value{font-size:24px}
+  .articles-grid-admin{grid-template-columns:1fr}
+  .nav-tab{padding:8px 12px;font-size:10px}
 }
 </style>
 </head>
 <body>
 
-<div class="admin-header">
-  <div class="logo">📊 ANKOAUTCA Admin</div>
-  <div style="display:flex; gap:12px; align-items:center;">
-    <span class="auto-refresh">Auto-refresh: 5s</span>
-    <span style="display:flex; align-items:center;"><span class="live-dot"></span> Live</span>
-    <button class="refresh-btn" onclick="loadData()">🔄 Rafraîchir</button>
-    <a href="index.html" style="color:#888; text-decoration:none;">← Site</a>
+<!-- ═══════════════════════ LOGIN ═══════════════════════ -->
+<div class="login-overlay" id="loginScreen">
+  <div class="login-card">
+    <div class="login-icon">🔐</div>
+    <div class="login-logo"><span>A</span>NKOAUTCA</div>
+    <div class="login-subtitle">Pannello Amministrazione</div>
+    <input type="password" id="passwordInput" class="login-input" placeholder="Password" autocomplete="off">
+    <button id="loginBtn" class="login-btn" onclick="login()">Accedi</button>
+    <div class="login-error" id="loginError"></div>
+    <div style="margin-top:16px;font-size:11px;color:#555">← <a href="index.html" style="color:#888">Torna al sito</a></div>
   </div>
 </div>
 
-<div class="stats-grid">
-  <div class="stat-card">
-    <div class="stat-icon">👥</div>
-    <div class="stat-label">Visiteurs Aujourd'hui</div>
-    <div class="stat-value" id="todayVisitors">0</div>
+<!-- ═══════════════════════ DASHBOARD ═══════════════════════ -->
+<div class="dashboard" id="dashboard">
+  
+  <!-- TOP BAR -->
+  <div class="admin-topbar">
+    <div class="admin-logo"><span>A</span>NKOAUTCA Admin</div>
+    <div class="admin-topbar-right">
+      <span><span class="live-dot"></span><span id="onlineCount">0</span> online</span>
+      <button class="btn-sm" onclick="refreshData()">🔄 Aggiorna</button>
+      <a href="index.html" class="btn-sm">🌐 Sito</a>
+      <button class="btn-sm btn-danger" onclick="logout()">🚪 Esci</button>
+    </div>
   </div>
-  <div class="stat-card">
-    <div class="stat-icon">🕐</div>
-    <div class="stat-label">En Ligne Maintenant</div>
-    <div class="stat-value" id="onlineNow" style="color: #00c853;">0</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-icon">📄</div>
-    <div class="stat-label">Pages Vues</div>
-    <div class="stat-value" id="pageViews">0</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-icon">⏱️</div>
-    <div class="stat-label">Temps Moyen</div>
-    <div class="stat-value" id="avgTime">0s</div>
+
+  <div class="admin-container">
+    
+    <!-- NAVIGATION -->
+    <div class="nav-tabs">
+      <button class="nav-tab active" onclick="switchTab('dashboard')">📊 Dashboard</button>
+      <button class="nav-tab" onclick="switchTab('articles')">📝 Articoli</button>
+      <button class="nav-tab" onclick="switchTab('new-article')">➕ Nuovo Articolo</button>
+    </div>
+
+    <!-- ═══════════ TAB: DASHBOARD ═══════════ -->
+    <div class="tab-content active" id="tab-dashboard">
+      <div class="stats-grid" id="statsCards"></div>
+      <div class="charts-grid">
+        <div class="card">
+          <div class="card-title"><i class="ti ti-chart-bar"></i>Traffico 24h</div>
+          <div class="bar-chart" id="chart24h"></div>
+        </div>
+        <div class="card">
+          <div class="card-title"><i class="ti ti-world"></i>Visitatori in Diretta</div>
+          <div style="max-height:250px;overflow-y:auto">
+            <table><tbody id="liveVisitors"><tr><td colspan="5" style="text-align:center;color:#555">Caricamento...</td></tr></tbody></table>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title"><i class="ti ti-list"></i>Ultime 20 Visite</div>
+        <div style="max-height:300px;overflow-y:auto">
+          <table><tbody id="recentVisitors"><tr><td colspan="5" style="text-align:center;color:#555">Caricamento...</td></tr></tbody></table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ TAB: ARTICOLI ═══════════ -->
+    <div class="tab-content" id="tab-articles">
+      <div style="margin-bottom:14px;display:flex;gap:8px;flex-wrap:wrap">
+        <select class="form-select" style="width:auto" id="filterCategory" onchange="loadArticles()">
+          <option value="">Tutte le categorie</option>
+          <option>Politica</option><option>Economia</option><option>Mondo</option>
+          <option>Sport</option><option>Cultura</option><option>Tecnologia</option>
+          <option>Salute</option><option>Scienze</option><option>Ambiente</option>
+        </select>
+        <button class="btn btn-primary" onclick="switchTab('new-article')">➕ Nuovo Articolo</button>
+      </div>
+      <div class="articles-grid-admin" id="articlesList">Caricamento articoli...</div>
+    </div>
+
+    <!-- ═══════════ TAB: NUOVO ARTICOLO ═══════════ -->
+    <div class="tab-content" id="tab-new-article">
+      <div class="card">
+        <div class="card-title"><i class="ti ti-pencil"></i><span id="formTitle">Nuovo Articolo</span></div>
+        <input type="hidden" id="editId">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Titolo *</label>
+            <input type="text" class="form-input" id="articleTitle" placeholder="Titolo dell'articolo...">
+          </div>
+          <div class="form-group">
+            <label>Categoria</label>
+            <select class="form-select" id="articleCategory">
+              <option>Politica</option><option>Economia</option><option>Mondo</option>
+              <option>Sport</option><option>Cultura</option><option>Tecnologia</option>
+              <option>Salute</option><option>Scienze</option><option>Ambiente</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Estratto (riassunto breve)</label>
+          <textarea class="form-textarea" id="articleExcerpt" style="min-height:70px" placeholder="Breve descrizione dell'articolo..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Contenuto *</label>
+          <textarea class="form-textarea" id="articleContent" placeholder="Scrivi il contenuto completo... Puoi usare HTML: &lt;p&gt; paragrafi &lt;/p&gt; &lt;strong&gt;grassetto&lt;/strong&gt;"></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>URL Immagine</label>
+            <input type="text" class="form-input" id="articleImage" placeholder="https://... o lascia vuoto per default">
+          </div>
+          <div class="form-group">
+            <label>Autore</label>
+            <input type="text" class="form-input" id="articleAuthor" value="Redazione ANKOAUTCA">
+          </div>
+        </div>
+        <div class="form-row" style="grid-template-columns:auto auto 1fr">
+          <div class="form-group">
+            <label>Pubblicato</label>
+            <label class="toggle">
+              <input type="checkbox" id="articlePublished" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>In evidenza</label>
+            <label class="toggle">
+              <input type="checkbox" id="articleFeatured">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px">
+          <button class="btn btn-primary" onclick="saveArticle()">💾 Salva Articolo</button>
+          <button class="btn btn-outline" onclick="resetForm()">🔄 Reset</button>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
-<div class="charts-section">
-  <div class="chart-card">
-    <h3 style="margin-bottom:16px;">📈 Trafic (Dernières 24h)</h3>
-    <div id="chart24h" style="height:250px; display:flex; align-items:flex-end; gap:4px;"></div>
-  </div>
-  <div class="chart-card">
-    <h3 style="margin-bottom:16px;">🌍 Pages les Plus Visitées</h3>
-    <div id="topPages"></div>
-  </div>
-</div>
+<!-- ═══════════════════════ SCRIPT ═══════════════════════ -->
+<script>
+// CONFIGURATION SUPABASE
+const SUPABASE_URL = 'https://rmugngceojbarttctsoo.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJtdWduZ2Nlb2piYXJ0dGN0c29vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2MDE5NjIsImV4cCI6MjA5NDE3Nzk2Mn0.DAKlMEZ8B2QaWTzr1Y9Y_SeUWLdZIIa-CgfCh4RN3pc'; // ← METS TA VRAIE CLÉ ANON ICI !!!
 
-<div class="live-table">
-  <div class="table-header">
-    <span>🟢 Visiteurs en Direct</span>
-    <span id="liveCount">0 actifs</span>
-  </div>
-  <div style="max-height:400px; overflow-y:auto;">
-    <table>
-      <thead>
-        <tr>
-          <th>Page</th>
-          <th>Référent</th>
-          <th>Arrivée</th>
-          <th>Durée</th>
-          <th>Appareil</th>
-        </tr>
-      </thead>
-      <tbody id="liveVisitors"></tbody>
-    </table>
-  </div>
-</div>
+const supa = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-<script src="admin.js"></script>
+// ═══════════════ SHA-256 ═══════════════
+async function sha256(msg) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(msg));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+
+// ═══════════════ LOGIN ═══════════════
+async function login() {
+  const pw = document.getElementById('passwordInput').value;
+  const err = document.getElementById('loginError');
+  const btn = document.getElementById('loginBtn');
+  
+  if (!pw) { err.textContent = 'Inserisci password'; return; }
+  btn.disabled = true; btn.textContent = 'Verifica...'; err.textContent = '';
+  
+  const hash = await sha256(pw);
+  const { data, error } = await supa.from('admins').select('*').eq('password_hash', hash).single();
+  
+  if (error || !data) {
+    err.textContent = '❌ Password errata';
+    btn.disabled = false; btn.textContent = 'Accedi';
+    return;
+  }
+  
+  sessionStorage.setItem('ankoautca_admin', 'true');
+  document.getElementById('loginScreen').style.display = 'none';
+  document.getElementById('dashboard').classList.add('show');
+  loadDashboard();
+  setInterval(loadDashboard, 10000);
+}
+
+function logout() {
+  sessionStorage.removeItem('ankoautca_admin');
+  document.getElementById('dashboard').classList.remove('show');
+  document.getElementById('loginScreen').style.display = 'flex';
+  document.getElementById('passwordInput').value = '';
+}
+
+// Vérifier session
+if (sessionStorage.getItem('ankoautca_admin') === 'true') {
+  document.getElementById('loginScreen').style.display = 'none';
+  document.getElementById('dashboard').classList.add('show');
+  loadDashboard();
+  setInterval(loadDashboard, 10000);
+}
+
+// Touche Entrée
+document.getElementById('passwordInput').addEventListener('keydown', e => { if (e.key==='Enter') login(); });
+
+// ═══════════════ NAVIGATION ═══════════════
+function switchTab(tab) {
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  
+  const tabMap = { 'dashboard': 0, 'articles': 1, 'new-article': 2 };
+  document.querySelectorAll('.nav-tab')[tabMap[tab]].classList.add('active');
+  document.getElementById('tab-' + tab).classList.add('active');
+  
+  if (tab === 'dashboard') loadDashboard();
+  if (tab === 'articles') loadArticles();
+}
+
+// ═══════════════ DASHBOARD ═══════════════
+async function loadDashboard() {
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).toISOString();
+  const fiveMinAgo = new Date(now - 5*60*1000).toISOString();
+
+  // Stats
+  const [{count:total},{count:todayCount},{count:online},{data:timeData},{data:recent}] = await Promise.all([
+    supa.from('visitor_real').select('*',{count:'exact',head:true}),
+    supa.from('visitor_real').select('*',{count:'exact',head:true}).gte('created_at',today),
+    supa.from('visitor_real').select('*',{count:'exact',head:true}).gte('created_at',fiveMinAgo),
+    supa.from('visitor_real').select('time_on_page').not('time_on_page','is',null).limit(500),
+    supa.from('visitor_real').select('*').order('created_at',{ascending:false}).limit(20)
+  ]);
+
+  document.getElementById('onlineCount').textContent = online || 0;
+  
+  const avgTime = timeData?.length ? Math.round(timeData.reduce((s,v)=>s+(v.time_on_page||0),0)/timeData.length) : 0;
+  
+  document.getElementById('statsCards').innerHTML = `
+    <div class="stat-card"><div class="accent-left a-green"></div><div class="stat-card-value">${total||0}</div><div class="stat-card-label">👥 Totale Visite</div></div>
+    <div class="stat-card"><div class="accent-left a-blue"></div><div class="stat-card-value">${todayCount||0}</div><div class="stat-card-label">📅 Oggi</div></div>
+    <div class="stat-card"><div class="accent-left a-green"></div><div class="stat-card-value" style="color:#00c853">${online||0}</div><div class="stat-card-label">🟢 Online (5min)</div></div>
+    <div class="stat-card"><div class="accent-left a-orange"></div><div class="stat-card-value">${avgTime}s</div><div class="stat-card-label">⏱️ Tempo Medio</div></div>
+  `;
+
+  // Live visitors
+  const {data:live} = await supa.from('visitor_real').select('*').gte('created_at',fiveMinAgo).order('created_at',{ascending:false}).limit(10);
+  document.getElementById('liveVisitors').innerHTML = live?.length ? live.map(v=>`
+    <tr><td>${v.page||'/'}</td><td>${v.referrer||'Direct'}</td><td>${new Date(v.created_at).toLocaleTimeString('it-IT')}</td><td>${v.time_on_page?v.time_on_page+'s':'<span class="badge badge-yes">Attivo</span>'}</td><td>${(v.user_agent||'').includes('Mobile')?'📱':'💻'}</td></tr>
+  `).join('') : '<tr><td colspan="5" style="text-align:center;color:#555">Nessun visitatore attivo</td></tr>';
+
+  // Recent
+  document.getElementById('recentVisitors').innerHTML = recent?.length ? recent.map(v=>`
+    <tr><td>${v.page||'/'}</td><td>${v.referrer||'Direct'}</td><td>${new Date(v.created_at).toLocaleString('it-IT')}</td><td>${v.time_on_page?v.time_on_page+'s':'N/A'}</td><td>${(v.user_agent||'').includes('Mobile')?'📱':'💻'} ${v.screen_resolution||''}</td></tr>
+  `).join('') : '<tr><td colspan="5" style="text-align:center;color:#555">Nessuna visita</td></tr>';
+
+  // Chart 24h
+  const {data:h24} = await supa.from('visitor_real').select('created_at').gte('created_at',new Date(Date.now()-24*60*60*1000).toISOString());
+  const hours = {}; for(let i=0;i<24;i++) hours[i]=0;
+  h24?.forEach(v=>{hours[new Date(v.created_at).getHours()]++});
+  const maxH = Math.max(...Object.values(hours),1);
+  document.getElementById('chart24h').innerHTML = Object.entries(hours).map(([h,c])=>`
+    <div class="bar-col"><div class="bar-val">${c||''}</div><div class="bar-fill" style="height:${(c/maxH)*140}px;${c===0?'background:#333':''}"></div><div class="bar-lbl">${h}h</div></div>
+  `).join('');
+}
+
+// ═══════════════ ARTICLES ═══════════════
+async function loadArticles() {
+  const cat = document.getElementById('filterCategory').value;
+  let query = supa.from('articles').select('*').order('created_at',{ascending:false});
+  if (cat) query = query.eq('category', cat);
+  
+  const {data} = await query;
+  document.getElementById('articlesList').innerHTML = data?.length ? data.map(a=>`
+    <div class="article-card-admin">
+      <div class="article-card-img"><img src="${a.image_url||'https://picsum.photos/seed/'+a.id+'/400/225'}" alt=""></div>
+      <div class="article-card-body">
+        <div class="article-card-cat">${a.category||'Senza categoria'}</div>
+        <div class="article-card-title">${a.title}</div>
+        <div class="article-card-meta">
+          <span>${a.author||'Redazione'}</span>
+          <span>${new Date(a.created_at).toLocaleDateString('it-IT')}</span>
+          <span>👁 ${a.views||0}</span>
+          ${a.published?'<span class="badge badge-yes">Pubblicato</span>':'<span class="badge badge-draft">Bozza</span>'}
+          ${a.featured?'<span class="badge badge-yes">★ In evidenza</span>':''}
+        </div>
+        <div class="article-card-actions">
+          <button class="btn-xs btn-primary" onclick="editArticle('${a.id}')">✏️ Modifica</button>
+          <button class="btn-xs btn-danger" onclick="deleteArticle('${a.id}')">🗑️ Elimina</button>
+          <button class="btn-xs btn-outline" onclick="togglePublish('${a.id}',${a.published})">${a.published?'📥 Bozza':'📤 Pubblica'}</button>
+        </div>
+      </div>
+    </div>
+  `).join('') : '<p style="grid-column:1/-1;color:#888;text-align:center">Nessun articolo trovato. <a href="#" onclick="switchTab(\'new-article\')" style="color:var(--red)">Crea il primo!</a></p>';
+}
+
+// ═══════════════ CRUD ARTICLES ═══════════════
+async function saveArticle() {
+  const id = document.getElementById('editId').value;
+  const article = {
+    title: document.getElementById('articleTitle').value,
+    category: document.getElementById('articleCategory').value,
+    excerpt: document.getElementById('articleExcerpt').value,
+    content: document.getElementById('articleContent').value,
+    image_url: document.getElementById('articleImage').value,
+    author: document.getElementById('articleAuthor').value,
+    published: document.getElementById('articlePublished').checked,
+    featured: document.getElementById('articleFeatured').checked,
+    slug: document.getElementById('articleTitle').value.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').substring(0,80) + '-' + Date.now()
+  };
+  
+  if (!article.title || !article.content) { alert('Titolo e Contenuto sono obbligatori!'); return; }
+  
+  let result;
+  if (id) {
+    result = await supa.from('articles').update({...article, updated_at: new Date().toISOString()}).eq('id', id);
+  } else {
+    result = await supa.from('articles').insert([article]);
+  }
+  
+  if (result.error) { alert('Errore: ' + result.error.message); return; }
+  
+  alert(id ? '✅ Articolo aggiornato!' : '✅ Articolo creato!');
+  resetForm();
+  switchTab('articles');
+}
+
+async function editArticle(id) {
+  const {data} = await supa.from('articles').select('*').eq('id', id).single();
+  if (!data) return;
+  
+  document.getElementById('editId').value = data.id;
+  document.getElementById('articleTitle').value = data.title;
+  document.getElementById('articleCategory').value = data.category;
+  document.getElementById('articleExcerpt').value = data.excerpt || '';
+  document.getElementById('articleContent').value = data.content || '';
+  document.getElementById('articleImage').value = data.image_url || '';
+  document.getElementById('articleAuthor').value = data.author || '';
+  document.getElementById('articlePublished').checked = data.published;
+  document.getElementById('articleFeatured').checked = data.featured;
+  document.getElementById('formTitle').textContent = '✏️ Modifica Articolo';
+  
+  switchTab('new-article');
+  window.scrollTo(0,0);
+}
+
+async function deleteArticle(id) {
+  if (!confirm('Sei sicuro di voler eliminare questo articolo?')) return;
+  await supa.from('articles').delete().eq('id', id);
+  loadArticles();
+}
+
+async function togglePublish(id, current) {
+  await supa.from('articles').update({published: !current}).eq('id', id);
+  loadArticles();
+}
+
+function resetForm() {
+  document.getElementById('editId').value = '';
+  document.getElementById('articleTitle').value = '';
+  document.getElementById('articleExcerpt').value = '';
+  document.getElementById('articleContent').value = '';
+  document.getElementById('articleImage').value = '';
+  document.getElementById('articleAuthor').value = 'Redazione ANKOAUTCA';
+  document.getElementById('articlePublished').checked = true;
+  document.getElementById('articleFeatured').checked = false;
+  document.getElementById('formTitle').textContent = '➕ Nuovo Articolo';
+}
+
+function refreshData() { loadDashboard(); loadArticles(); }
+
+// ═══════════════ INIT ═══════════════
+console.log('🔐 ANKOAUTCA Admin Panel');
+console.log('📊 Dashboard | 📝 Gestione Articoli | 🔒 Password protetta');
+console.log('💡 Suggerimento: il tuo primo articolo apparirà sul sito principale!');
+</script>
 </body>
 </html>
