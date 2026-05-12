@@ -402,19 +402,20 @@ async function loadAllArticles(){
   aa.innerHTML=data?.map(a=>`<tr><td style="font-weight:600">${a.title||''}</td><td>${a.category||''}</td><td>${a.author||''}</td><td><span class="status-badge ${a.published?'status-published':'status-draft'}">${a.published?'Pubblicato':'Bozza'}</span></td><td>${new Date(a.created_at).toLocaleDateString('it-IT')}</td><td><div class="action-btns"><div class="action-btn green" onclick="editArticle('${a.id}')"><i class="ti ti-edit"></i></div><div class="action-btn danger" onclick="deleteArticle('${a.id}')"><i class="ti ti-trash"></i></div></div></td></tr>`).join('')||'<tr><td colspan="6">Nessun articolo</td></tr>';
 }
 
-// ═══════════ INIT ═══════════
 <script>
+/* ===================== SUPABASE ===================== */
+const SUPABASE_URL = 'https://rmugngceojbarttctsoo.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJtdWduZ2Nlb2piYXJ0dGN0c29vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2MDE5NjIsImV4cCI6MjA5NDE3Nzk2Mn0.DAKlMEZ8B2QaWTzr1Y9Y_SeUWLdZIIa-CgfCh4RN3pc';
 
-// ═══════════ GLOBAL STATE ═══════════
+const supa = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+/* ===================== STATE ===================== */
 let dashboardInterval = null;
 
-// ═══════════ INTERVAL CONTROL ═══════════
+/* ===================== INTERVAL CONTROL ===================== */
 function startDashboardInterval() {
-  if (dashboardInterval) clearInterval(dashboardInterval);
-
-  dashboardInterval = setInterval(() => {
-    loadDashboard();
-  }, 15000);
+  stopDashboardInterval();
+  dashboardInterval = setInterval(loadDashboard, 15000);
 }
 
 function stopDashboardInterval() {
@@ -424,13 +425,11 @@ function stopDashboardInterval() {
   }
 }
 
-// ═══════════ AUTH INIT ═══════════
+/* ===================== AUTH INIT ===================== */
 async function initAuth() {
-
   const { data } = await supa.auth.getSession();
 
   if (data.session) {
-
     document.getElementById('loginOverlay').style.display = 'none';
     document.getElementById('app').style.display = 'flex';
 
@@ -439,9 +438,8 @@ async function initAuth() {
   }
 }
 
-// ═══════════ LOGIN ═══════════
+/* ===================== LOGIN ===================== */
 async function login() {
-
   const password = document.getElementById('loginPassword').value;
   const errorBox = document.getElementById('loginError');
 
@@ -452,10 +450,8 @@ async function login() {
     return;
   }
 
-  const email = 'admin@test.com';
-
   const { data, error } = await supa.auth.signInWithPassword({
-    email,
+    email: 'admin@test.com',
     password
   });
 
@@ -485,19 +481,21 @@ async function login() {
   startDashboardInterval();
 }
 
-// ═══════════ LOGOUT ═══════════
+/* ===================== LOGOUT ===================== */
 async function logout() {
-
   stopDashboardInterval();
-
   await supa.auth.signOut();
   location.reload();
 }
 
-// ═══════════ NAV HASH ═══════════
-initAuth();
+/* ===================== NAVIGATION HASH ===================== */
+function initNavigation() {
+  const hash = window.location.hash.replace('#', '');
+  if (hash) showSection(hash);
+}
 
-const hash = window.location.hash.replace('#', '');
-if (hash) showSection(hash);
+/* ===================== INIT APP ===================== */
+initAuth();
+initNavigation();
 
 </script>
