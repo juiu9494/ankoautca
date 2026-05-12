@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.6/dist/purify.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 :root{--red:#C0121C;--red-d:#8B0000;--black:#0A0A0A;--dark:#1a1a1a;--sidebar-w:240px;--blue:#1a6fad;--green:#1a7a3a;--orange:#c07020;--gray-50:#f8f8f6;--gray-100:#f0ede8;--gray-200:#e0ddd8;--gray-400:#999;--gray-600:#555;--gray-800:#222;--white:#fff;--font:'Inter',sans-serif;--font-d:'Playfair Display',serif;}
@@ -146,8 +147,8 @@ select.form-input{cursor:pointer}
 </div>
 
 <!-- DASHBOARD (hidden until login) -->
-<div id="app" style="display:none;flex:1;display:none;">
-
+<div id="app" style="display:none;flex:1;">
+  
 <!-- SIDEBAR -->
 <div class="sidebar">
   <div class="sb-logo"><div><div class="sb-logo-text"><span>A</span>NKOAUTCA</div><div style="font-size:10px;color:#666;margin-top:2px;">Pannello Redazione</div></div><span class="sb-badge">CMS</span></div>
@@ -253,34 +254,66 @@ select.form-input{cursor:pointer}
 <!-- SCRIPT -->
 <script>
 // ═══════════ CONFIG SUPABASE ═══════════
-const SUPABASE_URL = 'https://supabase.com/dashboard/project/rmugngceojbarttctsoo';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJtdWduZ2Nlb2piYXJ0dGN0c29vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2MDE5NjIsImV4cCI6MjA5NDE3Nzk2Mn0.DAKlMEZ8B2QaWTzr1Y9Y_SeUWLdZIIa-CgfCh4RN3pc'; // ← REMPLACE PAR TA VRAIE CLÉ
+  const SUPABASE_URL = 'https://rmugngceojbarttctsoo.supabase.co';
+  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJtdWduZ2Nlb2piYXJ0dGN0c29vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2MDE5NjIsImV4cCI6MjA5NDE3Nzk2Mn0.DAKlMEZ8B2QaWTzr1Y9Y_SeUWLdZIIa-CgfCh4RN3pc'; // ← REMPLACE PAR TA VRAIE CLÉ
 
 const supa = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-// ═══════════ SHA-256 ═══════════
-async function sha256(m){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(m));return Array.from(new Uint8Array(b)).map(x=>x.toString(16).padStart(2,'0')).join('')}
+// ═══════════ AUTH LOGIN  ═══════════
 
-// ═══════════ LOGIN ═══════════
-async function login(){
-  const p=document.getElementById('loginPassword').value;
-  const e=document.getElementById('loginError');
-  if(!p){e.textContent='Inserisci password';return}
-  const h=await sha256(p);
-  const{data,error}=await supa.from('admins').select('*').eq('password_hash',h).single();
-  if(data){
-    sessionStorage.setItem('anko_logged','1');
-    document.getElementById('loginOverlay').style.display='none';
-    document.getElementById('app').style.display='flex';
-    loadDashboard();
-    setInterval(loadDashboard,15000);
-  }else{
-    e.textContent='Password errata';
+  async function login() {
+
+  const password = document.getElementById('loginPassword').value;
+  const errorBox = document.getElementById('loginError');
+
+  errorBox.textContent = '';
+
+  if (!password) {
+    errorBox.textContent = 'Inserisci password';
+    return;
   }
-}
 
-function logout(){
-  sessionStorage.removeItem('anko_logged');
+  const email = 'admin@test.com';
+
+  const { data, error } = await supa.auth.signInWithPassword({
+    email,
+    password
+  });
+
+  if (error) {
+    errorBox.textContent = 'Password errata';
+    return;
+  }
+
+  const user = data.user;
+
+  const { data: adminData, error: adminError } = await supa
+    .from('admins')
+    .select('*')
+    .eq('id', user.id)
+    .single();
+
+  if (!adminData || adminError) {
+    errorBox.textContent = 'Accesso negato';
+
+    await supa.auth.signOut();
+
+    return;
+  }
+
+  document.getElementById('loginOverlay').style.display = 'none';
+
+  document.getElementById('app').style.display = 'flex';
+
+  loadDashboard();
+  clearInterval(dashboardInterval);
+  dashboardInterval = setInterval(loadDashboard, 15000);
+  
+  }
+  
+// --- sortie ---- 
+  async function logout() {
+  await supa.auth.signOut();
   location.reload();
 }
 
@@ -370,14 +403,101 @@ async function loadAllArticles(){
 }
 
 // ═══════════ INIT ═══════════
-if(sessionStorage.getItem('anko_logged')==='1'){
-  document.getElementById('loginOverlay').style.display='none';
-  document.getElementById('app').style.display='flex';
-  loadDashboard();
-  setInterval(loadDashboard,15000);
+<script>
+
+// ═══════════ GLOBAL STATE ═══════════
+let dashboardInterval = null;
+
+// ═══════════ INTERVAL CONTROL ═══════════
+function startDashboardInterval() {
+  if (dashboardInterval) clearInterval(dashboardInterval);
+
+  dashboardInterval = setInterval(() => {
+    loadDashboard();
+  }, 15000);
 }
-const hash=window.location.hash.replace('#','');
-if(hash)showSection(hash);
+
+function stopDashboardInterval() {
+  if (dashboardInterval) {
+    clearInterval(dashboardInterval);
+    dashboardInterval = null;
+  }
+}
+
+// ═══════════ AUTH INIT ═══════════
+async function initAuth() {
+
+  const { data } = await supa.auth.getSession();
+
+  if (data.session) {
+
+    document.getElementById('loginOverlay').style.display = 'none';
+    document.getElementById('app').style.display = 'flex';
+
+    loadDashboard();
+    startDashboardInterval();
+  }
+}
+
+// ═══════════ LOGIN ═══════════
+async function login() {
+
+  const password = document.getElementById('loginPassword').value;
+  const errorBox = document.getElementById('loginError');
+
+  errorBox.textContent = '';
+
+  if (!password) {
+    errorBox.textContent = 'Inserisci password';
+    return;
+  }
+
+  const email = 'admin@test.com';
+
+  const { data, error } = await supa.auth.signInWithPassword({
+    email,
+    password
+  });
+
+  if (error) {
+    errorBox.textContent = 'Password errata';
+    return;
+  }
+
+  const user = data.user;
+
+  const { data: adminData, error: adminError } = await supa
+    .from('admins')
+    .select('*')
+    .eq('id', user.id)
+    .single();
+
+  if (!adminData || adminError) {
+    errorBox.textContent = 'Accesso negato';
+    await supa.auth.signOut();
+    return;
+  }
+
+  document.getElementById('loginOverlay').style.display = 'none';
+  document.getElementById('app').style.display = 'flex';
+
+  loadDashboard();
+  startDashboardInterval();
+}
+
+// ═══════════ LOGOUT ═══════════
+async function logout() {
+
+  stopDashboardInterval();
+
+  await supa.auth.signOut();
+  location.reload();
+}
+
+// ═══════════ NAV HASH ═══════════
+initAuth();
+
+const hash = window.location.hash.replace('#', '');
+if (hash) showSection(hash);
+
 </script>
-</body>
-</html>
