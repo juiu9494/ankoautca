@@ -3,442 +3,56 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ANKOAUTCA — Pannello CMS Redazione</title>
-<meta name="robots" content="noindex, nofollow">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
-<script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.6/dist/purify.min.js"></script>
+<title>CMS Dashboard</title>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<style>
-:root{--red:#C0121C;--red-d:#8B0000;--black:#0A0A0A;--dark:#1a1a1a;--sidebar-w:240px;--blue:#1a6fad;--green:#1a7a3a;--orange:#c07020;--gray-50:#f8f8f6;--gray-100:#f0ede8;--gray-200:#e0ddd8;--gray-400:#999;--gray-600:#555;--gray-800:#222;--white:#fff;--font:'Inter',sans-serif;--font-d:'Playfair Display',serif;}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--font);background:var(--gray-50);color:var(--gray-800);font-size:14px;display:flex;min-height:100vh}
-a{text-decoration:none;color:inherit}
-.sidebar{width:var(--sidebar-w);flex-shrink:0;background:var(--dark);display:flex;flex-direction:column;position:fixed;top:0;left:0;bottom:0;overflow-y:auto;z-index:50}
-.sb-logo{padding:20px 20px 16px;border-bottom:1px solid #333;display:flex;align-items:center;gap:10px}
-.sb-logo-text{font-family:var(--font-d);font-size:20px;font-weight:900;color:white;letter-spacing:-0.5px}
-.sb-logo-text span{color:var(--red)}
-.sb-badge{background:var(--red);color:white;font-size:9px;font-weight:700;padding:2px 6px;border-radius:2px;letter-spacing:1px}
-.sb-section{padding:16px 12px 4px;font-size:10px;font-weight:700;letter-spacing:2px;color:#666;text-transform:uppercase}
-.sb-link{display:flex;align-items:center;gap:10px;padding:9px 16px;color:#aaa;font-size:13px;font-weight:500;transition:all .15s;cursor:pointer;border-left:3px solid transparent}
-.sb-link:hover{color:white;background:rgba(255,255,255,.06)}
-.sb-link.active{color:white;background:rgba(192,18,28,.15);border-left-color:var(--red)}
-.sb-link i{font-size:17px;width:20px;text-align:center;flex-shrink:0}
-.sb-link .badge-count{margin-left:auto;background:var(--red);color:white;font-size:10px;font-weight:700;padding:1px 6px;border-radius:10px}
-.sb-divider{border:none;border-top:1px solid #2a2a2a;margin:8px 0}
-.sb-footer{margin-top:auto;padding:16px;border-top:1px solid #2a2a2a}
-.sb-user{display:flex;align-items:center;gap:10px}
-.sb-avatar{width:34px;height:34px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:13px;flex-shrink:0}
-.sb-username{font-size:12px;color:white;font-weight:600}
-.sb-role{font-size:10px;color:#666}
-.sb-logout{margin-left:auto;color:#666;font-size:16px;transition:color .2s;cursor:pointer}
-.sb-logout:hover{color:var(--red)}
-.main{margin-left:var(--sidebar-w);flex:1;display:flex;flex-direction:column;min-height:100vh}
-.topbar{background:white;border-bottom:1px solid var(--gray-200);padding:0 24px;height:56px;display:flex;align-items:center;gap:16px;position:sticky;top:0;z-index:40}
-.topbar-title{font-size:18px;font-weight:700;color:var(--gray-800)}
-.topbar-sub{font-size:13px;color:var(--gray-400);margin-left:4px}
-.topbar-actions{margin-left:auto;display:flex;gap:10px;align-items:center}
-.btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:4px;font-family:var(--font);font-size:12px;font-weight:600;cursor:pointer;border:none;transition:all .2s;letter-spacing:.3px}
-.btn-primary{background:var(--red);color:white}
-.btn-primary:hover{background:var(--red-d)}
-.btn-secondary{background:var(--gray-100);color:var(--gray-800);border:1px solid var(--gray-200)}
-.btn-secondary:hover{background:var(--gray-200)}
-.btn-ghost{background:transparent;color:var(--gray-600);border:1px solid var(--gray-200)}
-.btn-ghost:hover{background:var(--gray-100)}
-.content{padding:24px;flex:1}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
-.stat-card{background:white;border:1px solid var(--gray-200);border-radius:8px;padding:18px 20px;display:flex;align-items:flex-start;gap:14px}
-.stat-icon{width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-.stat-icon.red{background:#fff0f0;color:var(--red)}
-.stat-icon.blue{background:#e8f4ff;color:var(--blue)}
-.stat-icon.green{background:#e8f7ed;color:var(--green)}
-.stat-icon.orange{background:#fff3e0;color:var(--orange)}
-.stat-label{font-size:11px;color:var(--gray-400);font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}
-.stat-value{font-size:24px;font-weight:700;color:var(--gray-800);line-height:1}
-.stat-trend{font-size:11px;margin-top:4px}
-.stat-trend.up{color:var(--green)}
-.stat-trend.down{color:var(--red)}
-.dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
-.dash-grid.three{grid-template-columns:2fr 1fr}
-.card{background:white;border:1px solid var(--gray-200);border-radius:8px;overflow:hidden}
-.card-header{padding:14px 18px;border-bottom:1px solid var(--gray-200);display:flex;align-items:center;gap:10px}
-.card-header-title{font-size:14px;font-weight:700;color:var(--gray-800);flex:1}
-.card-body{padding:16px 18px}
-table{width:100%;border-collapse:collapse}
-th{text-align:left;font-size:11px;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:.5px;padding:8px 12px;background:var(--gray-50);border-bottom:1px solid var(--gray-200)}
-td{padding:10px 12px;border-bottom:1px solid var(--gray-100);font-size:13px;vertical-align:middle}
-tr:last-child td{border-bottom:none}
-tr:hover td{background:#fafaf8}
-.status-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:3px;font-size:11px;font-weight:600}
-.status-published{background:#e8f7ed;color:#1a7a3a}
-.status-draft{background:#f0f0f0;color:#666}
-.status-review{background:#fff3e0;color:#c07020}
-.status-live{background:#fff0f0;color:var(--red);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}
-.action-btns{display:flex;gap:6px}
-.action-btn{width:28px;height:28px;border-radius:4px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;transition:all .2s;border:1px solid var(--gray-200);background:white;color:var(--gray-600)}
-.action-btn:hover{background:var(--gray-100)}
-.action-btn.danger:hover{background:#fff0f0;color:var(--red);border-color:#ffcccc}
-.action-btn.green:hover{background:#e8f7ed;color:var(--green);border-color:#b3dfc0}
-.form-group{margin-bottom:18px}
-.form-label{font-size:12px;font-weight:600;color:var(--gray-600);margin-bottom:6px;display:block;text-transform:uppercase;letter-spacing:.5px}
-.form-input{width:100%;border:1.5px solid var(--gray-200);border-radius:6px;padding:9px 12px;font-family:var(--font);font-size:13px;color:var(--gray-800);outline:none;transition:border-color .2s;background:white}
-.form-input:focus{border-color:var(--red)}
-select.form-input{cursor:pointer}
-.form-textarea{min-height:120px;resize:vertical}
-.editor-toolbar{display:flex;flex-wrap:wrap;gap:4px;padding:10px;background:var(--gray-50);border:1.5px solid var(--gray-200);border-bottom:none;border-radius:6px 6px 0 0}
-.tb-btn{width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:4px;cursor:pointer;font-size:14px;border:1px solid transparent;color:var(--gray-600);transition:all .15s;background:transparent}
-.tb-btn:hover{background:var(--gray-200);border-color:var(--gray-200)}
-.tb-sep{width:1px;background:var(--gray-200);margin:0 4px;align-self:stretch}
-.editor-area{border:1.5px solid var(--gray-200);border-top:none;border-radius:0 0 6px 6px;min-height:300px;padding:16px;font-family:Georgia,serif;font-size:15px;line-height:1.8;outline:none;background:white}
-.editor-area:focus{border-color:var(--red)}
-[contenteditable="true"]:empty:before{content:attr(placeholder);color:#bbb;pointer-events:none}
-.upload-zone{border:2px dashed var(--gray-200);border-radius:6px;padding:30px;text-align:center;cursor:pointer;transition:all .2s;background:var(--gray-50)}
-.upload-zone:hover{border-color:var(--red);background:#fff8f8}
-.upload-zone i{font-size:32px;color:var(--gray-400);margin-bottom:8px;display:block}
-.upload-zone p{font-size:13px;color:var(--gray-400)}
-.upload-zone strong{color:var(--red)}
-.platform-rec{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
-.platform-card{background:white;border:1px solid var(--gray-200);border-radius:6px;padding:12px 16px;display:flex;align-items:center;gap:10px;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s;flex:1;min-width:140px}
-.platform-card:hover{border-color:var(--red);background:#fff8f8}
-.platform-card i{font-size:20px}
-.pc-ga{color:#F4B400}.pc-cf{color:#F38020}.pc-ma{color:#3152A0}.pc-ht{color:#FF3C00}.pc-cl{color:#0060CF}
-.security-item{display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid var(--gray-100)}
-.security-item:last-child{border-bottom:none}
-.security-icon{width:36px;height:36px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.sec-green{background:#e8f7ed;color:var(--green)}.sec-blue{background:#e8f4ff;color:var(--blue)}
-.sec-orange{background:#fff3e0;color:var(--orange)}.sec-red{background:#fff0f0;color:var(--red)}
-.security-label{font-weight:600;font-size:13px;flex:1}
-.security-sub{font-size:11px;color:var(--gray-400)}
-.toggle{width:40px;height:22px;border-radius:11px;background:var(--green);position:relative;cursor:pointer;flex-shrink:0}
-.toggle::after{content:'';position:absolute;top:3px;right:3px;width:16px;height:16px;border-radius:50%;background:white;transition:right .2s}
-.toggle.off{background:var(--gray-200)}
-.toggle.off::after{right:auto;left:3px}
-.chart-bar-simple{display:flex;align-items:flex-end;gap:6px;height:100px;padding:0 4px}
-.cbs-bar{flex:1;border-radius:3px 3px 0 0;background:var(--gray-200);position:relative;transition:background .2s;cursor:pointer}
-.cbs-bar:hover{background:var(--red)}
-.cbs-label{font-size:9px;color:var(--gray-400);text-align:center;margin-top:4px}
-.ip-badge{background:#e8f4ff;color:var(--blue);font-size:11px;padding:2px 7px;border-radius:3px;font-family:monospace;font-weight:700}
-.country-flag{font-size:16px}
-.notif-dot{width:8px;height:8px;border-radius:50%;background:var(--red);flex-shrink:0}
-.notif-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--gray-100)}
-.notif-item:last-child{border-bottom:none}
-.login-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:999;display:flex;align-items:center;justify-content:center}
-.login-box{background:white;padding:40px;border-radius:12px;text-align:center;max-width:380px;width:90%}
-.login-box h2{font-family:var(--font-d);font-size:24px;margin-bottom:20px}
-.login-box input{padding:12px;font-size:14px;border:1.5px solid var(--gray-200);border-radius:6px;width:100%;text-align:center;margin-bottom:12px}
-.login-error{color:var(--red);font-size:12px;margin-top:6px}
-@media(max-width:900px){.stats-grid{grid-template-columns:1fr 1fr}.dash-grid,.dash-grid.three{grid-template-columns:1fr}}
-@media(max-width:600px){.sidebar{width:0;overflow:hidden}.main{margin-left:0}.stats-grid{grid-template-columns:1fr}}
-</style>
 </head>
+
 <body>
 
-<!-- LOGIN OVERLAY -->
-<div class="login-overlay" id="loginOverlay">
-  <div class="login-box">
-    <h2>🔐 <span style="color:var(--red)">A</span>NKOAUTCA</h2>
-    <p style="color:#666;margin-bottom:16px;">Pannello Amministrazione</p>
-    <input type="password" id="loginPassword" placeholder="Password" onkeydown="if(event.key==='Enter')login()">
-    <button class="btn btn-primary" style="width:100%;justify-content:center;padding:10px;" onclick="login()">Accedi</button>
-    <div class="login-error" id="loginError"></div>
+<!-- LOGIN -->
+<div id="loginOverlay">
+  <input type="password" id="loginPassword" placeholder="Password" onkeydown="if(event.key==='Enter')login()">
+  <button onclick="login()">Login</button>
+  <div id="loginError"></div>
+</div>
+
+<!-- APP -->
+<div id="app" style="display:none;">
+  <h1>Dashboard</h1>
+  <button onclick="logout()">Logout</button>
+
+  <div>
+    Visitors: <span id="statVisitors">0</span><br>
+    Articles: <span id="statArticles">0</span><br>
+    Online: <span id="statOnline">0</span>
   </div>
+
+  <div id="dashboardArticles"></div>
 </div>
-
-<!-- DASHBOARD (hidden until login) -->
-<div id="app" style="display:none;flex:1;">
-  
-<!-- SIDEBAR -->
-<div class="sidebar">
-  <div class="sb-logo"><div><div class="sb-logo-text"><span>A</span>NKOAUTCA</div><div style="font-size:10px;color:#666;margin-top:2px;">Pannello Redazione</div></div><span class="sb-badge">CMS</span></div>
-  <div class="sb-section">Redazione</div>
-  <a class="sb-link active" onclick="showSection('dashboard')"><i class="ti ti-dashboard"></i> Dashboard</a>
-  <a class="sb-link" onclick="showSection('new-article')"><i class="ti ti-pencil-plus"></i> Nuovo Articolo</a>
-  <a class="sb-link" onclick="showSection('articles')"><i class="ti ti-news"></i> Articoli <span class="badge-count" id="articleCount">0</span></a>
-  <a class="sb-link" onclick="showSection('categories')"><i class="ti ti-tag"></i> Categorie</a>
-  <hr class="sb-divider">
-  <div class="sb-section">Traffico</div>
-  <a class="sb-link" onclick="showSection('analytics')"><i class="ti ti-chart-line"></i> Analytics</a>
-  <a class="sb-link" onclick="showSection('ip-monitor')"><i class="ti ti-radar"></i> Monitor IP <span class="badge-count">Live</span></a>
-  <hr class="sb-divider">
-  <div class="sb-section">Sicurezza</div>
-  <a class="sb-link" onclick="showSection('security')"><i class="ti ti-shield-lock"></i> Protezione</a>
-  <a class="sb-link" onclick="showSection('firewall')"><i class="ti ti-wall"></i> Firewall</a>
-  <hr class="sb-divider">
-  <a class="sb-link" onclick="showSection('settings')"><i class="ti ti-settings"></i> Impostazioni</a>
-  <a class="sb-link" href="index.html" target="_blank"><i class="ti ti-external-link"></i> Vai al Sito</a>
-  <div class="sb-footer"><div class="sb-user"><div class="sb-avatar">AD</div><div><div class="sb-username">Admin</div><div class="sb-role">Direttore</div></div><i class="ti ti-logout sb-logout" title="Esci" onclick="logout()"></i></div></div>
-</div>
-
-<!-- MAIN -->
-<div class="main">
-  <div class="topbar">
-    <span class="topbar-title" id="page-title">Dashboard</span>
-    <span class="topbar-sub" id="page-sub">— Benvenuto</span>
-    <div class="topbar-actions">
-      <a href="index.html" target="_blank" class="btn btn-secondary"><i class="ti ti-external-link"></i> Vedi Sito</a>
-      <button class="btn btn-primary" onclick="showSection('new-article')"><i class="ti ti-plus"></i> Nuovo Articolo</button>
-    </div>
-  </div>
-  <div class="content">
-
-    <!-- DASHBOARD -->
-    <div id="section-dashboard">
-      <div class="stats-grid">
-        <div class="stat-card"><div class="stat-icon blue"><i class="ti ti-eye"></i></div><div><div class="stat-label">Visitatori Oggi</div><div class="stat-value" id="statVisitors">0</div></div></div>
-        <div class="stat-card"><div class="stat-icon red"><i class="ti ti-news"></i></div><div><div class="stat-label">Articoli Pubblicati</div><div class="stat-value" id="statArticles">0</div></div></div>
-        <div class="stat-card"><div class="stat-icon green"><i class="ti ti-users"></i></div><div><div class="stat-label">Online Ora</div><div class="stat-value" id="statOnline">0</div></div></div>
-        <div class="stat-card"><div class="stat-icon orange"><i class="ti ti-clock"></i></div><div><div class="stat-label">Tempo Medio</div><div class="stat-value" id="statAvgTime">0s</div></div></div>
-      </div>
-      <div class="card">
-        <div class="card-header"><i class="ti ti-news" style="color:var(--red)"></i><span class="card-header-title">Ultimi Articoli</span></div>
-        <table><thead><tr><th>Titolo</th><th>Categoria</th><th>Autore</th><th>Stato</th><th>Data</th><th>Azioni</th></tr></thead><tbody id="dashboardArticles"></tbody></table>
-      </div>
-    </div>
-
-    <!-- NUOVO ARTICOLO -->
-    <div id="section-new-article" style="display:none">
-      <div style="display:grid;grid-template-columns:1fr 300px;gap:20px;">
-        <div>
-          <div class="card" style="margin-bottom:16px;">
-            <div class="card-header"><i class="ti ti-pencil" style="color:var(--red)"></i><span class="card-header-title">Scrivi il tuo Articolo</span></div>
-            <div class="card-body">
-              <div class="form-group"><label class="form-label">Titolo *</label><input type="text" class="form-input" id="articleTitle" placeholder="Inserisci un titolo..." style="font-size:18px;font-weight:700;"></div>
-              <div class="form-group"><label class="form-label">Estratto</label><input type="text" class="form-input" id="articleExcerpt" placeholder="Breve descrizione..."></div>
-              <div class="form-group"><label class="form-label">Testo Articolo *</label>
-                <div class="editor-toolbar">
-                  <div class="tb-btn" title="Grassetto" onclick="document.execCommand('bold')"><i class="ti ti-bold"></i></div>
-                  <div class="tb-btn" title="Corsivo" onclick="document.execCommand('italic')"><i class="ti ti-italic"></i></div>
-                  <div class="tb-sep"></div>
-                  <div class="tb-btn" title="Link" onclick="document.execCommand('createLink')"><i class="ti ti-link"></i></div>
-                </div>
-                <div class="editor-area" id="articleContent" contenteditable="true" placeholder="Inizia a scrivere..."></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:16px;">
-          <div class="card">
-            <div class="card-header"><i class="ti ti-send" style="color:var(--green)"></i><span class="card-header-title">Pubblica</span></div>
-            <div class="card-body">
-              <div class="form-group"><label class="form-label">Categoria *</label><select class="form-input" id="articleCategory"><option>Politica</option><option>Economia</option><option>Mondo</option><option>Italia</option><option>Sport</option><option>Cultura</option><option>Tecnologia</option><option>Salute</option><option>Scienze</option><option>Ambiente</option></select></div>
-              <div class="form-group"><label class="form-label">Autore</label><select class="form-input" id="articleAuthor"><option>Redazione ANKOAUTCA</option><option>Marco Ferretti</option><option>Giulia Marchetti</option><option>Luca Esposito</option><option>Elena Russo</option></select></div>
-              <button class="btn btn-primary" style="width:100%;justify-content:center;padding:10px;" onclick="saveArticle()"><i class="ti ti-send"></i> Pubblica Ora</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ARTICOLI -->
-    <div id="section-articles" style="display:none">
-      <div class="card">
-        <div class="card-header"><i class="ti ti-news" style="color:var(--red)"></i><span class="card-header-title">Tutti gli Articoli</span></div>
-        <table><thead><tr><th>Titolo</th><th>Categoria</th><th>Autore</th><th>Stato</th><th>Data</th><th>Azioni</th></tr></thead><tbody id="allArticles"></tbody></table>
-      </div>
-    </div>
-
-    <!-- PLACEHOLDERS -->
-    <div id="section-analytics" style="display:none"><div class="card"><div class="card-header"><i class="ti ti-chart-line" style="color:var(--blue)"></i><span class="card-header-title">Analytics</span></div><div class="card-body"><p style="color:#666;">Dati traffico live da Supabase. Visita la Dashboard per le statistiche.</p></div></div></div>
-    <div id="section-ip-monitor" style="display:none"><div class="card"><div class="card-header"><i class="ti ti-radar" style="color:var(--red)"></i><span class="card-header-title">Monitor IP Live</span></div><div class="card-body"><table><thead><tr><th>Pagina</th><th>Referrer</th><th>Data</th><th>Durata</th></tr></thead><tbody id="ipMonitorTable"></tbody></table></div></div></div>
-    <div id="section-security" style="display:none"><div class="card"><div class="card-header"><i class="ti ti-shield-lock" style="color:var(--green)"></i><span class="card-header-title">Protezione</span></div><div class="card-body"><p style="color:#666;">Login protetto con password hashata in Supabase.</p></div></div></div>
-    <div id="section-firewall" style="display:none"><div class="card"><div class="card-header"><i class="ti ti-wall" style="color:var(--red)"></i><span class="card-header-title">Firewall</span></div><div class="card-body"><p style="color:#666;">Usa Cloudflare WAF gratuito per proteggere il sito.</p></div></div></div>
-    <div id="section-categories" style="display:none"><div class="card"><div class="card-header"><i class="ti ti-tag" style="color:var(--orange)"></i><span class="card-header-title">Categorie</span></div><div class="card-body"><p style="color:#666;">Politica, Economia, Mondo, Italia, Sport, Cultura, Tecnologia, Salute, Scienze, Ambiente</p></div></div></div>
-    <div id="section-settings" style="display:none"><div class="card"><div class="card-header"><i class="ti ti-settings" style="color:var(--gray-600)"></i><span class="card-header-title">Impostazioni</span></div><div class="card-body"><div class="form-group"><label class="form-label">Email Collaborazioni</label><input type="email" class="form-input" value="gastroboostmarketingdigital@gmail.com" readonly></div></div></div></div>
-
-  </div>
-</div>
-</div>
-
-<!-- SCRIPT -->
-<script>
-// ═══════════ CONFIG SUPABASE ═══════════
-  const SUPABASE_URL = 'https://rmugngceojbarttctsoo.supabase.co';
-  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJtdWduZ2Nlb2piYXJ0dGN0c29vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2MDE5NjIsImV4cCI6MjA5NDE3Nzk2Mn0.DAKlMEZ8B2QaWTzr1Y9Y_SeUWLdZIIa-CgfCh4RN3pc'; // ← REMPLACE PAR TA VRAIE CLÉ
-
-const supa = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
-// ═══════════ AUTH LOGIN  ═══════════
-
-  async function login() {
-
-  const password = document.getElementById('loginPassword').value;
-  const errorBox = document.getElementById('loginError');
-
-  errorBox.textContent = '';
-
-  if (!password) {
-    errorBox.textContent = 'Inserisci password';
-    return;
-  }
-
-  const email = 'admin@test.com';
-
-  const { data, error } = await supa.auth.signInWithPassword({
-    email,
-    password
-  });
-
-  if (error) {
-    errorBox.textContent = 'Password errata';
-    return;
-  }
-
-  const user = data.user;
-
-  const { data: adminData, error: adminError } = await supa
-    .from('admins')
-    .select('*')
-    .eq('id', user.id)
-    .single();
-
-  if (!adminData || adminError) {
-    errorBox.textContent = 'Accesso negato';
-
-    await supa.auth.signOut();
-
-    return;
-  }
-
-  document.getElementById('loginOverlay').style.display = 'none';
-
-  document.getElementById('app').style.display = 'flex';
-
-  loadDashboard();
-  clearInterval(dashboardInterval);
-  dashboardInterval = setInterval(loadDashboard, 15000);
-  
-  }
-  
-// --- sortie ---- 
-  async function logout() {
-  await supa.auth.signOut();
-  location.reload();
-}
-
-// ═══════════ DASHBOARD ═══════════
-async function loadDashboard(){
-  const t=new Date(); const today=new Date(t.getFullYear(),t.getMonth(),t.getDate()).toISOString(); const f5=new Date(t-5*60*1000).toISOString();
-  const[{count:tv},{count:ta},{count:on},{data:ra},{data:ip},{count:tc}]=await Promise.all([
-    supa.from('visitor_real').select('*',{count:'exact',head:true}).gte('created_at',today),
-    supa.from('articles').select('*',{count:'exact',head:true}),
-    supa.from('visitor_real').select('*',{count:'exact',head:true}).gte('created_at',f5),
-    supa.from('articles').select('*').order('created_at',{ascending:false}).limit(10),
-    supa.from('visitor_real').select('*').order('created_at',{ascending:false}).limit(20),
-    supa.from('articles').select('*',{count:'exact',head:true})
-  ]);
-  document.getElementById('statVisitors').textContent=(tv||0).toLocaleString();
-  document.getElementById('statArticles').textContent=(ta||0);
-  document.getElementById('statOnline').textContent=(on||0);
-  document.getElementById('articleCount').textContent=(tc||0);
-  
-  let avg=0; const{data:td}=await supa.from('visitor_real').select('time_on_page').not('time_on_page','is',null).limit(200);
-  if(td&&td.length) avg=Math.round(td.reduce((s,x)=>s+(x.time_on_page||0),0)/td.length);
-  document.getElementById('statAvgTime').textContent=avg+'s';
-  
-  // Table dashboard
-  const da=document.getElementById('dashboardArticles');
-  da.innerHTML=ra?.map(a=>`<tr><td style="font-weight:600">${a.title||''}</td><td>${a.category||''}</td><td>${a.author||''}</td><td><span class="status-badge ${a.published?'status-published':'status-draft'}">${a.published?'Pubblicato':'Bozza'}</span></td><td>${new Date(a.created_at).toLocaleDateString('it-IT')}</td><td><div class="action-btns"><div class="action-btn green" onclick="editArticle('${a.id}')"><i class="ti ti-edit"></i></div><div class="action-btn danger" onclick="deleteArticle('${a.id}')"><i class="ti ti-trash"></i></div></div></td></tr>`).join('')||'<tr><td colspan="6">Nessun articolo</td></tr>';
-  
-  // IP Monitor
-  const im=document.getElementById('ipMonitorTable');
-  if(im) im.innerHTML=ip?.map(v=>`<tr><td>${v.page||'/'}</td><td>${v.referrer||'Direct'}</td><td>${new Date(v.created_at).toLocaleString('it-IT')}</td><td>${v.time_on_page?v.time_on_page+'s':'<span style="color:green">Attivo</span>'}</td></tr>`).join('')||'<tr><td colspan="4">Nessun dato</td></tr>';
-}
-
-// ═══════════ CRUD ARTICLES ═══════════
-async function saveArticle(){
-  const t=document.getElementById('articleTitle')?.value?.trim();
-  const ex=document.getElementById('articleExcerpt')?.value?.trim();
-  const c=document.getElementById('articleContent')?.innerHTML;
-  const cat=document.getElementById('articleCategory')?.value||'Politica';
-  const aut=document.getElementById('articleAuthor')?.value||'Redazione ANKOAUTCA';
-  if(!t||!c||c==='<br>'){alert('Titolo e contenuto obbligatori');return}
-  const{error}=await supa.from('articles').insert([{title:t,excerpt:ex||t.substring(0,120),content:c,category:cat,author:aut,published:true,image_url:'https://picsum.photos/seed/'+Date.now()+'/800/450',slug:t.toLowerCase().replace(/[^a-z0-9]+/g,'-').slice(0,70)+'-'+Date.now()}]);
-  if(error){alert('Errore: '+error.message)}else{
-    alert('✅ Pubblicato!');
-    document.getElementById('articleTitle').value='';document.getElementById('articleExcerpt').value='';document.getElementById('articleContent').innerHTML='';
-    showSection('dashboard');loadDashboard();
-  }
-}
-
-async function editArticle(id){
-  const{data}=await supa.from('articles').select('*').eq('id',id).single();
-  if(!data)return;
-  showSection('new-article');
-  setTimeout(()=>{
-    document.getElementById('articleTitle').value=data.title||'';
-    document.getElementById('articleExcerpt').value=data.excerpt||'';
-    document.getElementById('articleContent').innerHTML=data.content||'';
-    document.getElementById('articleCategory').value=data.category||'Politica';
-    document.getElementById('articleAuthor').value=data.author||'Redazione ANKOAUTCA';
-  },300);
-}
-
-async function deleteArticle(id){
-  if(!confirm('Eliminare?'))return;
-  await supa.from('articles').delete().eq('id',id);
-  loadDashboard();showSection('dashboard');
-}
-
-// ═══════════ NAVIGATION ═══════════
-function showSection(name){
-  document.querySelectorAll('[id^="section-"]').forEach(s=>s.style.display='none');
-  const el=document.getElementById('section-'+name);
-  if(el)el.style.display='';
-  document.querySelectorAll('.sb-link').forEach(l=>l.classList.remove('active'));
-  document.querySelectorAll('.sb-link').forEach(l=>{if(l.getAttribute('onclick')?.includes(name))l.classList.add('active')});
-  const lb={dashboard:['Dashboard','— Benvenuto'],'new-article':['Nuovo Articolo','— Editor'],articles:['Articoli','— Gestione'],analytics:['Analytics','— Traffico'],'ip-monitor':['Monitor IP','— Live'],security:['Protezione','— Sicurezza'],firewall:['Firewall','— WAF'],categories:['Categorie','— Tassonomia'],settings:['Impostazioni','— Configura']};
-  if(lb[name]){document.getElementById('page-title').textContent=lb[name][0];document.getElementById('page-sub').textContent=lb[name][1]}
-  if(name==='dashboard')loadDashboard();
-  if(name==='articles')loadAllArticles();
-  if(name==='ip-monitor')loadDashboard();
-  window.location.hash=name;
-}
-
-async function loadAllArticles(){
-  const{data}=await supa.from('articles').select('*').order('created_at',{ascending:false}).limit(50);
-  const aa=document.getElementById('allArticles');
-  aa.innerHTML=data?.map(a=>`<tr><td style="font-weight:600">${a.title||''}</td><td>${a.category||''}</td><td>${a.author||''}</td><td><span class="status-badge ${a.published?'status-published':'status-draft'}">${a.published?'Pubblicato':'Bozza'}</span></td><td>${new Date(a.created_at).toLocaleDateString('it-IT')}</td><td><div class="action-btns"><div class="action-btn green" onclick="editArticle('${a.id}')"><i class="ti ti-edit"></i></div><div class="action-btn danger" onclick="deleteArticle('${a.id}')"><i class="ti ti-trash"></i></div></div></td></tr>`).join('')||'<tr><td colspan="6">Nessun articolo</td></tr>';
-}
 
 <script>
 /* ===================== SUPABASE ===================== */
 const SUPABASE_URL = 'https://rmugngceojbarttctsoo.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJtdWduZ2Nlb2piYXJ0dGN0c29vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2MDE5NjIsImV4cCI6MjA5NDE3Nzk2Mn0.DAKlMEZ8B2QaWTzr1Y9Y_SeUWLdZIIa-CgfCh4RN3pc';
+const SUPABASE_KEY = 'YOUR_ANON_KEY';
 
 const supa = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 /* ===================== STATE ===================== */
 let dashboardInterval = null;
 
-/* ===================== INTERVAL CONTROL ===================== */
-function startDashboardInterval() {
-  stopDashboardInterval();
-  dashboardInterval = setInterval(loadDashboard, 15000);
-}
+/* ===================== INIT ===================== */
+initAuth();
 
-function stopDashboardInterval() {
-  if (dashboardInterval) {
-    clearInterval(dashboardInterval);
-    dashboardInterval = null;
-  }
-}
-
-/* ===================== AUTH INIT ===================== */
+/* ===================== AUTH ===================== */
 async function initAuth() {
   const { data } = await supa.auth.getSession();
 
   if (data.session) {
-    document.getElementById('loginOverlay').style.display = 'none';
-    document.getElementById('app').style.display = 'flex';
-
-    loadDashboard();
-    startDashboardInterval();
+    showApp();
   }
 }
 
-/* ===================== LOGIN ===================== */
 async function login() {
   const password = document.getElementById('loginPassword').value;
   const errorBox = document.getElementById('loginError');
@@ -460,22 +74,25 @@ async function login() {
     return;
   }
 
-  const user = data.user;
-
-  const { data: adminData, error: adminError } = await supa
+  const { data: admin } = await supa
     .from('admins')
     .select('*')
-    .eq('id', user.id)
+    .eq('id', data.user.id)
     .single();
 
-  if (!adminData || adminError) {
+  if (!admin) {
     errorBox.textContent = 'Accesso negato';
     await supa.auth.signOut();
     return;
   }
 
+  showApp();
+}
+
+/* ===================== UI ===================== */
+function showApp() {
   document.getElementById('loginOverlay').style.display = 'none';
-  document.getElementById('app').style.display = 'flex';
+  document.getElementById('app').style.display = 'block';
 
   loadDashboard();
   startDashboardInterval();
@@ -488,14 +105,43 @@ async function logout() {
   location.reload();
 }
 
-/* ===================== NAVIGATION HASH ===================== */
-function initNavigation() {
-  const hash = window.location.hash.replace('#', '');
-  if (hash) showSection(hash);
+/* ===================== DASHBOARD ===================== */
+async function loadDashboard() {
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).toISOString();
+
+  const [{ count: visitors }, { count: articles }, { count: online }, { data: list }] = await Promise.all([
+    supa.from('visitor_real').select('*', { count: 'exact', head: true }).gte('created_at', today),
+    supa.from('articles').select('*', { count: 'exact', head: true }),
+    supa.from('visitor_real').select('*', { count: 'exact', head: true }),
+    supa.from('articles').select('*').order('created_at', { ascending: false }).limit(5)
+  ]);
+
+  document.getElementById('statVisitors').textContent = visitors || 0;
+  document.getElementById('statArticles').textContent = articles || 0;
+  document.getElementById('statOnline').textContent = online || 0;
+
+  document.getElementById('dashboardArticles').innerHTML =
+    (list || []).map(a => `
+      <div>
+        <b>${a.title}</b> - ${a.category || ''} - ${a.author || ''}
+      </div>
+    `).join('');
 }
 
-/* ===================== INIT APP ===================== */
-initAuth();
-initNavigation();
+/* ===================== INTERVAL ===================== */
+function startDashboardInterval() {
+  stopDashboardInterval();
+  dashboardInterval = setInterval(loadDashboard, 15000);
+}
 
+function stopDashboardInterval() {
+  if (dashboardInterval) {
+    clearInterval(dashboardInterval);
+    dashboardInterval = null;
+  }
+}
 </script>
+
+</body>
+</html>
