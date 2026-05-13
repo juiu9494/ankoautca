@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Admin — ANKOAUTCA</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+<link rel="stylesheet" href="../assets/css/main.css">
+<link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body class="admin-layout">
+<div id="toast-container"></div>
+
+<!-- ── ADMIN SIDEBAR ── -->
+<aside class="admin-sidebar" id="admin-sidebar">
+  <div class="asb-logo">
+    <a href="../index.html" class="asb-logo-text"><span>A</span>NK</a>
+    <div class="asb-logo-sub">Redazione</div>
+    <button class="asb-close" onclick="toggleSidebar()" title="Chiudi">×</button>
+  </div>
+
+  <nav class="asb-nav">
+    <div class="asb-section">Principale</div>
+    <a href="dashboard.html" class="asb-link active"><span>📊</span> Dashboard</a>
+    <a href="admin.html" class="asb-link"><span>⚙️</span> Admin CMS</a>
+
+    <div class="asb-section">Contenuti</div>
+    <a href="#" class="asb-link" onclick="showPanel('articles')"><span>📰</span> Articoli <span class="asb-badge">124</span></a>
+    <a href="#" class="asb-link" onclick="showPanel('new-article')"><span>✏️</span> Nuovo Articolo</a>
+    <a href="#" class="asb-link" onclick="showPanel('categories')"><span>🏷️</span> Categorie</a>
+    <a href="#" class="asb-link" onclick="showPanel('authors')"><span>👥</span> Autori</a>
+
+    <div class="asb-section">Traffico</div>
+    <a href="#" class="asb-link" onclick="showPanel('analytics')"><span>📈</span> Analytics</a>
+    <a href="#" class="asb-link" onclick="showPanel('ip')"><span>🌐</span> Monitor IP <span class="asb-badge live">Live</span></a>
+
+    <div class="asb-section">Sistema</div>
+    <a href="#" class="asb-link" onclick="showPanel('security')"><span>🔒</span> Sicurezza</a>
+    <a href="parametres.html" class="asb-link"><span>⚙️</span> Impostazioni</a>
+  </nav>
+
+  <div class="asb-footer">
+    <div class="asb-user">
+      <div class="asb-avatar" id="asb-avatar">AD</div>
+      <div>
+        <div class="asb-username" id="asb-username">Admin</div>
+        <div class="asb-role">Direttore</div>
+      </div>
+    </div>
+    <button class="btn btn-ghost btn-sm" onclick="Auth.logout()" style="width:100%;margin-top:10px;justify-content:center;">
+      🚪 Esci
+    </button>
+  </div>
+</aside>
+
+<!-- ── ADMIN MAIN ── -->
+<div class="admin-main">
+  <header class="admin-topbar">
+    <div class="atb-left">
+      <button class="atb-menu-btn" onclick="toggleSidebar()">☰</button>
+      <h1 class="atb-title" id="panel-title">Dashboard</h1>
+    </div>
+    <div class="atb-right">
+      <span class="atb-time" id="atb-time"></span>
+      <div class="navbar-divider"></div>
+      <a href="../index.html" class="btn btn-ghost btn-sm" target="_blank">🌐 Sito</a>
+      <button class="navbar-icon-btn" data-theme-toggle><span data-theme-icon>🌙</span></button>
+    </div>
+  </header>
+
+  <div class="admin-content" id="admin-content">
+
+    <!-- ── DASHBOARD PANEL ── -->
+    <div id="panel-dashboard" class="admin-panel active">
+      <div class="grid-4">
+        <div class="stat-card reveal">
+          <div class="stat-icon" style="background:#EFF6FF;color:var(--blue)">👁</div>
+          <div>
+            <div class="stat-label">Visitatori Oggi</div>
+            <div class="stat-value" id="visitors-count">—</div>
+            <div class="stat-trend trend-up">↑ +18% vs ieri</div>
+          </div>
+        </div>
+        <div class="stat-card reveal reveal-delay-1">
+          <div class="stat-icon" style="background:#FEF2F2;color:var(--red)">📰</div>
+          <div>
+            <div class="stat-label">Articoli Pubblicati</div>
+            <div class="stat-value">1,248</div>
+            <div class="stat-trend trend-up">↑ 8 oggi</div>
+          </div>
+        </div>
+        <div class="stat-card reveal reveal-delay-2">
+          <div class="stat-icon" style="background:#F0FDF4;color:var(--green)">✉️</div>
+          <div>
+            <div class="stat-label">Iscritti Newsletter</div>
+            <div class="stat-value">48,920</div>
+            <div class="stat-trend trend-up">↑ +340 settimana</div>
+          </div>
+        </div>
+        <div class="stat-card reveal reveal-delay-3">
+          <div class="stat-icon" style="background:#FFFBEB;color:var(--orange)">⏱</div>
+          <div>
+            <div class="stat-label">Tempo Medio</div>
+            <div class="stat-value">4:32</div>
+            <div class="stat-trend trend-up">↑ ottimo engagement</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Traffic chart -->
+      <div class="dash-grid mt-20">
+        <div class="card reveal">
+          <div class="card-header">
+            <span>📈</span>
+            <span class="card-title">Traffico — Ultimi 7 giorni</span>
+          </div>
+          <div class="card-body">
+            <div class="chart-container" id="traffic-chart"></div>
+            <div class="chart-legend">
+              <div><span style="color:var(--text-muted);font-size:11px">Lun</span></div>
+              <div><span style="color:var(--text-muted);font-size:11px">Mar</span></div>
+              <div><span style="color:var(--text-muted);font-size:11px">Mer</span></div>
+              <div><span style="color:var(--text-muted);font-size:11px">Gio</span></div>
+              <div><span style="color:var(--text-muted);font-size:11px">Ven</span></div>
+              <div><span style="color:var(--text-muted);font-size:11px">Sab</span></div>
+              <div><span style="color:var(--text-muted);font-size:11px">Dom</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card reveal reveal-delay-1">
+          <div class="card-header"><span>🔔</span><span class="card-title">Notifiche</span></div>
+          <div class="notif-list">
+            <div class="notif-item notif-red"><div class="notif-dot"></div><div><b>2 articoli in attesa di revisione</b><div class="notif-time">10 min fa</div></div></div>
+            <div class="notif-item notif-green"><div class="notif-dot"></div><div><b>Backup completato con successo</b><div class="notif-time">03:00 stanotte</div></div></div>
+            <div class="notif-item notif-blue"><div class="notif-dot"></div><div><b>340 nuovi iscritti newsletter</b><div class="notif-time">questa settimana</div></div></div>
+            <div class="notif-item notif-orange"><div class="notif-dot"></div><div><b>Traffico insolito da 5 IP russi</b><div class="notif-time">ieri sera</div></div></div>
+            <div class="notif-item notif-gray"><div class="notif-dot"></div><div><b>Giulia Marchetti ha pubblicato un articolo</b><div class="notif-time">2 ore fa</div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent articles -->
+      <div class="card mt-20 reveal">
+        <div class="card-header">
+          <span>📰</span><span class="card-title">Ultimi Articoli</span>
+          <button class="btn btn-primary btn-sm" style="margin-left:auto" onclick="showPanel('new-article')">+ Nuovo</button>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Titolo</th><th>Categoria</th><th>Autore</th><th>Visite</th><th>Stato</th><th>Azioni</th></tr></thead>
+            <tbody>
+              <tr><td class="td-title">La crisi diplomatica con la Russia spinge l'Europa</td><td><span class="badge badge-blue">Politica</span></td><td>M. Ferretti</td><td>48.230</td><td><span class="badge badge-green">✓ Pubblicato</span></td><td class="td-actions"><button class="btn btn-ghost btn-sm">✏️</button><button class="btn btn-ghost btn-sm">👁</button><button class="btn btn-ghost btn-sm" style="color:var(--red)">🗑</button></td></tr>
+              <tr><td class="td-title">Inflazione al 2.3%: la BCE mantiene i tassi</td><td><span class="badge badge-green">Economia</span></td><td>G. Marchetti</td><td>31.450</td><td><span class="badge badge-green">✓ Pubblicato</span></td><td class="td-actions"><button class="btn btn-ghost btn-sm">✏️</button><button class="btn btn-ghost btn-sm">👁</button><button class="btn btn-ghost btn-sm" style="color:var(--red)">🗑</button></td></tr>
+              <tr><td class="td-title">Azzurri qualificati ai Mondiali 2026</td><td><span class="badge badge-orange">Sport</span></td><td>R. Conti</td><td>22.180</td><td><span class="badge badge-red">● Live</span></td><td class="td-actions"><button class="btn btn-ghost btn-sm">✏️</button><button class="btn btn-ghost btn-sm">👁</button><button class="btn btn-ghost btn-sm" style="color:var(--red)">🗑</button></td></tr>
+              <tr><td class="td-title">OpenAI lancia GPT-5: ragionamento a livello umano</td><td><span class="badge badge-purple">Tecnologia</span></td><td>E. Russo</td><td>15.220</td><td><span class="badge badge-gray">Bozza</span></td><td class="td-actions"><button class="btn btn-ghost btn-sm">✏️</button><button class="btn btn-ghost btn-sm">👁</button><button class="btn btn-ghost btn-sm" style="color:var(--red)">🗑</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── NEW ARTICLE PANEL ── -->
+    <div id="panel-new-article" class="admin-panel">
+      <div class="editor-layout">
+        <div class="editor-main">
+          <div class="card">
+            <div class="card-header"><span>✏️</span><span class="card-title">Scrivi Articolo</span></div>
+            <div class="card-body" style="display:flex;flex-direction:column;gap:18px">
+              <div class="form-group">
+                <label class="form-label">Titolo *</label>
+                <input type="text" class="form-input" id="art-title" placeholder="Inserisci un titolo accattivante…" style="font-size:18px;font-weight:700;">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Sottotitolo</label>
+                <input type="text" class="form-input" id="art-subtitle" placeholder="Breve descrizione per SEO e social…">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Contenuto *</label>
+                <div class="editor-toolbar">
+                  <button class="tb-btn" onclick="fmt('bold')" title="Grassetto"><b>B</b></button>
+                  <button class="tb-btn" onclick="fmt('italic')" title="Corsivo"><i>I</i></button>
+                  <button class="tb-btn" onclick="fmt('underline')" title="Sottolineato"><u>U</u></button>
+                  <div class="tb-sep"></div>
+                  <button class="tb-btn" onclick="fmt('insertOrderedList')" title="Lista ordinata">1.</button>
+                  <button class="tb-btn" onclick="fmt('insertUnorderedList')" title="Lista">•</button>
+                  <div class="tb-sep"></div>
+                  <button class="tb-btn" onclick="insertLink()" title="Link">🔗</button>
+                  <button class="tb-btn" onclick="fmt('undo')" title="Annulla">↩</button>
+                  <button class="tb-btn" onclick="fmt('redo')" title="Ripeti">↪</button>
+                </div>
+                <div class="editor-body" id="art-body" contenteditable="true" data-placeholder="Inizia a scrivere il tuo articolo…"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="editor-sidebar">
+          <div class="card">
+            <div class="card-header"><span>🚀</span><span class="card-title">Pubblica</span></div>
+            <div class="card-body" style="display:flex;flex-direction:column;gap:14px">
+              <div class="form-group">
+                <label class="form-label">Stato</label>
+                <select class="form-input">
+                  <option>Bozza</option><option>In revisione</option><option selected>Pubblica subito</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Categoria *</label>
+                <select class="form-input">
+                  <option>— Seleziona —</option>
+                  <option>Politica</option><option>Economia</option><option>Mondo</option>
+                  <option>Sport</option><option>Cultura</option><option>Tecnologia</option>
+                  <option>Salute</option><option>Scienze</option><option>Ambiente</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Autore</label>
+                <select class="form-input">
+                  <option>Marco Ferretti</option><option>Giulia Marchetti</option>
+                  <option>Luca Esposito</option><option>Elena Russo</option>
+                  <option>Redazione</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Tag (separati da virgola)</label>
+                <input type="text" class="form-input" placeholder="governo, elezioni, UE">
+              </div>
+              <button class="btn btn-primary btn-full" onclick="publishArticle()">🚀 Pubblica Ora</button>
+              <button class="btn btn-secondary btn-full">💾 Salva Bozza</button>
+            </div>
+          </div>
+
+          <div class="card mt-16">
+            <div class="card-header"><span>🖼</span><span class="card-title">Immagine</span></div>
+            <div class="card-body">
+              <div class="upload-zone" onclick="document.getElementById('img-up').click()">
+                <span style="font-size:32px">📁</span>
+                <p><strong>Clicca per caricare</strong></p>
+                <p style="font-size:11px;color:var(--text-muted)">JPG, PNG, WEBP — max 10MB</p>
+                <input type="file" id="img-up" accept="image/*" style="display:none" onchange="previewImg(this)">
+              </div>
+              <div id="img-preview" style="display:none;margin-top:10px">
+                <img id="preview-el" style="width:100%;border-radius:var(--r-md);border:1px solid var(--border)">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── ANALYTICS PANEL ── -->
+    <div id="panel-analytics" class="admin-panel">
+      <div class="grid-4">
+        <div class="stat-card"><div class="stat-icon" style="background:#EFF6FF;color:var(--blue)">👥</div><div><div class="stat-label">Utenti unici (30gg)</div><div class="stat-value">3.2M</div><div class="stat-trend trend-up">↑ +24%</div></div></div>
+        <div class="stat-card"><div class="stat-icon" style="background:#FEF2F2;color:var(--red)">📄</div><div><div class="stat-label">Pagine viste (30gg)</div><div class="stat-value">18.4M</div><div class="stat-trend trend-up">↑ +31%</div></div></div>
+        <div class="stat-card"><div class="stat-icon" style="background:#F0FDF4;color:var(--green)">⏱</div><div><div class="stat-label">Tempo Medio</div><div class="stat-value">4m 32s</div><div class="stat-trend trend-up">↑ +8%</div></div></div>
+        <div class="stat-card"><div class="stat-icon" style="background:#FFFBEB;color:var(--orange)">↩</div><div><div class="stat-label">Rimbalzo</div><div class="stat-value">34.2%</div><div class="stat-trend trend-up">↓ -5%</div></div></div>
+      </div>
+      <div class="card mt-20">
+        <div class="card-header"><span>💻</span><span class="card-title">Script di Monitoraggio — Incolla il tuo codice</span></div>
+        <div class="card-body">
+          <p style="font-size:13px;color:var(--text-secondary);margin-bottom:16px">Incolla il tuo script di Analytics (GA4, Matomo, Cloudflare, Hotjar…). Verrà iniettato in tutte le pagine.</p>
+          <div class="platform-grid">
+            <div class="plat-card">📊 Google Analytics 4<br><small>Consigliato</small></div>
+            <div class="plat-card">☁️ Cloudflare Analytics<br><small>Vedi anche IP</small></div>
+            <div class="plat-card">📈 Matomo<br><small>Self-hosted</small></div>
+            <div class="plat-card">🔥 Hotjar<br><small>Heatmap</small></div>
+          </div>
+          <textarea class="form-input code-input mt-16" rows="8" placeholder="<!-- Incolla qui il tuo script Analytics -->
+<script async src=&quot;https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX&quot;></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>"></textarea>
+          <button class="btn btn-primary mt-12" onclick="Toast.show('Script salvato','Verrà applicato a tutto il sito.','success')">💾 Salva e Applica</button>
+        </div>
+      </div>
+
+      <div class="card mt-20">
+        <div class="card-header"><span>🌍</span><span class="card-title">Sorgenti di Traffico</span></div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Fonte</th><th>Sessioni</th><th>%</th><th>Rimbalzo</th><th>Durata</th></tr></thead>
+            <tbody>
+              <tr><td>🔍 Google Ricerca</td><td>1.420.000</td><td>44%</td><td>28%</td><td>5:12</td></tr>
+              <tr><td>📘 Facebook</td><td>640.000</td><td>20%</td><td>41%</td><td>3:44</td></tr>
+              <tr><td>🏠 Diretto</td><td>480.000</td><td>15%</td><td>22%</td><td>6:08</td></tr>
+              <tr><td>🐦 X / Twitter</td><td>320.000</td><td>10%</td><td>38%</td><td>2:58</td></tr>
+              <tr><td>✈️ Telegram</td><td>224.000</td><td>7%</td><td>30%</td><td>4:20</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── IP MONITOR PANEL ── -->
+    <div id="panel-ip" class="admin-panel">
+      <div class="card">
+        <div class="card-header">
+          <span>🌐</span><span class="card-title">Monitor IP — Visitatori Live</span>
+          <span class="badge badge-red" style="margin-left:auto;animation:pulse 1.5s infinite">● LIVE</span>
+          <span id="live-cnt" style="font-size:13px;color:var(--text-muted);margin-left:10px">247 online</span>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table" id="ip-table">
+            <thead><tr><th>IP</th><th>Paese</th><th>Pagina</th><th>Durata</th><th>Fonte</th><th>Azioni</th></tr></thead>
+            <tbody id="ip-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card mt-20">
+        <div class="card-header"><span>🚫</span><span class="card-title">Piattaforme per monitoraggio IP</span></div>
+        <div class="card-body">
+          <div class="platform-grid">
+            <div class="plat-card" style="border-color:var(--red)">🔥 Cloudflare<br><small>Raccomandato — gratuito</small></div>
+            <div class="plat-card">📊 Matomo<br><small>Self-hosted, vedi IP</small></div>
+            <div class="plat-card">👁 Plausible<br><small>Privacy-first</small></div>
+            <div class="plat-card">⚡ New Relic<br><small>Enterprise</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SECURITY PANEL ── -->
+    <div id="panel-security" class="admin-panel">
+      <div class="grid-4">
+        <div class="stat-card"><div class="stat-icon" style="background:#F0FDF4;color:var(--green)">🛡</div><div><div class="stat-label">Attacchi Bloccati</div><div class="stat-value">1,284</div><div class="stat-trend trend-up">Firewall attivo</div></div></div>
+        <div class="stat-card"><div class="stat-icon" style="background:#EFF6FF;color:var(--blue)">🔒</div><div><div class="stat-label">SSL/HTTPS</div><div class="stat-value">Valido ✓</div><div class="stat-trend trend-up">89 giorni rimanenti</div></div></div>
+        <div class="stat-card"><div class="stat-icon" style="background:#FFFBEB;color:var(--orange)">🚫</div><div><div class="stat-label">IP Bloccati</div><div class="stat-value">87</div><div class="stat-trend">blacklist attiva</div></div></div>
+        <div class="stat-card"><div class="stat-icon" style="background:#FEF2F2;color:var(--red)">🤖</div><div><div class="stat-label">Bot Rilevati</div><div class="stat-value">342</div><div class="stat-trend">oggi — filtrati</div></div></div>
+      </div>
+      <div class="card mt-20">
+        <div class="card-header"><span>⚙️</span><span class="card-title">Protezioni Attive</span></div>
+        <div class="card-body">
+          <div class="security-list">
+            <div class="sec-item"><div class="sec-icon" style="background:#F0FDF4;color:var(--green)">🔒</div><div class="sec-info"><b>HTTPS / SSL Auto-Rinnovo</b><small>Let's Encrypt — scade tra 89 giorni</small></div><div class="toggle-btn on" onclick="toggleSec(this)"></div></div>
+            <div class="sec-item"><div class="sec-icon" style="background:#EFF6FF;color:var(--blue)">🔥</div><div class="sec-info"><b>Firewall Applicativo (WAF)</b><small>Cloudflare WAF — 1.284 bloccati oggi</small></div><div class="toggle-btn on" onclick="toggleSec(this)"></div></div>
+            <div class="sec-item"><div class="sec-icon" style="background:#F0FDF4;color:var(--green)">🤖</div><div class="sec-info"><b>Anti-Bot e CAPTCHA</b><small>Rate limiting + challenge attivi</small></div><div class="toggle-btn on" onclick="toggleSec(this)"></div></div>
+            <div class="sec-item"><div class="sec-icon" style="background:#FFFBEB;color:var(--orange)">⛈</div><div class="sec-info"><b>Protezione DDoS</b><small>Cloudflare — mitigazione automatica</small></div><div class="toggle-btn on" onclick="toggleSec(this)"></div></div>
+            <div class="sec-item"><div class="sec-icon" style="background:#EFF6FF;color:var(--blue)">🗄</div><div class="sec-info"><b>Backup Automatico</b><small>Ogni notte alle 03:00 — conservati 30 gg</small></div><div class="toggle-btn on" onclick="toggleSec(this)"></div></div>
+            <div class="sec-item"><div class="sec-icon" style="background:#F0FDF4;color:var(--green)">🔑</div><div class="sec-info"><b>2FA Pannello Admin</b><small>Autenticazione a due fattori</small></div><div class="toggle-btn on" onclick="toggleSec(this)"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Placeholder panels -->
+    <div id="panel-articles" class="admin-panel">
+      <div class="card"><div class="card-header"><span>📰</span><span class="card-title">Tutti gli Articoli</span><button class="btn btn-primary btn-sm" style="margin-left:auto" onclick="showPanel('new-article')">+ Nuovo</button></div>
+      <div class="card-body"><p style="color:var(--text-muted)">Lista completa articoli — funzionalità CMS completa nella versione server-side.</p></div></div>
+    </div>
+    <div id="panel-categories" class="admin-panel">
+      <div class="card"><div class="card-header"><span>🏷️</span><span class="card-title">Categorie</span></div>
+      <div class="card-body"><div class="grid-3" style="gap:12px">
+        <div class="cat-chip">🏛 Politica</div><div class="cat-chip">💹 Economia</div>
+        <div class="cat-chip">🌍 Mondo</div><div class="cat-chip">⚽ Sport</div>
+        <div class="cat-chip">🎭 Cultura</div><div class="cat-chip">💻 Tecnologia</div>
+        <div class="cat-chip">🏥 Salute</div><div class="cat-chip">🔬 Scienze</div>
+        <div class="cat-chip">🌿 Ambiente</div>
+      </div></div></div>
+    </div>
+    <div id="panel-authors" class="admin-panel">
+      <div class="card"><div class="card-header"><span>👥</span><span class="card-title">Team Redazionale</span></div>
+      <div class="card-body"><div class="grid-3" style="gap:12px">
+        <div class="author-chip"><div class="author-av">MF</div><div><b>Marco Ferretti</b><br><small>Caporedattore</small></div></div>
+        <div class="author-chip"><div class="author-av" style="background:var(--blue)">GM</div><div><b>Giulia Marchetti</b><br><small>Editorialista</small></div></div>
+        <div class="author-chip"><div class="author-av" style="background:var(--green)">LE</div><div><b>Luca Esposito</b><br><small>Reporter</small></div></div>
+        <div class="author-chip"><div class="author-av" style="background:var(--purple)">ER</div><div><b>Elena Russo</b><br><small>Tech Editor</small></div></div>
+      </div></div></div>
+    </div>
+
+  </div><!-- admin-content -->
+</div><!-- admin-main -->
+
+<style>
+.admin-layout { display:flex; min-height:100vh; background:var(--bg-primary); }
+.admin-sidebar {
+  width:var(--sidebar-w); flex-shrink:0;
+  background:var(--bg-secondary); border-right:1px solid var(--border);
+  display:flex; flex-direction:column;
+  position:fixed; top:0; left:0; bottom:0;
+  overflow-y:auto; z-index:100;
+  transition:transform var(--t-slow);
+}
+.admin-main { margin-left:var(--sidebar-w); flex:1; display:flex; flex-direction:column; min-height:100vh; }
+.admin-topbar {
+  position:sticky; top:0; z-index:50;
+  background:var(--bg-secondary); border-bottom:1px solid var(--border);
+  height:56px; display:flex; align-items:center;
+  padding:0 24px; gap:16px;
+}
+.atb-left { display:flex; align-items:center; gap:12px; }
+.atb-menu-btn { width:36px; height:36px; background:none; border:1px solid var(--border); border-radius:var(--r-md); cursor:pointer; font-size:18px; display:none; }
+.atb-title { font-size:17px; font-weight:700; }
+.atb-right { margin-left:auto; display:flex; align-items:center; gap:10px; }
+.atb-time { font-size:12px; color:var(--text-muted); font-family:var(--font-mono); }
+.admin-content { flex:1; padding:24px; overflow-y:auto; }
+.admin-panel { display:none; }
+.admin-panel.active { display:block; }
+.mt-20 { margin-top:20px; }
+.mt-16 { margin-top:16px; }
+.mt-12 { margin-top:12px; }
+
+.asb-logo {
+  padding:20px 16px 14px; display:flex; align-items:center; gap:8px;
+  border-bottom:1px solid var(--border); flex-shrink:0;
+}
+.asb-logo-text { font-family:var(--font-serif); font-size:20px; font-weight:900; }
+.asb-logo-text span { color:var(--red); }
+.asb-logo-sub { font-size:10px; color:var(--text-muted); margin-left:auto; text-transform:uppercase; letter-spacing:1px; }
+.asb-close { display:none; background:none; border:none; font-size:20px; cursor:pointer; color:var(--text-muted); margin-left:auto; }
+.asb-nav { flex:1; padding:12px 8px; display:flex; flex-direction:column; gap:2px; overflow-y:auto; }
+.asb-section { font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--text-muted); padding:12px 10px 4px; }
+.asb-link {
+  display:flex; align-items:center; gap:10px;
+  padding:9px 12px; border-radius:var(--r-md);
+  font-size:13px; font-weight:500; color:var(--text-secondary);
+  transition:all var(--t-base); cursor:pointer;
+  border-left:3px solid transparent;
+}
+.asb-link:hover { background:var(--bg-hover); color:var(--text-primary); }
+.asb-link.active { background:rgba(192,18,28,.08); color:var(--red); border-left-color:var(--red); font-weight:600; }
+.asb-badge { margin-left:auto; background:var(--red); color:white; font-size:10px; font-weight:700; padding:1px 6px; border-radius:var(--r-full); }
+.asb-badge.live { animation:pulse 1.5s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.6} }
+.asb-footer { padding:16px; border-top:1px solid var(--border); flex-shrink:0; }
+.asb-user { display:flex; align-items:center; gap:10px; }
+.asb-avatar { width:36px; height:36px; border-radius:50%; background:var(--red); color:white; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; flex-shrink:0; }
+.asb-username { font-size:13px; font-weight:600; }
+.asb-role { font-size:11px; color:var(--text-muted); }
+
+/* dash grid */
+.dash-grid { display:grid; grid-template-columns:1.5fr 1fr; gap:20px; }
+
+/* Chart */
+.chart-container { display:flex; align-items:flex-end; gap:8px; height:120px; padding:0 4px; }
+.chart-bar { flex:1; border-radius:4px 4px 0 0; background:rgba(192,18,28,.2); cursor:pointer; transition:background var(--t-base); position:relative; }
+.chart-bar:hover { background:var(--red); }
+.chart-bar-val { position:absolute; top:-20px; left:50%; transform:translateX(-50%); font-size:10px; color:var(--text-muted); white-space:nowrap; opacity:0; transition:opacity var(--t-base); }
+.chart-bar:hover .chart-bar-val { opacity:1; }
+.chart-legend { display:flex; gap:8px; margin-top:8px; }
+.chart-legend div { flex:1; text-align:center; }
+
+/* Notifs */
+.notif-list { display:flex; flex-direction:column; }
+.notif-item { display:flex; align-items:flex-start; gap:10px; padding:12px 20px; border-bottom:1px solid var(--border); font-size:13px; }
+.notif-item:last-child { border-bottom:none; }
+.notif-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; margin-top:5px; }
+.notif-red .notif-dot { background:var(--red); }
+.notif-green .notif-dot { background:var(--green); }
+.notif-blue .notif-dot { background:var(--blue); }
+.notif-orange .notif-dot { background:var(--orange); }
+.notif-gray .notif-dot { background:var(--text-muted); }
+.notif-time { font-size:11px; color:var(--text-muted); margin-top:2px; }
+
+/* Table */
+.table-wrap { overflow-x:auto; }
+.data-table { width:100%; border-collapse:collapse; }
+.data-table th { text-align:left; font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:.5px; padding:10px 16px; background:var(--bg-hover); border-bottom:1px solid var(--border); white-space:nowrap; }
+.data-table td { padding:11px 16px; border-bottom:1px solid var(--border); font-size:13px; vertical-align:middle; }
+.data-table tr:last-child td { border-bottom:none; }
+.data-table tr:hover td { background:var(--bg-hover); }
+.td-title { font-weight:600; max-width:280px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.td-actions { display:flex; gap:6px; white-space:nowrap; }
+
+/* Editor */
+.editor-layout { display:grid; grid-template-columns:1fr 300px; gap:20px; }
+.editor-toolbar { display:flex; flex-wrap:wrap; gap:4px; padding:10px; background:var(--bg-hover); border:1.5px solid var(--border); border-bottom:none; border-radius:var(--r-md) var(--r-md) 0 0; }
+.tb-btn { padding:4px 10px; background:var(--bg-secondary); border:1px solid var(--border); border-radius:var(--r-sm); cursor:pointer; font-size:13px; color:var(--text-secondary); transition:all var(--t-base); }
+.tb-btn:hover { background:var(--red); color:white; border-color:var(--red); }
+.tb-sep { width:1px; background:var(--border); margin:0 4px; }
+.editor-body {
+  border:1.5px solid var(--border); border-radius:0 0 var(--r-md) var(--r-md);
+  min-height:280px; padding:16px;
+  font-family:Georgia,serif; font-size:15px; line-height:1.8;
+  outline:none; background:var(--bg-secondary); color:var(--text-primary);
+}
+.editor-body:focus { border-color:var(--red); }
+.editor-body:empty::before { content:attr(data-placeholder); color:var(--text-muted); pointer-events:none; }
+.upload-zone { border:2px dashed var(--border); border-radius:var(--r-md); padding:24px; text-align:center; cursor:pointer; transition:all var(--t-base); background:var(--bg-hover); display:flex; flex-direction:column; align-items:center; gap:6px; }
+.upload-zone:hover { border-color:var(--red); background:rgba(192,18,28,.04); }
+.upload-zone p { font-size:13px; color:var(--text-secondary); }
+
+/* Security */
+.security-list { display:flex; flex-direction:column; gap:0; }
+.sec-item { display:flex; align-items:center; gap:14px; padding:14px 0; border-bottom:1px solid var(--border); }
+.sec-item:last-child { border-bottom:none; }
+.sec-icon { width:38px; height:38px; border-radius:var(--r-md); display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; }
+.sec-info { flex:1; }
+.sec-info b { font-size:13px; display:block; margin-bottom:2px; }
+.sec-info small { font-size:11px; color:var(--text-muted); }
+.toggle-btn { width:44px; height:24px; border-radius:var(--r-full); background:var(--border-strong); position:relative; cursor:pointer; transition:background var(--t-base); flex-shrink:0; }
+.toggle-btn.on { background:var(--green); }
+.toggle-btn::after { content:''; position:absolute; top:3px; left:3px; width:18px; height:18px; border-radius:50%; background:white; box-shadow:0 2px 4px rgba(0,0,0,.2); transition:transform var(--t-base); }
+.toggle-btn.on::after { transform:translateX(20px); }
+
+/* Platforms */
+.platform-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:10px; }
+.plat-card { border:1.5px solid var(--border); border-radius:var(--r-md); padding:12px 14px; font-size:12px; font-weight:600; cursor:pointer; transition:all var(--t-base); line-height:1.6; }
+.plat-card small { font-weight:400; color:var(--text-muted); }
+.plat-card:hover { border-color:var(--red); background:rgba(192,18,28,.04); }
+.code-input { font-family:var(--font-mono)!important; font-size:12px!important; background:var(--black)!important; color:#7ec8e3!important; border-color:#333!important; }
+
+/* Categories + Authors chips */
+.cat-chip { padding:10px 16px; background:var(--bg-hover); border:1px solid var(--border); border-radius:var(--r-md); font-size:13px; font-weight:600; cursor:pointer; transition:all var(--t-base); }
+.cat-chip:hover { background:var(--red); color:white; border-color:var(--red); }
+.author-chip { display:flex; align-items:center; gap:10px; padding:12px; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--r-md); font-size:13px; }
+.author-av { width:36px; height:36px; border-radius:50%; background:var(--red); color:white; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; flex-shrink:0; }
+
+/* IP table */
+.ip-badge { font-family:var(--font-mono); font-size:12px; font-weight:700; background:rgba(26,111,173,.1); color:var(--blue); padding:2px 8px; border-radius:var(--r-sm); }
+
+@media(max-width:900px) {
+  .admin-sidebar { transform:translateX(-100%); }
+  .admin-sidebar.open { transform:none; box-shadow:var(--shadow-xl); }
+  .admin-main { margin-left:0; }
+  .atb-menu-btn { display:flex!important; align-items:center; justify-content:center; }
+  .asb-close { display:block; }
+  .dash-grid { grid-template-columns:1fr; }
+  .editor-layout { grid-template-columns:1fr; }
+}
+</style>
+
+<script src="../assets/js/core.js"></script>
+<script>
+// Auth guard
+if (!Auth.isLoggedIn()) {
+  window.location.href = 'login.html?redirect=' + encodeURIComponent(window.location.pathname);
+}
+
+// Update user info
+const session = Auth.getSession();
+if (session) {
+  document.getElementById('asb-username').textContent = session.name || session.username;
+  document.getElementById('asb-avatar').textContent = (session.name || 'AD').slice(0,2).toUpperCase();
+}
+
+// Clock
+function updateClock() {
+  const el = document.getElementById('atb-time');
+  if (el) el.textContent = new Date().toLocaleTimeString('it-IT', {hour:'2-digit',minute:'2-digit',second:'2-digit'});
+}
+updateClock(); setInterval(updateClock, 1000);
+
+// Panel switching
+function showPanel(name) {
+  document.querySelectorAll('.admin-panel').forEach(p => p.classList.remove('active'));
+  const el = document.getElementById('panel-' + name);
+  if (el) el.classList.add('active');
+  document.querySelectorAll('.asb-link').forEach(l => l.classList.remove('active'));
+  const titles = { dashboard:'Dashboard', 'new-article':'Nuovo Articolo', articles:'Articoli', categories:'Categorie', authors:'Autori', analytics:'Analytics', ip:'Monitor IP', security:'Sicurezza' };
+  document.getElementById('panel-title').textContent = titles[name] || name;
+}
+
+// Sidebar toggle
+function toggleSidebar() {
+  document.getElementById('admin-sidebar').classList.toggle('open');
+}
+
+// Traffic chart
+const vals = [78,92,85,110,145,98,142];
+const max = Math.max(...vals);
+const chart = document.getElementById('traffic-chart');
+if (chart) {
+  vals.forEach((v,i) => {
+    const bar = document.createElement('div');
+    bar.className = 'chart-bar';
+    bar.style.height = (v/max*100)+'%';
+    bar.innerHTML = `<span class="chart-bar-val">${v}K</span>`;
+    chart.appendChild(bar);
+  });
+}
+
+// Animated visitors counter
+let vis = 0; const visTarget = 142380;
+const visEl = document.getElementById('visitors-count');
+if (visEl) {
+  const step = visTarget/80;
+  const t = setInterval(() => { vis = Math.min(vis+step, visTarget); visEl.textContent = new Intl.NumberFormat('it-IT').format(Math.round(vis)); if(vis>=visTarget) clearInterval(t); }, 20);
+}
+
+// IP table live simulation
+const ips = [
+  ['185.220.101.45','🇮🇹 Italia','/politica/crisi-governo','3:22','Google'],
+  ['212.77.132.18','🇮🇹 Italia','/economia/borsa-oggi','1:45','Facebook'],
+  ['5.62.63.100','🇩🇪 Germania','/mondo/europa-difesa','0:58','Diretto'],
+  ['77.88.5.5','🇫🇷 Francia','/','0:12','Google'],
+  ['91.198.174.192','🇺🇸 USA','/sport/milan-juventus','5:01','Twitter'],
+];
+function populateIPTable() {
+  const tb = document.getElementById('ip-tbody');
+  if (!tb) return;
+  tb.innerHTML = ips.map(([ip,country,page,dur,src]) => `
+    <tr>
+      <td><span class="ip-badge">${ip}</span></td>
+      <td>${country}</td>
+      <td>${page}</td>
+      <td>${dur}</td>
+      <td>${src}</td>
+      <td class="td-actions">
+        <button class="btn btn-ghost btn-sm" title="Info">ℹ️</button>
+        <button class="btn btn-ghost btn-sm" style="color:var(--red)" title="Blocca" onclick="Toast.show('IP bloccato','${ip} aggiunto alla blacklist.','success')">🚫</button>
+      </td>
+    </tr>`).join('');
+}
+populateIPTable();
+
+// Live counter animation
+let liveCnt = 247;
+const liveEl = document.getElementById('live-cnt');
+if (liveEl) { setInterval(() => { liveCnt += Math.round((Math.random()-.4)*8); liveCnt = Math.max(150,Math.min(400,liveCnt)); liveEl.textContent = liveCnt+' online'; }, 3000); }
+
+// Security toggles
+function toggleSec(el) { el.classList.toggle('on'); }
+
+// Editor
+function fmt(cmd) { document.getElementById('art-body').focus(); document.execCommand(cmd,false,null); }
+function insertLink() {
+  const url = prompt('URL del link:');
+  if (url) { document.getElementById('art-body').focus(); document.execCommand('createLink',false,url); }
+}
+
+// Image preview
+function previewImg(inp) {
+  if (inp.files && inp.files[0]) {
+    const r = new FileReader();
+    r.onload = e => { document.getElementById('preview-el').src = e.target.result; document.getElementById('img-preview').style.display='block'; };
+    r.readAsDataURL(inp.files[0]);
+  }
+}
+
+// Publish
+function publishArticle() {
+  const t = document.getElementById('art-title').value.trim();
+  if (!t) { Toast.show('Titolo mancante','Inserisci un titolo per l\'articolo.','error'); return; }
+  Toast.show('Articolo pubblicato!','L\'articolo è ora visibile sul sito.','success');
+}
+
+// Theme
+document.querySelectorAll('[data-theme-toggle]').forEach(b => b.addEventListener('click', () => { Theme.toggle(); document.querySelectorAll('[data-theme-icon]').forEach(i => i.textContent = Theme.get()==='dark'?'☀️':'🌙'); }));
+</script>
+</body>
+</html>
