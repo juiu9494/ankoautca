@@ -1,5 +1,5 @@
 // admin.js - Dashboard temps réel avec Supabase
-const SUPABASE_URL = 'https://supabase.com/dashboard/project/rmugngceojbarttctsoo';
+const SUPABASE_URL = 'https://rmugngceojbarttctsoo.supabase.co/rest/v1/';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJtdWduZ2Nlb2piYXJ0dGN0c29vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2MDE5NjIsImV4cCI6MjA5NDE3Nzk2Mn0.DAKlMEZ8B2QaWTzr1Y9Y_SeUWLdZIIa-CgfCh4RN3pc'; // Clé publique
 
 const { createClient } = supabase;
