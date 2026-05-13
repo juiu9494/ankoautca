@@ -1,0 +1,1825 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANKOAUTCA — Notizie, Attualità, Mondo</title>
+<meta name="description" content="ANKOAUTCA - Il portale italiano di notizie, attualità, politica, economia, sport, cultura e tecnologia.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="ANKOAUTCA — Notizie dal Mondo">
+<meta property="og:description" content="Il portale italiano di informazione. Notizie, attualità, analisi.">
+<meta property="og:type" content="website">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Sans+3:wght@300;400;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+<!-- Tabler Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+<style>
+:root {
+  --red: #C0121C;
+  --red-dark: #8B0000;
+  --red-light: #f8e8e8;
+  --black: #0A0A0A;
+  --dark: #1a1a1a;
+  --gray-900: #222222;
+  --gray-700: #444;
+  --gray-500: #777;
+  --gray-300: #ccc;
+  --gray-100: #f4f4f2;
+  --white: #ffffff;
+  --cream: #faf9f7;
+  --gold: #B8960C;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Source Sans 3', Arial, sans-serif;
+  --font-serif: 'Source Serif 4', Georgia, serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--black);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+/* ============================
+   TOP BAR
+   ============================ */
+.topbar {
+  background: var(--black);
+  color: var(--gray-300);
+  font-size: 12px;
+  padding: 6px 0;
+  border-bottom: 2px solid var(--red);
+}
+.topbar-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.topbar-date { font-family: var(--font-serif); font-style: italic; color: #aaa; }
+.topbar-links { display: flex; gap: 20px; align-items: center; }
+.topbar-links a { color: #bbb; transition: color .2s; font-size: 11px; letter-spacing: .5px; text-transform: uppercase; }
+.topbar-links a:hover { color: var(--red); }
+.topbar-social { display: flex; gap: 14px; }
+.topbar-social a { color: #888; font-size: 14px; transition: color .2s; }
+.topbar-social a:hover { color: var(--red); }
+.live-badge {
+  background: var(--red);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 2px 7px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.7} }
+
+/* ============================
+   BREAKING NEWS TICKER
+   ============================ */
+.breaking-bar {
+  background: var(--red);
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.breaking-label {
+  background: var(--black);
+  color: white;
+  padding: 0 16px;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.breaking-track {
+  overflow: hidden;
+  flex: 1;
+  padding-left: 20px;
+}
+.breaking-inner {
+  display: inline-flex;
+  gap: 60px;
+  animation: scrollTicker 40s linear infinite;
+  white-space: nowrap;
+}
+.breaking-inner span::before { content: "●  "; opacity: .7; }
+@keyframes scrollTicker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+/* ============================
+   HEADER / MASTHEAD
+   ============================ */
+header {
+  background: var(--white);
+  border-bottom: 3px solid var(--black);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,.08);
+}
+.masthead {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 16px 20px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.logo-wrap { display: flex; flex-direction: column; align-items: flex-start; }
+.logo-text {
+  font-family: var(--font-display);
+  font-size: 52px;
+  font-weight: 900;
+  letter-spacing: -2px;
+  color: var(--black);
+  line-height: 1;
+  position: relative;
+}
+.logo-text .logo-a { color: var(--red); }
+.logo-tagline {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 12px;
+  color: var(--gray-500);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 2px;
+  padding-left: 2px;
+}
+.logo-rule {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--red), transparent);
+  margin-top: 4px;
+}
+.header-actions { display: flex; align-items: center; gap: 12px; }
+.search-box {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid var(--gray-300);
+  border-radius: 3px;
+  overflow: hidden;
+  background: var(--gray-100);
+}
+.search-box input {
+  border: none;
+  background: transparent;
+  padding: 7px 12px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--black);
+  outline: none;
+  width: 200px;
+}
+.search-box button {
+  background: var(--red);
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background .2s;
+}
+.search-box button:hover { background: var(--red-dark); }
+.btn-abbonati {
+  background: var(--red);
+  color: white;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background .2s;
+  white-space: nowrap;
+}
+.btn-abbonati:hover { background: var(--red-dark); }
+
+/* ============================
+   NAVIGATION
+   ============================ */
+nav.mainnav {
+  background: var(--black);
+}
+.mainnav-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.mainnav-inner::-webkit-scrollbar { display: none; }
+.mainnav-inner a {
+  color: #ddd;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 12px 16px;
+  white-space: nowrap;
+  transition: all .2s;
+  border-bottom: 3px solid transparent;
+  position: relative;
+}
+.mainnav-inner a:hover, .mainnav-inner a.active { color: white; border-bottom-color: var(--red); }
+.mainnav-inner .nav-sep { color: #444; margin: 0 4px; user-select: none; }
+
+/* ============================
+   LAYOUT GRID
+   ============================ */
+.container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 30px;
+  padding: 30px 0;
+}
+@media (max-width: 900px) { .main-layout { grid-template-columns: 1fr; } }
+
+/* ============================
+   SECTION LABELS
+   ============================ */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--black);
+}
+.section-label {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--black);
+  letter-spacing: -.3px;
+}
+.section-label-sm {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gray-500);
+}
+.section-red-line {
+  width: 40px;
+  height: 3px;
+  background: var(--red);
+  border-radius: 2px;
+}
+
+/* ============================
+   HERO — MAIN FEATURE
+   ============================ */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 2px;
+  background: var(--black);
+  border: 2px solid var(--black);
+  margin-bottom: 30px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.hero-main {
+  grid-row: 1 / 3;
+  position: relative;
+  min-height: 480px;
+  background: linear-gradient(160deg, #1a1a2e 0%, #16213e 100%);
+  overflow: hidden;
+  cursor: pointer;
+}
+.hero-main:hover .hero-main-img { transform: scale(1.03); }
+.hero-main-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .6s ease;
+  opacity: .75;
+}
+.hero-main-bg {
+  position: absolute;
+  inset: 0;
+  background: url('https://picsum.photos/seed/news1/900/600') center/cover;
+  opacity: .4;
+  transition: transform .6s ease;
+}
+.hero-main:hover .hero-main-bg { transform: scale(1.03); }
+.hero-main-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0,0,0,.9) 0%, rgba(0,0,0,.3) 60%, transparent 100%);
+}
+.hero-main-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px;
+  color: white;
+}
+.hero-category {
+  display: inline-block;
+  background: var(--red);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  margin-bottom: 10px;
+  border-radius: 1px;
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-size: 34px;
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 10px;
+  color: white;
+}
+.hero-excerpt {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 15px;
+  color: rgba(255,255,255,.8);
+  line-height: 1.6;
+  margin-bottom: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.hero-meta { font-size: 12px; color: rgba(255,255,255,.6); display: flex; gap: 14px; align-items: center; }
+.hero-meta .author { font-weight: 600; color: rgba(255,255,255,.85); }
+
+.hero-side {
+  background: var(--black);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.hero-side-item {
+  position: relative;
+  flex: 1;
+  min-height: 180px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.hero-side-item:hover .hsi-bg { transform: scale(1.05); }
+.hsi-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: .5;
+  transition: transform .4s ease;
+}
+.hsi-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0,0,0,.85) 0%, transparent 60%);
+}
+.hsi-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 14px;
+  color: white;
+}
+.hsi-cat {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 5px;
+}
+.hsi-title {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: white;
+}
+
+/* ============================
+   ARTICLE CARDS
+   ============================ */
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 30px;
+}
+@media(max-width:700px){ .articles-grid{grid-template-columns:1fr;} }
+
+.card {
+  background: var(--white);
+  border: 1px solid #e8e6e1;
+  border-radius: 2px;
+  overflow: hidden;
+  transition: transform .2s, box-shadow .2s;
+  cursor: pointer;
+}
+.card:hover { transform: translateY(-3px); box-shadow: 0 6px 24px rgba(0,0,0,.1); }
+.card-img {
+  aspect-ratio: 16/9;
+  background: var(--gray-100);
+  overflow: hidden;
+  position: relative;
+}
+.card-img img { width:100%; height:100%; object-fit:cover; transition: transform .4s; }
+.card:hover .card-img img { transform: scale(1.05); }
+.card-cat-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: var(--red);
+  color: white;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 1px;
+}
+.card-body { padding: 16px; }
+.card-title {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 8px;
+  color: var(--black);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color .2s;
+}
+.card:hover .card-title { color: var(--red); }
+.card-excerpt {
+  font-size: 13.5px;
+  color: var(--gray-500);
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 12px;
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+.card-meta { font-size: 11px; color: var(--gray-500); display: flex; justify-content: space-between; align-items: center; }
+.card-author { font-weight: 600; color: var(--gray-700); }
+.card-time { display: flex; align-items: center; gap: 4px; }
+
+/* ============================
+   LIST ARTICLE STYLE
+   ============================ */
+.article-list-item {
+  display: flex;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid #e8e6e1;
+  cursor: pointer;
+  transition: opacity .2s;
+}
+.article-list-item:last-child { border-bottom: none; }
+.article-list-item:hover { opacity: .8; }
+.ali-img {
+  width: 90px;
+  height: 68px;
+  flex-shrink: 0;
+  border-radius: 2px;
+  overflow: hidden;
+  background: var(--gray-100);
+}
+.ali-img img { width:100%; height:100%; object-fit:cover; }
+.ali-content { flex: 1; min-width: 0; }
+.ali-cat { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--red); margin-bottom: 4px; }
+.ali-title {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--black);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.ali-meta { font-size: 11px; color: var(--gray-500); margin-top: 5px; }
+
+/* ============================
+   OPINION / EDITORIALI
+   ============================ */
+.opinion-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+.opinion-card {
+  background: var(--white);
+  border: 1px solid #e8e6e1;
+  padding: 20px;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+.opinion-card::before {
+  content: '"';
+  font-family: var(--font-display);
+  font-size: 120px;
+  color: var(--red);
+  opacity: .08;
+  position: absolute;
+  top: -20px;
+  left: 10px;
+  line-height: 1;
+  pointer-events: none;
+}
+.opinion-author { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.opinion-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--gray-100);
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 2px solid var(--red);
+}
+.opinion-avatar img { width:100%; height:100%; object-fit:cover; }
+.opinion-name { font-weight: 700; font-size: 14px; color: var(--black); }
+.opinion-role { font-size: 11px; color: var(--gray-500); font-style: italic; }
+.opinion-title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--black);
+  margin-bottom: 8px;
+}
+.opinion-excerpt { font-size: 13px; color: var(--gray-700); font-family: var(--font-serif); font-style: italic; line-height: 1.6; }
+
+/* ============================
+   SIDEBAR
+   ============================ */
+.sidebar { display: flex; flex-direction: column; gap: 26px; }
+
+.widget {
+  background: var(--white);
+  border: 1px solid #e8e6e1;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.widget-header {
+  background: var(--black);
+  color: white;
+  padding: 10px 16px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.widget-body { padding: 16px; }
+
+.trending-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0ede8;
+  cursor: pointer;
+}
+.trending-item:last-child { border-bottom: none; padding-bottom: 0; }
+.trending-num {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--gray-300);
+  line-height: 1;
+  min-width: 32px;
+  transition: color .2s;
+}
+.trending-item:hover .trending-num { color: var(--red); }
+.trending-text { flex: 1; }
+.trending-cat { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--red); margin-bottom: 3px; }
+.trending-title { font-family: var(--font-display); font-size: 13.5px; font-weight: 700; line-height: 1.3; color: var(--black); }
+
+/* Weather widget */
+.weather-widget { text-align: center; padding: 20px 16px; }
+.weather-city { font-size: 13px; font-weight: 700; color: var(--gray-700); letter-spacing: 1px; text-transform: uppercase; }
+.weather-temp { font-family: var(--font-display); font-size: 52px; font-weight: 900; color: var(--black); line-height: 1; }
+.weather-desc { font-style: italic; font-size: 13px; color: var(--gray-500); margin-top: 4px; }
+.weather-icon { font-size: 36px; margin: 8px 0; }
+
+/* Newsletter widget */
+.newsletter-widget { padding: 20px 16px; }
+.newsletter-title { font-family: var(--font-display); font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+.newsletter-sub { font-size: 13px; color: var(--gray-500); margin-bottom: 14px; line-height: 1.5; }
+.newsletter-form { display: flex; flex-direction: column; gap: 8px; }
+.newsletter-form input {
+  border: 1.5px solid var(--gray-300);
+  padding: 9px 12px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  border-radius: 2px;
+  outline: none;
+  transition: border-color .2s;
+}
+.newsletter-form input:focus { border-color: var(--red); }
+.newsletter-form button {
+  background: var(--red);
+  color: white;
+  border: none;
+  padding: 10px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background .2s;
+}
+.newsletter-form button:hover { background: var(--red-dark); }
+
+/* Social stats */
+.social-stats { display: flex; flex-direction: column; gap: 0; }
+.social-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 16px;
+  border-bottom: 1px solid #f0ede8;
+  cursor: pointer;
+  transition: background .15s;
+}
+.social-item:last-child { border-bottom: none; }
+.social-item:hover { background: var(--gray-100); }
+.social-icon { font-size: 20px; width: 34px; height: 34px; display:flex; align-items:center; justify-content:center; border-radius: 4px; }
+.social-fb { background: #1877F2; color: white; }
+.social-tw { background: #000; color: white; }
+.social-ig { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color:white; }
+.social-yt { background: #FF0000; color: white; }
+.social-tg { background: #0088cc; color: white; }
+.social-name { font-weight: 700; font-size: 13px; flex: 1; }
+.social-count { font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--gray-700); }
+.social-label { font-size: 10px; color: var(--gray-500); }
+
+/* ============================
+   CATEGORY SECTIONS
+   ============================ */
+.category-section { margin-bottom: 36px; }
+.category-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+@media(max-width:600px){ .category-two-col{grid-template-columns:1fr;} }
+
+/* Big article horizontal */
+.big-article-horiz {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  background: var(--black);
+  border-radius: 2px;
+  overflow: hidden;
+  min-height: 240px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.bah-img {
+  overflow: hidden;
+}
+.bah-img img { width:100%; height:100%; object-fit:cover; transition:transform .4s; }
+.big-article-horiz:hover .bah-img img { transform: scale(1.04); }
+.bah-content {
+  padding: 24px;
+  background: var(--black);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.bah-cat { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
+.bah-title { font-family: var(--font-display); font-size: 22px; font-weight: 900; line-height: 1.25; margin-bottom: 10px; }
+.bah-excerpt { font-size: 13px; color: rgba(255,255,255,.7); font-family: var(--font-serif); font-style: italic; line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.bah-meta { font-size: 11px; color: rgba(255,255,255,.5); margin-top: 12px; }
+
+/* ============================
+   VIDEO SECTION
+   ============================ */
+.video-card {
+  background: var(--black);
+  border-radius: 2px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+.video-thumb {
+  aspect-ratio: 16/9;
+  background: #111;
+  position: relative;
+  overflow: hidden;
+}
+.video-thumb img { width:100%; height:100%; object-fit:cover; opacity:.7; transition:opacity .3s; }
+.video-card:hover .video-thumb img { opacity:.9; }
+.video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 52px;
+  height: 52px;
+  background: rgba(192,18,28,.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  transition: transform .2s;
+}
+.video-card:hover .video-play { transform: translate(-50%,-50%) scale(1.1); }
+.video-duration {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0,0,0,.8);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+.video-info { padding: 12px; color: white; }
+.video-cat { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--red); margin-bottom: 5px; }
+.video-title { font-family: var(--font-display); font-size: 15px; font-weight: 700; line-height: 1.3; }
+.video-meta { font-size: 11px; color: rgba(255,255,255,.5); margin-top: 6px; }
+
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 30px;
+}
+@media(max-width:700px){ .videos-grid{grid-template-columns:1fr 1fr;} }
+
+/* ============================
+   TAGS / ARGOMENTI
+   ============================ */
+.tags-cloud { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px; }
+.tag {
+  border: 1.5px solid var(--gray-300);
+  color: var(--gray-700);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all .2s;
+  letter-spacing: .3px;
+}
+.tag:hover, .tag.active { background: var(--red); color: white; border-color: var(--red); }
+
+/* ============================
+   MAGAZINE GRID
+   ============================ */
+.magazine-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 2px;
+  background: var(--black);
+  margin-bottom: 30px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.mag-main { grid-row: 1; }
+.mag-item {
+  position: relative;
+  overflow: hidden;
+  min-height: 200px;
+  cursor: pointer;
+}
+.mag-main { min-height: 400px; }
+.mag-item-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform .4s;
+  opacity: .6;
+}
+.mag-item:hover .mag-item-bg { transform: scale(1.05); }
+.mag-overlay { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,.85) 0%, transparent 60%); }
+.mag-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px; color: white; }
+.mag-cat { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--red); margin-bottom: 5px; }
+.mag-title { font-family: var(--font-display); font-weight: 700; line-height: 1.25; color: white; }
+.mag-main .mag-title { font-size: 26px; }
+.mag-item:not(.mag-main) .mag-title { font-size: 15px; }
+
+/* ============================
+   FOOTER
+   ============================ */
+footer {
+  background: var(--black);
+  color: #aaa;
+  margin-top: 40px;
+}
+.footer-top {
+  border-bottom: 1px solid #333;
+  padding: 40px 0 30px;
+}
+.footer-top-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+@media(max-width:800px){ .footer-top-inner { grid-template-columns: 1fr 1fr; } }
+.footer-logo { font-family: var(--font-display); font-size: 36px; font-weight: 900; color: white; letter-spacing: -1px; margin-bottom: 12px; }
+.footer-logo span { color: var(--red); }
+.footer-desc { font-size: 13px; color: #888; line-height: 1.7; margin-bottom: 16px; }
+.footer-collab {
+  background: var(--red);
+  color: white;
+  padding: 10px 16px;
+  font-size: 12px;
+  display: inline-block;
+  border-radius: 2px;
+  font-weight: 600;
+  transition: background .2s;
+}
+.footer-collab:hover { background: var(--red-dark); }
+.footer-col-title { color: white; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid #333; }
+.footer-col-links { display: flex; flex-direction: column; gap: 8px; }
+.footer-col-links a { color: #888; font-size: 13px; transition: color .2s; }
+.footer-col-links a:hover { color: var(--red); }
+.footer-social-row { display: flex; gap: 10px; margin-top: 16px; }
+.footer-social-btn {
+  width: 34px; height: 34px;
+  background: #333;
+  color: #aaa;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 2px;
+  font-size: 16px;
+  transition: all .2s;
+}
+.footer-social-btn:hover { background: var(--red); color: white; }
+
+.footer-bottom {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 12px;
+  color: #555;
+}
+.footer-bottom a { color: #555; transition: color .2s; }
+.footer-bottom a:hover { color: var(--red); }
+.footer-bottom-links { display: flex; gap: 16px; flex-wrap: wrap; }
+
+/* ============================
+   ANALYTICS PLACEHOLDER
+   ============================ */
+.analytics-note {
+  background: #fff8f0;
+  border: 1px solid #f0d090;
+  border-left: 4px solid var(--gold);
+  padding: 14px 18px;
+  border-radius: 2px;
+  font-size: 13px;
+  color: #7a5a10;
+  margin-bottom: 30px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.analytics-note i { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+
+/* ============================
+   ADMIN BAR (CMS hint)
+   ============================ */
+.admin-bar {
+  background: #1e3a5f;
+  color: white;
+  padding: 10px 20px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.admin-bar strong { color: #90c0ff; }
+.admin-bar-links { display: flex; gap: 12px; }
+.admin-bar-links a {
+  color: #aaccff;
+  background: rgba(255,255,255,.1);
+  padding: 4px 10px;
+  border-radius: 2px;
+  font-weight: 600;
+  letter-spacing: .5px;
+  transition: background .2s;
+}
+.admin-bar-links a:hover { background: rgba(255,255,255,.2); }
+
+/* ============================
+   COLLABORAZIONE BANNER
+   ============================ */
+.collab-banner {
+  background: linear-gradient(135deg, var(--black) 0%, #1a0a0a 100%);
+  border: 1px solid #333;
+  border-left: 4px solid var(--red);
+  padding: 28px 30px;
+  border-radius: 2px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.collab-icon { font-size: 40px; color: var(--red); flex-shrink: 0; }
+.collab-text { flex: 1; min-width: 200px; }
+.collab-title { font-family: var(--font-display); font-size: 22px; font-weight: 900; color: white; margin-bottom: 6px; }
+.collab-desc { font-size: 13px; color: #aaa; line-height: 1.6; }
+.collab-email { color: var(--red); font-weight: 700; }
+.collab-btn {
+  background: var(--red);
+  color: white;
+  padding: 12px 24px;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  transition: background .2s;
+  white-space: nowrap;
+  text-decoration: none;
+  display: inline-block;
+}
+.collab-btn:hover { background: var(--red-dark); }
+
+/* ============================
+   SPORT SCORES
+   ============================ */
+.scores-bar {
+  background: #f0ede8;
+  border: 1px solid #e0ddd8;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+.scores-bar-header { background: var(--black); color: white; padding: 8px 16px; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
+.scores-bar-inner { display: flex; overflow-x: auto; scrollbar-width: none; gap: 0; }
+.scores-bar-inner::-webkit-scrollbar { display: none; }
+.score-item { display: flex; flex-direction: column; align-items: center; padding: 10px 20px; border-right: 1px solid #e0ddd8; white-space: nowrap; cursor: pointer; transition: background .15s; flex-shrink: 0; }
+.score-item:hover { background: white; }
+.score-teams { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 13px; color: var(--black); }
+.score-result { font-family: var(--font-display); font-size: 20px; font-weight: 900; color: var(--red); margin: 2px 0; }
+.score-league { font-size: 10px; color: var(--gray-500); letter-spacing: 1px; text-transform: uppercase; }
+.score-live { background: var(--red); color: white; font-size: 9px; font-weight: 700; padding: 1px 5px; border-radius: 2px; margin-left: 4px; animation: pulse 1.5s infinite; }
+
+/* ============================
+   READ MORE BUTTON
+   ============================ */
+.btn-more {
+  display: block;
+  text-align: center;
+  background: transparent;
+  border: 1.5px solid var(--black);
+  color: var(--black);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 11px 24px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all .2s;
+  margin-top: 16px;
+}
+.btn-more:hover { background: var(--black); color: white; }
+
+/* ============================
+   CATEGORY COLOR PILLS
+   ============================ */
+.cat-politica { color: #1a6fad; }
+.cat-economia { color: #1a7a3a; }
+.cat-mondo { color: #8b2fc9; }
+.cat-sport { color: #c07020; }
+.cat-cultura { color: #b0181e; }
+.cat-tech { color: #1a8a8a; }
+.cat-salute { color: #c02878; }
+.cat-scienze { color: #6040b0; }
+
+/* ============================
+   RESPONSIVE
+   ============================ */
+@media(max-width:768px){
+  .logo-text { font-size: 38px; }
+  .header-actions { gap: 8px; }
+  .search-box input { width: 140px; }
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-main { min-height: 300px; }
+  .hero-side { flex-direction: row; }
+  .hero-side-item { min-height: 150px; }
+  .hero-title { font-size: 24px; }
+  .articles-grid { grid-template-columns: 1fr 1fr; }
+  .opinion-grid { grid-template-columns: 1fr; }
+  .magazine-grid { grid-template-columns: 1fr; }
+  .big-article-horiz { grid-template-columns: 1fr; }
+  .bah-img { height: 200px; }
+  .footer-top-inner { grid-template-columns: 1fr 1fr; }
+  .admin-bar { font-size: 11px; }
+}
+@media(max-width:500px){
+  .articles-grid { grid-template-columns: 1fr; }
+  .search-box { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ADMIN BAR — visible only to editors (can be hidden via CMS) -->
+<div class="admin-bar">
+  <strong>⚙ Pannello Redazione</strong>
+  <div class="admin-bar-links">
+    <a href="admin.html">Admin CMS</a>
+    <a href="admin.html#new-article">+ Nuovo Articolo</a>
+    <a href="admin.html#new-blog">+ Nuovo Blog</a>
+    <a href="admin.html#analytics">📊 Traffico</a>
+    <a href="admin.html#settings">Impostazioni</a>
+  </div>
+</div>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="topbar-date" id="topbar-date">Martedì 13 Maggio 2025</span>
+    <div class="topbar-links">
+      <span class="live-badge">● LIVE</span>
+      <a href="#">Newsletter</a>
+      <a href="#">Podcast</a>
+      <a href="#">Abbonati</a>
+      <a href="#">App</a>
+    </div>
+    <div class="topbar-social">
+      <a href="#" title="Facebook"><i class="ti ti-brand-facebook"></i></a>
+      <a href="#" title="X/Twitter"><i class="ti ti-brand-x"></i></a>
+      <a href="#" title="Instagram"><i class="ti ti-brand-instagram"></i></a>
+      <a href="#" title="YouTube"><i class="ti ti-brand-youtube"></i></a>
+      <a href="#" title="Telegram"><i class="ti ti-brand-telegram"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- BREAKING NEWS -->
+<div class="breaking-bar">
+  <div class="breaking-label">🔴 Breaking</div>
+  <div class="breaking-track">
+    <div class="breaking-inner" id="ticker">
+      <span>Il Governo approva il nuovo pacchetto economico da 40 miliardi</span>
+      <span>Vertice NATO a Bruxelles: accordo sull'aumento delle spese militari</span>
+      <span>Terremoto di magnitudo 5.8 registrato nel Sud Italia — nessun ferito grave</span>
+      <span>Borsa di Milano: il FTSE MIB guadagna il 2.1% nella seduta odierna</span>
+      <span>Serie A: Milan-Juventus finisce 2-1 — il Milan torna in testa alla classifica</span>
+      <span>Nuovo studio: trovato potenziale vaccino contro il cancro al pancreas</span>
+      <span>Il Governo approva il nuovo pacchetto economico da 40 miliardi</span>
+      <span>Vertice NATO a Bruxelles: accordo sull'aumento delle spese militari</span>
+      <span>Terremoto di magnitudo 5.8 registrato nel Sud Italia — nessun ferito grave</span>
+      <span>Borsa di Milano: il FTSE MIB guadagna il 2.1% nella seduta odierna</span>
+      <span>Serie A: Milan-Juventus finisce 2-1 — il Milan torna in testa alla classifica</span>
+      <span>Nuovo studio: trovato potenziale vaccino contro il cancro al pancreas</span>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="masthead">
+    <div class="logo-wrap">
+      <div class="logo-text"><span class="logo-a">A</span>NKOAUTCA</div>
+      <div class="logo-tagline">Il Portale Italiano dell'Informazione</div>
+      <div class="logo-rule"></div>
+    </div>
+    <div class="header-actions">
+      <div class="search-box">
+        <input type="text" placeholder="Cerca notizie, autori…">
+        <button title="Cerca"><i class="ti ti-search"></i></button>
+      </div>
+      <button class="btn-abbonati">Abbonati</button>
+    </div>
+  </div>
+  <nav class="mainnav">
+    <div class="mainnav-inner">
+      <a href="#" class="active">Home</a>
+      <a href="#">Politica</a>
+      <a href="#">Economia</a>
+      <a href="#">Mondo</a>
+      <a href="#">Italia</a>
+      <a href="#">Sport</a>
+      <a href="#">Cultura</a>
+      <a href="#">Tecnologia</a>
+      <a href="#">Salute</a>
+      <a href="#">Scienze</a>
+      <a href="#">Ambiente</a>
+      <a href="#">Opinioni</a>
+      <a href="admin.html" style="color:var(--red);margin-left:auto;">⚙ CMS</a>
+    </div>
+  </nav>
+</header>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+
+  <!-- SPORT SCORES BAR -->
+  <div class="scores-bar" style="margin-top:20px;">
+    <div class="scores-bar-header"><i class="ti ti-ball-football"></i> Risultati in Diretta</div>
+    <div class="scores-bar-inner">
+      <div class="score-item">
+        <div class="score-teams">Milan <span class="score-live">LIVE</span></div>
+        <div class="score-result">2 – 1</div>
+        <div class="score-league">Serie A · 78'</div>
+      </div>
+      <div class="score-item">
+        <div class="score-teams">Inter</div>
+        <div class="score-result">3 – 0</div>
+        <div class="score-league">Serie A · FT</div>
+      </div>
+      <div class="score-item">
+        <div class="score-teams">Roma</div>
+        <div class="score-result">1 – 1</div>
+        <div class="score-league">Serie A · FT</div>
+      </div>
+      <div class="score-item">
+        <div class="score-teams">Napoli <span class="score-live">LIVE</span></div>
+        <div class="score-result">0 – 0</div>
+        <div class="score-league">Serie A · 43'</div>
+      </div>
+      <div class="score-item">
+        <div class="score-teams">Real Madrid</div>
+        <div class="score-result">4 – 1</div>
+        <div class="score-league">La Liga · FT</div>
+      </div>
+      <div class="score-item">
+        <div class="score-teams">PSG</div>
+        <div class="score-result">2 – 2</div>
+        <div class="score-league">Ligue 1 · FT</div>
+      </div>
+      <div class="score-item">
+        <div class="score-teams">Federer</div>
+        <div class="score-result">6–4, 7–5</div>
+        <div class="score-league">ATP Roma · FT</div>
+      </div>
+      <div class="score-item">
+        <div class="score-teams">Leclerc <span class="score-live">LIVE</span></div>
+        <div class="score-result">P1</div>
+        <div class="score-league">F1 Monaco · Giro 38</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero-grid">
+    <div class="hero-main" onclick="window.location='#'">
+      <div class="hero-main-bg"></div>
+      <div class="hero-main-overlay"></div>
+      <div class="hero-main-content">
+        <span class="hero-category">🔴 Notizia Principale</span>
+        <h1 class="hero-title">La crisi diplomatica con la Russia spinge l'Europa verso una nuova politica di difesa comune</h1>
+        <p class="hero-excerpt">I leader dell'UE si riuniscono d'urgenza a Bruxelles dopo l'escalation delle tensioni al confine orientale. Sul tavolo un pacchetto senza precedenti da 200 miliardi per la sicurezza collettiva.</p>
+        <div class="hero-meta">
+          <span class="author">di Marco Ferretti</span>
+          <span><i class="ti ti-clock"></i> 12 minuti fa</span>
+          <span><i class="ti ti-eye"></i> 48.230 lettori</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-side">
+      <div class="hero-side-item">
+        <div class="hsi-bg" style="background-image: url('https://picsum.photos/seed/eco1/600/400')"></div>
+        <div class="hsi-overlay"></div>
+        <div class="hsi-content">
+          <div class="hsi-cat">Economia</div>
+          <div class="hsi-title">Inflazione al 2.3%: la BCE mantiene i tassi invariati per il terzo mese</div>
+        </div>
+      </div>
+      <div class="hero-side-item">
+        <div class="hsi-bg" style="background-image: url('https://picsum.photos/seed/tech2/600/400')"></div>
+        <div class="hsi-overlay"></div>
+        <div class="hsi-content">
+          <div class="hsi-cat">Tecnologia</div>
+          <div class="hsi-title">OpenAI lancia GPT-5: capacità umana nel ragionamento complesso</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN LAYOUT -->
+  <div class="main-layout">
+    <main>
+
+      <!-- ULTIME NOTIZIE -->
+      <div class="category-section">
+        <div class="section-header">
+          <div class="section-red-line"></div>
+          <span class="section-label">Ultime Notizie</span>
+          <span class="section-label-sm" style="margin-left:auto;">Aggiornate ogni 5 minuti</span>
+        </div>
+        <div class="articles-grid">
+          <div class="card">
+            <div class="card-img">
+              <img src="https://picsum.photos/seed/pol1/600/338" alt="Politica" loading="lazy">
+              <span class="card-cat-badge">Politica</span>
+            </div>
+            <div class="card-body">
+              <h2 class="card-title">Il Parlamento vota la riforma costituzionale: approvata con 318 voti a favore</h2>
+              <p class="card-excerpt">Una storica riforma che cambia il volto dello Stato italiano dopo decenni di dibattiti.</p>
+              <div class="card-meta">
+                <span class="card-author">Giulia Marchetti</span>
+                <span class="card-time"><i class="ti ti-clock"></i> 1h fa</span>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-img">
+              <img src="https://picsum.photos/seed/env1/600/338" alt="Ambiente" loading="lazy">
+              <span class="card-cat-badge">Ambiente</span>
+            </div>
+            <div class="card-body">
+              <h2 class="card-title">Siccità record in Sicilia: governo dichiara lo stato di emergenza idrica</h2>
+              <p class="card-excerpt">Le riserve idriche dell'isola sono al minimo storico. Misure straordinarie per 2 milioni di cittadini.</p>
+              <div class="card-meta">
+                <span class="card-author">Luca Esposito</span>
+                <span class="card-time"><i class="ti ti-clock"></i> 2h fa</span>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-img">
+              <img src="https://picsum.photos/seed/sport3/600/338" alt="Sport" loading="lazy">
+              <span class="card-cat-badge">Sport</span>
+            </div>
+            <div class="card-body">
+              <h2 class="card-title">Azzurri qualificati ai Mondiali 2026: l'Italia supera la Grecia 3-0</h2>
+              <p class="card-excerpt">Doppietta di Scamacca e rete di Barella regalano all'Italia la qualificazione con due turni d'anticipo.</p>
+              <div class="card-meta">
+                <span class="card-author">Roberto Conti</span>
+                <span class="card-time"><i class="ti ti-clock"></i> 3h fa</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MORE ARTICLES LIST -->
+        <div class="article-list-item">
+          <div class="ali-img"><img src="https://picsum.photos/seed/sal1/200/150" alt="" loading="lazy"></div>
+          <div class="ali-content">
+            <div class="ali-cat">Salute</div>
+            <div class="ali-title">Alzheimer: scoperto un biomarcatore che anticipa la diagnosi di 10 anni</div>
+            <div class="ali-meta">Federica Rizzo · 4h fa</div>
+          </div>
+        </div>
+        <div class="article-list-item">
+          <div class="ali-img"><img src="https://picsum.photos/seed/mon1/200/150" alt="" loading="lazy"></div>
+          <div class="ali-content">
+            <div class="ali-cat">Mondo</div>
+            <div class="ali-title">Gaza: accordo di tregua mediato da Qatar e USA per 45 giorni</div>
+            <div class="ali-meta">Andrea Lombardo · 5h fa</div>
+          </div>
+        </div>
+        <div class="article-list-item">
+          <div class="ali-img"><img src="https://picsum.photos/seed/eco2/200/150" alt="" loading="lazy"></div>
+          <div class="ali-content">
+            <div class="ali-cat">Economia</div>
+            <div class="ali-title">FIAT annuncia 5.000 nuove assunzioni in Italia: investimento da 3 miliardi</div>
+            <div class="ali-meta">Paolo Gentili · 6h fa</div>
+          </div>
+        </div>
+        <div class="article-list-item">
+          <div class="ali-img"><img src="https://picsum.photos/seed/sci1/200/150" alt="" loading="lazy"></div>
+          <div class="ali-content">
+            <div class="ali-cat">Scienze</div>
+            <div class="ali-title">Missione lunare ESA: il rover europeo atterra con successo sul Polo Sud della Luna</div>
+            <div class="ali-meta">Chiara Fontana · 7h fa</div>
+          </div>
+        </div>
+        <button class="btn-more">Carica altre notizie <i class="ti ti-arrow-down"></i></button>
+      </div>
+
+      <!-- POLITICA — MAGAZINE GRID -->
+      <div class="category-section">
+        <div class="section-header">
+          <div class="section-red-line"></div>
+          <span class="section-label">Politica</span>
+          <a href="#" style="margin-left:auto; font-size:12px; font-weight:700; color:var(--red); text-transform:uppercase; letter-spacing:1px;">Tutto →</a>
+        </div>
+        <div class="magazine-grid">
+          <div class="mag-item mag-main">
+            <div class="mag-item-bg" style="background-image:url('https://picsum.photos/seed/pol2/800/500')"></div>
+            <div class="mag-overlay"></div>
+            <div class="mag-content">
+              <div class="mag-cat">Governo</div>
+              <div class="mag-title">Il Presidente del Consiglio annuncia le dimissioni: crisi di governo aperta</div>
+            </div>
+          </div>
+          <div class="mag-item">
+            <div class="mag-item-bg" style="background-image:url('https://picsum.photos/seed/pol3/400/300')"></div>
+            <div class="mag-overlay"></div>
+            <div class="mag-content">
+              <div class="mag-cat">Regioni</div>
+              <div class="mag-title">Elezioni regionali in Lombardia: centrodestra in testa nei sondaggi</div>
+            </div>
+          </div>
+          <div class="mag-item">
+            <div class="mag-item-bg" style="background-image:url('https://picsum.photos/seed/pol4/400/300')"></div>
+            <div class="mag-overlay"></div>
+            <div class="mag-content">
+              <div class="mag-cat">UE</div>
+              <div class="mag-title">Nuovo commissario europeo: l'Italia punta al portafoglio Economia</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ECONOMIA -->
+      <div class="category-section">
+        <div class="section-header">
+          <div class="section-red-line"></div>
+          <span class="section-label">Economia & Finanza</span>
+          <a href="#" style="margin-left:auto; font-size:12px; font-weight:700; color:var(--red); text-transform:uppercase; letter-spacing:1px;">Tutto →</a>
+        </div>
+        <div class="big-article-horiz">
+          <div class="bah-img">
+            <img src="https://picsum.photos/seed/eco3/700/500" alt="Economia" loading="lazy">
+          </div>
+          <div class="bah-content">
+            <div class="bah-cat">Mercati</div>
+            <div class="bah-title">Borsa di Milano ai massimi storici: il FTSE MIB supera quota 40.000 punti</div>
+            <div class="bah-excerpt">La corsa dei mercati europei trainata dal settore energetico e bancario. Gli analisti sono cauti ma ottimisti per il secondo semestre. La BCE gioca un ruolo chiave con la sua politica monetaria espansiva.</div>
+            <div class="bah-meta">di Matteo Caruso · 3h fa</div>
+          </div>
+        </div>
+        <div class="articles-grid">
+          <div class="card">
+            <div class="card-img"><img src="https://picsum.photos/seed/eco4/600/338" alt="" loading="lazy"><span class="card-cat-badge">PMI</span></div>
+            <div class="card-body">
+              <h2 class="card-title">Le piccole imprese italiane trainano l'export: +8.4% nel primo trimestre</h2>
+              <p class="card-excerpt">I dati ISTAT confermano la resilienza del tessuto produttivo nazionale.</p>
+              <div class="card-meta"><span class="card-author">Sara Neri</span><span class="card-time"><i class="ti ti-clock"></i> 5h fa</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-img"><img src="https://picsum.photos/seed/eco5/600/338" alt="" loading="lazy"><span class="card-cat-badge">Lavoro</span></div>
+            <div class="card-body">
+              <h2 class="card-title">Disoccupazione ai minimi: tasso al 5.8%, record dal 2001</h2>
+              <p class="card-excerpt">Crescita soprattutto nel settore tech e nelle energie rinnovabili.</p>
+              <div class="card-meta"><span class="card-author">Davide Riva</span><span class="card-time"><i class="ti ti-clock"></i> 6h fa</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-img"><img src="https://picsum.photos/seed/eco6/600/338" alt="" loading="lazy"><span class="card-cat-badge">Crypto</span></div>
+            <div class="card-body">
+              <h2 class="card-title">Bitcoin tocca i 105.000 dollari: la MiCA europea regola il mercato crypto</h2>
+              <p class="card-excerpt">Il quadro normativo europeo attira capitali istituzionali nel settore.</p>
+              <div class="card-meta"><span class="card-author">Elena Russo</span><span class="card-time"><i class="ti ti-clock"></i> 8h fa</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIDEO -->
+      <div class="category-section">
+        <div class="section-header">
+          <div class="section-red-line"></div>
+          <span class="section-label">Video & Reportage</span>
+        </div>
+        <div class="videos-grid">
+          <div class="video-card">
+            <div class="video-thumb"><img src="https://picsum.photos/seed/vid1/480/270" alt="" loading="lazy"><div class="video-play"><i class="ti ti-player-play"></i></div><div class="video-duration">8:32</div></div>
+            <div class="video-info"><div class="video-cat">Esteri</div><div class="video-title">In diretta dal Parlamento Europeo: il dibattito sulla difesa</div><div class="video-meta">1.2M visualizzazioni</div></div>
+          </div>
+          <div class="video-card">
+            <div class="video-thumb"><img src="https://picsum.photos/seed/vid2/480/270" alt="" loading="lazy"><div class="video-play"><i class="ti ti-player-play"></i></div><div class="video-duration">12:15</div></div>
+            <div class="video-info"><div class="video-cat">Scienze</div><div class="video-title">Missione Luna: intervista esclusiva all'astronauta italiano</div><div class="video-meta">876K visualizzazioni</div></div>
+          </div>
+          <div class="video-card">
+            <div class="video-thumb"><img src="https://picsum.photos/seed/vid3/480/270" alt="" loading="lazy"><div class="video-play"><i class="ti ti-player-play"></i></div><div class="video-duration">5:48</div></div>
+            <div class="video-info"><div class="video-cat">Sport</div><div class="video-title">Gli highlights di Milan-Juventus: tutti i gol della partita</div><div class="video-meta">2.4M visualizzazioni</div></div>
+          </div>
+          <div class="video-card">
+            <div class="video-thumb"><img src="https://picsum.photos/seed/vid4/480/270" alt="" loading="lazy"><div class="video-play"><i class="ti ti-player-play"></i></div><div class="video-duration">22:03</div></div>
+            <div class="video-info"><div class="video-cat">Approfondimento</div><div class="video-title">Reportage: il futuro dell'agricoltura italiana tra siccità e innovazione</div><div class="video-meta">543K visualizzazioni</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- OPINIONI -->
+      <div class="category-section">
+        <div class="section-header">
+          <div class="section-red-line"></div>
+          <span class="section-label">Editoriali & Opinioni</span>
+        </div>
+        <div class="opinion-grid">
+          <div class="opinion-card">
+            <div class="opinion-author">
+              <div class="opinion-avatar"><img src="https://picsum.photos/seed/auth1/100/100" alt=""></div>
+              <div>
+                <div class="opinion-name">Prof. Alberto Mancini</div>
+                <div class="opinion-role">Economista, Università Bocconi</div>
+              </div>
+            </div>
+            <div class="opinion-title">L'Italia ha bisogno di una rivoluzione fiscale, non di rattoppi</div>
+            <div class="opinion-excerpt">Il sistema tributario italiano è un labirinto kafkiano che scoraggia gli investimenti e penalizza chi lavora onestamente. Servono riforme strutturali coraggiose, non le solite promesse elettorali.</div>
+          </div>
+          <div class="opinion-card">
+            <div class="opinion-author">
+              <div class="opinion-avatar"><img src="https://picsum.photos/seed/auth2/100/100" alt=""></div>
+              <div>
+                <div class="opinion-name">Dott.ssa Carla Benedetti</div>
+                <div class="opinion-role">Geopolitologa, ISPI</div>
+              </div>
+            </div>
+            <div class="opinion-title">Perché l'Europa deve smettere di dipendere dagli USA per la sua sicurezza</div>
+            <div class="opinion-excerpt">Il risveglio strategico europeo non è più un'opzione: è una necessità esistenziale. Vent'anni di attesa ci hanno portato al bordo dell'irrilevanza geopolitica. È tempo di agire.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CULTURA & SPETTACOLO -->
+      <div class="category-section">
+        <div class="section-header">
+          <div class="section-red-line"></div>
+          <span class="section-label">Cultura & Spettacolo</span>
+          <a href="#" style="margin-left:auto; font-size:12px; font-weight:700; color:var(--red); text-transform:uppercase; letter-spacing:1px;">Tutto →</a>
+        </div>
+        <div class="category-two-col">
+          <div>
+            <div class="article-list-item">
+              <div class="ali-img"><img src="https://picsum.photos/seed/cult1/200/150" alt="" loading="lazy"></div>
+              <div class="ali-content">
+                <div class="ali-cat">Cinema</div>
+                <div class="ali-title">Paolo Sorrentino vince la Palma d'Oro a Cannes con "La Grazia"</div>
+                <div class="ali-meta">Valentina Serra · 2h fa</div>
+              </div>
+            </div>
+            <div class="article-list-item">
+              <div class="ali-img"><img src="https://picsum.photos/seed/cult2/200/150" alt="" loading="lazy"></div>
+              <div class="ali-content">
+                <div class="ali-cat">Musica</div>
+                <div class="ali-title">Mahmood torna con un nuovo album: "Sogni di sale" esce il 20 maggio</div>
+                <div class="ali-meta">Marco Pellegrini · 4h fa</div>
+              </div>
+            </div>
+            <div class="article-list-item">
+              <div class="ali-img"><img src="https://picsum.photos/seed/cult3/200/150" alt="" loading="lazy"></div>
+              <div class="ali-content">
+                <div class="ali-cat">Arte</div>
+                <div class="ali-title">Il Louvre presta la Gioconda a Roma per una mostra storica al Quirinale</div>
+                <div class="ali-meta">Alessia Monti · 5h fa</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="article-list-item">
+              <div class="ali-img"><img src="https://picsum.photos/seed/cult4/200/150" alt="" loading="lazy"></div>
+              <div class="ali-content">
+                <div class="ali-cat">Letteratura</div>
+                <div class="ali-title">Premio Strega 2025: vince Donatella Di Pietrantonio con "L'Orizzonte"</div>
+                <div class="ali-meta">Irene Cattaneo · 3h fa</div>
+              </div>
+            </div>
+            <div class="article-list-item">
+              <div class="ali-img"><img src="https://picsum.photos/seed/cult5/200/150" alt="" loading="lazy"></div>
+              <div class="ali-content">
+                <div class="ali-cat">TV</div>
+                <div class="ali-title">Netflix Italia batte tutti i record con la miniserie "I Medici del Futuro"</div>
+                <div class="ali-meta">Simone Bianchi · 7h fa</div>
+              </div>
+            </div>
+            <div class="article-list-item">
+              <div class="ali-img"><img src="https://picsum.photos/seed/cult6/200/150" alt="" loading="lazy"></div>
+              <div class="ali-content">
+                <div class="ali-cat">Teatro</div>
+                <div class="ali-title">La Scala di Milano: Tosca con Netrebko tutto esaurito fino a dicembre</div>
+                <div class="ali-meta">Francesca Amato · 9h fa</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARGOMENTI DEL GIORNO -->
+      <div class="category-section">
+        <div class="section-header">
+          <div class="section-red-line"></div>
+          <span class="section-label">Argomenti del Giorno</span>
+        </div>
+        <div class="tags-cloud">
+          <span class="tag active">Crisi di Governo</span>
+          <span class="tag">Europa</span>
+          <span class="tag">Intelligenza Artificiale</span>
+          <span class="tag">Serie A</span>
+          <span class="tag">Cambiamento Climatico</span>
+          <span class="tag">Sanità</span>
+          <span class="tag">Immigrazione</span>
+          <span class="tag">PNRR</span>
+          <span class="tag">Crypto</span>
+          <span class="tag">Space Economy</span>
+          <span class="tag">Guerra in Ucraina</span>
+          <span class="tag">F1</span>
+          <span class="tag">Mafia</span>
+          <span class="tag">Economia Circolare</span>
+          <span class="tag">Startup</span>
+          <span class="tag">Turismo</span>
+          <span class="tag">Pensioni</span>
+        </div>
+      </div>
+
+      <!-- COLLABORAZIONE BANNER -->
+      <div class="collab-banner">
+        <i class="ti ti-rocket collab-icon"></i>
+        <div class="collab-text">
+          <div class="collab-title">Collabora con Ankoautca</div>
+          <div class="collab-desc">Sei un giornalista, blogger, fotografo o esperto del tuo settore? Unisciti alla nostra redazione. Scrivi, pubblica, raggiungi milioni di lettori. Invia la tua proposta a <span class="collab-email">gastroboostmarketingdigital@gmail.com</span></div>
+        </div>
+        <a href="mailto:gastroboostmarketingdigital@gmail.com" class="collab-btn"><i class="ti ti-mail"></i> Proponi Collaborazione</a>
+      </div>
+
+      <!-- ANALYTICS NOTE -->
+      <div class="analytics-note">
+        <i class="ti ti-chart-line"></i>
+        <div>
+          <strong>Monitoraggio Traffico:</strong> In questa sezione puoi inserire il tuo script di analytics (Google Analytics, Matomo, Cloudflare Analytics, ecc.) per tracciare visitatori, IP, pagine viste e conversioni. Vai nel pannello Admin → Impostazioni → Script Personalizzati per incollare il tuo codice di tracciamento.
+        </div>
+      </div>
+
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <!-- TRENDING -->
+      <div class="widget">
+        <div class="widget-header"><i class="ti ti-trending-up"></i> Più Letti Oggi</div>
+        <div class="widget-body" style="padding:8px 16px;">
+          <div class="trending-item">
+            <div class="trending-num">1</div>
+            <div class="trending-text"><div class="trending-cat">Politica</div><div class="trending-title">Il Presidente dimissionario: chi sarà il successore?</div></div>
+          </div>
+          <div class="trending-item">
+            <div class="trending-num">2</div>
+            <div class="trending-text"><div class="trending-cat">Sport</div><div class="trending-title">Milan campione d'Italia: la rimonta storica</div></div>
+          </div>
+          <div class="trending-item">
+            <div class="trending-num">3</div>
+            <div class="trending-text"><div class="trending-cat">Tecnologia</div><div class="trending-title">GPT-5 disponibile gratis: tutto quello che cambia</div></div>
+          </div>
+          <div class="trending-item">
+            <div class="trending-num">4</div>
+            <div class="trending-text"><div class="trending-cat">Salute</div><div class="trending-title">Alzheimer: nuovo farmaco rallenta la malattia del 60%</div></div>
+          </div>
+          <div class="trending-item">
+            <div class="trending-num">5</div>
+            <div class="trending-text"><div class="trending-cat">Economia</div><div class="trending-title">Reddito minimo europeo: accordo raggiunto a Strasburgo</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NEWSLETTER -->
+      <div class="widget">
+        <div class="widget-header"><i class="ti ti-mail"></i> Newsletter Gratuita</div>
+        <div class="newsletter-widget">
+          <div class="newsletter-title">Le notizie che contano</div>
+          <div class="newsletter-sub">Ogni mattina alle 7:00, le 5 notizie più importanti direttamente nella tua inbox. Gratis, sempre.</div>
+          <div class="newsletter-form">
+            <input type="email" placeholder="La tua email">
+            <input type="text" placeholder="Nome (opzionale)">
+            <button>Iscriviti Ora <i class="ti ti-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SOCIAL FOLLOW -->
+      <div class="widget">
+        <div class="widget-header"><i class="ti ti-users"></i> Seguici sui Social</div>
+        <div class="social-stats">
+          <div class="social-item">
+            <div class="social-icon social-fb"><i class="ti ti-brand-facebook"></i></div>
+            <div class="social-name">Facebook</div>
+            <div style="text-align:right"><div class="social-count">1.2M</div><div class="social-label">fan</div></div>
+          </div>
+          <div class="social-item">
+            <div class="social-icon social-tw"><i class="ti ti-brand-x"></i></div>
+            <div class="social-name">X / Twitter</div>
+            <div style="text-align:right"><div class="social-count">890K</div><div class="social-label">follower</div></div>
+          </div>
+          <div class="social-item">
+            <div class="social-icon social-ig"><i class="ti ti-brand-instagram"></i></div>
+            <div class="social-name">Instagram</div>
+            <div style="text-align:right"><div class="social-count">640K</div><div class="social-label">follower</div></div>
+          </div>
+          <div class="social-item">
+            <div class="social-icon social-yt"><i class="ti ti-brand-youtube"></i></div>
+            <div class="social-name">YouTube</div>
+            <div style="text-align:right"><div class="social-count">420K</div><div class="social-label">iscritti</div></div>
+          </div>
+          <div class="social-item">
+            <div class="social-icon social-tg"><i class="ti ti-brand-telegram"></i></div>
+            <div class="social-name">Telegram</div>
+            <div style="text-align:right"><div class="social-count">310K</div><div class="social-label">iscritti</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- METEO ROMA -->
+      <div class="widget">
+        <div class="widget-header"><i class="ti ti-sun"></i> Meteo Roma</div>
+        <div class="weather-widget">
+          <div class="weather-city">Roma, Italia</div>
+          <div class="weather-icon">☀️</div>
+          <div class="weather-temp">24°</div>
+          <div class="weather-desc">Soleggiato con qualche nuvola</div>
+          <div style="display:flex;justify-content:space-around;margin-top:16px;padding-top:14px;border-top:1px solid #eee;">
+            <div style="text-align:center"><div style="font-size:11px;color:#888">Umidità</div><div style="font-weight:700;font-size:14px">45%</div></div>
+            <div style="text-align:center"><div style="font-size:11px;color:#888">Vento</div><div style="font-weight:700;font-size:14px">12 km/h</div></div>
+            <div style="text-align:center"><div style="font-size:11px;color:#888">UV</div><div style="font-weight:700;font-size:14px">Alto</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SPAZIO SCRIPT TRAFFICO -->
+      <div class="widget" style="border-color:var(--gold);">
+        <div class="widget-header" style="background:#7a5a10;"><i class="ti ti-code"></i> Script Monitoraggio Traffico</div>
+        <div style="padding:16px;font-size:12px;color:#7a5a10;background:#fffbf0;line-height:1.7;">
+          <strong>👇 Incolla qui il tuo script</strong><br>
+          Vai in <strong>Admin → Impostazioni → Analytics</strong> per aggiungere:<br>
+          • Google Analytics 4<br>
+          • Matomo / Piwik<br>
+          • Cloudflare Web Analytics<br>
+          • Hotjar / Microsoft Clarity<br>
+          • Custom IP tracker<br>
+          <br>
+          Il codice verrà iniettato in tutte le pagine automaticamente.
+        </div>
+      </div>
+
+    </aside>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-top-inner">
+      <div>
+        <div class="footer-logo"><span>A</span>NKOAUTCA</div>
+        <div class="footer-desc">Il portale italiano di notizie, attualità e approfondimento. Informazione libera, indipendente e rigorosa dal 2024. Politica, economia, mondo, sport, cultura, tecnologia — tutto quello che conta.</div>
+        <a href="mailto:gastroboostmarketingdigital@gmail.com" class="footer-collab"><i class="ti ti-briefcase"></i> Proponi una Collaborazione</a>
+        <div class="footer-social-row">
+          <a class="footer-social-btn" href="#"><i class="ti ti-brand-facebook"></i></a>
+          <a class="footer-social-btn" href="#"><i class="ti ti-brand-x"></i></a>
+          <a class="footer-social-btn" href="#"><i class="ti ti-brand-instagram"></i></a>
+          <a class="footer-social-btn" href="#"><i class="ti ti-brand-youtube"></i></a>
+          <a class="footer-social-btn" href="#"><i class="ti ti-brand-telegram"></i></a>
+          <a class="footer-social-btn" href="#"><i class="ti ti-rss"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Sezioni</div>
+        <div class="footer-col-links">
+          <a href="#">Politica</a>
+          <a href="#">Economia</a>
+          <a href="#">Mondo</a>
+          <a href="#">Italia</a>
+          <a href="#">Sport</a>
+          <a href="#">Cultura</a>
+          <a href="#">Tecnologia</a>
+          <a href="#">Salute</a>
+          <a href="#">Scienze</a>
+          <a href="#">Ambiente</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Redazione</div>
+        <div class="footer-col-links">
+          <a href="#">Chi siamo</a>
+          <a href="#">Direttore</a>
+          <a href="#">Giornalisti</a>
+          <a href="#">Collabora con noi</a>
+          <a href="#">Invia una segnalazione</a>
+          <a href="#">Archivio</a>
+          <a href="#">Fact-checking</a>
+          <a href="admin.html">Pannello CMS</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Servizi</div>
+        <div class="footer-col-links">
+          <a href="#">Newsletter</a>
+          <a href="#">App Mobile</a>
+          <a href="#">Podcast</a>
+          <a href="#">RSS Feed</a>
+          <a href="#">Pubblicità</a>
+          <a href="#">API Notizie</a>
+          <a href="#">Abbonamento Premium</a>
+          <a href="#">Contatti</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 ANKOAUTCA — Tutti i diritti riservati. P.IVA 00000000000</span>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Cookie Policy</a>
+      <a href="#">Termini di Servizio</a>
+      <a href="#">Note Legali</a>
+      <a href="#">Accessibilità</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Dynamic date
+const days = ['Domenica','Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato'];
+const months = ['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'];
+const now = new Date();
+document.getElementById('topbar-date').textContent = days[now.getDay()] + ' ' + now.getDate() + ' ' + months[now.getMonth()] + ' ' + now.getFullYear();
+
+// Nav active on click
+document.querySelectorAll('.mainnav-inner a').forEach(a => {
+  a.addEventListener('click', function(e) {
+    if (!this.href.includes('admin')) {
+      document.querySelectorAll('.mainnav-inner a').forEach(x => x.classList.remove('active'));
+      this.classList.add('active');
+    }
+  });
+});
+
+// Tags toggle
+document.querySelectorAll('.tag').forEach(t => {
+  t.addEventListener('click', function() {
+    this.classList.toggle('active');
+  });
+});
+</script>
+</body>
+</html>
