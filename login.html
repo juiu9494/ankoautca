@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accedi — ANKOAUTCA</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="login-page">
+
+<div id="page-loader">
+  <div class="loader-logo"><span>A</span>NKOAUTCA</div>
+  <div class="loader-bar"><div class="loader-bar-inner"></div></div>
+</div>
+<div id="toast-container"></div>
+
+<div class="login-bg">
+  <div class="login-bg-grid"></div>
+  <div class="login-bg-glow-1"></div>
+  <div class="login-bg-glow-2"></div>
+</div>
+
+<div class="login-wrapper">
+  <!-- Left brand panel -->
+  <div class="login-brand">
+    <a href="../index.html" class="lb-logo"><span>A</span>NKOAUTCA</a>
+    <div class="lb-content">
+      <h2 class="lb-title">Il Portale Italiano<br>dell'<em>Informazione</em></h2>
+      <p class="lb-sub">Accedi per gestire i contenuti, visualizzare le statistiche e molto altro.</p>
+      <div class="lb-features">
+        <div class="lb-feature"><span>📰</span><span>Gestione articoli e news</span></div>
+        <div class="lb-feature"><span>📊</span><span>Dashboard statistiche</span></div>
+        <div class="lb-feature"><span>🌤</span><span>Widget meteo personalizzato</span></div>
+        <div class="lb-feature"><span>🔒</span><span>Accesso sicuro e protetto</span></div>
+      </div>
+    </div>
+    <div class="lb-footer">© 2025 ANKOAUTCA</div>
+  </div>
+
+  <!-- Right form panel -->
+  <div class="login-form-panel">
+    <div class="login-card">
+      <div class="lc-header">
+        <div class="lc-icon">🔐</div>
+        <h1 class="lc-title">Bentornato</h1>
+        <p class="lc-sub">Accedi al tuo account</p>
+      </div>
+
+      <form class="lc-form" id="login-form" onsubmit="handleLogin(event)" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="username">Username</label>
+          <div class="form-input-icon">
+            <span class="input-icon">👤</span>
+            <input type="text" id="username" class="form-input" placeholder="admin" autocomplete="username" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="password">Password</label>
+          <div class="form-input-icon">
+            <span class="input-icon">🔑</span>
+            <input type="password" id="password" class="form-input" placeholder="••••••••" autocomplete="current-password" required>
+            <button type="button" class="pwd-toggle" id="pwd-toggle" onclick="togglePassword()" title="Mostra/nascondi">
+              <span id="pwd-eye">👁</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="lc-row">
+          <label class="checkbox-label">
+            <input type="checkbox" id="remember"> Ricordami
+          </label>
+          <a href="#" class="lc-forgot" onclick="handleForgot(event)">Password dimenticata?</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full btn-lg" id="login-btn">
+          <span id="login-btn-text">Accedi</span>
+          <span id="login-btn-loader" style="display:none">⌛</span>
+        </button>
+
+        <div class="lc-divider"><span>oppure</span></div>
+
+        <div class="lc-demo">
+          <p class="lc-demo-title">Credenziali demo</p>
+          <div class="lc-demo-creds">
+            <div class="demo-cred" onclick="fillDemo()">
+              <span class="demo-role">Admin</span>
+              <code>admin / admin2024</code>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div class="lc-footer">
+        <a href="../index.html">← Torna al sito</a>
+        <button class="navbar-icon-btn" data-theme-toggle title="Cambia tema">
+          <span data-theme-icon>🌙</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.login-page { background:var(--bg-primary); }
+.login-bg { position:fixed; inset:0; pointer-events:none; z-index:0; overflow:hidden; }
+.login-bg-grid {
+  position:absolute; inset:0;
+  background-image: linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);
+  background-size:48px 48px; opacity:.5;
+}
+.login-bg-glow-1 {
+  position:absolute; top:-300px; left:-200px;
+  width:700px; height:700px; border-radius:50%;
+  background:radial-gradient(circle, var(--red-glow) 0%, transparent 65%);
+  filter:blur(80px);
+}
+.login-bg-glow-2 {
+  position:absolute; bottom:-200px; right:-100px;
+  width:500px; height:500px; border-radius:50%;
+  background:radial-gradient(circle, rgba(26,111,173,.25) 0%, transparent 65%);
+  filter:blur(60px);
+}
+.login-wrapper {
+  position:relative; z-index:1;
+  min-height:100vh; display:flex;
+}
+.login-brand {
+  flex:1; background:var(--red);
+  display:flex; flex-direction:column;
+  padding:40px; color:white;
+  position:relative; overflow:hidden;
+}
+.login-brand::before {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(135deg, rgba(0,0,0,.3) 0%, transparent 60%);
+}
+.login-brand > * { position:relative; z-index:1; }
+.lb-logo {
+  font-family:var(--font-serif); font-size:28px; font-weight:900;
+  color:white; letter-spacing:-0.5px;
+}
+.lb-logo span { opacity:.7; }
+.lb-content { flex:1; display:flex; flex-direction:column; justify-content:center; max-width:400px; }
+.lb-title { font-family:var(--font-serif); font-size:38px; font-weight:900; line-height:1.15; margin-bottom:16px; }
+.lb-title em { color:rgba(255,255,255,.7); font-style:italic; }
+.lb-sub { font-size:16px; opacity:.85; line-height:1.7; margin-bottom:32px; }
+.lb-features { display:flex; flex-direction:column; gap:14px; }
+.lb-feature { display:flex; align-items:center; gap:12px; font-size:14px; opacity:.9; }
+.lb-feature span:first-child { font-size:20px; }
+.lb-footer { font-size:12px; opacity:.5; }
+.login-form-panel {
+  width:460px; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+  padding:40px 32px;
+  background:var(--bg-primary);
+}
+.login-card { width:100%; max-width:360px; }
+.lc-header { text-align:center; margin-bottom:32px; }
+.lc-icon { font-size:40px; margin-bottom:12px; }
+.lc-title { font-family:var(--font-serif); font-size:28px; font-weight:900; margin-bottom:6px; }
+.lc-sub { font-size:14px; color:var(--text-muted); }
+.lc-form { display:flex; flex-direction:column; gap:18px; }
+.pwd-toggle {
+  position:absolute; right:12px; top:50%;
+  transform:translateY(-50%);
+  background:none; border:none; cursor:pointer;
+  font-size:16px; padding:4px;
+  color:var(--text-muted); transition:color var(--t-base);
+}
+.pwd-toggle:hover { color:var(--text-primary); }
+.form-input-icon { position:relative; }
+.form-input-icon .form-input { padding-left:42px; padding-right:42px; }
+.form-input-icon .input-icon { position:absolute; left:13px; top:50%; transform:translateY(-50%); font-size:16px; }
+.lc-row { display:flex; align-items:center; justify-content:space-between; }
+.checkbox-label { display:flex; align-items:center; gap:8px; font-size:13px; color:var(--text-secondary); cursor:pointer; }
+.lc-forgot { font-size:13px; color:var(--red); font-weight:500; }
+.lc-forgot:hover { text-decoration:underline; }
+.lc-divider { display:flex; align-items:center; gap:12px; color:var(--text-muted); font-size:13px; }
+.lc-divider::before, .lc-divider::after { content:''; flex:1; height:1px; background:var(--border); }
+.lc-demo { background:var(--bg-hover); border:1px solid var(--border); border-radius:var(--r-md); padding:14px; }
+.lc-demo-title { font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:.6px; margin-bottom:10px; }
+.demo-cred { cursor:pointer; padding:8px; border-radius:var(--r-sm); transition:background var(--t-base); }
+.demo-cred:hover { background:var(--border); }
+.demo-role { font-size:11px; font-weight:700; color:var(--text-muted); display:block; margin-bottom:3px; }
+.demo-cred code { font-family:var(--font-mono); font-size:12px; color:var(--red); }
+.lc-footer { display:flex; align-items:center; justify-content:space-between; margin-top:24px; font-size:13px; color:var(--text-muted); }
+.lc-footer a:hover { color:var(--red); }
+#login-btn { margin-top:4px; }
+
+@media(max-width:768px) {
+  .login-brand { display:none; }
+  .login-form-panel { width:100%; padding:24px 20px; }
+}
+</style>
+
+<script src="../assets/js/core.js"></script>
+<script>
+// Redirect if already logged in
+if (Auth.isLoggedIn()) {
+  const params = new URLSearchParams(window.location.search);
+  window.location.href = params.get('redirect') || '../pages/dashboard.html';
+}
+
+function handleLogin(e) {
+  e.preventDefault();
+  const u = document.getElementById('username').value.trim();
+  const p = document.getElementById('password').value;
+  const btn = document.getElementById('login-btn');
+  const btnText = document.getElementById('login-btn-text');
+  const btnLoader = document.getElementById('login-btn-loader');
+
+  btn.disabled = true;
+  btnText.style.display = 'none';
+  btnLoader.style.display = 'inline';
+
+  setTimeout(() => {
+    if (Auth.login(u, p)) {
+      Toast.show('Accesso effettuato!', `Benvenuto, ${u}`, 'success');
+      const params = new URLSearchParams(window.location.search);
+      setTimeout(() => { window.location.href = params.get('redirect') || '../pages/dashboard.html'; }, 800);
+    } else {
+      btn.disabled = false;
+      btnText.style.display = 'inline';
+      btnLoader.style.display = 'none';
+      Toast.show('Credenziali errate', 'Username o password non validi.', 'error');
+      document.getElementById('password').value = '';
+      document.getElementById('password').focus();
+    }
+  }, 900);
+}
+
+function fillDemo() {
+  document.getElementById('username').value = 'admin';
+  document.getElementById('password').value = 'admin2024';
+  Toast.show('Credenziali demo inserite', 'Clicca Accedi per continuare.', 'info');
+}
+
+function togglePassword() {
+  const inp = document.getElementById('password');
+  const eye = document.getElementById('pwd-eye');
+  if (inp.type === 'password') { inp.type = 'text'; eye.textContent = '🙈'; }
+  else { inp.type = 'password'; eye.textContent = '👁'; }
+}
+
+function handleForgot(e) {
+  e.preventDefault();
+  Toast.show('Recupero password', 'Funzione disponibile nella versione completa.', 'info');
+}
+
+document.querySelectorAll('[data-theme-toggle]').forEach(b => b.addEventListener('click', () => { Theme.toggle(); document.querySelectorAll('[data-theme-icon]').forEach(i => i.textContent = Theme.get()==='dark'?'☀️':'🌙'); }));
+</script>
+</body>
+</html>
