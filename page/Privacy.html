@@ -1,1 +1,890 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Informativa sulla Privacy di ANKOAUTCA - Il Portale Italiano dell'Informazione. Scopri come raccogliamo, utilizziamo e proteggiamo i tuoi dati personali.">
+    <meta name="robots" content="noindex, follow">
+    <title>Privacy Policy | ANKOAUTCA</title>
+    
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --red: #C0121C;
+            --red-dark: #8B0000;
+            --black: #0A0A0A;
+            --dark: #1a1a1a;
+            --white: #ffffff;
+            --gray-50: #f8f8f6;
+            --gray-100: #f0ede8;
+            --gray-200: #e0ddd8;
+            --gray-400: #999999;
+            --gray-600: #555555;
+            --gray-800: #222222;
+            --font: 'Inter', sans-serif;
+            --font-display: 'Playfair Display', serif;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--gray-50);
+            color: var(--gray-800);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        /* Header */
+        .privacy-header {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--black) 100%);
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--red);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .privacy-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(192, 18, 28, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .privacy-header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .privacy-logo {
+            font-family: var(--font-display);
+            font-size: 42px;
+            font-weight: 900;
+            color: var(--white);
+            margin-bottom: 12px;
+            letter-spacing: -1px;
+        }
+
+        .privacy-logo span {
+            color: var(--red);
+        }
+
+        .privacy-header h1 {
+            font-family: var(--font-display);
+            font-size: 36px;
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+
+        .privacy-header .subtitle {
+            font-size: 14px;
+            color: var(--gray-400);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 500;
+        }
+
+        .last-update {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--gray-400);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-top: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Main Content */
+        .privacy-container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 50px 24px;
+        }
+
+        .privacy-section {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            padding: 30px 35px;
+            margin-bottom: 20px;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .privacy-section:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .privacy-section h2 {
+            font-family: var(--font-display);
+            font-size: 24px;
+            color: var(--dark);
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--gray-100);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .privacy-section h2 i {
+            color: var(--red);
+            font-size: 22px;
+            width: 36px;
+            height: 36px;
+            background: #fff0f0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .privacy-section h3 {
+            font-size: 17px;
+            color: var(--gray-800);
+            margin: 20px 0 10px;
+            font-weight: 700;
+        }
+
+        .privacy-section p {
+            margin-bottom: 14px;
+            color: var(--gray-600);
+        }
+
+        .privacy-section ul {
+            margin: 12px 0;
+            padding-left: 24px;
+        }
+
+        .privacy-section ul li {
+            margin-bottom: 8px;
+            color: var(--gray-600);
+            padding-left: 4px;
+        }
+
+        .privacy-section ul li::marker {
+            color: var(--red);
+        }
+
+        .highlight-box {
+            background: #fff8f8;
+            border-left: 4px solid var(--red);
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+
+        .highlight-box strong {
+            color: var(--red);
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+
+        .info-table th {
+            background: var(--gray-50);
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 700;
+            color: var(--gray-800);
+            border-bottom: 2px solid var(--gray-200);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--gray-100);
+            color: var(--gray-600);
+        }
+
+        .info-table tr:hover td {
+            background: #fafaf8;
+        }
+
+        .cookie-item {
+            background: var(--gray-50);
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 12px 0;
+            border: 1px solid var(--gray-200);
+        }
+
+        .cookie-item strong {
+            color: var(--red);
+            font-size: 15px;
+        }
+
+        .contact-card {
+            background: var(--dark);
+            color: var(--white);
+            border-radius: 12px;
+            padding: 30px 35px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .contact-card h2 {
+            color: var(--white);
+            border-bottom-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-card p {
+            color: #cccccc;
+        }
+
+        .contact-card .email-link {
+            display: inline-block;
+            color: var(--red);
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            margin: 12px 0;
+            transition: color 0.2s;
+        }
+
+        .contact-card .email-link:hover {
+            color: #ff4444;
+        }
+
+        .contact-card .address {
+            color: #999;
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--red);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s;
+            margin-top: 20px;
+        }
+
+        .btn-back:hover {
+            background: var(--red-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(192, 18, 28, 0.3);
+        }
+
+        .toc {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            padding: 24px 30px;
+            margin-bottom: 24px;
+        }
+
+        .toc h3 {
+            font-size: 16px;
+            margin-bottom: 14px;
+            color: var(--gray-800);
+        }
+
+        .toc ol {
+            padding-left: 20px;
+        }
+
+        .toc ol li {
+            margin-bottom: 8px;
+            color: var(--gray-600);
+            font-size: 14px;
+        }
+
+        .toc ol li a {
+            color: var(--red);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .toc ol li a:hover {
+            color: var(--red-dark);
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .privacy-footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--gray-400);
+            font-size: 13px;
+            border-top: 1px solid var(--gray-200);
+            margin-top: 20px;
+        }
+
+        .privacy-footer a {
+            color: var(--red);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .privacy-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .privacy-container {
+                padding: 30px 16px;
+            }
+
+            .privacy-section {
+                padding: 20px 22px;
+            }
+
+            .privacy-header {
+                padding: 40px 16px;
+            }
+
+            .privacy-logo {
+                font-size: 32px;
+            }
+
+            .privacy-header h1 {
+                font-size: 26px;
+            }
+
+            .privacy-section h2 {
+                font-size: 20px;
+            }
+
+            .info-table {
+                font-size: 12px;
+            }
+
+            .info-table th,
+            .info-table td {
+                padding: 8px 10px;
+            }
+        }
+
+        @media print {
+            .privacy-header {
+                background: var(--white) !important;
+                color: var(--black) !important;
+                border-bottom: 2px solid var(--black);
+            }
+
+            .privacy-header h1,
+            .privacy-logo {
+                color: var(--black) !important;
+            }
+
+            .privacy-section {
+                box-shadow: none;
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="privacy-header">
+        <div class="privacy-header-content">
+            <div class="privacy-logo"><span>A</span>NKOAUTCA</div>
+            <h1>Informativa sulla Privacy</h1>
+            <p class="subtitle">Privacy Policy</p>
+            <div class="last-update">
+                <i class="far fa-calendar-check"></i> Ultimo aggiornamento: 13 Maggio 2026
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="privacy-container">
+
+        <!-- Indice -->
+        <div class="toc">
+            <h3><i class="fas fa-list-ul" style="color: var(--red); margin-right: 8px;"></i> Indice dei Contenuti</h3>
+            <ol>
+                <li><a href="#introduzione">Introduzione</a></li>
+                <li><a href="#titolare">Titolare del Trattamento</a></li>
+                <li><a href="#dati-raccolti">Dati Personali Raccolti</a></li>
+                <li><a href="#finalita">Finalità del Trattamento</a></li>
+                <li><a href="#base-giuridica">Base Giuridica</a></li>
+                <li><a href="#cookie">Cookie e Tecnologie Similari</a></li>
+                <li><a href="#conservazione">Conservazione dei Dati</a></li>
+                <li><a href="#diritti">I Tuoi Diritti (GDPR)</a></li>
+                <li><a href="#sicurezza">Misure di Sicurezza</a></li>
+                <li><a href="#terze-parti">Comunicazione a Terzi</a></li>
+                <li><a href="#trasferimento">Trasferimento Dati all'Estero</a></li>
+                <li><a href="#minori">Minori</a></li>
+                <li><a href="#modifiche">Modifiche alla Privacy Policy</a></li>
+                <li><a href="#contatti">Contatti e Reclami</a></li>
+            </ol>
+        </div>
+
+        <!-- 1. Introduzione -->
+        <section class="privacy-section" id="introduzione">
+            <h2><i class="fas fa-info-circle"></i> 1. Introduzione</h2>
+            <p>
+                La presente <strong>Informativa sulla Privacy</strong> descrive come <strong>ANKOAUTCA</strong> 
+                ("noi", "nostro", "il Sito") raccoglie, utilizza, conserva e protegge i dati personali degli utenti 
+                ("tu", "tuo", "utente") che visitano il nostro sito web e utilizzano i nostri servizi.
+            </p>
+            <p>
+                ANKOAUTCA si impegna a proteggere la tua privacy e a trattare i tuoi dati personali nel pieno 
+                rispetto del <strong>Regolamento Generale sulla Protezione dei Dati (GDPR) - Regolamento UE 2016/679</strong> 
+                e del <strong>D.Lgs. 196/2003</strong> (Codice in materia di protezione dei dati personali), 
+                come modificato dal D.Lgs. 101/2018.
+            </p>
+            <div class="highlight-box">
+                <strong>🔒 Il nostro impegno:</strong> La tua privacy è una priorità assoluta. Non vendiamo, 
+                non affittiamo e non condividiamo i tuoi dati personali con terze parti per scopi di marketing 
+                senza il tuo esplicito consenso.
+            </div>
+        </section>
+
+        <!-- 2. Titolare -->
+        <section class="privacy-section" id="titolare">
+            <h2><i class="fas fa-building"></i> 2. Titolare del Trattamento</h2>
+            <p>Il Titolare del Trattamento dei dati è:</p>
+            <table class="info-table">
+                <tr>
+                    <th>Denominazione</th>
+                    <td>ANKOAUTCA</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>privacy@ankoautca.it</td>
+                </tr>
+                <tr>
+                    <th>Email PEC</th>
+                    <td>ankoautca@pec.it</td>
+                </tr>
+                <tr>
+                    <th>Sede Legale</th>
+                    <td>Roma, Italia</td>
+                </tr>
+                <tr>
+                    <th>Partita IVA</th>
+                    <td>IT12345678901</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- 3. Dati Raccolti -->
+        <section class="privacy-section" id="dati-raccolti">
+            <h2><i class="fas fa-database"></i> 3. Dati Personali Raccolti</h2>
+            <p>Raccogliamo le seguenti categorie di dati personali:</p>
+            
+            <h3>3.1 Dati forniti volontariamente dall'utente</h3>
+            <ul>
+                <li><strong>Dati identificativi:</strong> nome, cognome, indirizzo email</li>
+                <li><strong>Dati di contatto:</strong> email, numero di telefono (se fornito)</li>
+                <li><strong>Dati newsletter:</strong> indirizzo email per l'invio di comunicazioni</li>
+                <li><strong>Contenuti generati:</strong> commenti, messaggi inviati tramite form di contatto</li>
+            </ul>
+
+            <h3>3.2 Dati raccolti automaticamente</h3>
+            <ul>
+                <li><strong>Dati di navigazione:</strong> indirizzo IP, tipo di browser, sistema operativo, pagine visitate, orario della visita, durata della sessione</li>
+                <li><strong>Dati del dispositivo:</strong> tipo di dispositivo, risoluzione dello schermo, preferenze di lingua</li>
+                <li><strong>Dati di localizzazione approssimativa:</strong> basata sull'indirizzo IP (solo a livello di paese/città)</li>
+                <li><strong>Dati statistici:</strong> numero di visitatori, pagine più visitate, frequenza di rimbalzo</li>
+            </ul>
+
+            <div class="highlight-box">
+                <strong>📌 Nota importante:</strong> Non raccogliamo <strong>dati sensibili</strong> (dati relativi a salute, 
+                opinioni politiche, credenze religiose, orientamento sessuale, dati biometrici o genetici) 
+                attraverso il nostro sito web.
+            </div>
+        </section>
+
+        <!-- 4. Finalità -->
+        <section class="privacy-section" id="finalita">
+            <h2><i class="fas fa-bullseye"></i> 4. Finalità del Trattamento</h2>
+            <p>Utilizziamo i tuoi dati personali per le seguenti finalità:</p>
+            <table class="info-table">
+                <tr>
+                    <th>Finalità</th>
+                    <th>Descrizione</th>
+                </tr>
+                <tr>
+                    <td>Erogazione del Servizio</td>
+                    <td>Permettere la navigazione sul sito, la visualizzazione dei contenuti e l'accesso alle funzionalità</td>
+                </tr>
+                <tr>
+                    <td>Newsletter</td>
+                    <td>Invio di comunicazioni informative, aggiornamenti e notizie (solo previo consenso)</td>
+                </tr>
+                <tr>
+                    <td>Gestione Commenti</td>
+                    <td>Moderazione e pubblicazione dei commenti degli utenti</td>
+                </tr>
+                <tr>
+                    <td>Risposta alle Richieste</td>
+                    <td>Gestione delle richieste inviate tramite form di contatto</td>
+                </tr>
+                <tr>
+                    <td>Statistiche e Analisi</td>
+                    <td>Analisi del traffico in forma anonima e aggregata per migliorare il sito</td>
+                </tr>
+                <tr>
+                    <td>Sicurezza</td>
+                    <td>Prevenzione di frodi, abusi e attività dannose; protezione dei nostri sistemi informatici</td>
+                </tr>
+                <tr>
+                    <td>Obblighi di Legge</td>
+                    <td>Adempimento di obblighi legali, regolamentari o fiscali</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- 5. Base Giuridica -->
+        <section class="privacy-section" id="base-giuridica">
+            <h2><i class="fas fa-gavel"></i> 5. Base Giuridica del Trattamento</h2>
+            <p>Trattiamo i tuoi dati personali sulla base delle seguenti condizioni giuridiche previste dal GDPR:</p>
+            <ul>
+                <li><strong>Consenso (Art. 6, par. 1, lett. a):</strong> per l'invio di newsletter e comunicazioni marketing</li>
+                <li><strong>Esecuzione di un contratto (Art. 6, par. 1, lett. b):</strong> per fornire i servizi richiesti</li>
+                <li><strong>Legittimo interesse (Art. 6, par. 1, lett. f):</strong> per migliorare il sito, garantire la sicurezza, prevenire frodi</li>
+                <li><strong>Obbligo legale (Art. 6, par. 1, lett. c):</strong> per adempiere a obblighi di legge</li>
+            </ul>
+        </section>
+
+        <!-- 6. Cookie -->
+        <section class="privacy-section" id="cookie">
+            <h2><i class="fas fa-cookie-bite"></i> 6. Cookie e Tecnologie Similari</h2>
+            <p>
+                Il nostro sito utilizza cookie e tecnologie similari per garantire il corretto funzionamento, 
+                migliorare l'esperienza di navigazione e raccogliere dati statistici anonimi.
+            </p>
+
+            <h3>6.1 Cosa sono i cookie?</h3>
+            <p>
+                I cookie sono piccoli file di testo che i siti web salvano sul tuo dispositivo durante la navigazione. 
+                Vengono utilizzati per memorizzare informazioni sulle tue preferenze, migliorare l'esperienza utente 
+                e fornire dati statistici ai gestori del sito.
+            </p>
+
+            <h3>6.2 Tipologie di cookie utilizzati</h3>
+            
+            <div class="cookie-item">
+                <strong><i class="fas fa-check-circle" style="color: #1a7a3a;"></i> Cookie Tecnici (Necessari)</strong>
+                <p style="margin-top: 8px; margin-bottom: 0;">Essenziali per il funzionamento del sito. Non richiedono consenso.</p>
+                <ul style="margin-top: 6px;">
+                    <li>Cookie di sessione (durata: sessione di navigazione)</li>
+                    <li>Cookie di preferenza (lingua, tema)</li>
+                    <li>Cookie di sicurezza (CSRF, autenticazione)</li>
+                </ul>
+            </div>
+
+            <div class="cookie-item">
+                <strong><i class="fas fa-chart-bar" style="color: #1a6fad;"></i> Cookie Analitici (Statistiche)</strong>
+                <p style="margin-top: 8px; margin-bottom: 0;">Raccolgono dati anonimi e aggregati sulle visite al sito.</p>
+                <ul style="margin-top: 6px;">
+                    <li>Google Analytics 4 (GA4) - con IP anonimizzato</li>
+                    <li>Cloudflare Analytics</li>
+                    <li>Durata: massimo 26 mesi</li>
+                </ul>
+            </div>
+
+            <div class="cookie-item">
+                <strong><i class="fas fa-ad" style="color: #c07020;"></i> Cookie di Profilazione (Marketing)</strong>
+                <p style="margin-top: 8px; margin-bottom: 0;">Utilizzati per mostrare pubblicità pertinenti. <strong>Richiedono consenso esplicito.</strong></p>
+                <ul style="margin-top: 6px;">
+                    <li>Cookie pubblicitari (Google Ads, Facebook Pixel) - <strong>solo previo consenso</strong></li>
+                    <li>Cookie di social media (Twitter, Facebook, Instagram)</li>
+                </ul>
+            </div>
+
+            <h3 style="margin-top: 20px;">6.3 Come gestire i cookie</h3>
+            <p>
+                Puoi gestire le tue preferenze sui cookie in qualsiasi momento attraverso:
+            </p>
+            <ul>
+                <li><strong>Il nostro banner cookie:</strong> presente al primo accesso al sito</li>
+                <li><strong>Le impostazioni del browser:</strong> puoi bloccare, eliminare o disabilitare i cookie dalle impostazioni del tuo browser (Chrome, Firefox, Safari, Edge)</li>
+                <li><strong>Strumenti di opt-out:</strong> <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener" style="color: var(--red);">Google Analytics Opt-out</a>, <a href="https://www.youronlinechoices.com/it/" target="_blank" rel="noopener" style="color: var(--red);">YourOnlineChoices</a></li>
+            </ul>
+        </section>
+
+        <!-- 7. Conservazione -->
+        <section class="privacy-section" id="conservazione">
+            <h2><i class="fas fa-clock"></i> 7. Conservazione dei Dati</h2>
+            <p>Conserviamo i tuoi dati personali per il tempo strettamente necessario alle finalità per cui sono stati raccolti:</p>
+            <table class="info-table">
+                <tr>
+                    <th>Tipo di Dato</th>
+                    <th>Periodo di Conservazione</th>
+                </tr>
+                <tr>
+                    <td>Dati di navigazione (log)</td>
+                    <td>Massimo 12 mesi</td>
+                </tr>
+                <tr>
+                    <td>Dati newsletter</td>
+                    <td>Fino alla revoca del consenso o richiesta di cancellazione</td>
+                </tr>
+                <tr>
+                    <td>Commenti pubblicati</td>
+                    <td>Fino alla richiesta di rimozione da parte dell'utente</td>
+                </tr>
+                <tr>
+                    <td>Dati contatto (form)</td>
+                    <td>24 mesi dall'ultima interazione</td>
+                </tr>
+                <tr>
+                    <td>Dati fiscali/amministrativi</td>
+                    <td>10 anni (come previsto dalla legge italiana)</td>
+                </tr>
+            </table>
+            <div class="highlight-box">
+                <strong>🗑️ Cancellazione:</strong> Allo scadere del periodo di conservazione, i dati vengono 
+                cancellati in modo sicuro o resi anonimi in modo irreversibile.
+            </div>
+        </section>
+
+        <!-- 8. Diritti -->
+        <section class="privacy-section" id="diritti">
+            <h2><i class="fas fa-user-shield"></i> 8. I Tuoi Diritti (GDPR)</h2>
+            <p>
+                In base al GDPR, hai i seguenti diritti riguardo ai tuoi dati personali:
+            </p>
+            <table class="info-table">
+                <tr>
+                    <th>Diritto</th>
+                    <th>Descrizione</th>
+                </tr>
+                <tr>
+                    <td><strong>Accesso</strong> (Art. 15)</td>
+                    <td>Ottenere conferma dell'esistenza di dati che ti riguardano e accedervi</td>
+                </tr>
+                <tr>
+                    <td><strong>Rettifica</strong> (Art. 16)</td>
+                    <td>Correggere dati inesatti o incompleti</td>
+                </tr>
+                <tr>
+                    <td><strong>Cancellazione</strong> (Art. 17)</td>
+                    <td>Richiedere la cancellazione dei dati ("diritto all'oblio")</td>
+                </tr>
+                <tr>
+                    <td><strong>Limitazione</strong> (Art. 18)</td>
+                    <td>Limitare il trattamento dei dati in determinate circostanze</td>
+                </tr>
+                <tr>
+                    <td><strong>Portabilità</strong> (Art. 20)</td>
+                    <td>Ricevere i dati in formato strutturato e trasferirli ad altro titolare</td>
+                </tr>
+                <tr>
+                    <td><strong>Opposizione</strong> (Art. 21)</td>
+                    <td>Opporti al trattamento dei dati per motivi legittimi</td>
+                </tr>
+                <tr>
+                    <td><strong>Revoca del Consenso</strong> (Art. 7)</td>
+                    <td>Revocare il consenso in qualsiasi momento senza pregiudicare la liceità del trattamento precedente</td>
+                </tr>
+            </table>
+            <div class="highlight-box">
+                <strong>📧 Per esercitare i tuoi diritti:</strong> Invia una email a 
+                <strong>privacy@ankoautca.it</strong> con oggetto "Richiesta Privacy - [Tuo Nome]".
+                Risponderemo entro <strong>30 giorni</strong> dalla ricezione della richiesta.
+            </div>
+        </section>
+
+        <!-- 9. Sicurezza -->
+        <section class="privacy-section" id="sicurezza">
+            <h2><i class="fas fa-shield-haltered"></i> 9. Misure di Sicurezza</h2>
+            <p>
+                Adottiamo misure tecniche e organizzative adeguate per proteggere i tuoi dati personali 
+                da accessi non autorizzati, perdita, distruzione, modifica o divulgazione:
+            </p>
+            <ul>
+                <li><strong>Crittografia HTTPS/TLS:</strong> tutte le comunicazioni sono crittografate con certificato SSL</li>
+                <li><strong>Firewall applicativo (WAF):</strong> protezione contro attacchi DDoS, SQL injection, XSS</li>
+                <li><strong>Accesso limitato:</strong> solo il personale autorizzato può accedere ai dati personali</li>
+                <li><strong>Backup automatico:</strong> backup giornalieri con crittografia AES-256</li>
+                <li><strong>Autenticazione a due fattori (2FA):</strong> per l'accesso al pannello amministrativo</li>
+                <li><strong>Monitoraggio 24/7:</strong> sistemi di rilevamento intrusioni (IDS)</li>
+                <li><strong>Aggiornamenti regolari:</strong> software e sistemi costantemente aggiornati</li>
+                <li><strong>Formazione del personale:</strong> tutto il team è formato sulle procedure di protezione dati</li>
+            </ul>
+        </section>
+
+        <!-- 10. Terze Parti -->
+        <section class="privacy-section" id="terze-parti">
+            <h2><i class="fas fa-handshake"></i> 10. Comunicazione a Terzi</h2>
+            <p>
+                I tuoi dati personali <strong>non vengono venduti</strong> a terze parti. Possiamo condividere 
+                i dati solo con:
+            </p>
+            <ul>
+                <li><strong>Fornitori di servizi:</strong> hosting (Cloudflare, Hetzner), analytics (Google Analytics 4), servizi email (Brevo/SendGrid) - tutti conformi GDPR</li>
+                <li><strong>Autorità competenti:</strong> solo se richiesto dalla legge o per proteggere i nostri diritti legali</li>
+                <li><strong>Consulenti professionali:</strong> legali, contabili (vincolati da obblighi di riservatezza)</li>
+            </ul>
+            <p>
+                Tutti i fornitori terzi sono selezionati con cura e vincolati da contratti di protezione dati (DPA) 
+                conformi all'Art. 28 del GDPR.
+            </p>
+        </section>
+
+        <!-- 11. Trasferimento -->
+        <section class="privacy-section" id="trasferimento">
+            <h2><i class="fas fa-globe-europe"></i> 11. Trasferimento Dati all'Estero</h2>
+            <p>
+                I dati personali sono conservati principalmente su server situati nell'<strong>Unione Europea</strong> 
+                (Germania, Italia, Francia).
+            </p>
+            <p>
+                Alcuni fornitori di servizi (es. Google, Cloudflare) potrebbero trasferire dati al di fuori dell'UE. 
+                In tal caso, garantiamo che il trasferimento avvenga solo verso paesi che offrono un livello di 
+                protezione adeguato (decisioni di adeguatezza della Commissione Europea) o sulla base di 
+                <strong>Clausole Contrattuali Standard (SCC)</strong> approvate dalla Commissione Europea.
+            </p>
+            <div class="highlight-box">
+                <strong>🇪🇺 I tuoi dati rimangono protetti</strong> anche quando trasferiti al di fuori dell'UE, 
+                grazie alle garanzie contrattuali e tecniche adottate.
+            </div>
+        </section>
+
+        <!-- 12. Minori -->
+        <section class="privacy-section" id="minori">
+            <h2><i class="fas fa-child"></i> 12. Minori</h2>
+            <p>
+                I nostri servizi non sono destinati a minori di <strong>16 anni</strong>. 
+                Non raccogliamo consapevolmente dati personali di minori. Se veniamo a conoscenza 
+                di aver raccolto dati di un minore senza il consenso dei genitori, provvediamo 
+                alla loro immediata cancellazione.
+            </p>
+            <p>
+                Se sei un genitore o tutore e ritieni che tuo figlio ci abbia fornito dati personali, 
+                contattaci immediatamente a <strong>privacy@ankoautca.it</strong>.
+            </p>
+        </section>
+
+        <!-- 13. Modifiche -->
+        <section class="privacy-section" id="modifiche">
+            <h2><i class="fas fa-sync-alt"></i> 13. Modifiche alla Privacy Policy</h2>
+            <p>
+                La presente informativa sulla privacy può essere aggiornata periodicamente per riflettere 
+                modifiche legislative, tecnologiche o dei nostri servizi.
+            </p>
+            <ul>
+                <li><strong>Modifiche sostanziali:</strong> ti informeremo tramite un avviso visibile sul sito o via email (se sei iscritto alla newsletter)</li>
+                <li><strong>Modifiche minori:</strong> saranno pubblicate direttamente su questa pagina con data di aggiornamento</li>
+                <li><strong>Versioni precedenti:</strong> disponibili su richiesta via email</li>
+            </ul>
+            <div class="highlight-box">
+                <strong>📅 Ultima modifica:</strong> 13 Maggio 2026 — <a href="#contatti" style="color: var(--red);">Visualizza storico versioni</a>
+            </div>
+        </section>
+
+        <!-- 14. Contatti -->
+        <section class="contact-card" id="contatti">
+            <h2 style="border-bottom-color: rgba(255,255,255,0.1);">
+                <i class="fas fa-envelope" style="color: var(--red); background: rgba(255,255,255,0.1); width: 36px; height: 36px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; margin-right: 12px;"></i>
+                14. Contatti e Reclami
+            </h2>
+            <p style="margin-top: 16px;">
+                Per qualsiasi domanda, richiesta o reclamo relativo alla presente informativa sulla privacy 
+                o al trattamento dei tuoi dati personali, puoi contattarci ai seguenti recapiti:
+            </p>
+            
+            <a href="mailto:privacy@ankoautca.it" class="email-link">
+                <i class="fas fa-envelope"></i> privacy@ankoautca.it
+            </a>
+            
+            <p>oppure</p>
+            
+            <a href="mailto:gastroboostmarketingdigital@gmail.com" class="email-link">
+                <i class="fas fa-envelope"></i> gastroboostmarketingdigital@gmail.com
+            </a>
+            
+            <p class="address">
+                <i class="fas fa-map-marker-alt"></i> ANKOAUTCA — Roma, Italia<br>
+                <i class="fas fa-building"></i> P.IVA: IT12345678901
+            </p>
+
+            <div class="highlight-box" style="background: rgba(255,255,255,0.05); border-left-color: #ff6b6b; margin-top: 20px;">
+                <strong style="color: #ff6b6b;">⚖️ Reclamo al Garante:</strong> Se ritieni che il trattamento dei tuoi dati violi il GDPR, 
+                hai il diritto di presentare un reclamo al <strong>Garante per la Protezione dei Dati Personali</strong> 
+                (<a href="https://www.garanteprivacy.it" target="_blank" rel="noopener" style="color: #ff6b6b;">www.garanteprivacy.it</a>).
+            </div>
+        </section>
+
+        <!-- Pulsante Torna al Sito -->
+        <div style="text-align: center;">
+            <a href="index.html" class="btn-back">
+                <i class="fas fa-arrow-left"></i> Torna al Sito
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="privacy-footer">
+        <p>
+            © 2026 <a href="index.html">ANKOAUTCA</a> — Il Portale Italiano dell'Informazione. 
+            Tutti i diritti riservati. | 
+            <a href="privacy.html">Privacy Policy</a> | 
+            <a href="termini.html">Termini e Condizioni</a> | 
+            <a href="cookie.html">Cookie Policy</a>
+        </p>
+        <p style="margin-top: 6px;">
+            Informativa redatta in conformità al <strong>GDPR UE 2016/679</strong> e al <strong>D.Lgs. 196/2003</strong> (Codice Privacy Italiano).
+        </p>
+    </footer>
+
+    <!-- Smooth Scroll Script -->
+    <script>
+        // Smooth scroll per i link interni
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Aggiorna automaticamente la data di ultimo aggiornamento
+        const lastUpdateElements = document.querySelectorAll('.last-update');
+        const today = new Date();
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        const formattedDate = today.toLocaleDateString('it-IT', options);
+        
+        lastUpdateElements.forEach(el => {
+            el.innerHTML = `<i class="far fa-calendar-check"></i> Ultimo aggiornamento: ${formattedDate}`;
+        });
+    </script>
+
+</body>
+</html>
