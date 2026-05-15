@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Categoria — ANKOAUTCA</title>
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Sans+3:wght@300;400;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GB5VWDMCE1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GB5VWDMCE1');
+</script>
+<style>
+:root{--red:#C0121C;--red-dark:#8B0000;--black:#0A0A0A;--gray-700:#444;--gray-500:#777;--gray-100:#f4f4f2;--white:#fff;--cream:#faf9f7;--font-display:'Playfair Display',Georgia,serif;--font-body:'Source Sans 3',Arial,sans-serif;--font-serif:'Source Serif 4',Georgia,serif;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-body);background:var(--cream);color:var(--black);font-size:16px;line-height:1.6}
+a{text-decoration:none;color:inherit}
+img{max-width:100%}
+.topbar{background:var(--black);color:#ccc;font-size:12px;padding:6px 0;border-bottom:2px solid var(--red)}
+.topbar-inner{max-width:1280px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+header{background:var(--white);border-bottom:3px solid var(--black);position:sticky;top:0;z-index:100}
+.masthead{max-width:1280px;margin:0 auto;padding:12px 20px 8px;display:flex;align-items:center;justify-content:space-between}
+.logo-text{font-family:var(--font-display);font-size:38px;font-weight:900;letter-spacing:-2px}
+.logo-text span{color:var(--red)}
+.mainnav{background:var(--black)}
+.mainnav-inner{max-width:1280px;margin:0 auto;padding:0 20px;display:flex;overflow-x:auto}
+.mainnav-inner a{color:#ddd;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:12px 16px;white-space:nowrap;transition:all .2s;border-bottom:3px solid transparent}
+.mainnav-inner a:hover,.mainnav-inner a.active{color:white;border-bottom-color:var(--red)}
+.container{max-width:1280px;margin:0 auto;padding:20px}
+.page-title{font-family:var(--font-display);font-size:32px;font-weight:900;margin-bottom:10px;text-transform:capitalize}
+.page-subtitle{color:var(--gray-500);margin-bottom:30px;font-style:italic}
+.articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:30px}
+@media(max-width:900px){.articles-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.articles-grid{grid-template-columns:1fr}}
+.card{background:var(--white);border:1px solid #e8e6e1;border-radius:2px;overflow:hidden;transition:transform .2s,box-shadow .2s;cursor:pointer}
+.card:hover{transform:translateY(-3px);box-shadow:0 6px 24px rgba(0,0,0,.1)}
+.card-img{aspect-ratio:16/9;overflow:hidden;position:relative}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.card:hover .card-img img{transform:scale(1.05)}
+.card-cat-badge{position:absolute;top:10px;left:10px;background:var(--red);color:white;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px}
+.card-body{padding:16px}
+.card-title{font-family:var(--font-display);font-size:17px;font-weight:700;line-height:1.3;margin-bottom:8px;color:var(--black);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card:hover .card-title{color:var(--red)}
+.card-excerpt{font-size:13px;color:var(--gray-500);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:12px;font-style:italic}
+.card-meta{font-size:11px;color:var(--gray-500);display:flex;justify-content:space-between}
+.btn-more{display:block;text-align:center;background:transparent;border:1.5px solid var(--black);color:var(--black);font-weight:700;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;padding:11px 24px;cursor:pointer;transition:all .2s;margin:20px auto;width:fit-content}
+.btn-more:hover{background:var(--black);color:white}
+footer{background:var(--black);color:#aaa;margin-top:60px;padding:30px 20px;text-align:center;font-size:12px}
+.loading{text-align:center;padding:40px;color:var(--gray-500);font-style:italic}
+@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.loading i{animation:spin 1s linear infinite}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="topbar-inner"><span><a href="index.html">← Home</a></span></div></div>
+<header>
+  <div class="masthead"><a href="index.html"><div class="logo-text"><span>A</span>NKOAUTCA</div></a></div>
+  <nav class="mainnav"><div class="mainnav-inner"><a href="index.html">Home</a><a href="categoria.html?cat=politica">Politica</a><a href="categoria.html?cat=economia">Economia</a><a href="categoria.html?cat=mondo">Mondo</a><a href="categoria.html?cat=sport">Sport</a><a href="categoria.html?cat=cultura">Cultura</a><a href="categoria.html?cat=tecnologia">Tecnologia</a></div></nav>
+</header>
+<div class="container">
+  <h1 class="page-title" id="page-title">Notizie</h1>
+  <p class="page-subtitle" id="page-subtitle">Caricamento articoli in corso...</p>
+  <div class="articles-grid" id="articles-grid"><div class="loading"><i class="ti ti-loader"></i> Ricerca notizie...</div></div>
+  <button class="btn-more" id="load-more" style="display:none;">Carica altre notizie <i class="ti ti-arrow-down"></i></button>
+</div>
+<footer><p>© 2025 ANKOAUTCA — <a href="mailto:gastroboostmarketingdegital@gmail.com">Collabora con noi</a></p></footer>
+
+<script>
+const NEWS_API_KEY = '1142e33f1ee5465e876b9a708bbbf80b';
+const NEWS_API_URL = 'https://newsapi.org/v2/';
+const params = new URLSearchParams(window.location.search);
+const category = params.get('cat') || 'general';
+const searchQuery = params.get('q') || '';
+let currentPage = 1;
+
+const catNames = {politica:'Politica',economia:'Economia',mondo:'Mondo',sport:'Sport',cultura:'Cultura',tecnologia:'Tecnologia',salute:'Salute',scienze:'Scienze',ambiente:'Ambiente',italia:'Italia',general:'Tutte le Notizie'};
+
+document.getElementById('page-title').textContent = searchQuery ? `Ricerca: "${searchQuery}"` : (catNames[category] || category);
+document.getElementById('page-subtitle').textContent = searchQuery ? 'Risultati della tua ricerca' : 'Ultimi articoli dalla sezione';
+
+function getCategory(article) {
+  const cats = ['Politica','Economia','Mondo','Sport','Cultura','Tecnologia','Salute','Scienze','Ambiente','Italia'];
+  const title = (article.title || '').toLowerCase();
+  if (title.includes('governo')||title.includes('elezioni')) return 'Politica';
+  if (title.includes('borsa')||title.includes('economi')) return 'Economia';
+  if (title.includes('nato')||title.includes('usa')||title.includes('russia')) return 'Mondo';
+  if (title.includes('calcio')||title.includes('sport')) return 'Sport';
+  if (title.includes('film')||title.includes('arte')||title.includes('libro')) return 'Cultura';
+  if (title.includes('tech')||title.includes('digitale')||title.includes('ai')) return 'Tecnologia';
+  return cats[Math.floor(Math.random()*cats.length)];
+}
+
+function timeAgo(dateStr) {
+  const diffMs = Date.now() - new Date(dateStr).getTime();
+  const diffMin = Math.floor(diffMs/60000);
+  if (diffMin<60) return diffMin+' minuti fa';
+  const diffH = Math.floor(diffMin/60);
+  if (diffH<24) return diffH+' ore fa';
+  return Math.floor(diffH/24)+' giorni fa';
+}
+
+function truncate(str,max){return str&&str.length>max?str.substring(0,max)+'...':str||''}
+function getImg(a){return a.urlToImage&&a.urlToImage.startsWith('http')?a.urlToImage:`https://picsum.photos/seed/${Math.random().toString(36).substr(2,5)}/600/338`}
+
+function renderCard(a){
+  const cat = getCategory(a);
+  return `<div class="card" onclick="location.href='articolo.html?title=${encodeURIComponent(a.title)}&desc=${encodeURIComponent(a.description||'')}&img=${encodeURIComponent(getImg(a))}&cat=${encodeURIComponent(cat)}&author=${encodeURIComponent(a.author||'Redazione')}&date=${encodeURIComponent(a.publishedAt)}&url=${encodeURIComponent(a.url||'')}'">
+    <div class="card-img"><img src="${getImg(a)}" alt="" loading="lazy" onerror="this.src='https://picsum.photos/seed/err/600/338'"><span class="card-cat-badge">${cat}</span></div>
+    <div class="card-body"><h2 class="card-title">${a.title}</h2><p class="card-excerpt">${truncate(a.description,120)}</p><div class="card-meta"><span>${a.author||'Redazione'}</span><span><i class="ti ti-clock"></i> ${timeAgo(a.publishedAt)}</span></div></div>
+  </div>`;
+}
+
+function getFallback(cat,count){
+  const all=[
+    {title:'Il Parlamento vota la riforma costituzionale',description:'Una storica riforma che cambia il volto dello Stato italiano.',urlToImage:'https://picsum.photos/seed/f1/600/338',author:'Redazione',publishedAt:new Date(Date.now()-3600000).toISOString()},
+    {title:'Borsa di Milano ai massimi storici',description:'Il FTSE MIB supera quota 40.000 punti trainato dal settore energetico.',urlToImage:'https://picsum.photos/seed/f2/600/338',author:'Redazione',publishedAt:new Date(Date.now()-7200000).toISOString()},
+    {title:'Azzurri qualificati ai Mondiali 2026',description:'L\'Italia supera la Grecia 3-0 con doppietta di Scamacca.',urlToImage:'https://picsum.photos/seed/f3/600/338',author:'Redazione',publishedAt:new Date(Date.now()-10800000).toISOString()},
+    {title:'Siccità record in Sicilia',description:'Governo dichiara lo stato di emergenza idrica per 2 milioni di cittadini.',urlToImage:'https://picsum.photos/seed/f4/600/338',author:'Redazione',publishedAt:new Date(Date.now()-14400000).toISOString()},
+    {title:'OpenAI lancia GPT-5',description:'Capacità umana nel ragionamento complesso per il nuovo modello AI.',urlToImage:'https://picsum.photos/seed/f5/600/338',author:'Redazione',publishedAt:new Date(Date.now()-18000000).toISOString()},
+    {title:'Alzheimer: nuovo biomarcatore scoperto',description:'Una rivoluzione nella diagnosi precoce della malattia neurodegenerativa.',urlToImage:'https://picsum.photos/seed/f6/600/338',author:'Redazione',publishedAt:new Date(Date.now()-21600000).toISOString()},
+  ];
+  return all.sort(()=>Math.random()-0.5).slice(0,count);
+}
+
+async function loadArticles(page=1){
+  const grid = document.getElementById('articles-grid');
+  const loadMore = document.getElementById('load-more');
+  
+  let articles;
+  if (searchQuery) {
+    const url = `${NEWS_API_URL}everything?q=${encodeURIComponent(searchQuery)}&language=it&sortBy=publishedAt&pageSize=12&page=${page}&apiKey=${NEWS_API_KEY}`;
+    try {
+      const r = await fetch(url);
+      if (!r.ok) throw new Error('API error');
+      const d = await r.json();
+      articles = d.articles||[];
+    } catch(e) {
+      articles = getFallback(category,12);
+    }
+  } else {
+    const catQueries = {politica:'politica OR governo',economia:'economia OR finanza',mondo:'mondo OR internazionale',sport:'sport OR calcio',cultura:'cultura OR cinema',tecnologia:'tecnologia OR tech',salute:'salute OR sanità',scienze:'scienze OR ricerca',ambiente:'ambiente OR clima',italia:'italia OR italiano',general:'notizie OR attualità'};
+    const q = catQueries[category]||category;
+    const url = `${NEWS_API_URL}everything?q=${encodeURIComponent(q)}&language=it&sortBy=publishedAt&pageSize=12&page=${page}&apiKey=${NEWS_API_KEY}`;
+    try {
+      const r = await fetch(url);
+      if (!r.ok) throw new Error('API error');
+      const d = await r.json();
+      articles = d.articles||[];
+    } catch(e) {
+      articles = getFallback(category,12);
+    }
+  }
+  
+  if (articles.length===0) {
+    grid.innerHTML = '<div class="loading">Nessun articolo trovato. <a href="index.html" style="color:var(--red)">Torna alla home</a></div>';
+    loadMore.style.display='none';
+    return;
+  }
+  
+  if (page===1) grid.innerHTML = '';
+  grid.innerHTML += articles.map(renderCard).join('');
+  loadMore.style.display = articles.length>=12 ? 'block' : 'none';
+}
+
+loadArticles(1);
+
+document.getElementById('load-more').addEventListener('click',async function(){
+  this.textContent='Caricamento...';
+  currentPage++;
+  await loadArticles(currentPage);
+  this.innerHTML='Carica altre notizie <i class="ti ti-arrow-down"></i>';
+});
+</script>
+</body>
+</html>
