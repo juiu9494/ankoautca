@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>ANKOAUTCA — Notizie in Diretta, Attualità, Mondo</title>
 <meta name="description" content="ANKOAUTCA - Il portale italiano di notizie, attualità, politica, economia, sport, cultura e tecnologia. Informazione libera e senza registrazione.">
 <meta name="robots" content="index, follow">
@@ -321,7 +321,7 @@ nav.mainnav { background: var(--black); }
 .card-body { padding: 16px; }
 .card-title {
   font-family: var(--font-display);
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 1.3;
   margin-bottom: 8px;
@@ -332,12 +332,12 @@ nav.mainnav { background: var(--black); }
 }
 .card:hover .card-title { color: var(--red); }
 .card-excerpt {
-  font-size: 13.5px;
+  font-size: 14px;
   color: var(--gray-500);
   font-style: italic;
   margin-bottom: 12px;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -362,7 +362,7 @@ nav.mainnav { background: var(--black); }
 .ali-cat { font-size: 9px; font-weight: 700; color: var(--red); text-transform: uppercase; }
 .ali-title {
   font-family: var(--font-display);
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 700;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -408,8 +408,8 @@ nav.mainnav { background: var(--black); }
   color: white;
 }
 .mag-cat { font-size: 9px; font-weight: 700; color: var(--red); text-transform: uppercase; }
-.mag-title { font-family: var(--font-display); font-weight: 700; }
-.mag-main .mag-title { font-size: 26px; }
+.mag-title { font-family: var(--font-display); font-weight: 700; font-size: 18px; }
+.mag-main .mag-title { font-size: 28px; }
 
 /* Big horizontal */
 .big-article-horiz {
@@ -426,8 +426,8 @@ nav.mainnav { background: var(--black); }
   color: white;
 }
 .bah-cat { font-size: 9px; font-weight: 700; color: var(--red); text-transform: uppercase; }
-.bah-title { font-family: var(--font-display); font-size: 22px; font-weight: 900; margin: 8px 0; }
-.bah-excerpt { font-size: 13px; color: rgba(255,255,255,.7); font-style: italic; }
+.bah-title { font-family: var(--font-display); font-size: 24px; font-weight: 900; margin: 8px 0; }
+.bah-excerpt { font-size: 14px; color: rgba(255,255,255,.7); font-style: italic; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 
 .category-two-col {
   display: grid;
@@ -569,6 +569,7 @@ nav.mainnav { background: var(--black); }
 .article-full-page .article-meta { color: gray; margin-bottom: 20px; }
 .article-full-page img { max-width: 100%; margin: 20px 0; border-radius: 4px; }
 .article-full-page .article-content { font-size: 18px; line-height: 1.7; }
+.article-full-page .article-content p { margin-bottom: 1em; }
 .back-home { display: inline-block; margin-bottom: 20px; background: var(--black); color: white; padding: 6px 12px; border-radius: 3px; cursor: pointer; }
 
 footer {
@@ -610,11 +611,11 @@ footer {
     <div class="topbar-date" id="topbar-date"></div>
     <div class="topbar-links">
       <span class="live-badge">● LIVE</span>
-      <a href="#" data-category="politica">Politica</a>
-      <a href="#" data-category="economia">Economia</a>
-      <a href="#" data-category="mondo">Mondo</a>
-      <a href="#" data-category="sport">Sport</a>
-      <a href="#" data-category="tecnologia">Tecnologia</a>
+      <a href="Politica.html">Politica</a>
+      <a href="Economia.html">Economia</a>
+      <a href="Mondo.html">Mondo</a>
+      <a href="Sport.html">Sport</a>
+      <a href="Tecnologia.html">Tecnologia</a>
     </div>
   </div>
 </div>
@@ -637,13 +638,13 @@ footer {
   </div>
   <nav class="mainnav">
     <div class="mainnav-inner" id="main-nav">
-      <a href="#" data-category="home" class="active">Home</a>
-      <a href="#" data-category="politica">Politica</a>
-      <a href="#" data-category="economia">Economia</a>
-      <a href="#" data-category="mondo">Mondo</a>
-      <a href="#" data-category="sport">Sport</a>
-      <a href="#" data-category="tecnologia">Tecnologia</a>
-      <a href="#" data-category="opinioni">Opinioni</a>
+      <a href="index.html" class="active">Home</a>
+      <a href="Politica.html">Politica</a>
+      <a href="Economia.html">Economia</a>
+      <a href="Mondo.html">Mondo</a>
+      <a href="Sport.html">Sport</a>
+      <a href="Tecnologia.html">Tecnologia</a>
+      <a href="Opinioni.html">Opinioni</a>
     </div>
   </nav>
 </header>
@@ -668,7 +669,7 @@ footer {
 <footer>
   <div class="footer-top">
     <div><div class="footer-logo"><span>A</span>NKOAUTCA</div><div class="footer-desc" style="margin-top:8px;">Testata indipendente. Notizie in tempo reale senza abbonamenti né tracciamento.</div></div>
-    <div><div class="footer-col-title">Sezioni</div><div class="footer-col-links"><a href="#" data-category="politica">Politica</a><a href="#" data-category="economia">Economia</a><a href="#" data-category="mondo">Mondo</a><a href="#" data-category="sport">Sport</a><a href="#" data-category="tecnologia">Tecnologia</a><a href="#" data-category="cultura">Cultura</a></div></div>
+    <div><div class="footer-col-title">Sezioni</div><div class="footer-col-links"><a href="Politica.html">Politica</a><a href="Economia.html">Economia</a><a href="Mondo.html">Mondo</a><a href="Sport.html">Sport</a><a href="Tecnologia.html">Tecnologia</a><a href="Cultura.html">Cultura</a></div></div>
     <div><div class="footer-col-title">Redazione</div><div class="footer-col-links"><a href="#">Chi siamo</a><a href="mailto:gastroboostmarketingdegital@gmail.com">Collabora</a><a href="#">Privacy policy</a></div></div>
   </div>
   <div class="footer-bottom"><span>© 2025 ANKOAUTCA — Tutti i diritti riservati</span><span>Nessun social, nessuna newsletter, solo informazione</span></div>
@@ -688,11 +689,10 @@ function timeAgo(dateStr) {
 }
 function truncate(str, len) { return str?.length > len ? str.substr(0,len)+'…' : str || ''; }
 
-// IMMAGINI PERTINENTI: se l'articolo ha urlToImage valido lo uso, altrimenti uso un placeholder TEMATICO
+// IMMAGINI PERTINENTI: se l'articolo ha urlToImage valido lo uso, altrimenti uso un placeholder tematico
 function getImage(article) {
   if (article.urlToImage && article.urlToImage.startsWith('http')) return article.urlToImage;
   const category = getCategory(article);
-  // Placeholder tematici (immagini fisse ma significative)
   const placeholders = {
     'Politica': 'https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?w=800&h=450&fit=crop',
     'Economia': 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=450&fit=crop',
@@ -716,7 +716,7 @@ function getCategory(article) {
   return 'Attualità';
 }
 
-async function fetchNews(queryCat, pageSize=15) {
+async function fetchNews(queryCat, pageSize=18) {
   let q = 'notizie italia';
   if (queryCat === 'politica') q = 'politica italia governo';
   else if (queryCat === 'economia') q = 'economia finanza italia';
@@ -734,8 +734,9 @@ async function fetchNews(queryCat, pageSize=15) {
 }
 function getFallback(cat) {
   const fall = {
-    home: [{title:'Governo: nuovo decreto legge in arrivo', description:'Misure per il lavoro', author:'Redazione', publishedAt:new Date().toISOString()},{title:'Calcio, Serie A: risultati e classifica', description:'Juventus vince il derby', author:'Sport', publishedAt:new Date().toISOString()}],
-    politica: [{title:'Camera e Senato, scontro sulla manovra', description:'Discussione in corso', author:'Agenzia', publishedAt:new Date().toISOString()}]
+    home: [{title:'Governo: nuovo decreto legge in arrivo', description:'Misure per il lavoro e sostegno alle imprese. Previsti anche incentivi per la transizione ecologica.', author:'Redazione', publishedAt:new Date().toISOString()},
+           {title:'Calcio, Serie A: risultati e classifica', description:'Juventus vince il derby, Inter e Milan pareggiano. La lotta scudetto si infiamma.', author:'Sport', publishedAt:new Date().toISOString()}],
+    politica: [{title:'Camera e Senato, scontro sulla manovra', description:'Discussione in corso, opposizione all\'attacco. Possibili modifiche in extremis.', author:'Agenzia', publishedAt:new Date().toISOString()}]
   };
   return fall[cat] || fall.home;
 }
@@ -749,8 +750,8 @@ function viewArticle(article) {
       <div class="article-meta">di ${article.author || 'Redazione'} · ${timeAgo(article.publishedAt)} · 5 min lettura</div>
       <img src="${getImage(article)}" alt="${article.title}" style="width:100%; max-height:500px; object-fit:cover;">
       <div class="article-content">
-        <p>${article.description || 'Contenuto completo dell\'articolo. '} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+        <p>${article.description || 'Contenuto completo dell\'articolo. '} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris.</p>
         <p><strong>Fonte originale:</strong> <a href="${article.url || '#'}" target="_blank">${article.source?.name || 'Ansa/Reuters'}</a></p>
       </div>
     </div>
@@ -760,24 +761,24 @@ function viewArticle(article) {
 
 // Render home
 async function renderHome() {
-  const articles = await fetchNews('home', 18);
+  const articles = await fetchNews('home', 24);
   const hero = articles.slice(0,3);
   const latest = articles.slice(3,12);
-  const more = articles.slice(12,16);
+  const more = articles.slice(12,18);
   const html = `
     <div class="hero-grid">
       <div class="hero-main" onclick="viewArticle(${JSON.stringify(hero[0]).replace(/"/g, '&quot;')})">
         <div class="hero-main-bg" style="background-image:url('${getImage(hero[0])}')"></div><div class="hero-main-overlay"></div>
-        <div class="hero-main-content"><span class="hero-category">🔴 PRIMA PAGINA</span><h1 class="hero-title">${hero[0].title}</h1><p class="hero-excerpt">${truncate(hero[0].description,150)}</p><div class="hero-meta"><span>${hero[0].author||'Redazione'}</span><span>${timeAgo(hero[0].publishedAt)}</span></div></div>
+        <div class="hero-main-content"><span class="hero-category">🔴 PRIMA PAGINA</span><h1 class="hero-title">${hero[0].title}</h1><p class="hero-excerpt">${truncate(hero[0].description,180)}</p><div class="hero-meta"><span>${hero[0].author||'Redazione'}</span><span>${timeAgo(hero[0].publishedAt)}</span></div></div>
       </div>
       <div class="hero-side">
-        <div class="hero-side-item" onclick="viewArticle(${JSON.stringify(hero[1]||hero[0]).replace(/"/g, '&quot;')})"><div class="hsi-bg" style="background-image:url('${getImage(hero[1]||hero[0])}')"></div><div class="hsi-overlay"></div><div class="hsi-content"><div class="hsi-cat">${getCategory(hero[1]||hero[0])}</div><div class="hsi-title">${truncate((hero[1]?.title||hero[0].title),80)}</div></div></div>
-        <div class="hero-side-item" onclick="viewArticle(${JSON.stringify(hero[2]||hero[0]).replace(/"/g, '&quot;')})"><div class="hsi-bg" style="background-image:url('${getImage(hero[2]||hero[0])}')"></div><div class="hsi-overlay"></div><div class="hsi-content"><div class="hsi-cat">${getCategory(hero[2]||hero[0])}</div><div class="hsi-title">${truncate((hero[2]?.title||hero[0].title),80)}</div></div></div>
+        <div class="hero-side-item" onclick="viewArticle(${JSON.stringify(hero[1]||hero[0]).replace(/"/g, '&quot;')})"><div class="hsi-bg" style="background-image:url('${getImage(hero[1]||hero[0])}')"></div><div class="hsi-overlay"></div><div class="hsi-content"><div class="hsi-cat">${getCategory(hero[1]||hero[0])}</div><div class="hsi-title">${truncate((hero[1]?.title||hero[0].title),90)}</div></div></div>
+        <div class="hero-side-item" onclick="viewArticle(${JSON.stringify(hero[2]||hero[0]).replace(/"/g, '&quot;')})"><div class="hsi-bg" style="background-image:url('${getImage(hero[2]||hero[0])}')"></div><div class="hsi-overlay"></div><div class="hsi-content"><div class="hsi-cat">${getCategory(hero[2]||hero[0])}</div><div class="hsi-title">${truncate((hero[2]?.title||hero[0].title),90)}</div></div></div>
       </div>
     </div>
     <div class="main-layout">
       <main>
-        <div class="category-section"><div class="section-header"><div class="section-red-line"></div><span class="section-label">Ultime Notizie</span></div><div class="articles-grid" id="latest-grid">${latest.map(a=>`<div class="card" onclick="viewArticle(${JSON.stringify(a).replace(/"/g, '&quot;')})"><div class="card-img"><img src="${getImage(a)}"><span class="card-cat-badge">${getCategory(a)}</span></div><div class="card-body"><h2 class="card-title">${a.title}</h2><p class="card-excerpt">${truncate(a.description,100)}</p><div class="card-meta"><span>${a.author||'Redazione'}</span><span>${timeAgo(a.publishedAt)}</span></div></div></div>`).join('')}</div><div id="more-list">${more.map(a=>`<div class="article-list-item" onclick="viewArticle(${JSON.stringify(a).replace(/"/g, '&quot;')})"><div class="ali-img"><img src="${getImage(a)}"></div><div class="ali-content"><div class="ali-cat">${getCategory(a)}</div><div class="ali-title">${a.title}</div><div class="ali-meta">${a.author||'Redazione'} · ${timeAgo(a.publishedAt)}</div></div></div>`).join('')}</div><button class="btn-more" id="loadMoreBtn">Carica altre notizie</button></div>
+        <div class="category-section"><div class="section-header"><div class="section-red-line"></div><span class="section-label">Ultime Notizie</span></div><div class="articles-grid" id="latest-grid">${latest.map(a=>`<div class="card" onclick="viewArticle(${JSON.stringify(a).replace(/"/g, '&quot;')})"><div class="card-img"><img src="${getImage(a)}"><span class="card-cat-badge">${getCategory(a)}</span></div><div class="card-body"><h2 class="card-title">${a.title}</h2><p class="card-excerpt">${truncate(a.description,130)}</p><div class="card-meta"><span>${a.author||'Redazione'}</span><span>${timeAgo(a.publishedAt)}</span></div></div></div>`).join('')}</div><div id="more-list">${more.map(a=>`<div class="article-list-item" onclick="viewArticle(${JSON.stringify(a).replace(/"/g, '&quot;')})"><div class="ali-img"><img src="${getImage(a)}"></div><div class="ali-content"><div class="ali-cat">${getCategory(a)}</div><div class="ali-title">${a.title}</div><div class="ali-meta">${a.author||'Redazione'} · ${timeAgo(a.publishedAt)}</div></div></div>`).join('')}</div><button class="btn-more" id="loadMoreBtn">Carica altre notizie</button></div>
         <div class="category-section"><div class="section-header"><div class="section-red-line"></div><span class="section-label">Politica</span></div><div id="politicaWidget"></div></div>
         <div class="collab-banner"><i class="ti ti-rocket collab-icon"></i><div class="collab-text"><div class="collab-title">Collabora con Ankoautca</div><div class="collab-desc">Scrivi con noi, pubblica le tue notizie. Invia a <strong>gastroboostmarketingdegital@gmail.com</strong></div></div><a href="mailto:gastroboostmarketingdegital@gmail.com" class="collab-btn">Proponi collaborazione</a></div>
       </main>
@@ -787,7 +788,7 @@ async function renderHome() {
   document.getElementById('main-container').innerHTML = html;
   // Politica widget
   const poli = await fetchNews('politica', 3);
-  document.getElementById('politicaWidget').innerHTML = `<div class="magazine-grid">${poli.map((p,i)=>`<div class="mag-item ${i===0?'mag-main':''}" onclick="viewArticle(${JSON.stringify(p).replace(/"/g, '&quot;')})"><div class="mag-item-bg" style="background-image:url('${getImage(p)}')"></div><div class="mag-overlay"></div><div class="mag-content"><div class="mag-cat">${i===0?'Governo':'Politica'}</div><div class="mag-title">${truncate(p.title, i===0?80:60)}</div></div></div>`).join('')}</div>`;
+  document.getElementById('politicaWidget').innerHTML = `<div class="magazine-grid">${poli.map((p,i)=>`<div class="mag-item ${i===0?'mag-main':''}" onclick="viewArticle(${JSON.stringify(p).replace(/"/g, '&quot;')})"><div class="mag-item-bg" style="background-image:url('${getImage(p)}')"></div><div class="mag-overlay"></div><div class="mag-content"><div class="mag-cat">${i===0?'Governo':'Politica'}</div><div class="mag-title">${truncate(p.title, i===0?100:80)}</div></div></div>`).join('')}</div>`;
   document.getElementById('loadMoreBtn').onclick = async () => {
     const moreArts = await fetchNews('home', 6);
     const container = document.getElementById('more-list');
@@ -796,31 +797,6 @@ async function renderHome() {
   // ticker
   document.getElementById('ticker').innerHTML = articles.slice(0,8).map(t=>`<span>${t.title}</span>`).join('');
 }
-
-// Navigazione categorie
-document.querySelectorAll('[data-category]').forEach(link => {
-  link.addEventListener('click', async (e) => {
-    e.preventDefault();
-    const cat = link.getAttribute('data-category');
-    if (cat === 'home') renderHome();
-    else {
-      const arts = await fetchNews(cat, 15);
-      document.getElementById('main-container').innerHTML = `<div class="container"><h2 style="margin:20px 0">Notizie: ${cat.charAt(0).toUpperCase()+cat.slice(1)}</h2><div class="articles-grid">${arts.map(a=>`<div class="card" onclick="viewArticle(${JSON.stringify(a).replace(/"/g, '&quot;')})"><div class="card-img"><img src="${getImage(a)}"><span class="card-cat-badge">${getCategory(a)}</span></div><div class="card-body"><h2 class="card-title">${a.title}</h2><p class="card-excerpt">${truncate(a.description,100)}</p><div class="card-meta"><span>${a.author||'Redazione'}</span><span>${timeAgo(a.publishedAt)}</span></div></div></div>`).join('')}</div></div>`;
-    }
-    document.querySelectorAll('.mainnav-inner a').forEach(a => a.classList.remove('active'));
-    link.classList.add('active');
-  });
-});
-
-// Ricerca
-document.getElementById('search-btn').addEventListener('click', async () => {
-  const q = document.getElementById('search-input').value.trim();
-  if(!q) return;
-  const url = `${BASE}everything?q=${encodeURIComponent(q)}&language=it&pageSize=12&apiKey=${API_KEY}`;
-  const res = await fetch(url); const data = await res.json();
-  const arts = data.articles || [];
-  document.getElementById('main-container').innerHTML = `<div class="container"><h2>Risultati per: ${q}</h2><div class="articles-grid">${arts.map(a=>`<div class="card" onclick="viewArticle(${JSON.stringify(a).replace(/"/g, '&quot;')})"><div class="card-img"><img src="${getImage(a)}"><span class="card-cat-badge">News</span></div><div class="card-body"><h2 class="card-title">${a.title}</h2><p class="card-excerpt">${truncate(a.description,100)}</p></div></div>`).join('')}</div></div>`;
-});
 
 // LIVE CHAT PUBBLICO (localStorage)
 const CHAT_KEY = 'ankoautca_live_public';
@@ -850,6 +826,16 @@ renderGlobalChat();
 
 // Data topbar
 document.getElementById('topbar-date').innerText = new Date().toLocaleDateString('it-IT', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
+
+// Ricerca
+document.getElementById('search-btn').addEventListener('click', async () => {
+  const q = document.getElementById('search-input').value.trim();
+  if(!q) return;
+  const url = `${BASE}everything?q=${encodeURIComponent(q)}&language=it&pageSize=12&apiKey=${API_KEY}`;
+  const res = await fetch(url); const data = await res.json();
+  const arts = data.articles || [];
+  document.getElementById('main-container').innerHTML = `<div class="container"><h2>Risultati per: ${q}</h2><div class="articles-grid">${arts.map(a=>`<div class="card" onclick="viewArticle(${JSON.stringify(a).replace(/"/g, '&quot;')})"><div class="card-img"><img src="${getImage(a)}"><span class="card-cat-badge">News</span></div><div class="card-body"><h2 class="card-title">${a.title}</h2><p class="card-excerpt">${truncate(a.description,100)}</p></div></div>`).join('')}</div></div>`;
+});
 
 // Avvio
 renderHome();
