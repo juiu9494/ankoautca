@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opinioni & Sondaggi — ANKOAUTCA</title>
+    <meta name="description" content="Esprimi la tua opinione sui temi più discussi. Vota i sondaggi, commenta e confrontati con la community di ANKOAUTCA.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Opinioni & Sondaggi — ANKOAUTCA">
+    <meta property="og:description" content="Vota i temi caldi del momento, lascia la tua opinione e leggi i commenti della community.">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Sans+3:wght@300;400;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <!-- Tabler Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+    <style>
+        :root {
+            --red: #C0121C;
+            --red-dark: #8B0000;
+            --red-light: #f8e8e8;
+            --black: #0A0A0A;
+            --dark: #1a1a1a;
+            --gray-900: #222222;
+            --gray-700: #444;
+            --gray-500: #777;
+            --gray-300: #ccc;
+            --gray-100: #f4f4f2;
+            --white: #ffffff;
+            --cream: #faf9f7;
+            --gold: #B8960C;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Source Sans 3', Arial, sans-serif;
+            --font-serif: 'Source Serif 4', Georgia, serif;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--cream);
+            color: var(--black);
+            font-size: 16px;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
+
+        /* ============================
+           TOP BAR
+           ============================ */
+        .topbar {
+            background: var(--black);
+            color: var(--gray-300);
+            font-size: 12px;
+            padding: 6px 0;
+            border-bottom: 2px solid var(--red);
+        }
+        .topbar-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .topbar-date { font-family: var(--font-serif); font-style: italic; color: #aaa; }
+        .topbar-links { display: flex; gap: 20px; align-items: center; }
+        .topbar-links a { color: #bbb; transition: color .2s; font-size: 11px; letter-spacing: .5px; text-transform: uppercase; }
+        .topbar-links a:hover { color: var(--red); }
+        .live-badge {
+            background: var(--red);
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 2px 7px;
+            border-radius: 2px;
+            text-transform: uppercase;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.7} }
+
+        /* ============================
+           HEADER / MASTHEAD
+           ============================ */
+        header {
+            background: var(--white);
+            border-bottom: 3px solid var(--black);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 12px rgba(0,0,0,.08);
+        }
+        .masthead {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 16px 20px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .logo-wrap { display: flex; flex-direction: column; align-items: flex-start; }
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 52px;
+            font-weight: 900;
+            letter-spacing: -2px;
+            color: var(--black);
+            line-height: 1;
+            position: relative;
+        }
+        .logo-text .logo-a { color: var(--red); }
+        .logo-tagline {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 12px;
+            color: var(--gray-500);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 2px;
+            padding-left: 2px;
+        }
+        .logo-rule {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--red), transparent);
+            margin-top: 4px;
+        }
+
+        /* Navigation */
+        nav.mainnav {
+            background: var(--black);
+        }
+        .mainnav-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 0;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .mainnav-inner::-webkit-scrollbar { display: none; }
+        .mainnav-inner a {
+            color: #ddd;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 12px 16px;
+            white-space: nowrap;
+            transition: all .2s;
+            border-bottom: 3px solid transparent;
+            position: relative;
+        }
+        .mainnav-inner a:hover, .mainnav-inner a.active { color: white; border-bottom-color: var(--red); }
+
+        /* Container */
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+
+        /* Page Title */
+        .page-header {
+            padding: 30px 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            border-bottom: 2px solid var(--black);
+            margin-bottom: 30px;
+        }
+        .page-header i { font-size: 34px; color: var(--red); }
+        .page-header h1 {
+            font-family: var(--font-display);
+            font-size: 36px;
+            font-weight: 900;
+            color: var(--black);
+        }
+        .page-header p {
+            margin-left: auto;
+            font-size: 14px;
+            color: var(--gray-500);
+            font-style: italic;
+        }
+
+        /* Polls Grid */
+        .polls-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            gap: 28px;
+            margin-bottom: 40px;
+        }
+        @media (max-width: 1100px) {
+            .polls-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Poll Card */
+        .poll-card {
+            background: var(--white);
+            border: 1px solid #e8e6e1;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .poll-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.06); }
+
+        .poll-header {
+            background: var(--black);
+            color: white;
+            padding: 14px 18px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .poll-header i { font-size: 22px; color: var(--red); margin-top: 3px; }
+        .poll-header h2 {
+            font-family: var(--font-display);
+            font-size: 19px;
+            font-weight: 700;
+            line-height: 1.3;
+            flex: 1;
+        }
+        .poll-category {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            background: var(--red);
+            padding: 2px 8px;
+            border-radius: 2px;
+            white-space: nowrap;
+            align-self: center;
+        }
+
+        .poll-body {
+            padding: 18px;
+        }
+        .poll-description {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 14px;
+            color: var(--gray-700);
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        /* Voting area */
+        .vote-area {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .vote-btn {
+            flex: 1;
+            min-width: 120px;
+            padding: 10px 18px;
+            border: 2px solid var(--gray-300);
+            background: var(--white);
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s;
+            color: var(--gray-700);
+        }
+        .vote-btn i { font-size: 20px; }
+        .vote-btn.up:hover, .vote-btn.up.selected {
+            border-color: #2a9d8f;
+            background: #e9f7f5;
+            color: #2a9d8f;
+        }
+        .vote-btn.down:hover, .vote-btn.down.selected {
+            border-color: var(--red);
+            background: #fdecea;
+            color: var(--red);
+        }
+        .vote-btn.disabled {
+            pointer-events: none;
+            opacity: 0.7;
+        }
+        .vote-stats {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-left: auto;
+            font-size: 14px;
+            color: var(--gray-700);
+        }
+        .total-votes {
+            font-weight: 700;
+            color: var(--black);
+            white-space: nowrap;
+        }
+        .bar-container {
+            flex: 1;
+            min-width: 100px;
+            height: 10px;
+            background: #eee;
+            border-radius: 5px;
+            overflow: hidden;
+            display: flex;
+        }
+        .bar-up {
+            background: #2a9d8f;
+            transition: width 0.3s;
+        }
+        .bar-down {
+            background: var(--red);
+            transition: width 0.3s;
+        }
+
+        /* Comments section */
+        .comments-section {
+            border-top: 1px solid #e8e6e1;
+            padding: 16px 18px;
+            background: #fcfcf9;
+        }
+        .comments-header {
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--gray-700);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .comment-list {
+            max-height: 260px;
+            overflow-y: auto;
+            margin-bottom: 12px;
+        }
+        .comment-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0ede8;
+        }
+        .comment-item:last-child { border-bottom: none; }
+        .comment-author {
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--red);
+            margin-bottom: 2px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .comment-time {
+            font-size: 10px;
+            color: var(--gray-500);
+            font-weight: 400;
+        }
+        .comment-text {
+            font-size: 14px;
+            color: var(--black);
+            line-height: 1.5;
+        }
+        .comment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .comment-form input, .comment-form textarea {
+            border: 1.5px solid var(--gray-300);
+            padding: 8px 10px;
+            font-family: var(--font-body);
+            font-size: 13px;
+            border-radius: 3px;
+            outline: none;
+            width: 100%;
+        }
+        .comment-form textarea { min-height: 60px; resize: vertical; }
+        .comment-form button {
+            background: var(--black);
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background 0.2s;
+            align-self: flex-start;
+        }
+        .comment-form button:hover { background: var(--red); }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: #aaa;
+            margin-top: 40px;
+        }
+        .footer-top {
+            border-bottom: 1px solid #333;
+            padding: 40px 0 30px;
+        }
+        .footer-top-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+        @media(max-width:800px){ .footer-top-inner { grid-template-columns: 1fr 1fr; } }
+        .footer-logo { font-family: var(--font-display); font-size: 36px; font-weight: 900; color: white; letter-spacing: -1px; margin-bottom: 12px; }
+        .footer-logo span { color: var(--red); }
+        .footer-desc { font-size: 13px; color: #888; line-height: 1.7; margin-bottom: 16px; }
+        .footer-collab {
+            background: var(--red);
+            color: white;
+            padding: 10px 16px;
+            font-size: 12px;
+            display: inline-block;
+            border-radius: 2px;
+            font-weight: 600;
+            transition: background .2s;
+            text-decoration: none;
+        }
+        .footer-collab:hover { background: var(--red-dark); }
+        .footer-col-title { color: white; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid #333; }
+        .footer-col-links { display: flex; flex-direction: column; gap: 8px; }
+        .footer-col-links a { color: #888; font-size: 13px; transition: color .2s; }
+        .footer-col-links a:hover { color: var(--red); }
+        .footer-social-row { display: flex; gap: 10px; margin-top: 16px; }
+        .footer-social-btn {
+            width: 34px; height: 34px;
+            background: #333;
+            color: #aaa;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 2px;
+            font-size: 16px;
+            transition: all .2s;
+        }
+        .footer-social-btn:hover { background: var(--red); color: white; }
+        .footer-bottom {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 20px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 12px;
+            color: #555;
+        }
+        .footer-bottom a { color: #555; transition: color .2s; }
+        .footer-bottom a:hover { color: var(--red); }
+        .footer-bottom-links { display: flex; gap: 16px; flex-wrap: wrap; }
+    </style>
+</head>
+<body>
+    <!-- TOP BAR -->
+    <div class="topbar">
+        <div class="topbar-inner">
+            <div class="topbar-date" id="topbar-date"></div>
+            <div class="topbar-links">
+                <span class="live-badge">● Live</span>
+                <a href="Politica.html">Politica</a>
+                <a href="Economia.html?cat=economia">Economia</a>
+                <a href="Mondo.html?cat=mondo">Mondo</a>
+                <a href="Sport.html?cat=sport">Sport</a>
+                <a href="Tecnologia.html?cat=tecnologia">Tecnologia</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="masthead">
+            <div class="logo-wrap">
+                <div class="logo-text"><span class="logo-a">A</span>NKOAUTCA</div>
+                <div class="logo-tagline">Il Portale Italiano dell'Informazione</div>
+                <div class="logo-rule"></div>
+            </div>
+        </div>
+        <nav class="mainnav">
+            <div class="mainnav-inner">
+                <a href="index.html">Home</a>
+                <a href="Politica.html">Politica</a>
+                <a href="Economia.html">Economia</a>
+                <a href="Mondo.html">Mondo</a>
+                <a href="Sport.html">Sport</a>
+                <a href="Tecnologia.html">Tecnologia</a>
+                <a href="categoria.html?cat=salute">Salute</a>
+                <a href="categoria.html?cat=scienze">Scienze</a>
+                <a href="categoria.html?cat=ambiente">Ambiente</a>
+                <a href="opinioni.html" class="active">Opinioni</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="page-header">
+            <i class="ti ti-messages"></i>
+            <h1>Sondaggi &amp; Opinioni</h1>
+            <p>La voce dei lettori conta. Esprimi il tuo parere e commenta.</p>
+        </div>
+
+        <div class="polls-grid" id="polls-container"></div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-top">
+            <div class="footer-top-inner">
+                <div>
+                    <div class="footer-logo"><span>A</span>NKOAUTCA</div>
+                    <div class="footer-desc">Il portale italiano di notizie, attualità e approfondimento. Informazione libera, indipendente e rigorosa.</div>
+                    <a href="mailto:gastroboostmarketingdegital@gmail.com" class="footer-collab"><i class="ti ti-briefcase"></i> Proponi una Collaborazione</a>
+                    <div class="footer-social-row">
+                        <a class="footer-social-btn" href="#"><i class="ti ti-brand-facebook"></i></a>
+                        <a class="footer-social-btn" href="#"><i class="ti ti-brand-x"></i></a>
+                        <a class="footer-social-btn" href="#"><i class="ti ti-brand-instagram"></i></a>
+                        <a class="footer-social-btn" href="#"><i class="ti ti-brand-youtube"></i></a>
+                        <a class="footer-social-btn" href="#"><i class="ti ti-brand-telegram"></i></a>
+                        <a class="footer-social-btn" href="#"><i class="ti ti-rss"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <div class="footer-col-title">Sezioni</div>
+                    <div class="footer-col-links">
+                        <a href="categoria.html?cat=politica">Politica</a>
+                        <a href="categoria.html?cat=economia">Economia</a>
+                        <a href="categoria.html?cat=mondo">Mondo</a>
+                        <a href="categoria.html?cat=italia">Italia</a>
+                        <a href="categoria.html?cat=sport">Sport</a>
+                        <a href="categoria.html?cat=cultura">Cultura</a>
+                        <a href="categoria.html?cat=tecnologia">Tecnologia</a>
+                        <a href="categoria.html?cat=salute">Salute</a>
+                        <a href="categoria.html?cat=scienze">Scienze</a>
+                        <a href="categoria.html?cat=ambiente">Ambiente</a>
+                    </div>
+                </div>
+                <div>
+                    <div class="footer-col-title">Redazione</div>
+                    <div class="footer-col-links">
+                        <a href="#">Chi siamo</a>
+                        <a href="#">Giornalisti</a>
+                        <a href="mailto:gastroboostmarketingdegital@gmail.com">Collabora con noi</a>
+                        <a href="#">Invia una segnalazione</a>
+                    </div>
+                </div>
+                <div>
+                    <div class="footer-col-title">Servizi</div>
+                    <div class="footer-col-links">
+                        <a href="#">Newsletter</a>
+                        <a href="#">App Mobile</a>
+                        <a href="#">Podcast</a>
+                        <a href="#">RSS Feed</a>
+                        <a href="#">Pubblicità</a>
+                        <a href="#">API Notizie</a>
+                        <a href="#">Abbonamento Premium</a>
+                        <a href="mailto:gastroboostmarketingdegital@gmail.com">Contatti</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2025 ANKOAUTCA — Tutti i diritti riservati</span>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Cookie Policy</a>
+                <a href="#">Termini di Servizio</a>
+                <a href="#">Note Legali</a>
+                <a href="#">Accessibilità</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Data dinamica
+        const days = ['Domenica','Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato'];
+        const months = ['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'];
+        const now = new Date();
+        document.getElementById('topbar-date').textContent = days[now.getDay()] + ' ' + now.getDate() + ' ' + months[now.getMonth()] + ' ' + now.getFullYear();
+
+        // ============================
+        // DATI SONDAGGI (hardcoded iniziali)
+        // ============================
+        const DEFAULT_POLLS = [
+            {
+                id: 'poll1',
+                title: 'L\'Italia dovrebbe aumentare le spese militari fino al 2% del PIL come richiesto dalla NATO?',
+                description: 'Il dibattito sulla difesa europea è più acceso che mai. Molti partiti spingono per un rafforzamento, altri temono tagli al welfare.',
+                category: 'Difesa'
+            },
+            {
+                id: 'poll2',
+                title: 'È giusto limitare l\'uso dei social network per i minori di 16 anni?',
+                description: 'Dopo i recenti casi di cyberbullismo e dipendenza digitale, il governo valuta nuove restrizioni. Tu cosa ne pensi?',
+                category: 'Società'
+            },
+            {
+                id: 'poll3',
+                title: 'L\'intelligenza artificiale distruggerà più posti di lavoro di quanti ne creerà?',
+                description: 'OpenAI, Google e aziende tech corrono verso l\'AGI. I sindacati lanciano l\'allarme occupazionale.',
+                category: 'Tecnologia'
+            },
+            {
+                id: 'poll4',
+                title: 'La Serie A dovrebbe adottare i playoff per lo scudetto?',
+                description: 'Modello americano o tradizione? Il dibattito infiamma tifosi e addetti ai lavori.',
+                category: 'Sport'
+            },
+            {
+                id: 'poll5',
+                title: 'Sei favorevole alla depenalizzazione della cannabis in Italia?',
+                description: 'Dopo l\'esempio di Germania e Malta, anche in Italia si riapre il dibattito sulla legalizzazione.',
+                category: 'Politica'
+            },
+            {
+                id: 'poll6',
+                title: 'L\'Unione Europea dovrebbe emettere un debito comune permanente?',
+                description: 'Il Recovery Fund è stato un successo, ma alcuni paesi frenano su ulteriori condivisioni del debito.',
+                category: 'Economia'
+            }
+        ];
+
+        // ============================
+        // GESTIONE DATI (localStorage)
+        // ============================
+        const POLLS_DATA_KEY = 'ankoautca_polls_data';
+        const USER_VOTES_KEY = 'ankoautca_user_votes';
+
+        function loadPollsData() {
+            const raw = localStorage.getItem(POLLS_DATA_KEY);
+            if (raw) return JSON.parse(raw);
+            // Inizializza con dati random per simulare attività pregressa
+            const initial = {};
+            DEFAULT_POLLS.forEach(poll => {
+                const up = Math.floor(Math.random() * 400) + 50;
+                const down = Math.floor(Math.random() * 300) + 30;
+                initial[poll.id] = {
+                    up: up,
+                    down: down,
+                    comments: [
+                        { name: 'Marco R.', text: 'Finalmente un dibattito serio su questo tema.', time: '12:45 - 15/5/2025' },
+                        { name: 'Laura B.', text: 'Non sono d\'accordo, ma rispetto le opinioni altrui.', time: '10:20 - 14/5/2025' }
+                    ]
+                };
+            });
+            savePollsData(initial);
+            return initial;
+        }
+
+        function savePollsData(data) {
+            localStorage.setItem(POLLS_DATA_KEY, JSON.stringify(data));
+        }
+
+        function loadUserVotes() {
+            const raw = localStorage.getItem(USER_VOTES_KEY);
+            return raw ? JSON.parse(raw) : {};
+        }
+
+        function saveUserVotes(votes) {
+            localStorage.setItem(USER_VOTES_KEY, JSON.stringify(votes));
+        }
+
+        function getPollData(pollId) {
+            const data = loadPollsData();
+            return data[pollId] || { up: 0, down: 0, comments: [] };
+        }
+
+        function updatePollVote(pollId, voteType) {
+            const data = loadPollsData();
+            const poll = data[pollId];
+            if (!poll) return;
+            const userVotes = loadUserVotes();
+            const previousVote = userVotes[pollId];
+
+            // Rimuovi voto precedente
+            if (previousVote === 'up') poll.up--;
+            else if (previousVote === 'down') poll.down--;
+
+            // Aggiungi nuovo voto (se diverso da 'none')
+            if (voteType === 'up') poll.up++;
+            else if (voteType === 'down') poll.down++;
+            
+            // Se clicca di nuovo sullo stesso bottone, annulla il voto (toggle)
+            if (previousVote === voteType) {
+                // annulla: rimuovi il voto appena aggiunto
+                if (voteType === 'up') poll.up--;
+                else if (voteType === 'down') poll.down--;
+                delete userVotes[pollId];
+            } else {
+                userVotes[pollId] = voteType;
+            }
+
+            savePollsData(data);
+            saveUserVotes(userVotes);
+            renderAllPolls();
+        }
+
+        function addComment(pollId, name, text) {
+            if (!text.trim()) return;
+            const data = loadPollsData();
+            const poll = data[pollId];
+            if (!poll) return;
+            const now = new Date();
+            const timeStr = now.getHours().toString().padStart(2,'0') + ':' + now.getMinutes().toString().padStart(2,'0') + ' - ' + now.getDate() + '/' + (now.getMonth()+1) + '/' + now.getFullYear();
+            poll.comments.unshift({ name: name.trim() || 'Anonimo', text: text.trim(), time: timeStr });
+            savePollsData(data);
+            renderAllPolls();
+        }
+
+        // ============================
+        // RENDER
+        // ============================
+        function escapeHtml(unsafe) {
+            return unsafe.replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+
+        function renderPollCard(poll) {
+            const data = getPollData(poll.id);
+            const total = data.up + data.down;
+            const upPercent = total === 0 ? 50 : Math.round((data.up / total) * 100);
+            const downPercent = total === 0 ? 50 : 100 - upPercent;
+            const userVotes = loadUserVotes();
+            const currentVote = userVotes[poll.id] || null;
+
+            // Barra percentuale
+            const barHtml = total > 0 ? `
+                <div class="bar-container">
+                    <div class="bar-up" style="width:${upPercent}%"></div>
+                    <div class="bar-down" style="width:${downPercent}%"></div>
+                </div>
+                <span style="font-size:12px;color:var(--gray-500);white-space:nowrap;">${upPercent}% / ${downPercent}%</span>
+            ` : '';
+
+            // Commenti
+            const commentsHtml = data.comments.slice(0, 5).map(c => `
+                <div class="comment-item">
+                    <div class="comment-author">${escapeHtml(c.name)} <span class="comment-time">${c.time}</span></div>
+                    <div class="comment-text">${escapeHtml(c.text)}</div>
+                </div>
+            `).join('');
+
+            return `
+            <div class="poll-card" id="poll-${poll.id}">
+                <div class="poll-header">
+                    <i class="ti ti-chart-bar"></i>
+                    <h2>${escapeHtml(poll.title)}</h2>
+                    <span class="poll-category">${escapeHtml(poll.category)}</span>
+                </div>
+                <div class="poll-body">
+                    <div class="poll-description">${escapeHtml(poll.description)}</div>
+                    <div class="vote-area">
+                        <button class="vote-btn up ${currentVote === 'up' ? 'selected' : ''}" data-poll-id="${poll.id}" data-vote="up">
+                            <i class="ti ti-thumb-up"></i> D'accordo (${data.up})
+                        </button>
+                        <button class="vote-btn down ${currentVote === 'down' ? 'selected' : ''}" data-poll-id="${poll.id}" data-vote="down">
+                            <i class="ti ti-thumb-down"></i> Contrario (${data.down})
+                        </button>
+                        <div class="vote-stats">
+                            <span class="total-votes">${total} voti</span>
+                            ${barHtml}
+                        </div>
+                    </div>
+                </div>
+                <div class="comments-section">
+                    <div class="comments-header"><i class="ti ti-message-circle"></i> Commenti (${data.comments.length})</div>
+                    <div class="comment-list" id="comments-${poll.id}">
+                        ${commentsHtml || '<div style="color:#888; font-style:italic;">Nessun commento. Scrivi il primo!</div>'}
+                    </div>
+                    <div class="comment-form" data-poll-id="${poll.id}">
+                        <input type="text" placeholder="Il tuo nome (facoltativo)" class="comment-name" maxlength="30">
+                        <textarea placeholder="Scrivi il tuo commento..." class="comment-textarea" maxlength="500"></textarea>
+                        <button class="comment-submit">Invia commento</button>
+                    </div>
+                </div>
+            </div>
+            `;
+        }
+
+        function renderAllPolls() {
+            const container = document.getElementById('polls-container');
+            container.innerHTML = DEFAULT_POLLS.map(p => renderPollCard(p)).join('');
+            attachEvents();
+        }
+
+        function attachEvents() {
+            // Bottoni voto
+            document.querySelectorAll('.vote-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pollId = this.dataset.pollId;
+                    const vote = this.dataset.vote;
+                    updatePollVote(pollId, vote);
+                });
+            });
+
+            // Invio commenti
+            document.querySelectorAll('.comment-submit').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const form = this.closest('.comment-form');
+                    const pollId = form.dataset.pollId;
+                    const nameInput = form.querySelector('.comment-name');
+                    const textInput = form.querySelector('.comment-textarea');
+                    addComment(pollId, nameInput.value, textInput.value);
+                });
+            });
+
+            // Invio con Enter su textarea (senza shift)
+            document.querySelectorAll('.comment-textarea').forEach(textarea => {
+                textarea.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter' && !e.shiftKey) {
+                        e.preventDefault();
+                        const form = this.closest('.comment-form');
+                        const btn = form.querySelector('.comment-submit');
+                        btn.click();
+                    }
+                });
+            });
+        }
+
+        // Avvio
+        renderAllPolls();
+        console.log('🗳️ Pagina Opinioni ANKOAUTCA attiva');
+    </script>
+</body>
+</html>
