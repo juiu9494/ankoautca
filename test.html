@@ -302,10 +302,6 @@ footer{background:var(--ink);color:#888;margin-top:0}
     <div class="ts-date" id="ts-date"></div>
     <div class="ts-links">
       <span class="live-pill">● LIVE</span>
-      <a onclick="nav('politica')">Politica</a>
-      <a onclick="nav('cronaca')">Cronaca</a>
-      <a onclick="nav('mondo')">Mondo</a>
-      <a onclick="nav('sport')">Sport</a>
     </div>
   </div>
 </div>
@@ -341,20 +337,20 @@ footer{background:var(--ink);color:#888;margin-top:0}
       </div>
     </div>
   </div>
-  <nav>
-    <div class="nav-in" id="mainnav">
-      <a class="act" onclick="goHome()">Home</a>
-      <a onclick="nav('politica')">Politica</a>
-      <a onclick="nav('economia')">Economia</a>
-      <a onclick="nav('mondo')">Mondo</a>
-      <a onclick="nav('cronaca')">Cronaca</a>
-      <a onclick="nav('sport')">Sport</a>
-      <a onclick="nav('tecnologia')">Tecnologia</a>
-      <a onclick="nav('cultura')">Cultura</a>
-      <a onclick="nav('ambiente')">Ambiente</a>
-      <a onclick="scrollToForum()">Forum</a>
-    </div>
-  </nav>
+ <nav>
+  <div class="nav-in" id="mainnav">
+    <a class="act" href="index.html">Home</a>
+    <a href="Politica.html">Politica</a>
+    <a href="Economia.html">Economia</a>
+    <a href="Mondo.html">Mondo</a>
+    <a href="Cronaca.html">Cronaca</a>
+    <a href="Sport.html">Sport</a>
+    <a href="Tecnologia.html">Tecnologia</a>
+    <a href="Cultura.html">Cultura</a>
+    <a href="Ambiente.html">Ambiente</a>
+    <a href="#forum-section">Forum</a>  <!-- le forum reste sur la même page -->
+  </div>
+</nav>
 </header>
 
 <div id="page-root"></div>
@@ -380,18 +376,7 @@ footer{background:var(--ink);color:#888;margin-top:0}
           <button onclick="searchForum()"><i class="ti ti-search"></i></button>
         </div>
 
-        <div class="topic-list" id="topic-filters">
-          <div class="topic-tag sel" onclick="filterTopic('Tutti')">Tutti</div>
-          <div class="topic-tag" onclick="filterTopic('Politica')">Politica</div>
-          <div class="topic-tag" onclick="filterTopic('Economia')">Economia</div>
-          <div class="topic-tag" onclick="filterTopic('Cronaca')">Cronaca</div>
-          <div class="topic-tag" onclick="filterTopic('Sport')">Sport</div>
-          <div class="topic-tag" onclick="filterTopic('Tecnologia')">Tecnologia</div>
-          <div class="topic-tag" onclick="filterTopic('Cultura')">Cultura</div>
-          <div class="topic-tag" onclick="filterTopic('Mondo')">Mondo</div>
-          <div class="topic-tag" onclick="filterTopic('Ambiente')">Ambiente</div>
-        </div>
-
+       
         <div id="msgs-list"></div>
       </div>
 
