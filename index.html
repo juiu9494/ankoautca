@@ -1458,55 +1458,7 @@
     </footer>
 
     <script>
-        // ============================================================
-        // CONFIGURAZIONE GLOBALE
-        // ============================================================
-        const CONFIG = {
-            ANTHROPIC_MODEL: 'claude-sonnet-4-20250514',
-            ANTHROPIC_API_URL: 'https://api.anthropic.com/v1/messages',
-            API_KEY_STORAGE_KEY: 'ankoautca_anthropic_api_key',
-            CACHE_PREFIX: 'ankoautca_cache_',
-            CACHE_DURATION: 30 * 60 * 1000, // 30 minuti
-            MAX_REQUESTS_PER_MINUTE: 15,
-            RATE_LIMIT_WINDOW: 60 * 1000, // 1 minuto
-            CHAT_STORAGE_KEY: 'ankoautca_global_chat',
-            MAX_CHAT_MESSAGES: 200,
-            FALLBACK_ARTICLE_COUNT: 6,
-        };
-
-        // ============================================================
-        // GESTIONE API KEY (sicura, lato client con localStorage)
-        // ============================================================
-        function getApiKey() {
-            const stored = localStorage.getItem(CONFIG.API_KEY_STORAGE_KEY);
-            if (stored) {
-                try {
-                    // Decodifica semplice (non è crittografia forte, ma evita lettura diretta)
-                    return atob(stored);
-                } catch (e) {
-                    return stored;
-                }
-            }
-            return null;
-        }
-
-        function setApiKey(key) {
-            if (key && key.trim().length > 20) {
-                localStorage.setItem(CONFIG.API_KEY_STORAGE_KEY, btoa(key.trim()));
-                return true;
-            }
-            return false;
-        }
-
-        function hasApiKey() {
-            const key = getApiKey();
-            return key && key.length > 20;
-        }
-
-        function showApiKeyModal() {
-            // Rimuovi modale esistente se presente
-            const existing = document.querySelector('.api-modal-overlay');
-            if (existing) existing.remove();
+       
 
             const overlay = document.createElement('div');
             overlay.className = 'api-modal-overlay';
@@ -1741,59 +1693,7 @@
             }
         }
 
-        // ============================================================
-        // API ANTHROPIC - FETCH ARTICOLI
-        // ============================================================
-        async function callAnthropicAPI(prompt, maxTokens = 4000) {
-            const apiKey = getApiKey();
-            if (!apiKey) {
-                showApiKeyModal();
-                throw new Error('API key mancante');
-            }
-
-            // Rate limiting
-            rateLimiter.check();
-
-            const response = await fetch(CONFIG.ANTHROPIC_API_URL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'x-api-key': apiKey,
-                    'anthropic-version': '2023-06-01',
-                    'anthropic-dangerous-direct-browser-access': 'true'
-                },
-                body: JSON.stringify({
-                    model: CONFIG.ANTHROPIC_MODEL,
-                    max_tokens: maxTokens,
-                    messages: [{ role: 'user', content: prompt }]
-                })
-            });
-
-            if (!response.ok) {
-                const errData = await response.json().catch(() => ({}));
-                if (response.status === 401 || response.status === 403) {
-                    localStorage.removeItem(CONFIG.API_KEY_STORAGE_KEY);
-                    showApiKeyModal();
-                    throw new Error('API key non valida o scaduta. Reinseriscila.');
-                }
-                if (response.status === 429) {
-                    throw new Error('⏳ Troppe richieste all\'API Anthropic. Attendi qualche minuto.');
-                }
-                throw new Error(`Errore API: ${response.status} - ${errData.error?.message || 'Sconosciuto'}`);
-            }
-
-            const data = await response.json();
-            return data.content?.[0]?.text || '';
-        }
-
-        async function fetchArticlesAI(categoria, count = 12) {
-            const cacheKey = `articles_${categoria}_${count}`;
-            const cached = cacheSystem.get(cacheKey);
-            if (cached) {
-                console.log(`📦 Cache hit: ${categoria}`);
-                return cached;
-            }
-
+       
             const oggi = new Date().toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
             const prompt = `Sei un redattore di un importante giornale italiano. Genera esattamente ${count} articoli di notizie plausibili e attuali per la sezione "${categoria}" di un sito di informazione italiano, alla data di oggi ${oggi}.
 
