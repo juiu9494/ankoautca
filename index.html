@@ -214,7 +214,7 @@ footer{background:var(--black);color:#aaa;margin-top:40px}
     <div class="topbar-date" id="topbar-date"></div>
     <div class="topbar-links">
       <span class="live-badge">● LIVE</span>
-      <a href="#">Politica</a>
+      <a href="">Politica</a>
       <a href="#">Cronaca</a>
       <a href="#">Mondo</a>
       <a href="#">Cultura</a>
@@ -248,13 +248,13 @@ footer{background:var(--black);color:#aaa;margin-top:40px}
   </div>
   <nav class="mainnav">
     <div class="mainnav-inner">
-      <a href="#" class="active" onclick="renderHome();return false">Home</a>
-      <a href="#" onclick="loadCategory('politica');return false">Politica</a>
-      <a href="#" onclick="loadCategory('cronaca');return false">Cronaca</a>
-      <a href="#" onclick="loadCategory('mondo');return false">Mondo</a>
-      <a href="#" onclick="loadCategory('cultura');return false">Cultura</a>
-      <a href="#" onclick="loadCategory('tecnologia');return false">Tecnologia</a>
-      <a href="#" onclick="loadCategory('sport');return false">Sport</a>
+      <a href="index.html" class="active" onclick="renderHome();return false">Home</a>
+        <a href="Politica.html" onclick="loadCategory('politica');return false">Politica</a>
+        <a href="Economia.html" onclick="loadCategory('cronaca');return false">Economia</a>
+        <a href="Mondo.html" onclick="loadCategory('mondo');return false">Mondo</a>
+        <a href="Sport.html" onclick="loadCategory('cultura');return false">Sport</a>
+        <a href="Tecnologia.html" onclick="loadCategory('tecnologia');return false">Tecnologia</a>
+        <a href="opinioni.html" onclick="loadCategory('sport');return false">Opinioni</a>
     </div>
   </nav>
 </header>
@@ -299,12 +299,12 @@ footer{background:var(--black);color:#aaa;margin-top:40px}
     <div>
       <div class="footer-col-title">Sezioni</div>
       <div class="footer-col-links">
-        <a href="#" onclick="loadCategory('politica');return false">Politica</a>
-        <a href="#" onclick="loadCategory('cronaca');return false">Cronaca</a>
-        <a href="#" onclick="loadCategory('mondo');return false">Mondo</a>
-        <a href="#" onclick="loadCategory('cultura');return false">Cultura</a>
-        <a href="#" onclick="loadCategory('tecnologia');return false">Tecnologia</a>
-        <a href="#" onclick="loadCategory('sport');return false">Sport</a>
+        <a href="Politica.html" onclick="loadCategory('politica');return false">Politica</a>
+        <a href="Economia.html" onclick="loadCategory('cronaca');return false">Economia</a>
+        <a href="Mondo.html" onclick="loadCategory('mondo');return false">Mondo</a>
+        <a href="Sport.html" onclick="loadCategory('cultura');return false">Sport</a>
+        <a href="Tecnologia.html" onclick="loadCategory('tecnologia');return false">Tecnologia</a>
+        <a href="opinioni.html" onclick="loadCategory('sport');return false">Opinioni</a>
       </div>
     </div>
     <div>
@@ -312,7 +312,7 @@ footer{background:var(--black);color:#aaa;margin-top:40px}
       <div class="footer-col-links">
         <a href="#">Chi siamo</a>
         <a href="mailto:gastroboostmarketingdegital@gmail.com">Collabora con noi</a>
-        <a href="#">Privacy policy</a>
+        <a href="Privacy.html">Privacy policy</a>
         <a href="#">Contatti</a>
       </div>
     </div>
@@ -402,26 +402,7 @@ Rispondi SOLO con un array JSON valido, senza testo aggiuntivo, senza backtick, 
   }
 ]`;
 
-  try {
-    const resp = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({
-        model: ANTHROPIC_MODEL,
-        max_tokens: 1000,
-        messages: [{role:'user', content: prompt}]
-      })
-    });
-    const data = await resp.json();
-    const text = data.content?.[0]?.text || '[]';
-    const cleaned = text.replace(/```json|```/g,'').trim();
-    const parsed = JSON.parse(cleaned);
-    return Array.isArray(parsed) ? parsed : [];
-  } catch(e) {
-    console.error('AI error:', e);
-    return fallbackArticles(categoria, count);
-  }
-}
+
 
 async function fetchSingleArticle(titolo, categoria) {
   const prompt = `Sei un redattore italiano. Scrivi un articolo giornalistico completo e professionale sul seguente argomento: "${titolo}" per la sezione ${categoria}.
@@ -766,47 +747,7 @@ document.getElementById('search-input').addEventListener('keydown', e=>{
   if(e.key==='Enter') document.getElementById('search-btn').click();
 });
 
-// ============================================================
-// LIVE CHAT
-// ============================================================
-const CHAT_KEY = 'ankoautca_chat_v2';
-function loadChat(){return JSON.parse(localStorage.getItem(CHAT_KEY)||'[]')}
-function saveChat(m){localStorage.setItem(CHAT_KEY,JSON.stringify(m))}
 
-const REACTIONS = ['👍','❤️','😮','😂','🔥'];
-
-function renderGlobalChat() {
-  const el = document.getElementById('global-chat-messages');
-  const msgs = loadChat();
-  if(!msgs.length){
-    el.innerHTML='<div class="chat-empty">💬 Nessun messaggio. Scrivi il primo commento pubblico!</div>';
-    return;
-  }
-  el.innerHTML = msgs.slice().reverse().map((m,i)=>`
-    <div class="chat-msg">
-      <span class="chat-name">${esc(m.name||'Anonimo')}</span>
-      <span class="chat-time">${m.time}</span>
-      <div class="chat-text">${esc(m.text)}</div>
-      <div class="chat-reactions">
-        ${REACTIONS.map(r=>{
-          const count = (m.reactions||{})[r]||0;
-          return `<button class="reaction-btn" onclick="addReaction(${msgs.length-1-i},'${r}')">${r}${count>0?` ${count}`:''}</button>`;
-        }).join('')}
-      </div>
-    </div>`).join('');
-  el.scrollTop = 0;
-}
-
-function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-
-function addReaction(idx, emoji) {
-  const msgs = loadChat();
-  if(!msgs[idx]) return;
-  if(!msgs[idx].reactions) msgs[idx].reactions = {};
-  msgs[idx].reactions[emoji] = (msgs[idx].reactions[emoji]||0)+1;
-  saveChat(msgs);
-  renderGlobalChat();
-}
 
 document.getElementById('global-chat-submit').addEventListener('click',()=>{
   const name = document.getElementById('global-chat-name').value.trim();
