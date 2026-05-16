@@ -1,1 +1,1308 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il Silenzio Di Valle Nera — ANKOAUTCA Racconti</title>
+    <meta name="description" content="Un racconto horror ambientato a Valle Nera. La casa rossa sulla collina nasconde un segreto terribile. Leggi la storia completa.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Sans+3:wght@300;400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js">
+    </script>
+    <style>
+        :root {
+            --red: #8B0000;
+            --red-bright: #C0121C;
+            --black: #050505;
+            --gray-900: #1a1a1a;
+            --gray-700: #444;
+            --gray-500: #777;
+            --gray-300: #999;
+            --gray-100: #e0ddd8;
+            --white: #f0ece6;
+            --cream: #f5f2ed;
+            --parchment: #e8e0d5;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Source Sans 3', Arial, sans-serif;
+            --font-serif: 'Source Serif 4', Georgia, serif;
+            --font-horror: 'Special Elite', 'Courier New', monospace;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 6px 24px rgba(0, 0, 0, 0.5);
+            --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.7);
+            --radius: 6px;
+            --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: var(--font-body);
+            background: #0d0d0d;
+            background-image:
+                radial-gradient(ellipse at 50% 0%, rgba(139, 0, 0, 0.08) 0%, transparent 70%),
+                radial-gradient(ellipse at 80% 20%, rgba(80, 30, 20, 0.06) 0%, transparent 60%);
+            color: #d0ccc4;
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
 
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #444;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--red-bright);
+        }
+
+        /* TOPBAR */
+        .topbar {
+            background: #000;
+            color: #888;
+            font-size: 12px;
+            padding: 6px 0;
+            border-bottom: 2px solid var(--red);
+        }
+        .topbar-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .topbar-date {
+            font-family: var(--font-serif);
+            font-style: italic;
+            color: #777;
+        }
+        .topbar-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .topbar-links a {
+            color: #999;
+            font-size: 11px;
+            letter-spacing: .5px;
+            text-transform: uppercase;
+            transition: color var(--transition);
+        }
+        .topbar-links a:hover {
+            color: var(--red-bright);
+        }
+        .live-badge {
+            background: var(--red-bright);
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 2px 7px;
+            border-radius: 2px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%,
+            100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: .45;
+            }
+        }
+
+        /* HEADER */
+        header {
+            background: #0a0a0a;
+            border-bottom: 3px solid #1a1a1a;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow var(--transition);
+        }
+        header.scrolled {
+            box-shadow: var(--shadow-lg);
+        }
+        .masthead {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 16px 20px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 52px;
+            font-weight: 900;
+            letter-spacing: -2px;
+            line-height: 1;
+            cursor: pointer;
+            transition: transform var(--transition);
+            color: #e0d8cc;
+        }
+        .logo-text:hover {
+            transform: scale(1.03);
+        }
+        .logo-a {
+            color: var(--red-bright);
+        }
+        .logo-tagline {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 12px;
+            color: #888;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .search-box {
+            display: flex;
+            border: 1.5px solid #333;
+            border-radius: 3px;
+            overflow: hidden;
+            transition: border-color var(--transition);
+        }
+        .search-box:focus-within {
+            border-color: var(--red-bright);
+        }
+        .search-box input {
+            border: none;
+            padding: 7px 12px;
+            font-size: 13px;
+            outline: none;
+            width: 200px;
+            font-family: var(--font-body);
+            background: #111;
+            color: #ccc;
+            transition: width var(--transition);
+        }
+        .search-box input:focus {
+            width: 240px;
+        }
+        .search-box input::placeholder {
+            color: #666;
+        }
+        .search-box button {
+            background: var(--red-bright);
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: background var(--transition);
+            display: flex;
+            align-items: center;
+        }
+        .search-box button:hover {
+            background: #a00;
+        }
+
+        /* NAV */
+        nav.mainnav {
+            background: #0a0a0a;
+            border-top: 1px solid #1a1a1a;
+        }
+        .mainnav-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .mainnav-inner a {
+            color: #999;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 12px 16px;
+            white-space: nowrap;
+            border-bottom: 3px solid transparent;
+            transition: all var(--transition);
+            position: relative;
+        }
+        .mainnav-inner a:hover,
+        .mainnav-inner a.active {
+            color: #e0d8cc;
+            border-bottom-color: var(--red-bright);
+        }
+        .mainnav-inner a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--red-bright);
+            transition: all var(--transition);
+            transform: translateX(-50%);
+        }
+        .mainnav-inner a:hover::after {
+            width: 100%;
+        }
+        .mainnav-inner a.active::after {
+            width: 100%;
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* STORY CONTENT */
+        .story-wrapper {
+            margin: 40px auto;
+            position: relative;
+        }
+        .story-card {
+            background: #111;
+            border: 1px solid #2a2a2a;
+            border-radius: var(--radius);
+            padding: 50px 60px;
+            box-shadow: var(--shadow-md);
+            animation: fadeInUp 0.8s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .story-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--red), transparent);
+            animation: scanLine 4s ease-in-out infinite;
+        }
+        @keyframes scanLine {
+            0%,
+            100% {
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .story-card .story-badge {
+            display: inline-block;
+            background: var(--red);
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            padding: 4px 14px;
+            border-radius: 2px;
+            margin-bottom: 20px;
+        }
+        .story-card h1 {
+            font-family: var(--font-display);
+            font-size: 44px;
+            font-weight: 900;
+            color: #e8e0d5;
+            margin-bottom: 6px;
+            line-height: 1.15;
+            letter-spacing: -1px;
+        }
+        .story-card .story-subtitle {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 15px;
+            color: #777;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #1a1a1a;
+        }
+        .story-card .story-body {
+            font-family: var(--font-serif);
+            font-size: 17px;
+            line-height: 1.9;
+            color: #c0b8a8;
+        }
+        .story-card .story-body p {
+            margin-bottom: 1.4em;
+            text-indent: 0;
+        }
+        .story-card .story-body p.separator {
+            text-align: center;
+            color: var(--red-bright);
+            font-size: 24px;
+            margin: 30px 0;
+            letter-spacing: 8px;
+            text-indent: 0;
+        }
+        .story-card .story-body em {
+            color: #d4c8b0;
+            font-style: italic;
+        }
+        .story-card .story-body strong {
+            color: #e8dcc8;
+        }
+
+        /* BOUTONS D'ACTION */
+        .action-bar {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            justify-content: flex-start;
+        }
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #1a1a1a;
+            color: #ccc;
+            padding: 10px 18px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid #333;
+            transition: all var(--transition);
+            font-family: var(--font-body);
+        }
+        .btn-back:hover {
+            background: #222;
+            border-color: #555;
+            color: #fff;
+        }
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--red-bright);
+            color: white;
+            padding: 10px 22px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: all var(--transition);
+            font-family: var(--font-body);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            animation: glowPulse 3s ease-in-out infinite;
+        }
+        @keyframes glowPulse {
+            0%,
+            100% {
+                box-shadow: 0 0 8px rgba(192, 18, 28, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(192, 18, 28, 0.6);
+            }
+        }
+        .btn-download:hover {
+            background: #a00;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(192, 18, 28, 0.5);
+        }
+        .btn-download:active {
+            transform: scale(0.97);
+        }
+
+        /* TOAST */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #1a1a1a;
+            color: #e0d8cc;
+            padding: 14px 20px;
+            border-radius: 8px;
+            z-index: 9999;
+            font-size: 13px;
+            font-weight: 600;
+            border: 1px solid #333;
+            animation: slideInRight 0.4s ease, fadeOut 0.4s ease 2.6s forwards;
+            box-shadow: var(--shadow-lg);
+            max-width: 400px;
+        }
+        @keyframes slideInRight {
+            from {
+                transform: translateX(120%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+        }
+
+        /* SCROLL TOP */
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 44px;
+            height: 44px;
+            background: #1a1a1a;
+            color: #ccc;
+            border: 1px solid #333;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 999;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: all var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+        .scroll-top-btn.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .scroll-top-btn:hover {
+            background: var(--red-bright);
+            color: white;
+            border-color: var(--red-bright);
+            transform: translateY(-3px);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #000;
+            color: #666;
+            margin-top: 60px;
+            border-top: 1px solid #1a1a1a;
+        }
+        .footer-top {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+        }
+        @media(max-width:800px) {
+            .footer-top {
+                grid-template-columns: 1fr;
+            }
+            .story-card {
+                padding: 24px 16px;
+            }
+            .story-card h1 {
+                font-size: 28px;
+            }
+        }
+        .footer-logo {
+            font-family: var(--font-display);
+            font-size: 36px;
+            font-weight: 900;
+            color: #e0d8cc;
+        }
+        .footer-logo span {
+            color: var(--red-bright);
+        }
+        .footer-desc {
+            margin-top: 8px;
+            font-size: 13px;
+            line-height: 1.7;
+            color: #555;
+        }
+        .footer-col-title {
+            color: #ccc;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+        .footer-col-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .footer-col-links a {
+            color: #777;
+            font-size: 13px;
+            transition: color var(--transition);
+        }
+        .footer-col-links a:hover {
+            color: var(--red-bright);
+        }
+        .footer-bottom {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            font-size: 12px;
+            border-top: 1px solid #1a1a1a;
+            gap: 10px;
+            color: #555;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:600px) {
+            .story-card {
+                padding: 20px 14px;
+            }
+            .story-card h1 {
+                font-size: 26px;
+            }
+            .story-card .story-body {
+                font-size: 15px;
+            }
+            .action-bar {
+                flex-direction: column;
+            }
+            .btn-download,
+            .btn-back {
+                width: 100%;
+                justify-content: center;
+            }
+            .logo-text {
+                font-size: 32px;
+            }
+        }
+
+        /* IMPRESSION (pour PDF via navigateur) */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            header,
+            .topbar,
+            nav,
+            footer,
+            .action-bar,
+            .scroll-top-btn,
+            .search-box,
+            .toast {
+                display: none !important;
+            }
+            .story-card {
+                background: white;
+                border: none;
+                box-shadow: none;
+                padding: 0;
+                color: black;
+            }
+            .story-card h1 {
+                color: black;
+            }
+            .story-card .story-body {
+                color: black;
+            }
+            .story-card .story-body em {
+                color: #333;
+            }
+            .story-card .story-body strong {
+                color: black;
+            }
+            .story-card::before {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="topbar">
+        <div class="topbar-inner">
+            <div class="topbar-date" id="topbar-date"></div>
+            <div class="topbar-links">
+                <span class="live-badge">● RACCONTI</span>
+                <a href="index.html">Home</a>
+                <a href="Politica.html">Politica</a>
+                <a href="Mondo.html">Mondo</a>
+                <a href="perdi-peso.html">Benessere</a>
+            </div>
+        </div>
+    </div>
+
+    <header id="site-header">
+        <div class="masthead">
+            <div class="logo-wrap" onclick="window.location.href='index.html'" title="Torna alla Home">
+                <div class="logo-text"><span class="logo-a">A</span>NKOAUTCA</div>
+                <div class="logo-tagline">Racconti · Storie · Mistero</div>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="Cerca storie..." id="search-input" aria-label="Cerca">
+                <button id="search-btn" aria-label="Cerca"><i class="ti ti-search"></i></button>
+            </div>
+        </div>
+        <nav class="mainnav">
+            <div class="mainnav-inner">
+                <a href="index.html">Home</a>
+                <a href="Politica.html">Politica</a>
+                <a href="Economia.html">Economia</a>
+                <a href="Mondo.html">Mondo</a>
+                <a href="Sport.html">Sport</a>
+                <a href="Tecnologia.html">Tecnologia</a>
+                <a href="perdi-peso.html">Perdi Peso</a>
+                <a href="valle-nera.html" class="active">Racconti</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="story-wrapper">
+            <div class="action-bar">
+                <button class="btn-back" onclick="window.location.href='index.html'">
+                    <i class="ti ti-arrow-left"></i> Torna alla home
+                </button>
+                <button class="btn-download" id="download-pdf-btn">
+                    <i class="ti ti-download"></i> Scarica in PDF
+                </button>
+            </div>
+
+            <div class="story-card" id="story-content">
+                <span class="story-badge">🔴 Horror · Racconto</span>
+                <h1>Il Silenzio Di Valle Nera</h1>
+                <p class="story-subtitle">Un villaggio dimenticato. Una casa rossa sulla collina. Qualcosa che attende nell'ombra da quarant'anni.</p>
+
+                <div class="story-body">
+                    <p>La pioggia cadeva lenta sopra le montagne di Valle Nera.<br>
+                        Un piccolo villaggio dimenticato dal tempo, nascosto tra boschi enormi e nebbia fitta, dove il sole sembrava non sorgere mai completamente.</p>
+
+                    <p>Le case erano vecchie, costruite in pietra umida e legno marcio.<br>
+                        Le persone parlavano poco.<br>
+                        Gli anziani evitavano sempre un argomento preciso: <strong>la casa rossa sulla collina</strong>.</p>
+
+                    <p>Nessuno osava avvicinarsi a quel luogo.</p>
+
+                    <p>Si diceva che quarant'anni prima una famiglia intera fosse scomparsa senza lasciare traccia.<br>
+                        Nessun corpo.<br>
+                        Nessun grido.<br>
+                        Solo sangue sulle pareti.</p>
+
+                    <p>Ma la storia più inquietante era un'altra.</p>
+
+                    <p>Ogni notte, <strong>alle 3:17</strong>, una luce appariva dietro le finestre della casa abbandonata.</p>
+
+                    <p>Anche se non c'era elettricità da decenni.</p>
+
+                    <p class="separator">— ● —</p>
+
+                    <p>Marco Rinaldi arrivò a Valle Nera in una sera fredda di novembre.<br>
+                        Era uno scrittore di trentadue anni specializzato in storie horror e leggende dimenticate.</p>
+
+                    <p>Aveva sentito parlare della casa rossa su internet.<br>
+                        Pensava fosse soltanto una leggenda locale utile per il suo prossimo libro.</p>
+
+                    <p>Prenotò una stanza nella vecchia locanda del paese.</p>
+
+                    <p>La proprietaria, una donna magrissima con occhi spenti, gli consegnò le chiavi senza sorridere.</p>
+
+                    <p><em>"Lei non è di qui…"</em> disse lentamente.</p>
+
+                    <p><em>"No, sono uno scrittore."</em></p>
+
+                    <p>La donna impallidì.</p>
+
+                    <p><em>"Se vuole un consiglio… non salga mai sulla collina dopo il tramonto."</em></p>
+
+                    <p>Marco sorrise.</p>
+
+                    <p><em>"Perché?"</em></p>
+
+                    <p>La donna lo fissò in silenzio.</p>
+
+                    <p>Poi sussurrò:</p>
+
+                    <p><em>"Perché certe cose non amano essere osservate."</em></p>
+
+                    <p class="separator">— ● —</p>
+
+                    <p>Quella notte Marco non riuscì a dormire.<br>
+                        Alle 3:17 si svegliò improvvisamente.</p>
+
+                    <p>Un rumore.</p>
+
+                    <p>Un colpo secco.</p>
+
+                    <p><em>Tac.</em></p>
+
+                    <p><em>Tac.</em></p>
+
+                    <p><em>Tac.</em></p>
+
+                    <p>Si alzò lentamente dal letto e guardò fuori dalla finestra.</p>
+
+                    <p>La vide.</p>
+
+                    <p><strong>La casa rossa.</strong></p>
+
+                    <p>In cima alla collina.</p>
+
+                    <p>Una luce gialla pulsava dietro le finestre sporche.</p>
+
+                    <p>Marco sentì un brivido attraversargli la schiena.</p>
+
+                    <p>Poi accadde qualcosa.</p>
+
+                    <p>Una figura apparve alla finestra del piano superiore.</p>
+
+                    <p>Alta.</p>
+
+                    <p>Immobile.</p>
+
+                    <p>Con una testa troppo inclinata per essere umana.</p>
+
+                    <p>Marco rimase paralizzato.</p>
+
+                    <p>La figura sembrava guardarlo.</p>
+
+                    <p>Poi… <strong>sorrise</strong>.</p>
+
+                    <p class="separator">— ● —</p>
+
+                    <p>La mattina seguente decise di andare alla casa.</p>
+
+                    <p>Gli abitanti del villaggio cercarono di fermarlo.</p>
+
+                    <p>Un vecchio ubriaco gli afferrò il braccio.</p>
+
+                    <p><em>"Quella casa prende le persone."</em></p>
+
+                    <p>Marco rise nervosamente.</p>
+
+                    <p><em>"Sono solo storie."</em></p>
+
+                    <p>L'uomo scosse la testa.</p>
+
+                    <p><em>"No. Le storie servono per nascondere la verità."</em></p>
+
+                    <p class="separator">— ● —</p>
+
+                    <p>La strada verso la collina attraversava un bosco silenzioso.</p>
+
+                    <p>Troppo silenzioso.</p>
+
+                    <p>Nessun uccello.<br>
+                        Nessun vento.</p>
+
+                    <p>Solo il rumore dei suoi passi sul fango.</p>
+
+                    <p>Quando arrivò davanti alla casa, sentì immediatamente qualcosa di sbagliato.</p>
+
+                    <p>L'aria era gelida.</p>
+
+                    <p>Le finestre sembravano occhi neri.</p>
+
+                    <p>La porta principale era socchiusa.</p>
+
+                    <p>Marco entrò.</p>
+
+                    <p>L'odore di muffa e carne marcia gli riempì i polmoni.</p>
+
+                    <p>Il pavimento scricchiolava sotto i piedi.</p>
+
+                    <p>Le pareti erano ricoperte di simboli strani graffiati nel legno.</p>
+
+                    <p>Sembravano scritti con le unghie.</p>
+
+                    <p>Poi trovò le fotografie.</p>
+
+                    <p><strong>Centinaia di fotografie.</strong></p>
+
+                    <p>Tutte appese alle pareti.</p>
+
+                    <p>Tutte mostravano persone del villaggio mentre dormivano.</p>
+
+                    <p>Marco sentì il cuore accelerare.</p>
+
+                    <p>Le foto erano recenti.</p>
+
+                    <p>Molto recenti.</p>
+
+                    <p class="separator">— ● —</p>
+
+                    <p>Un rumore arrivò dal piano superiore.</p>
+
+                    <p>Un passo lento.</p>
+
+                    <p>Poi un altro.</p>
+
+                    <p>Marco trattenne il respiro.</p>
+
+                    <p>Qualcuno era lì sopra.</p>
+
+                    <p>Prese il telefono e accese la torcia.</p>
+
+                    <p>Salì lentamente le scale.</p>
+
+                    <p>Ogni gradino produceva un suono terribile.</p>
+
+                    <p>Quando raggiunse il corridoio superiore vide una porta aperta in fondo.</p>
+
+                    <p>Dentro c'era luce.</p>
+
+                    <p>Una luce gialla tremolante.</p>
+
+                    <p>Marco si avvicinò.</p>
+
+                    <p>Il pavimento era coperto di macchie nere.</p>
+
+                    <p>Sangue vecchio.</p>
+
+                    <p>Entrò nella stanza.</p>
+
+                    <p>E vide qualcosa che gli distrusse la mente.</p>
+
+                    <p>Sedute attorno a un tavolo c'erano <strong>cinque persone</strong>.</p>
+
+                    <p>Immobili.</p>
+
+                    <p>Con il volto pallido.</p>
+
+                    <p>Gli occhi completamente bianchi.</p>
+
+                    <p>Sembravano morti.</p>
+
+                    <p>Ma respiravano.</p>
+
+                    <p>Lentamente.</p>
+
+                    <p>Tutti girarono la testa verso di lui nello stesso istante.</p>
+
+                    <p>Marco fece un passo indietro.</p>
+
+                    <p>Uno di loro parlò.</p>
+
+                    <p>Con una voce spezzata.</p>
+
+                    <p><em>"Finalmente sei arrivato."</em></p>
+
+                    <p class="separator">— ● —</p>
+
+                    <p>La porta si chiuse da sola.</p>
+
+                    <p>Le luci iniziarono a tremare.</p>
+
+                    <p>Marco urlò e corse nel corridoio.</p>
+
+                    <p>Ma il corridoio era cambiato.</p>
+
+                    <p>Era molto più lungo.</p>
+
+                    <p>Le pareti si muovevano lentamente come carne viva.</p>
+
+                    <p>Sentì sussurri ovunque.</p>
+
+                    <p>Decine di voci.</p>
+
+                    <p><em>"Resta con noi…"</em></p>
+
+                    <p><em>"Non andartene…"</em></p>
+
+                    <p><em>"Abbiamo fame…"</em></p>
+
+                    <p>Marco correva senza capire dove fosse.</p>
+
+                    <p>La casa sembrava infinita.</p>
+
+                    <p>Poi vide una bambina seduta sul pavimento.</p>
+
+                    <p>Aveva un vestito rosso sporco di sangue.</p>
+
+                    <p><em>"Tu non dovevi entrare,"</em> disse senza alzare lo sguardo.</p>
+
+                    <p>Marco cercò di parlare ma la bambina alzò lentamente la testa.</p>
+
+                    <p>Non aveva occhi.</p>
+
+                    <p>Solo due cavità nere profonde.</p>
+
+                    <p>Marco urlò.</p>
+
+                    <p>La bambina sorrise.</p>
+
+                    <p>Poi iniziò a strisciare verso di lui in modo innaturale.</p>
+
+                    <p>Troppo veloce.</p>
+
+                    <p>Troppo silenziosa.</p>
+
+                    <p class="separator">— ● —</p>
+
+                    <p>Marco riuscì a trovare una finestra e si lanciò fuori.</p>
+
+                    <p>Cadde nel fango.</p>
+
+                    <p>Si rialzò e corse verso il villaggio senza guardarsi indietro.</p>
+
+                    <p>Ma mentre correva sentiva qualcosa seguirlo nel bosco.</p>
+
+                    <p>Passi.</p>
+
+                    <p>Lenti.</p>
+
+                    <p>Pesanti.</p>
+
+                    <p>Sempre più vicini.</p>
+
+                    <p>Quando raggiunse la locanda era coperto di sangue e terra.</p>
+
+                    <p>La proprietaria lo guardò senza sorpresa.</p>
+
+                    <p><em>"Lei l'ha vista…"</em></p>
+
+                    <p>Marco tremava.</p>
+
+                    <p><em>"Che cos'è quella casa?"</em></p>
+
+                    <p>La donna chiuse lentamente la porta.</p>
+
+                    <p>Poi disse:</p>
+
+                    <p><em>"Non è una casa."</em></p>
+
+                    <p class="separator">— ● —</p>
+
+                    <p>Quella notte Marco sentì di nuovo i colpi.</p>
+
+                    <p><em>Tac.</em></p>
+
+                    <p><em>Tac.</em></p>
+
+                    <p><em>Tac.</em></p>
+
+                    <p>Provenivano dalla parete della sua stanza.</p>
+
+                    <p>Lentamente si avvicinò.</p>
+
+                    <p>I colpi continuarono.</p>
+
+                    <p>Poi una voce sussurrò dall'interno del muro:</p>
+
+                    <p><em>"Lasciaci entrare…"</em></p>
+
+                    <p>Marco indietreggiò terrorizzato.</p>
+
+                    <p>La parete iniziò a gonfiarsi.</p>
+
+                    <p>Come se qualcosa stesse cercando di uscire.</p>
+
+                    <p>Una mano apparve attraverso il muro.</p>
+
+                    <p>Pallida.</p>
+
+                    <p>Lunghissima.</p>
+
+                    <p>Con dita troppo sottili.</p>
+
+                    <p>Poi un'altra.</p>
+
+                    <p>E un'altra.</p>
+
+                    <p>Le mani iniziarono a trascinarsi fuori lentamente.</p>
+
+                    <p>Marco fuggì dalla stanza urlando.</p>
+
+                    <p>Ma tutta la locanda era vuota.</p>
+
+                    <p>Completamente vuota.</p>
+
+                    <p>Non c'era nessuno.</p>
+
+                    <p>Solo silenzio.</p>
+
+                    <p>E il rumore di passi al piano superiore.</p>
+
+                    <p class="separator">— ● —</p>
+
+                    <p>Marco salì lentamente le scale.</p>
+
+                    <p>La porta in fondo al corridoio era aperta.</p>
+
+                    <p>Dentro c'era la proprietaria.</p>
+
+                    <p>Seduta immobile su una sedia.</p>
+
+                    <p>Con la testa piegata all'indietro.</p>
+
+                    <p>Gli occhi bianchi.</p>
+
+                    <p>E un sorriso enorme.</p>
+
+                    <p>Dietro di lei, nell'ombra, qualcosa si muoveva.</p>
+
+                    <p>Qualcosa di enorme.</p>
+
+                    <p>Troppo alto per essere umano.</p>
+
+                    <p>Due occhi rossi si aprirono lentamente nel buio.</p>
+
+                    <p>Marco sentì la voce nella sua testa.</p>
+
+                    <p><em>"Adesso appartieni alla casa."</em></p>
+
+                    <p>Le luci si spensero.</p>
+
+                    <p>Le urla di Marco riempirono la notte.</p>
+
+                    <p>Poi più nulla.</p>
+
+                    <p class="separator">— ● —</p>
+
+                    <p>Il mattino seguente il villaggio era silenzioso come sempre.</p>
+
+                    <p>La locanda era vuota.</p>
+
+                    <p>La stanza di Marco completamente pulita.</p>
+
+                    <p>Come se non fosse mai esistito.</p>
+
+                    <p>Ma nella casa rossa, sulla collina…</p>
+
+                    <p>Una nuova fotografia era appesa alla parete.</p>
+
+                    <p>Mostrava Marco mentre dormiva.</p>
+
+                    <p>Con qualcosa inginocchiato accanto al suo letto.</p>
+
+                    <p><strong>Qualcosa che sorrideva nel buio.</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="scroll-top-btn" id="scrollTopBtn" title="Torna in alto" aria-label="Torna in alto">
+        <i class="ti ti-arrow-up"></i>
+    </button>
+
+    <footer>
+        <div class="footer-top">
+            <div>
+                <div class="footer-logo"><span>A</span>NKOAUTCA</div>
+                <div class="footer-desc">Testata indipendente. Notizie, racconti e storie dal mondo. Senza abbonamenti, senza tracciamento.</div>
+            </div>
+            <div>
+                <div class="footer-col-title">Sezioni</div>
+                <div class="footer-col-links">
+                    <a href="Politica.html">Politica</a>
+                    <a href="Economia.html">Economia</a>
+                    <a href="Mondo.html">Mondo</a>
+                    <a href="Sport.html">Sport</a>
+                    <a href="Tecnologia.html">Tecnologia</a>
+                    <a href="valle-nera.html">Racconti</a>
+                </div>
+            </div>
+            <div>
+                <div class="footer-col-title">Redazione</div>
+                <div class="footer-col-links">
+                    <a href="#">Chi siamo</a>
+                    <a href="mailto:gastroboostmarketingdegital@gmail.com">Collabora con noi</a>
+                    <a href="Privacy.html">Privacy policy</a>
+                    <a href="perdi-peso.html">Benessere</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2025 ANKOAUTCA — Tutti i diritti riservati</span>
+            <span>Nessun social · Solo storie vere e racconti</span>
+        </div>
+    </footer>
+
+    <script>
+        // Data
+        document.getElementById('topbar-date').innerText = new Date().toLocaleDateString('it-IT', {
+            weekday: 'long',
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+        });
+
+        // Toast
+        function showToast(message, duration = 3000) {
+            const existing = document.querySelector('.toast');
+            if (existing) existing.remove();
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), duration);
+        }
+
+        // Scroll to top
+        const scrollBtn = document.getElementById('scrollTopBtn');
+        window.addEventListener('scroll', () => {
+            scrollBtn.classList.toggle('visible', window.scrollY > 500);
+        });
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('site-header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Ricerca
+        document.getElementById('search-btn').addEventListener('click', () => {
+            const q = document.getElementById('search-input').value.trim();
+            if (q) window.location.href = 'index.html?search=' + encodeURIComponent(q);
+        });
+        document.getElementById('search-input').addEventListener('keydown', e => {
+            if (e.key === 'Enter') document.getElementById('search-btn').click();
+        });
+
+        // ============================================================
+        // TÉLÉCHARGEMENT PDF (jsPDF)
+        // ============================================================
+        document.getElementById('download-pdf-btn').addEventListener('click', async () => {
+            const btn = document.getElementById('download-pdf-btn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="ti ti-loader" style="animation:spin 1s linear infinite"></i> Generazione PDF…';
+            btn.disabled = true;
+            btn.style.opacity = '0.7';
+
+            try {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF({
+                    orientation: 'portrait',
+                    unit: 'mm',
+                    format: 'a4'
+                });
+
+                // Titre
+                doc.setFont('Times', 'Bold');
+                doc.setFontSize(24);
+                doc.setTextColor(139, 0, 0);
+                doc.text('Il Silenzio Di Valle Nera', 20, 30);
+
+                // Sous-titre
+                doc.setFont('Times', 'Italic');
+                doc.setFontSize(12);
+                doc.setTextColor(100, 100, 100);
+                doc.text('Racconto horror — ANKOAUTCA', 20, 40);
+
+                // Ligne séparatrice
+                doc.setDrawColor(139, 0, 0);
+                doc.setLineWidth(0.5);
+                doc.line(20, 45, 190, 45);
+
+                // Corps du texte
+                const storyText = document.querySelector('.story-body').innerText;
+                const paragraphs = storyText.split('\n').filter(p => p.trim());
+
+                doc.setFont('Times', 'Normal');
+                doc.setFontSize(11);
+                doc.setTextColor(30, 30, 30);
+
+                let y = 52;
+                const lineHeight = 5.5;
+                const pageHeight = 287;
+                const marginBottom = 20;
+                const maxWidth = 170;
+
+                for (const para of paragraphs) {
+                    const cleanPara = para.trim();
+                    if (!cleanPara) {
+                        y += lineHeight;
+                        continue;
+                    }
+
+                    // Vérifier si c'est un séparateur
+                    if (cleanPara === '— ● —' || cleanPara === '— ● —') {
+                        doc.setFontSize(14);
+                        doc.setTextColor(139, 0, 0);
+                        doc.text('— ● —', 105, y, { align: 'center' });
+                        doc.setFontSize(11);
+                        doc.setTextColor(30, 30, 30);
+                        y += lineHeight * 2;
+                        continue;
+                    }
+
+                    const lines = doc.splitTextToSize(cleanPara, maxWidth);
+
+                    for (const line of lines) {
+                        if (y > pageHeight - marginBottom) {
+                            doc.addPage();
+                            y = 20;
+                        }
+                        doc.text(line, 20, y);
+                        y += lineHeight;
+                    }
+
+                    y += lineHeight * 0.3;
+                }
+
+                // Pied de page
+                const pageCount = doc.getNumberOfPages();
+                for (let i = 1; i <= pageCount; i++) {
+                    doc.setPage(i);
+                    doc.setFont('Times', 'Italic');
+                    doc.setFontSize(9);
+                    doc.setTextColor(150, 150, 150);
+                    doc.text('© ANKOAUTCA — Racconto: Il Silenzio Di Valle Nera', 20, 292);
+                    doc.text(`Pagina ${i} di ${pageCount}`, 190, 292, { align: 'right' });
+                }
+
+                // Téléchargement
+                doc.save('Il-Silenzio-Di-Valle-Nera.pdf');
+                showToast('✅ PDF scaricato con successo!');
+            } catch (error) {
+                console.error('Errore PDF:', error);
+                showToast('⚠️ Errore nella generazione del PDF. Riprova.');
+            } finally {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                btn.style.opacity = '1';
+            }
+        });
+
+        // Animation spin pour l'icône de chargement
+        const spinStyle = document.createElement('style');
+        spinStyle.textContent = '@keyframes spin{to{transform:rotate(360deg)}}';
+        document.head.appendChild(spinStyle);
+    </script>
+</body>
+</html>
