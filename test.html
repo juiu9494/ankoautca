@@ -1,1 +1,1217 @@
-test page
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANKOAUTCA — Notizie in Diretta, Attualità, Mondo</title>
+    <meta name="description" content="ANKOAUTCA - Notizie italiane, attualità, politica, cronaca, cultura e tecnologia. Informazione libera 24/7.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Sans+3:wght@300;400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    <style>
+        :root {
+            --red: #C0121C;
+            --red-dark: #8B0000;
+            --black: #0A0A0A;
+            --gray-700: #444;
+            --gray-500: #777;
+            --gray-300: #ccc;
+            --gray-100: #f4f4f2;
+            --white: #fff;
+            --cream: #faf9f7;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Source Sans 3', Arial, sans-serif;
+            --font-serif: 'Source Serif 4', Georgia, serif;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 6px 24px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.18);
+            --radius: 6px;
+            --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: var(--font-body);
+            background: var(--cream);
+            color: var(--black);
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #bbb; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #888; }
+
+        /* TOPBAR */
+        .topbar {
+            background: var(--black);
+            color: var(--gray-300);
+            font-size: 12px;
+            padding: 6px 0;
+            border-bottom: 2px solid var(--red);
+        }
+        .topbar-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .topbar-date { font-family: var(--font-serif); font-style: italic; color: #aaa; }
+        .topbar-links { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+        .topbar-links a { color: #bbb; font-size: 11px; letter-spacing: .5px; text-transform: uppercase; transition: color var(--transition); }
+        .topbar-links a:hover { color: var(--red); }
+        .live-badge {
+            background: var(--red);
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 2px 7px;
+            border-radius: 2px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .55; } }
+
+        /* BREAKING */
+        .breaking-bar {
+            background: var(--red);
+            color: white;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 8px 0;
+            overflow: hidden;
+            display: flex;
+        }
+        .breaking-label {
+            background: var(--black);
+            padding: 0 16px;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            z-index: 2;
+        }
+        .breaking-track { overflow: hidden; flex: 1; padding-left: 20px; }
+        .breaking-inner {
+            display: inline-flex;
+            gap: 60px;
+            animation: scrollTicker 50s linear infinite;
+            white-space: nowrap;
+        }
+        .breaking-inner span::before { content: "● "; opacity: .7; }
+        @keyframes scrollTicker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* HEADER */
+        header {
+            background: var(--white);
+            border-bottom: 3px solid var(--black);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow var(--transition);
+        }
+        header.scrolled { box-shadow: var(--shadow-lg); }
+        .masthead {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 16px 20px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 52px;
+            font-weight: 900;
+            letter-spacing: -2px;
+            line-height: 1;
+            cursor: pointer;
+            transition: transform var(--transition);
+        }
+        .logo-text:hover { transform: scale(1.03); }
+        .logo-a { color: var(--red); }
+        .logo-tagline {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 12px;
+            color: var(--gray-500);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .search-box {
+            display: flex;
+            border: 1.5px solid var(--gray-300);
+            border-radius: 3px;
+            overflow: hidden;
+            transition: border-color var(--transition);
+        }
+        .search-box:focus-within { border-color: var(--red); }
+        .search-box input {
+            border: none;
+            padding: 7px 12px;
+            font-size: 13px;
+            outline: none;
+            width: 200px;
+            font-family: var(--font-body);
+            transition: width var(--transition);
+        }
+        .search-box input:focus { width: 240px; }
+        .search-box button {
+            background: var(--red);
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: background var(--transition);
+            display: flex;
+            align-items: center;
+        }
+        .search-box button:hover { background: var(--red-dark); }
+
+        /* NAV */
+        nav.mainnav { background: var(--black); }
+        .mainnav-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .mainnav-inner a {
+            color: #ddd;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 12px 16px;
+            white-space: nowrap;
+            border-bottom: 3px solid transparent;
+            transition: all var(--transition);
+            position: relative;
+        }
+        .mainnav-inner a:hover,
+        .mainnav-inner a.active {
+            color: white;
+            border-bottom-color: var(--red);
+        }
+        .mainnav-inner a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--red);
+            transition: all var(--transition);
+            transform: translateX(-50%);
+        }
+        .mainnav-inner a:hover::after { width: 100%; }
+        .mainnav-inner a.active::after { width: 100%; }
+
+        /* LAYOUT */
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 30px;
+            padding: 30px 0;
+        }
+        @media(max-width:900px) { .main-layout { grid-template-columns: 1fr; } }
+
+        /* SECTION HEADER */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--black);
+            padding-bottom: 10px;
+        }
+        .section-label { font-family: var(--font-display); font-size: 20px; font-weight: 700; }
+        .section-red-line {
+            width: 40px;
+            height: 3px;
+            background: var(--red);
+            animation: linePulse 3s ease-in-out infinite;
+        }
+        @keyframes linePulse { 0%, 100% { width: 40px; } 50% { width: 60px; } }
+
+        /* HERO */
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2px;
+            background: var(--black);
+            border: 2px solid var(--black);
+            margin-bottom: 30px;
+            overflow: hidden;
+            border-radius: var(--radius);
+        }
+        .hero-main {
+            grid-row: span 2;
+            position: relative;
+            min-height: 480px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .hero-main-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.6s ease;
+        }
+        .hero-main:hover .hero-main-bg { transform: scale(1.03); }
+        .hero-main-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(0, 0, 0, .92) 0%, rgba(0, 0, 0, .4) 55%, rgba(0, 0, 0, .1) 100%);
+        }
+        .hero-main-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 28px;
+            color: white;
+            animation: fadeInUp 0.6s ease;
+        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .hero-category {
+            background: var(--red);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 3px 9px;
+            display: inline-block;
+            border-radius: 2px;
+        }
+        .hero-title { font-family: var(--font-display); font-size: 34px; font-weight: 900; line-height: 1.15; margin: 10px 0; }
+        .hero-excerpt { font-family: var(--font-serif); font-style: italic; font-size: 15px; color: rgba(255, 255, 255, .8); }
+        .hero-meta { font-size: 12px; color: rgba(255, 255, 255, .6); display: flex; gap: 14px; margin-top: 12px; }
+        .hero-side { display: flex; flex-direction: column; gap: 2px; }
+        .hero-side-item { flex: 1; min-height: 180px; position: relative; cursor: pointer; overflow: hidden; }
+        .hsi-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 0.4s ease; }
+        .hero-side-item:hover .hsi-bg { transform: scale(1.05); }
+        .hsi-overlay { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0, 0, 0, .88) 0%, transparent 60%); }
+        .hsi-content { position: absolute; bottom: 0; padding: 14px; color: white; }
+        .hsi-cat { font-size: 9px; font-weight: 700; color: var(--red); text-transform: uppercase; letter-spacing: 1px; }
+        .hsi-title { font-family: var(--font-display); font-size: 15px; font-weight: 700; }
+
+        /* CARD GRID */
+        .articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 30px; }
+        @media(max-width:700px) { .articles-grid { grid-template-columns: 1fr; } }
+        .card {
+            background: white;
+            border: 1px solid #e8e6e1;
+            cursor: pointer;
+            transition: all var(--transition);
+            border-radius: var(--radius);
+            overflow: hidden;
+            animation: fadeInUp 0.5s ease both;
+        }
+        .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+        .card-img { aspect-ratio: 16/9; position: relative; overflow: hidden; }
+        .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .card:hover .card-img img { transform: scale(1.08); }
+        .card-cat-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--red);
+            color: white;
+            font-size: 9px;
+            font-weight: 700;
+            padding: 3px 8px;
+            text-transform: uppercase;
+            border-radius: 2px;
+            z-index: 2;
+        }
+        .card-body { padding: 16px; }
+        .card-title {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 8px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            transition: color var(--transition);
+        }
+        .card:hover .card-title { color: var(--red); }
+        .card-excerpt {
+            font-size: 14px;
+            color: var(--gray-500);
+            font-style: italic;
+            margin-bottom: 12px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.5;
+        }
+        .card-meta { font-size: 11px; color: gray; display: flex; justify-content: space-between; }
+
+        /* ARTICLE LIST */
+        .article-list-item {
+            display: flex;
+            gap: 14px;
+            padding: 14px 0;
+            border-bottom: 1px solid #e8e6e1;
+            cursor: pointer;
+            transition: background var(--transition);
+            border-radius: 4px;
+        }
+        .article-list-item:hover { background: #fdfcf9; padding-left: 8px; }
+        .ali-img { width: 90px; height: 68px; flex-shrink: 0; background: #eee; overflow: hidden; border-radius: 4px; }
+        .ali-img img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition); }
+        .article-list-item:hover .ali-img img { transform: scale(1.05); }
+        .ali-cat { font-size: 9px; font-weight: 700; color: var(--red); text-transform: uppercase; }
+        .ali-title { font-family: var(--font-display); font-size: 15px; font-weight: 700; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .ali-meta { font-size: 11px; color: var(--gray-500); margin-top: 5px; }
+
+        /* MAGAZINE GRID */
+        .magazine-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 2px;
+            background: var(--black);
+            margin-bottom: 30px;
+            overflow: hidden;
+            border-radius: var(--radius);
+        }
+        .mag-item { position: relative; min-height: 200px; cursor: pointer; overflow: hidden; }
+        .mag-main { min-height: 400px; }
+        .mag-item-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 0.5s ease; }
+        .mag-item:hover .mag-item-bg { transform: scale(1.06); }
+        .mag-overlay { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0, 0, 0, .88) 0%, transparent 60%); }
+        .mag-content { position: absolute; bottom: 0; padding: 16px; color: white; }
+        .mag-cat { font-size: 9px; font-weight: 700; color: var(--red); text-transform: uppercase; }
+        .mag-title { font-family: var(--font-display); font-weight: 700; font-size: 18px; }
+        .mag-main .mag-title { font-size: 26px; }
+
+        /* COLLAB */
+        .collab-banner {
+            background: linear-gradient(135deg, var(--black) 0%, #1a0a0a 100%);
+            border-left: 4px solid var(--red);
+            padding: 28px 30px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+            border-radius: var(--radius);
+            animation: glowBorder 3s ease-in-out infinite;
+        }
+        @keyframes glowBorder { 0%, 100% { border-left-color: var(--red); } 50% { border-left-color: #ff4444; } }
+        .collab-icon { font-size: 40px; color: var(--red); animation: bounce 2s ease-in-out infinite; }
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        .collab-title { font-family: var(--font-display); font-size: 22px; font-weight: 900; color: white; }
+        .collab-desc { font-size: 13px; color: #aaa; }
+        .collab-btn {
+            background: var(--red);
+            color: white;
+            padding: 12px 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 12px;
+            border-radius: 2px;
+            white-space: nowrap;
+            transition: all var(--transition);
+            margin-left: auto;
+        }
+        .collab-btn:hover { background: #e01420; transform: scale(1.04); box-shadow: 0 4px 16px rgba(192, 18, 28, 0.4); }
+
+        /* SIDEBAR */
+        .sidebar { display: flex; flex-direction: column; gap: 26px; }
+        .widget { background: white; border: 1px solid #e8e6e1; border-radius: var(--radius); overflow: hidden; transition: box-shadow var(--transition); }
+        .widget:hover { box-shadow: var(--shadow-sm); }
+        .widget-header {
+            background: var(--black);
+            color: white;
+            padding: 10px 16px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .info-gratis { text-align: center; padding: 20px; }
+        .info-gratis i { font-size: 32px; color: var(--red); }
+        .info-gratis h3 { font-family: var(--font-display); margin: 8px 0; }
+        .badge-free {
+            background: #e8f0e8;
+            color: #2c6e2c;
+            border-radius: 30px;
+            padding: 4px 10px;
+            font-size: 11px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        /* BTN */
+        .btn-more {
+            background: transparent;
+            border: 1.5px solid var(--black);
+            padding: 11px;
+            text-align: center;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 12px;
+            width: 100%;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: all var(--transition);
+            font-family: var(--font-body);
+            border-radius: var(--radius);
+        }
+        .btn-more:hover { background: var(--black); color: white; }
+
+        /* ARTICOLO FULL */
+        .article-full-page {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            animation: fadeInUp 0.5s ease;
+        }
+        .article-full-page h1 { font-family: var(--font-display); font-size: 40px; margin-bottom: 20px; line-height: 1.2; }
+        .article-full-page .article-meta { color: gray; margin-bottom: 20px; font-size: 14px; }
+        .article-full-page img { max-width: 100%; margin: 20px 0; border-radius: var(--radius); }
+        .article-full-page .article-content { font-family: var(--font-serif); font-size: 18px; line-height: 1.8; }
+        .article-full-page .article-content p { margin-bottom: 1.2em; }
+        .back-home {
+            display: inline-block;
+            margin-bottom: 20px;
+            background: var(--black);
+            color: white;
+            padding: 6px 12px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: all var(--transition);
+        }
+        .back-home:hover { background: var(--red); }
+
+        /* LOADING */
+        .loading-placeholder {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 30px;
+        }
+        .loading-card { background: white; border: 1px solid #e8e6e1; overflow: hidden; border-radius: var(--radius); }
+        .skeleton { background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; }
+        @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+        .skel-img { height: 160px; }
+        .skel-title { height: 20px; margin: 16px; border-radius: 3px; }
+        .skel-text { height: 14px; margin: 8px 16px; border-radius: 3px; }
+
+        /* LIVE CHAT */
+        .live-chat-section { max-width: 1280px; margin: 20px auto 30px; padding: 0 20px; }
+        .chat-public-container { background: white; border: 1px solid #e8e6e1; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); }
+        .chat-header { background: var(--black); color: white; padding: 14px 20px; font-weight: bold; display: flex; align-items: center; gap: 8px; font-size: 14px; }
+        .chat-messages { max-height: 320px; overflow-y: auto; padding: 16px; background: #fefcf9; display: flex; flex-direction: column; gap: 2px; }
+        .chat-msg { padding: 10px 12px; border-bottom: 1px solid #f0ede8; animation: fadeInUp 0.3s ease; border-radius: 4px; transition: background var(--transition); }
+        .chat-msg:last-child { border-bottom: none; }
+        .chat-msg:hover { background: #fdf8f3; }
+        .chat-name { font-weight: 700; color: var(--red); }
+        .chat-time { font-size: 10px; color: gray; margin-left: 8px; }
+        .chat-text { margin-top: 4px; word-break: break-word; font-size: 14px; line-height: 1.5; }
+        .chat-form { padding: 16px; background: #f8f6f2; border-top: 1px solid #e8e6e1; display: flex; flex-direction: column; gap: 8px; }
+        .chat-form input,
+        .chat-form textarea { border: 1.5px solid #e0ddd8; padding: 8px; font-family: var(--font-body); border-radius: 4px; font-size: 14px; outline: none; transition: border var(--transition); }
+        .chat-form input:focus,
+        .chat-form textarea:focus { border-color: var(--red); }
+        .chat-form textarea { resize: vertical; min-height: 70px; }
+        .chat-form button { background: var(--red); color: white; border: none; padding: 10px 20px; font-weight: 700; cursor: pointer; font-family: var(--font-body); font-size: 13px; display: flex; align-items: center; gap: 6px; transition: all var(--transition); width: fit-content; border-radius: 4px; }
+        .chat-form button:hover { background: var(--red-dark); transform: scale(1.03); }
+        .chat-empty { text-align: center; padding: 24px; color: var(--gray-500); font-style: italic; }
+        .chat-reactions { display: flex; gap: 6px; margin-top: 6px; }
+        .reaction-btn { background: none; border: 1px solid #e0ddd8; padding: 2px 8px; border-radius: 20px; cursor: pointer; font-size: 12px; transition: all var(--transition); }
+        .reaction-btn:hover { border-color: var(--red); color: var(--red); background: #fff5f5; }
+        .chat-online { display: flex; align-items: center; gap: 6px; margin-left: auto; font-size: 12px; color: #aaa; }
+        .online-dot { width: 7px; height: 7px; background: #4caf50; border-radius: 50%; animation: pulse 2s infinite; }
+
+        /* FOOTER */
+        footer { background: var(--black); color: #aaa; margin-top: 40px; }
+        .footer-top { max-width: 1280px; margin: 0 auto; padding: 40px 20px; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
+        @media(max-width:800px) { .footer-top { grid-template-columns: 1fr; } }
+        .footer-logo { font-family: var(--font-display); font-size: 36px; font-weight: 900; color: white; }
+        .footer-logo span { color: var(--red); }
+        .footer-desc { margin-top: 8px; font-size: 13px; line-height: 1.7; color: #666; }
+        .footer-col-title { color: white; font-size: 12px; font-weight: 700; letter-spacing: 2px; margin-bottom: 16px; text-transform: uppercase; }
+        .footer-col-links { display: flex; flex-direction: column; gap: 8px; }
+        .footer-col-links a { color: #888; font-size: 13px; transition: color var(--transition); }
+        .footer-col-links a:hover { color: var(--red); }
+        .footer-bottom { max-width: 1280px; margin: 0 auto; padding: 20px; display: flex; justify-content: space-between; flex-wrap: wrap; font-size: 12px; border-top: 1px solid #222; gap: 10px; }
+
+        /* AI LOADING OVERLAY */
+        .ai-loading { display: flex; align-items: center; justify-content: center; min-height: 300px; flex-direction: column; gap: 16px; }
+        .ai-spinner { width: 40px; height: 40px; border: 3px solid #e0ddd8; border-top-color: var(--red); border-radius: 50%; animation: spin 1s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .ai-loading p { color: var(--gray-500); font-style: italic; font-size: 14px; }
+
+        /* CATEGORY SECTION */
+        .category-section { margin-bottom: 40px; }
+
+        /* API KEY MODAL */
+        .api-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .api-modal {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            animation: scaleIn 0.3s ease;
+        }
+        @keyframes scaleIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .api-modal h2 { font-family: var(--font-display); margin-bottom: 8px; }
+        .api-modal input { width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 6px; font-family: monospace; font-size: 13px; margin: 10px 0; outline: none; transition: border var(--transition); }
+        .api-modal input:focus { border-color: var(--red); }
+        .api-modal button { background: var(--red); color: white; border: none; padding: 10px 24px; font-weight: 700; cursor: pointer; border-radius: 6px; font-size: 14px; transition: all var(--transition); }
+        .api-modal button:hover { background: var(--red-dark); }
+        .api-modal .hint { font-size: 11px; color: #999; margin-top: 8px; }
+
+        /* TOAST */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--black);
+            color: white;
+            padding: 14px 20px;
+            border-radius: 8px;
+            z-index: 10000;
+            font-size: 13px;
+            font-weight: 600;
+            animation: slideInRight 0.4s ease, fadeOut 0.4s ease 2.6s forwards;
+            box-shadow: var(--shadow-lg);
+            max-width: 400px;
+        }
+        @keyframes slideInRight { from { transform: translateX(120%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+        @keyframes fadeOut { to { opacity: 0; transform: translateY(10px); } }
+
+        /* SCROLL TO TOP */
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 44px;
+            height: 44px;
+            background: var(--black);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 999;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: all var(--transition);
+            box-shadow: var(--shadow-md);
+        }
+        .scroll-top-btn.visible { opacity: 1; pointer-events: auto; }
+        .scroll-top-btn:hover { background: var(--red); transform: translateY(-3px); }
+
+        @media(max-width:600px) {
+            .hero-grid { grid-template-columns: 1fr; }
+            .hero-main { min-height: 320px; grid-row: span 1; }
+            .hero-title { font-size: 24px; }
+            .hero-side { flex-direction: row; }
+            .hero-side-item { min-height: 140px; flex: 1; }
+            .magazine-grid { grid-template-columns: 1fr; }
+            .mag-main { min-height: 240px; }
+            .logo-text { font-size: 36px; }
+            .search-box input { width: 120px; }
+            .search-box input:focus { width: 150px; }
+            .article-full-page h1 { font-size: 26px; }
+            .article-full-page { padding: 16px; }
+            .collab-banner { flex-direction: column; text-align: center; }
+            .collab-btn { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="topbar">
+        <div class="topbar-inner">
+            <div class="topbar-date" id="topbar-date"></div>
+            <div class="topbar-links">
+                <span class="live-badge">● LIVE</span>
+                <a href="#politica">Politica</a>
+                <a href="#cronaca">Cronaca</a>
+                <a href="#mondo">Mondo</a>
+                <a href="#cultura">Cultura</a>
+                <a href="#tecnologia">Tecnologia</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="breaking-bar">
+        <div class="breaking-label">🔴 BREAKING</div>
+        <div class="breaking-track"><div class="breaking-inner" id="ticker">
+            <span>Aggiornamento in corso — notizie italiane in tempo reale</span>
+            <span>Governo: nuove misure annunciate per fine settimana</span>
+            <span>Meteo: ondata di calore attesa nel weekend in tutta Italia</span>
+        </div></div>
+    </div>
+
+    <header id="site-header">
+        <div class="masthead">
+            <div class="logo-wrap" onclick="renderHome()" title="Torna alla Home">
+                <div class="logo-text"><span class="logo-a">A</span>NKOAUTCA</div>
+                <div class="logo-tagline">Informazione libera · 24/7</div>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="Cerca notizie..." id="search-input" aria-label="Cerca">
+                <button id="search-btn" aria-label="Cerca"><i class="ti ti-search"></i></button>
+            </div>
+        </div>
+        <nav class="mainnav">
+            <div class="mainnav-inner">
+                <a href="index.html" class="active" onclick="renderHome();return false">Home</a>
+                <a href="Politica.html" onclick="loadCategory('politica');return false">Politica</a>
+                <a href="Economia.html" onclick="loadCategory('economia');return false">Economia</a>
+                <a href="Mondo.html" onclick="loadCategory('mondo');return false">Mondo</a>
+                <a href="Sport.html" onclick="loadCategory('sport');return false">Sport</a>
+                <a href="Tecnologia.html" onclick="loadCategory('tecnologia');return false">Tecnologia</a>
+                <a href="opinioni.html" onclick="loadCategory('opinioni');return false">Opinioni</a>
+            </div>
+        </nav>
+    </header>
+
+    <div id="app-root">
+        <div class="container" id="main-container">
+            <div class="ai-loading" style="margin:60px 0">
+                <div class="ai-spinner"></div>
+                <p>Caricamento notizie in corso…</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- LIVE CHAT -->
+    <div class="live-chat-section">
+        <div class="chat-public-container">
+            <div class="chat-header">
+                <i class="ti ti-messages"></i>
+                <span>Live Chat Pubblica — Scrivi liberamente, nessuna registrazione richiesta</span>
+                <div class="chat-online">
+                    <div class="online-dot"></div>
+                    <span id="online-count">1 online</span>
+                </div>
+            </div>
+            <div class="chat-messages" id="global-chat-messages">
+                <div class="chat-empty">💬 Nessun messaggio ancora. Scrivi il primo!</div>
+            </div>
+            <div class="chat-form">
+                <input type="text" id="global-chat-name" placeholder="Il tuo nome (facoltativo)" maxlength="30" aria-label="Nome">
+                <textarea id="global-chat-text" placeholder="Scrivi un commento, un'opinione o una domanda… rispetto reciproco per tutti." maxlength="500" aria-label="Messaggio"></textarea>
+                <button id="global-chat-submit"><i class="ti ti-send"></i> Invia messaggio</button>
+            </div>
+        </div>
+    </div>
+
+    <button class="scroll-top-btn" id="scrollTopBtn" title="Torna in alto" aria-label="Torna in alto">
+        <i class="ti ti-arrow-up"></i>
+    </button>
+
+    <footer>
+        <div class="footer-top">
+            <div>
+                <div class="footer-logo"><span>A</span>NKOAUTCA</div>
+                <div class="footer-desc">Testata indipendente. Notizie italiane in tempo reale, senza abbonamenti, senza tracciamento, senza reti sociali. Solo informazione.</div>
+            </div>
+            <div>
+                <div class="footer-col-title">Sezioni</div>
+                <div class="footer-col-links">
+                    <a href="Politica.html">Politica</a>
+                    <a href="Economia.html">Economia</a>
+                    <a href="Mondo.html">Mondo</a>
+                    <a href="Sport.html">Sport</a>
+                    <a href="Tecnologia.html">Tecnologia</a>
+                    <a href="opinioni.html">Opinioni</a>
+                </div>
+            </div>
+            <div>
+                <div class="footer-col-title">Redazione</div>
+                <div class="footer-col-links">
+                    <a href="#">Chi siamo</a>
+                    <a href="mailto:gastroboostmarketingdegital@gmail.com">Collabora con noi</a>
+                    <a href="Privacy.html">Privacy policy</a>
+                    <a href="#">Contatti</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2025 ANKOAUTCA — Tutti i diritti riservati</span>
+            <span>Nessun social · Nessuna newsletter · Solo informazione</span>
+        </div>
+    </footer>
+
+    <script>
+        // ============================================================
+        // CONFIGURAZIONE
+        // ============================================================
+        const CONFIG = {
+            ANTHROPIC_MODEL: 'claude-sonnet-4-20250514',
+            ANTHROPIC_API_URL: 'https://api.anthropic.com/v1/messages',
+            API_KEY_STORAGE_KEY: 'ankoautca_anthropic_api_key',
+            CACHE_PREFIX: 'ankoautca_cache_',
+            CACHE_DURATION: 30 * 60 * 1000,
+            MAX_REQUESTS_PER_MINUTE: 15,
+            RATE_LIMIT_WINDOW: 60 * 1000,
+            CHAT_STORAGE_KEY: 'ankoautca_global_chat',
+            MAX_CHAT_MESSAGES: 200,
+        };
+
+        // ============================================================
+        // GESTIONE API KEY
+        // ============================================================
+        function getApiKey() {
+            const stored = localStorage.getItem(CONFIG.API_KEY_STORAGE_KEY);
+            if (stored) {
+                try { return atob(stored); } catch (e) { return stored; }
+            }
+            return null;
+        }
+        function setApiKey(key) {
+            if (key && key.trim().length > 20) {
+                localStorage.setItem(CONFIG.API_KEY_STORAGE_KEY, btoa(key.trim()));
+                return true;
+            }
+            return false;
+        }
+        function hasApiKey() {
+            const key = getApiKey();
+            return key && key.length > 20;
+        }
+        function showApiKeyModal() {
+            const existing = document.querySelector('.api-modal-overlay');
+            if (existing) existing.remove();
+            const overlay = document.createElement('div');
+            overlay.className = 'api-modal-overlay';
+            overlay.innerHTML = `
+            <div class="api-modal">
+              <i class="ti ti-key" style="font-size:40px;color:var(--red)"></i>
+              <h2>Chiave API Anthropic</h2>
+              <p style="color:var(--gray-500);font-size:13px;margin:8px 0">
+                Per generare articoli automaticamente, inserisci la tua chiave API Anthropic.<br>
+                La chiave viene salvata <strong>solo nel tuo browser</strong> e mai inviata ai nostri server.
+              </p>
+              <input type="password" id="api-key-input" placeholder="sk-ant-api03-..." aria-label="API Key">
+              <button id="api-key-submit">Salva e continua</button>
+              <p class="hint">🔒 La chiave è codificata in localStorage. Nessun invio a terze parti.</p>
+              <p class="hint" style="margin-top:4px">
+                <a href="https://console.anthropic.com/" target="_blank" style="color:var(--red)">Ottieni una chiave API →</a>
+              </p>
+            </div>`;
+            document.body.appendChild(overlay);
+            document.getElementById('api-key-submit').addEventListener('click', () => {
+                const input = document.getElementById('api-key-input').value.trim();
+                if (input.length > 20 && input.startsWith('sk-')) {
+                    setApiKey(input);
+                    overlay.remove();
+                    showToast('✅ Chiave API salvata! Generazione articoli attiva.');
+                    renderHome();
+                } else {
+                    document.getElementById('api-key-input').style.borderColor = 'red';
+                    setTimeout(() => document.getElementById('api-key-input').style.borderColor = '', 2000);
+                    showToast('❌ Inserisci una chiave API valida (inizia con sk-).');
+                }
+            });
+            overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.remove(); });
+        }
+
+        // ============================================================
+        // RATE LIMITING (anti‑abuso)
+        // ============================================================
+        const rateLimiter = {
+            requests: [],
+            check() {
+                const now = Date.now();
+                this.requests = this.requests.filter(t => now - t < CONFIG.RATE_LIMIT_WINDOW);
+                if (this.requests.length >= CONFIG.MAX_REQUESTS_PER_MINUTE) {
+                    const oldest = this.requests[0];
+                    const waitTime = Math.ceil((oldest + CONFIG.RATE_LIMIT_WINDOW - now) / 1000);
+                    throw new Error(`⏳ Limite richieste raggiunto (${CONFIG.MAX_REQUESTS_PER_MINUTE}/minuto). Riprova tra ${waitTime} secondi.`);
+                }
+                this.requests.push(now);
+                return true;
+            }
+        };
+
+        // ============================================================
+        // CACHE SYSTEM
+        // ============================================================
+        const cacheSystem = {
+            get(key) {
+                try {
+                    const raw = localStorage.getItem(CONFIG.CACHE_PREFIX + key);
+                    if (!raw) return null;
+                    const data = JSON.parse(raw);
+                    if (Date.now() - data.timestamp > CONFIG.CACHE_DURATION) {
+                        localStorage.removeItem(CONFIG.CACHE_PREFIX + key);
+                        return null;
+                    }
+                    return data.value;
+                } catch (e) { return null; }
+            },
+            set(key, value) {
+                try {
+                    localStorage.setItem(CONFIG.CACHE_PREFIX + key, JSON.stringify({ value, timestamp: Date.now() }));
+                } catch (e) { this.clearOld(); }
+            },
+            clearOld() {
+                const now = Date.now();
+                for (const k of Object.keys(localStorage)) {
+                    if (k.startsWith(CONFIG.CACHE_PREFIX)) {
+                        try {
+                            const data = JSON.parse(localStorage.getItem(k));
+                            if (now - data.timestamp > CONFIG.CACHE_DURATION) localStorage.removeItem(k);
+                        } catch (e) { localStorage.removeItem(k); }
+                    }
+                }
+            }
+        };
+
+        // ============================================================
+        // TOAST
+        // ============================================================
+        function showToast(message, duration = 3000) {
+            const existing = document.querySelector('.toast');
+            if (existing) existing.remove();
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), duration);
+        }
+
+        // ============================================================
+        // IMMAGINI UNSPLASH
+        // ============================================================
+        const IMG = {
+            politica: ['https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=500&fit=crop&q=80','https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=800&h=500&fit=crop&q=80'],
+            cronaca: ['https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&h=500&fit=crop&q=80','https://images.unsplash.com/photo-1585829365295-ab7cd400c167?w=800&h=500&fit=crop&q=80'],
+            mondo: ['https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=500&fit=crop&q=80','https://images.unsplash.com/photo-1532375810709-75b1da00537c?w=800&h=500&fit=crop&q=80'],
+            cultura: ['https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&h=500&fit=crop&q=80','https://images.unsplash.com/photo-1533130061792-64b345e4a833?w=800&h=500&fit=crop&q=80'],
+            tecnologia: ['https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=500&fit=crop&q=80','https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&h=500&fit=crop&q=80'],
+            sport: ['https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&h=500&fit=crop&q=80','https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=500&fit=crop&q=80'],
+            economia: ['https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=500&fit=crop&q=80'],
+            default: ['https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&h=500&fit=crop&q=80']
+        };
+        function getImgForCat(cat, idx=0) {
+            const c = (cat || 'default').toLowerCase();
+            const arr = IMG[c] || IMG.default;
+            return arr[idx % arr.length];
+        }
+
+        // ============================================================
+        // UTILITY
+        // ============================================================
+        function escapeHtml(s) { if (!s) return ''; return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+        function safeJsonParse(text, fallback=null) {
+            try {
+                const cleaned = text.replace(/```json\s*|```\s*/g, '').trim();
+                const start = Math.min(cleaned.indexOf('[')>=0?cleaned.indexOf('['):Infinity, cleaned.indexOf('{')>=0?cleaned.indexOf('{'):Infinity);
+                const end = Math.max(cleaned.lastIndexOf(']'), cleaned.lastIndexOf('}'));
+                if (start>=0 && end>start) return JSON.parse(cleaned.substring(start, end+1));
+                return JSON.parse(cleaned);
+            } catch(e) { return fallback; }
+        }
+
+        // ============================================================
+        // API ANTHROPIC
+        // ============================================================
+        async function callAnthropicAPI(prompt, maxTokens=4000) {
+            const apiKey = getApiKey();
+            if (!apiKey) { showApiKeyModal(); throw new Error('API key mancante'); }
+            rateLimiter.check();
+            const response = await fetch(CONFIG.ANTHROPIC_API_URL, {
+                method:'POST',
+                headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+                body: JSON.stringify({model:CONFIG.ANTHROPIC_MODEL, max_tokens:maxTokens, messages:[{role:'user',content:prompt}]})
+            });
+            if (!response.ok) {
+                if (response.status===401 || response.status===403) { localStorage.removeItem(CONFIG.API_KEY_STORAGE_KEY); showApiKeyModal(); throw new Error('API key non valida.'); }
+                if (response.status===429) throw new Error('Troppe richieste API. Attendi.');
+                throw new Error(`Errore API: ${response.status}`);
+            }
+            const data = await response.json();
+            return data.content?.[0]?.text || '';
+        }
+
+        async function fetchArticlesAI(categoria, count=12) {
+            const cacheKey = `articles_${categoria}_${count}`;
+            const cached = cacheSystem.get(cacheKey);
+            if (cached) return cached;
+            const oggi = new Date().toLocaleDateString('it-IT',{day:'numeric',month:'long',year:'numeric'});
+            const prompt = `Sei un redattore di un importante giornale italiano. Genera esattamente ${count} articoli di notizie plausibili e attuali per la sezione "${categoria}" di un sito di informazione italiano, alla data di oggi ${oggi}. Rispondi SOLO con un array JSON valido, senza backtick. Formato: [{"titolo":"...","sottotitolo":"...","categoria":"${categoria}","autore":"Nome Cognome","minutiLettura":4,"corpo":"Testo in 4-6 paragrafi separati da \\n\\n. Minimo 300 parole.","imgCat":"politica, cronaca, mondo, cultura, tecnologia, sport, economia, ambiente, salute"}]`;
+            try {
+                const text = await callAnthropicAPI(prompt, 4000);
+                const articles = safeJsonParse(text);
+                if (articles && Array.isArray(articles) && articles.length>0) { cacheSystem.set(cacheKey, articles); return articles; }
+                throw new Error('Formato non valido');
+            } catch(e) { return fallbackArticles(categoria, count); }
+        }
+
+        async function fetchSingleArticle(titolo, categoria) {
+            const cacheKey = `single_${titolo.substring(0,30)}_${categoria}`;
+            const cached = cacheSystem.get(cacheKey);
+            if (cached) return cached;
+            const prompt = `Sei un redattore italiano. Scrivi un articolo completo su: "${titolo}" per la sezione ${categoria}. Rispondi SOLO con JSON: {"titolo":"${titolo}","sottotitolo":"...","categoria":"${categoria}","autore":"...","minutiLettura":6,"corpo":"...","imgCat":"..."}`;
+            try {
+                const text = await callAnthropicAPI(prompt, 3000);
+                const article = safeJsonParse(text);
+                if (article && article.titolo) { cacheSystem.set(cacheKey, article); return article; }
+                throw new Error('Formato non valido');
+            } catch(e) { return {titolo,sottotitolo:'Articolo in elaborazione...',categoria,autore:'Redazione',minutiLettura:5,corpo:'Contenuto non disponibile.',imgCat:categoria}; }
+        }
+
+        function fallbackArticles(cat, n) {
+            const items = [
+                {titolo:'Governo approva nuove misure urgenti',sottotitolo:'Il Consiglio dei ministri ha dato il via libera.',categoria:cat,autore:'Marco Bianchi',minutiLettura:5,corpo:'Testo di esempio.\n\nSecondo paragrafo.',imgCat:'politica'},
+                {titolo:'Record di temperatura al nord',sottotitolo:'Ondata di calore eccezionale.',categoria:cat,autore:'Laura Ferri',minutiLettura:4,corpo:'Temperature sopra i 38°C.',imgCat:'cronaca'},
+                {titolo:'Mostra sul Rinascimento a Parigi',sottotitolo:'Successo internazionale.',categoria:cat,autore:'Giulia Romano',minutiLettura:6,corpo:'Oltre 300 opere esposte.',imgCat:'cultura'},
+                {titolo:'Startup IA italiane in crescita',sottotitolo:'Nuovi investimenti.',categoria:cat,autore:'Andrea Luca',minutiLettura:5,corpo:'Settore in espansione.',imgCat:'tecnologia'},
+                {titolo:'Nazionale: convocazioni per le qualificazioni',sottotitolo:'Il ct chiama i migliori.',categoria:cat,autore:'Pietro Greco',minutiLettura:4,corpo:'Raduno a Coverciano.',imgCat:'sport'}
+            ];
+            return items.slice(0,n).map((it,i)=>({...it,imgCat:it.imgCat||cat.toLowerCase()}));
+        }
+
+        // ============================================================
+        // RENDER FUNCTIONS
+        // ============================================================
+        function renderHeroGrid(articles) {
+            const h = articles.slice(0,3);
+            while (h.length<3) h.push(h[0]||fallbackArticles('Attualità',1)[0]);
+            return `<div class="hero-grid">
+            <div class="hero-main" onclick="openArticle(${escapeHtml(JSON.stringify(h[0]))})">
+              <div class="hero-main-bg" style="background-image:url('${getImgForCat(h[0].imgCat,0)}')"></div>
+              <div class="hero-main-overlay"></div>
+              <div class="hero-main-content">
+                <span class="hero-category">🔴 PRIMA PAGINA</span>
+                <h1 class="hero-title">${escapeHtml(h[0].titolo)}</h1>
+                <p class="hero-excerpt">${escapeHtml(h[0].sottotitolo||'')}</p>
+                <div class="hero-meta"><span>${escapeHtml(h[0].autore||'Redazione')}</span><span><i class="ti ti-clock"></i> ${h[0].minutiLettura||5} min</span></div>
+              </div>
+            </div>
+            <div class="hero-side">
+              ${[h[1],h[2]].map((a,i)=>`<div class="hero-side-item" onclick="openArticle(${escapeHtml(JSON.stringify(a))})">
+                <div class="hsi-bg" style="background-image:url('${getImgForCat(a.imgCat,i+1)}')"></div>
+                <div class="hsi-overlay"></div>
+                <div class="hsi-content"><div class="hsi-cat">${escapeHtml(a.categoria)}</div><div class="hsi-title">${escapeHtml(a.titolo)}</div></div>
+              </div>`).join('')}
+            </div></div>`;
+        }
+        function renderCard(a, idx) {
+            return `<div class="card" onclick="openArticle(${escapeHtml(JSON.stringify(a))})" style="animation-delay:${idx*0.08}s">
+            <div class="card-img"><img src="${getImgForCat(a.imgCat, idx)}" alt="${escapeHtml(a.titolo)}" loading="lazy"><span class="card-cat-badge">${escapeHtml(a.categoria)}</span></div>
+            <div class="card-body"><h2 class="card-title">${escapeHtml(a.titolo)}</h2><p class="card-excerpt">${escapeHtml(a.sottotitolo||'')}</p><div class="card-meta"><span>${escapeHtml(a.autore||'Redazione')}</span><span><i class="ti ti-clock"></i> ${a.minutiLettura||4} min</span></div></div></div>`;
+        }
+        function renderListItem(a, idx) {
+            return `<div class="article-list-item" onclick="openArticle(${escapeHtml(JSON.stringify(a))})">
+            <div class="ali-img"><img src="${getImgForCat(a.imgCat, idx)}" alt="${escapeHtml(a.titolo)}" loading="lazy"></div>
+            <div class="ali-content"><div class="ali-cat">${escapeHtml(a.categoria)}</div><div class="ali-title">${escapeHtml(a.titolo)}</div><div class="ali-meta">${escapeHtml(a.autore)} · ${a.minutiLettura} min</div></div></div>`;
+        }
+        function renderMagGrid(articles) {
+            const items = articles.slice(0,3);
+            while(items.length<3) items.push(items[0]||fallbackArticles('Attualità',1)[0]);
+            return `<div class="magazine-grid">${items.map((a,i)=>`<div class="mag-item ${i===0?'mag-main':''}" onclick="openArticle(${escapeHtml(JSON.stringify(a))})"><div class="mag-item-bg" style="background-image:url('${getImgForCat(a.imgCat,i)}')"></div><div class="mag-overlay"></div><div class="mag-content"><div class="mag-cat">${escapeHtml(a.categoria)}</div><div class="mag-title">${escapeHtml(a.titolo)}</div></div></div>`).join('')}</div>`;
+        }
+
+        // ============================================================
+        // HOME PAGE
+        // ============================================================
+        async function renderHome() {
+            document.querySelectorAll('.mainnav-inner a').forEach(a=>a.classList.remove('active'));
+            document.querySelector('.mainnav-inner a').classList.add('active');
+            const mc = document.getElementById('main-container');
+            mc.innerHTML = `<div class="ai-loading" style="margin:60px 0"><div class="ai-spinner"></div><p>Caricamento notizie…</p></div>`;
+            if (!hasApiKey()) showApiKeyModal();
+            let prime,politica,cronaca,mondo;
+            try {
+                [prime,politica,cronaca,mondo] = await Promise.all([
+                    fetchArticlesAI('Attualità',12),
+                    fetchArticlesAI('Politica',3),
+                    fetchArticlesAI('Cronaca',3),
+                    fetchArticlesAI('Mondo',3)
+                ]);
+            } catch(e) {
+                prime=fallbackArticles('Attualità',12); politica=fallbackArticles('Politica',3); cronaca=fallbackArticles('Cronaca',3); mondo=fallbackArticles('Mondo',3);
+            }
+            const hero=prime.slice(0,3), cards=prime.slice(3,9), lista=prime.slice(9,12);
+            mc.innerHTML = `
+            ${renderHeroGrid(hero)}
+            <div class="main-layout"><main>
+            <div class="category-section"><div class="section-header"><div class="section-red-line"></div><span class="section-label">Ultime Notizie</span></div>
+            <div class="articles-grid">${cards.map((a,i)=>renderCard(a,i)).join('')}</div>
+            <div id="lista-more">${lista.map((a,i)=>renderListItem(a,i)).join('')}</div>
+            <button class="btn-more" id="loadMoreBtn">Carica altre notizie <i class="ti ti-arrow-down"></i></button></div>
+            <div class="category-section"><div class="section-header"><div class="section-red-line"></div><span class="section-label">Politica</span></div>${renderMagGrid(politica)}</div>
+            <div class="category-section"><div class="section-header"><div class="section-red-line"></div><span class="section-label">Cronaca</span></div><div class="articles-grid">${cronaca.map((a,i)=>renderCard(a,i)).join('')}</div></div>
+            <div class="category-section"><div class="section-header"><div class="section-red-line"></div><span class="section-label">Mondo</span></div>${renderMagGrid(mondo)}</div>
+            <div class="collab-banner"><i class="ti ti-rocket collab-icon"></i><div class="collab-text"><div class="collab-title">Collabora con Ankoautca</div><div class="collab-desc">Hai una notizia? Invia a <strong>gastroboostmarketingdegital@gmail.com</strong></div></div><a href="mailto:gastroboostmarketingdegital@gmail.com" class="collab-btn">Proponi collaborazione</a></div>
+            </main><aside class="sidebar">
+            <div class="widget"><div class="widget-header"><i class="ti ti-news"></i> Informazione libera</div><div class="info-gratis"><i class="ti ti-device-mobile"></i><h3>100% Gratuito</h3><p>Nessun abbonamento, nessun dato personale.</p><div class="badge-free"><i class="ti ti-check"></i> Zero tracciamento</div></div></div>
+            <div class="widget"><div class="widget-header"><i class="ti ti-key"></i> API Key</div><div style="padding:16px;text-align:center"><p style="font-size:12px;color:var(--gray-500)">${hasApiKey()?'✅ Configurata':'⚠️ Nessuna chiave'}</p><button onclick="showApiKeyModal()" style="background:var(--black);color:white;border:none;padding:8px 16px;cursor:pointer;border-radius:4px;font-weight:600">${hasApiKey()?'Cambia':'Configura'}</button></div></div>
+            </aside></div>`;
+
+            let loadMoreOffset=0;
+            document.getElementById('loadMoreBtn').onclick=async ()=>{
+                const btn=document.getElementById('loadMoreBtn'); btn.textContent='Caricamento…'; btn.disabled=true;
+                loadMoreOffset++;
+                try {
+                    const more=await fetchArticlesAI('Attualità',4);
+                    document.getElementById('lista-more').innerHTML += more.map((a,i)=>renderListItem(a,i+loadMoreOffset*4)).join('');
+                } catch(e) { showToast('Errore nel caricamento.'); }
+                btn.innerHTML='Carica altre notizie <i class="ti ti-arrow-down"></i>'; btn.disabled=false;
+            };
+            window.scrollTo({top:0,behavior:'smooth'});
+        }
+
+        async function loadCategory(cat) {
+            document.querySelectorAll('.mainnav-inner a').forEach(a=>a.classList.remove('active'));
+            const mc=document.getElementById('main-container');
+            mc.innerHTML=`<div class="ai-loading"><div class="ai-spinner"></div><p>Caricamento ${cat}…</p></div>`;
+            const catLabel=cat.charAt(0).toUpperCase()+cat.slice(1);
+            let articles;
+            try { articles=await fetchArticlesAI(catLabel,9); } catch(e) { articles=fallbackArticles(catLabel,9); }
+            mc.innerHTML=`<div style="padding:30px 0"><div class="section-header"><div class="section-red-line"></div><span class="section-label">${catLabel}</span></div>${renderHeroGrid(articles)}<div class="articles-grid" style="margin-top:24px">${articles.slice(3).map((a,i)=>renderCard(a,i)).join('')}</div></div>`;
+            window.scrollTo({top:0,behavior:'smooth'});
+        }
+
+        async function openArticle(articleData) {
+            let a = typeof articleData==='string'?JSON.parse(articleData):articleData;
+            const mc=document.getElementById('main-container');
+            if(!a.corpo || a.corpo.length<200) {
+                mc.innerHTML=`<div class="ai-loading"><div class="ai-spinner"></div><p>Generazione articolo…</p></div>`;
+                try { const full=await fetchSingleArticle(a.titolo,a.categoria||'Attualità'); if(full) a={...a,...full}; } catch(e){}
+            }
+            const paragraphs=(a.corpo||'Contenuto in elaborazione.').split('\n\n').filter(p=>p.trim());
+            mc.innerHTML=`<div class="article-full-page" style="margin-top:30px"><div class="back-home" onclick="renderHome()">← Torna alla home</div><div style="margin-bottom:12px"><span style="background:var(--red);color:white;font-size:10px;font-weight:700;padding:3px 9px;border-radius:2px">${escapeHtml(a.categoria)}</span></div><h1>${escapeHtml(a.titolo)}</h1><p style="font-family:var(--font-serif);font-style:italic;font-size:18px;color:var(--gray-500)">${escapeHtml(a.sottotitolo||'')}</p><div class="article-meta"><i class="ti ti-user"></i> ${escapeHtml(a.autore||'Redazione')} · <i class="ti ti-clock"></i> ${a.minutiLettura||5} min</div><img src="${getImgForCat(a.imgCat,0)}" alt="${escapeHtml(a.titolo)}" style="width:100%;max-height:500px;object-fit:cover;margin:20px 0;border-radius:8px"><div class="article-content">${paragraphs.map(p=>`<p>${escapeHtml(p)}</p>`).join('')}</div></div>`;
+            window.scrollTo({top:0,behavior:'smooth'});
+        }
+
+        // ============================================================
+        // RICERCA
+        // ============================================================
+        document.getElementById('search-btn').addEventListener('click', async ()=>{
+            const q=document.getElementById('search-input').value.trim();
+            if(!q) return;
+            const mc=document.getElementById('main-container');
+            mc.innerHTML=`<div class="ai-loading"><div class="ai-spinner"></div><p>Ricerca in corso…</p></div>`;
+            let articles;
+            const cacheKey=`search_${q.substring(0,30)}`;
+            const cached=cacheSystem.get(cacheKey);
+            if(cached) articles=cached;
+            else {
+                try {
+                    const text=await callAnthropicAPI(`Genera 6 articoli italiani su: "${q}". Rispondi SOLO con JSON array.`,3000);
+                    articles=safeJsonParse(text) || fallbackArticles('Attualità',6);
+                    cacheSystem.set(cacheKey,articles);
+                } catch(e) { articles=fallbackArticles('Attualità',6); }
+            }
+            mc.innerHTML=`<div style="padding:30px 0"><div class="back-home" onclick="renderHome()">← Torna alla home</div><h2 style="font-family:var(--font-display);font-size:28px;margin-top:12px">Risultati per: "${escapeHtml(q)}"</h2><div class="articles-grid">${articles.map((a,i)=>renderCard(a,i)).join('')}</div></div>`;
+        });
+        document.getElementById('search-input').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('search-btn').click();});
+
+        // ============================================================
+        // CHAT
+        // ============================================================
+        function loadChat(){ try{return JSON.parse(localStorage.getItem(CONFIG.CHAT_STORAGE_KEY)||'[]');}catch(e){return[];} }
+        function saveChat(msgs){ localStorage.setItem(CONFIG.CHAT_STORAGE_KEY,JSON.stringify(msgs.slice(-CONFIG.MAX_CHAT_MESSAGES))); }
+        function renderGlobalChat(){
+            const msgs=loadChat();
+            const container=document.getElementById('global-chat-messages');
+            if(!container) return;
+            if(msgs.length===0){ container.innerHTML='<div class="chat-empty">💬 Nessun messaggio ancora.</div>'; return; }
+            container.innerHTML=msgs.map((m,i)=>`<div class="chat-msg"><span class="chat-name">${escapeHtml(m.name)}</span><span class="chat-time">${escapeHtml(m.time)}</span><div class="chat-text">${escapeHtml(m.text)}</div><div class="chat-reactions">${['👍','❤️','😂','😮'].map(e=>`<button class="reaction-btn" onclick="addReaction(${i},'${e}')">${e} ${m.reactions?.[e]||0}</button>`).join('')}</div></div>`).join('');
+            container.scrollTop=container.scrollHeight;
+        }
+        window.addReaction=function(index,emoji){
+            const msgs=loadChat();
+            if(msgs[index]){ if(!msgs[index].reactions) msgs[index].reactions={}; msgs[index].reactions[emoji]=(msgs[index].reactions[emoji]||0)+1; saveChat(msgs); renderGlobalChat(); }
+        };
+        document.getElementById('global-chat-submit').addEventListener('click',()=>{
+            const name=document.getElementById('global-chat-name').value.trim();
+            const text=document.getElementById('global-chat-text').value.trim();
+            if(!text) return;
+            const msgs=loadChat();
+            const now=new Date();
+            msgs.push({name:(name||'Anonimo').substring(0,30),text:text.substring(0,500),time:`${now.getHours().toString().padStart(2,'0')}:${now.getMinutes().toString().padStart(2,'0')} · ${now.getDate()}/${now.getMonth()+1}/${now.getFullYear()}`,reactions:{}});
+            saveChat(msgs);
+            renderGlobalChat();
+            document.getElementById('global-chat-text').value='';
+            document.getElementById('online-count').textContent=Math.floor(Math.random()*8+2)+' online';
+        });
+
+        // ============================================================
+        // SCROLL & HEADER
+        // ============================================================
+        const scrollBtn=document.getElementById('scrollTopBtn');
+        window.addEventListener('scroll',()=>{ scrollBtn.classList.toggle('visible',window.scrollY>400); });
+        scrollBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+        window.addEventListener('scroll',()=>{ document.getElementById('site-header').classList.toggle('scrolled',window.scrollY>50); });
+
+        // ============================================================
+        // INIT
+        // ============================================================
+        document.getElementById('topbar-date').innerText=new Date().toLocaleDateString('it-IT',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+        renderGlobalChat();
+        renderHome();
+        setInterval(()=>{ const el=document.getElementById('online-count'); if(el) el.textContent=Math.floor(Math.random()*12+1)+' online'; },20000);
+        setInterval(()=>cacheSystem.clearOld(),3600000);
+    </script>
+</body>
+</html>
