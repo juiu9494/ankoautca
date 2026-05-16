@@ -3,427 +3,193 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ANKOAUTCA AI Blog — Intelligenza Artificiale, Innovazione, Futuro</title>
-<meta name="description" content="Il blog di ANKOAUTCA dedicato all'intelligenza artificiale, machine learning, etica tecnologica e innovazione digitale. Articoli, analisi e approfondimenti.">
-<meta name="robots" content="index, follow">
+<title>ANKOAUTCA AI — Intelligenza Artificiale, Sviluppo, Futuro</title>
+<meta name="description" content="Il blog di ANKOAUTCA dedicato all'Intelligenza Artificiale: scopri le ultime novità, gli sviluppi del machine learning, l'etica dell'AI, gli strumenti innovativi e il futuro del lavoro. Testata indipendente, senza abbonamenti.">
+<meta name="keywords" content="intelligenza artificiale, AI, machine learning, deep learning, sviluppo AI, etica digitale, generative AI, ChatGPT, futuro del lavoro, automazione, robotica, neural network, NLP, computer vision, AI tools, Claude, Gemini, GPT">
+<meta name="author" content="ANKOAUTCA AI">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://ankoautca.ai">
+<meta property="og:title" content="ANKOAUTCA AI — Intelligenza Artificiale, Sviluppo, Futuro">
+<meta property="og:description" content="Tutto sull'AI: articoli approfonditi, trend, strumenti e riflessioni etiche. Informazione libera e indipendente.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop">
 
-<!-- Google Fonts (stesso tema del news) -->
+<!-- Google Fonts (stesso tema) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Sans+3:wght@300;400;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Sans+3:wght@300;400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 
 <style>
-:root {
-  --red: #C0121C;
-  --red-dark: #8B0000;
-  --black: #0A0A0A;
-  --gray-700: #444;
-  --gray-500: #777;
-  --gray-300: #ccc;
-  --gray-100: #f4f4f2;
-  --white: #ffffff;
-  --cream: #faf9f7;
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-body: 'Source Sans 3', Arial, sans-serif;
-  --font-serif: 'Source Serif 4', Georgia, serif;
+:root{
+  --red:#C0121C;--red-dark:#8B0000;
+  --black:#0A0A0A;--gray-700:#444;--gray-500:#777;
+  --gray-300:#ccc;--gray-100:#f4f4f2;--white:#fff;--cream:#faf9f7;
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-body:'Source Sans 3',Arial,sans-serif;
+  --font-serif:'Source Serif 4',Georgia,serif;
 }
-* { margin:0; padding:0; box-sizing: border-box; }
-body {
-  font-family: var(--font-body);
-  background: var(--cream);
-  color: var(--black);
-  font-size: 16px;
-  line-height: 1.6;
-}
-a { text-decoration: none; color: inherit; }
-img { max-width: 100%; display: block; }
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-body);background:var(--cream);color:var(--black);font-size:16px;line-height:1.6}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
 
-/* Topbar uguale al sito originale */
-.topbar {
-  background: var(--black);
-  color: var(--gray-300);
-  font-size: 12px;
-  padding: 6px 0;
-  border-bottom: 2px solid var(--red);
-}
-.topbar-inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.topbar-date { font-family: var(--font-serif); font-style: italic; color: #aaa; }
-.topbar-links { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
-.topbar-links a { color: #bbb; transition: color .2s; font-size: 11px; letter-spacing: .5px; text-transform: uppercase; }
-.topbar-links a:hover { color: var(--red); }
-.live-badge {
-  background: var(--red);
-  color: white;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  padding: 2px 7px;
-  border-radius: 2px;
-  animation: pulse 2s infinite;
-}
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.7} }
+/* TOPBAR */
+.topbar{background:var(--black);color:var(--gray-300);font-size:12px;padding:6px 0;border-bottom:2px solid var(--red)}
+.topbar-inner{max-width:1280px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.topbar-date{font-family:var(--font-serif);font-style:italic;color:#aaa}
+.topbar-links{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.topbar-links a{color:#bbb;font-size:11px;letter-spacing:.5px;text-transform:uppercase;transition:color .2s}
+.topbar-links a:hover{color:var(--red)}
+.live-badge{background:var(--red);color:white;font-size:10px;font-weight:700;letter-spacing:1px;padding:2px 7px;border-radius:2px;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}
 
-/* Header */
-header {
-  background: var(--white);
-  border-bottom: 3px solid var(--black);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 12px rgba(0,0,0,.08);
-}
-.masthead {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 16px 20px 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-.logo-text {
-  font-family: var(--font-display);
-  font-size: 52px;
-  font-weight: 900;
-  letter-spacing: -2px;
-  line-height: 1;
-}
-.logo-text .logo-a { color: var(--red); }
-.logo-tagline {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 12px;
-  color: var(--gray-500);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-.search-box {
-  display: flex;
-  border: 1.5px solid var(--gray-300);
-  border-radius: 3px;
-  overflow: hidden;
-}
-.search-box input { border: none; padding: 7px 12px; font-size: 13px; outline: none; width: 200px; }
-.search-box button { background: var(--red); border: none; color: white; padding: 8px 12px; cursor: pointer; }
-.search-box button:hover { background: var(--red-dark); }
+/* BREAKING TICKER */
+.breaking-bar{background:var(--red);color:white;font-size:13px;font-weight:600;padding:8px 0;overflow:hidden;display:flex}
+.breaking-label{background:var(--black);padding:0 16px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap;display:flex;align-items:center}
+.breaking-track{overflow:hidden;flex:1;padding-left:20px}
+.breaking-inner{display:inline-flex;gap:60px;animation:scrollTicker 50s linear infinite;white-space:nowrap}
+.breaking-inner span::before{content:"● ";opacity:.7}
+@keyframes scrollTicker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-/* Navigation */
-nav.mainnav { background: var(--black); }
-.mainnav-inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  overflow-x: auto;
-}
-.mainnav-inner a {
-  color: #ddd;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  padding: 12px 16px;
-  white-space: nowrap;
-  border-bottom: 3px solid transparent;
-}
-.mainnav-inner a:hover, .mainnav-inner a.active { color: white; border-bottom-color: var(--red); }
+/* HEADER */
+header{background:var(--white);border-bottom:3px solid var(--black);position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+.masthead{max-width:1280px;margin:0 auto;padding:16px 20px 10px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.logo-text{font-family:var(--font-display);font-size:52px;font-weight:900;letter-spacing:-2px;line-height:1}
+.logo-a{color:var(--red)}
+.logo-tagline{font-family:var(--font-serif);font-style:italic;font-size:12px;color:var(--gray-500);letter-spacing:2px;text-transform:uppercase}
+.search-box{display:flex;border:1.5px solid var(--gray-300);border-radius:3px;overflow:hidden}
+.search-box input{border:none;padding:7px 12px;font-size:13px;outline:none;width:200px;font-family:var(--font-body)}
+.search-box button{background:var(--red);border:none;color:white;padding:8px 12px;cursor:pointer;transition:background .2s}
+.search-box button:hover{background:var(--red-dark)}
 
-.container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
-.main-layout {
-  display: grid;
-  grid-template-columns: 1fr 300px;
-  gap: 30px;
-  padding: 30px 0;
-}
-@media (max-width: 900px) { .main-layout { grid-template-columns: 1fr; } }
+/* NAV */
+nav.mainnav{background:var(--black)}
+.mainnav-inner{max-width:1280px;margin:0 auto;padding:0 20px;display:flex;overflow-x:auto}
+.mainnav-inner a{color:#ddd;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:12px 16px;white-space:nowrap;border-bottom:3px solid transparent;transition:all .2s}
+.mainnav-inner a:hover,.mainnav-inner a.active{color:white;border-bottom-color:var(--red)}
 
-.section-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
-  border-bottom: 2px solid var(--black);
-  padding-bottom: 10px;
-}
-.section-label {
-  font-family: var(--font-display);
-  font-size: 20px;
-  font-weight: 700;
-}
-.section-red-line { width: 40px; height: 3px; background: var(--red); }
+/* LAYOUT */
+.container{max-width:1280px;margin:0 auto;padding:0 20px}
+.main-layout{display:grid;grid-template-columns:1fr 300px;gap:30px;padding:30px 0}
+@media(max-width:900px){.main-layout{grid-template-columns:1fr}}
 
-/* Blog grid */
-.blog-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 28px;
-  margin-bottom: 40px;
-}
-@media (max-width: 700px) { .blog-grid { grid-template-columns: 1fr; } }
+.section-header{display:flex;align-items:center;gap:12px;margin-bottom:20px;border-bottom:2px solid var(--black);padding-bottom:10px}
+.section-label{font-family:var(--font-display);font-size:20px;font-weight:700}
+.section-red-line{width:40px;height:3px;background:var(--red)}
 
-.blog-card {
-  background: white;
-  border: 1px solid #e8e6e1;
-  border-radius: 4px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.25s;
-}
-.blog-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.1);
-}
-.blog-img {
-  aspect-ratio: 16/9;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
-.blog-cat {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  background: var(--red);
-  color: white;
-  font-size: 10px;
-  font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 20px;
-  text-transform: uppercase;
-}
-.blog-content { padding: 20px; }
-.blog-title {
-  font-family: var(--font-display);
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1.3;
-  margin-bottom: 10px;
-}
-.blog-excerpt {
-  color: var(--gray-500);
-  font-size: 14px;
-  margin-bottom: 15px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.blog-meta {
-  display: flex;
-  justify-content: space-between;
-  font-size: 12px;
-  color: var(--gray-500);
-  border-top: 1px solid #ecece5;
-  padding-top: 12px;
-}
-.blog-author i, .blog-date i { margin-right: 4px; }
+/* HERO */
+.hero-grid{display:grid;grid-template-columns:2fr 1fr;gap:2px;background:var(--black);border:2px solid var(--black);margin-bottom:30px;overflow:hidden}
+.hero-main{grid-row:span 2;position:relative;min-height:480px;cursor:pointer;overflow:hidden}
+.hero-main-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .6s}
+.hero-main:hover .hero-main-bg{transform:scale(1.03)}
+.hero-main-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.92) 0%,rgba(0,0,0,.4) 55%,rgba(0,0,0,.1) 100%)}
+.hero-main-content{position:absolute;bottom:0;left:0;right:0;padding:28px;color:white}
+.hero-category{background:var(--red);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 9px;display:inline-block}
+.hero-title{font-family:var(--font-display);font-size:34px;font-weight:900;line-height:1.15;margin:10px 0}
+.hero-excerpt{font-family:var(--font-serif);font-style:italic;font-size:15px;color:rgba(255,255,255,.8)}
+.hero-meta{font-size:12px;color:rgba(255,255,255,.6);display:flex;gap:14px;margin-top:12px}
+.hero-side{display:flex;flex-direction:column;gap:2px}
+.hero-side-item{flex:1;min-height:180px;position:relative;cursor:pointer;overflow:hidden}
+.hsi-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .4s}
+.hero-side-item:hover .hsi-bg{transform:scale(1.05)}
+.hsi-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.88) 0%,transparent 60%)}
+.hsi-content{position:absolute;bottom:0;padding:14px;color:white}
+.hsi-cat{font-size:9px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:1px}
+.hsi-title{font-family:var(--font-display);font-size:15px;font-weight:700}
 
-/* SIDEBAR uguale al tema */
-.sidebar { display: flex; flex-direction: column; gap: 26px; }
-.widget {
-  background: white;
-  border: 1px solid #e8e6e1;
-}
-.widget-header {
-  background: var(--black);
-  color: white;
-  padding: 10px 16px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  display: flex;
-  gap: 8px;
-}
-.info-gratis { text-align: center; padding: 20px; }
-.info-gratis i { font-size: 32px; color: var(--red); }
-.info-gratis h3 { font-family: var(--font-display); margin: 8px 0; }
-.badge-free {
-  background: #e8f0e8;
-  color: #2c6e2c;
-  border-radius: 30px;
-  padding: 4px 10px;
-  font-size: 11px;
-  display: inline-block;
-  margin-top: 10px;
-}
+/* CARD GRID */
+.articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:30px}
+@media(max-width:700px){.articles-grid{grid-template-columns:1fr}}
+.card{background:white;border:1px solid #e8e6e1;cursor:pointer;transition:.2s}
+.card:hover{transform:translateY(-3px);box-shadow:0 6px 24px rgba(0,0,0,.1)}
+.card-img{aspect-ratio:16/9;position:relative;overflow:hidden}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.card:hover .card-img img{transform:scale(1.05)}
+.card-cat-badge{position:absolute;top:10px;left:10px;background:var(--red);color:white;font-size:9px;font-weight:700;padding:3px 8px;text-transform:uppercase}
+.card-body{padding:16px}
+.card-title{font-family:var(--font-display);font-size:18px;font-weight:700;line-height:1.3;margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card:hover .card-title{color:var(--red)}
+.card-excerpt{font-size:14px;color:var(--gray-500);font-style:italic;margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;line-height:1.5}
+.card-meta{font-size:11px;color:gray;display:flex;justify-content:space-between}
 
-.collab-banner {
-  background: linear-gradient(135deg, var(--black) 0%, #1a0a0a 100%);
-  border-left: 4px solid var(--red);
-  padding: 28px 30px;
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  flex-wrap: wrap;
-  margin: 30px 0;
-}
-.collab-icon { font-size: 40px; color: var(--red); }
-.collab-title { font-family: var(--font-display); font-size: 22px; font-weight: 900; color: white; }
-.collab-desc { font-size: 13px; color: #aaa; }
-.collab-btn {
-  background: var(--red);
-  color: white;
-  padding: 12px 24px;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 12px;
-  border-radius: 2px;
-}
+/* LISTA ARTICOLI */
+.article-list-item{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid #e8e6e1;cursor:pointer}
+.ali-img{width:90px;height:68px;flex-shrink:0;background:#eee;overflow:hidden}
+.ali-img img{width:100%;height:100%;object-fit:cover}
+.ali-cat{font-size:9px;font-weight:700;color:var(--red);text-transform:uppercase}
+.ali-title{font-family:var(--font-display);font-size:15px;font-weight:700;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ali-meta{font-size:11px;color:var(--gray-500);margin-top:5px}
 
-/* Modal articolo (stesso stile) */
-.modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.85);
-  backdrop-filter: blur(12px);
-  z-index: 1000;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-.modal-content {
-  background: #0f0f17;
-  max-width: 780px;
-  width: 100%;
-  max-height: 85vh;
-  overflow-y: auto;
-  border-radius: 24px;
-  padding: 32px;
-  border: 1px solid rgba(192,18,28,0.3);
-  position: relative;
-  color: #eef;
-}
-.modal-content h2 {
-  font-family: var(--font-display);
-  font-size: 28px;
-  margin-bottom: 20px;
-  color: white;
-}
-.modal-content p {
-  margin-bottom: 1.2em;
-  line-height: 1.6;
-}
-.modal-content .modal-meta {
-  font-size: 13px;
-  color: #aaa;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #333;
-  padding-bottom: 12px;
-}
-.close-modal {
-  position: absolute;
-  top: 18px;
-  right: 22px;
-  font-size: 32px;
-  cursor: pointer;
-  color: #aaa;
-  transition: color 0.2s;
-}
-.close-modal:hover { color: var(--red); }
+/* MAGAZINE GRID (approfondimenti) */
+.magazine-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2px;background:var(--black);margin-bottom:30px;overflow:hidden}
+.mag-item{position:relative;min-height:200px;cursor:pointer;overflow:hidden}
+.mag-main{min-height:400px}
+.mag-item-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .4s}
+.mag-item:hover .mag-item-bg{transform:scale(1.05)}
+.mag-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.88) 0%,transparent 60%)}
+.mag-content{position:absolute;bottom:0;padding:16px;color:white}
+.mag-cat{font-size:9px;font-weight:700;color:var(--red);text-transform:uppercase}
+.mag-title{font-family:var(--font-display);font-weight:700;font-size:18px}
+.mag-main .mag-title{font-size:26px}
 
-/* Live chat pubblica (come nel sito originale) */
-.live-chat-section {
-  max-width: 1280px;
-  margin: 20px auto 30px;
-  padding: 0 20px;
-}
-.chat-public-container {
-  background: white;
-  border: 1px solid #e8e6e1;
-  border-radius: 8px;
-}
-.chat-header {
-  background: var(--black);
-  color: white;
-  padding: 14px 20px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.chat-messages {
-  max-height: 280px;
-  overflow-y: auto;
-  padding: 16px;
-  background: #fefcf9;
-}
-.chat-msg {
-  padding: 8px 0;
-  border-bottom: 1px solid #f0ede8;
-}
-.chat-name { font-weight: 700; color: var(--red); }
-.chat-time { font-size: 10px; color: gray; margin-left: 8px; }
-.chat-text { margin-top: 4px; word-break: break-word; }
-.chat-form {
-  padding: 16px;
-  background: #f8f6f2;
-  border-top: 1px solid #e8e6e1;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.chat-form input, .chat-form textarea {
-  border: 1.5px solid #e0ddd8;
-  padding: 8px;
-  font-family: var(--font-body);
-  border-radius: 4px;
-}
-.chat-form button {
-  background: var(--red);
-  color: white;
-  border: none;
-  padding: 10px;
-  font-weight: bold;
-  cursor: pointer;
-  width: fit-content;
-}
+/* COLLABORAZIONE */
+.collab-banner{background:linear-gradient(135deg,var(--black) 0%,#1a0a0a 100%);border-left:4px solid var(--red);padding:28px 30px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin:30px 0}
+.collab-icon{font-size:40px;color:var(--red)}
+.collab-title{font-family:var(--font-display);font-size:22px;font-weight:900;color:white}
+.collab-desc{font-size:13px;color:#aaa}
+.collab-btn{background:var(--red);color:white;padding:12px 24px;font-weight:700;text-transform:uppercase;font-size:12px;border-radius:2px;white-space:nowrap}
 
-/* Footer */
-footer {
-  background: var(--black);
-  color: #aaa;
-  margin-top: 40px;
-}
-.footer-top {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 40px;
-}
-@media (max-width: 800px) { .footer-top { grid-template-columns: 1fr; } }
-.footer-logo { font-family: var(--font-display); font-size: 36px; font-weight: 900; color: white; }
-.footer-logo span { color: var(--red); }
-.footer-col-title { color: white; font-size: 12px; font-weight: 700; letter-spacing: 2px; margin-bottom: 16px; }
-.footer-col-links { display: flex; flex-direction: column; gap: 8px; }
-.footer-col-links a { color: #888; font-size: 13px; }
-.footer-col-links a:hover { color: var(--red); }
-.footer-bottom {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  font-size: 12px;
-  border-top: 1px solid #333;
-}
+/* SIDEBAR */
+.sidebar{display:flex;flex-direction:column;gap:26px}
+.widget{background:white;border:1px solid #e8e6e1}
+.widget-header{background:var(--black);color:white;padding:10px 16px;font-size:11px;font-weight:700;letter-spacing:2px;display:flex;gap:8px;align-items:center}
+.info-gratis{text-align:center;padding:20px}
+.info-gratis i{font-size:32px;color:var(--red)}
+.info-gratis h3{font-family:var(--font-display);margin:8px 0}
+.badge-free{background:#e8f0e8;color:#2c6e2c;border-radius:30px;padding:4px 10px;font-size:11px;display:inline-block;margin-top:10px}
+
+.btn-more{background:transparent;border:1.5px solid var(--black);padding:11px;text-align:center;font-weight:700;text-transform:uppercase;font-size:12px;width:100%;margin-top:20px;cursor:pointer;transition:.2s}
+.btn-more:hover{background:var(--black);color:white}
+
+/* ARTICOLO FULL */
+.article-full-page{background:white;padding:30px;margin-bottom:30px}
+.article-full-page h1{font-family:var(--font-display);font-size:40px;margin-bottom:20px;line-height:1.2}
+.article-full-page .article-meta{color:gray;margin-bottom:20px;font-size:14px}
+.article-full-page img{max-width:100%;margin:20px 0}
+.article-full-page .article-content{font-family:var(--font-serif);font-size:18px;line-height:1.8}
+.article-full-page .article-content p{margin-bottom:1.2em}
+.back-home{display:inline-block;margin-bottom:20px;background:var(--black);color:white;padding:6px 12px;cursor:pointer;font-size:13px;font-weight:600}
+
+/* LIVE CHAT (stessa identica) */
+.live-chat-section{max-width:1280px;margin:20px auto 30px;padding:0 20px}
+.chat-public-container{background:white;border:1px solid #e8e6e1;border-radius:4px;overflow:hidden}
+.chat-header{background:var(--black);color:white;padding:14px 20px;font-weight:bold;display:flex;align-items:center;gap:8px;font-size:14px}
+.chat-messages{max-height:320px;overflow-y:auto;padding:16px;background:#fefcf9}
+.chat-msg{padding:10px 12px;border-bottom:1px solid #f0ede8}
+.chat-name{font-weight:700;color:var(--red)}
+.chat-time{font-size:10px;color:gray;margin-left:8px}
+.chat-text{margin-top:4px;word-break:break-word;font-size:14px}
+.chat-form{padding:16px;background:#f8f6f2;border-top:1px solid #e8e6e1;display:flex;flex-direction:column;gap:8px}
+.chat-form input,.chat-form textarea{border:1.5px solid #e0ddd8;padding:8px;font-family:var(--font-body);border-radius:4px;font-size:14px;outline:none}
+.chat-form input:focus,.chat-form textarea:focus{border-color:var(--red)}
+.chat-form textarea{resize:vertical;min-height:70px}
+.chat-form button{background:var(--red);color:white;border:none;padding:10px 20px;font-weight:700;cursor:pointer;font-size:13px;width:fit-content;transition:background .2s}
+.chat-form button:hover{background:var(--red-dark)}
+.chat-empty{text-align:center;padding:24px;color:var(--gray-500);font-style:italic}
+
+/* FOOTER */
+footer{background:var(--black);color:#aaa;margin-top:40px}
+.footer-top{max-width:1280px;margin:0 auto;padding:40px 20px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px}
+@media(max-width:800px){.footer-top{grid-template-columns:1fr}}
+.footer-logo{font-family:var(--font-display);font-size:36px;font-weight:900;color:white}
+.footer-logo span{color:var(--red)}
+.footer-desc{margin-top:8px;font-size:13px;line-height:1.7;color:#666}
+.footer-col-title{color:white;font-size:12px;font-weight:700;letter-spacing:2px;margin-bottom:16px;text-transform:uppercase}
+.footer-col-links{display:flex;flex-direction:column;gap:8px}
+.footer-col-links a{color:#888;font-size:13px;transition:color .2s}
+.footer-col-links a:hover{color:var(--red)}
+.footer-bottom{max-width:1280px;margin:0 auto;padding:20px;display:flex;justify-content:space-between;flex-wrap:wrap;font-size:12px;border-top:1px solid #222;gap:10px}
 </style>
 </head>
 <body>
@@ -432,319 +198,198 @@ footer {
   <div class="topbar-inner">
     <div class="topbar-date" id="topbar-date"></div>
     <div class="topbar-links">
-      <span class="live-badge">● BLOG AI</span>
-      <a href="#">Intelligenza Artificiale</a>
-      <a href="#">Machine Learning</a>
-      <a href="#">Etica Digitale</a>
-      <a href="#">Innovazione</a>
+      <span class="live-badge">● AI BLOG</span>
+      <a href="#" onclick="loadCategory('generative');return false">Generativa</a>
+      <a href="#" onclick="loadCategory('machine-learning');return false">ML</a>
+      <a href="#" onclick="loadCategory('etica');return false">Etica</a>
+      <a href="#" onclick="loadCategory('strumenti');return false">Strumenti</a>
+      <a href="#" onclick="loadCategory('lavoro');return false">Lavoro</a>
     </div>
   </div>
+</div>
+
+<div class="breaking-bar">
+  <div class="breaking-label">🔴 BREAKING AI</div>
+  <div class="breaking-track"><div class="breaking-inner" id="ticker">
+    <span>OpenAI annuncia GPT-5 entro fine anno</span>
+    <span>Google DeepMind batte record su diagnosi mediche</span>
+    <span>UE approva AI Act: regole storiche per l'IA</span>
+    <span>Nuovo modello cinese supera GPT-4 in matematica</span>
+    <span>Meta rilascia Llama 3.1 open source</span>
+    <span>Italia lancia strategia nazionale per l'IA</span>
+  </div></div>
 </div>
 
 <header>
   <div class="masthead">
     <div class="logo-wrap">
-      <div class="logo-text"><span class="logo-a">A</span>NKOAUTCA</div>
-      <div class="logo-tagline">AI Blog · Futuro Digitale</div>
+      <div class="logo-text"><span class="logo-a">A</span>NKOAUTCA<span style="font-size:28px;"> AI</span></div>
+      <div class="logo-tagline">Intelligenza Artificiale · Sviluppo · Futuro</div>
     </div>
     <div class="search-box">
-      <input type="text" placeholder="Cerca articoli IA..." id="search-input">
+      <input type="text" placeholder="Cerca articoli AI..." id="search-input">
       <button id="search-btn"><i class="ti ti-search"></i></button>
     </div>
   </div>
   <nav class="mainnav">
     <div class="mainnav-inner">
-      <a href="#" class="active">Blog AI</a>
-      <a href="#">Tendenze</a>
-      <a href="#">Strumenti</a>
-      <a href="#">Etica</a>
-      <a href="#">Lavoro & AI</a>
+      <a href="#" class="active" onclick="renderHome();return false">Home AI</a>
+      <a href="#" onclick="loadCategory('generative');return false">Generativa</a>
+      <a href="#" onclick="loadCategory('machine-learning');return false">Machine Learning</a>
+      <a href="#" onclick="loadCategory('etica');return false">Etica & Sicurezza</a>
+      <a href="#" onclick="loadCategory('strumenti');return false">Strumenti AI</a>
+      <a href="#" onclick="loadCategory('lavoro');return false">Lavoro & Automazione</a>
     </div>
   </nav>
 </header>
 
-<div class="container">
-  <div class="main-layout">
-    <main>
-      <div class="section-header">
-        <div class="section-red-line"></div>
-        <span class="section-label">Articoli sull'Intelligenza Artificiale</span>
-      </div>
-      <div class="blog-grid" id="blog-grid"></div>
-    </main>
-
-    <aside class="sidebar">
-      <div class="widget">
-        <div class="widget-header"><i class="ti ti-news"></i> Senza barriere</div>
-        <div class="info-gratis">
-          <i class="ti ti-device-mobile"></i>
-          <h3>100% Gratuito</h3>
-          <p>Nessun abbonamento, nessun dato personale. Leggi tutti gli articoli sull'IA liberamente.</p>
-          <div class="badge-free"><i class="ti ti-check"></i> Zero tracciamento</div>
-        </div>
-      </div>
-      <div class="widget">
-        <div class="widget-header"><i class="ti ti-briefcase"></i> Collabora</div>
-        <div style="padding:16px;text-align:center;">
-          <a href="mailto:gastroboostmarketingdegital@gmail.com" style="background:var(--red);color:white;padding:8px;display:block;border-radius:3px;">Scrivi per noi</a>
-        </div>
-      </div>
-    </aside>
+<div id="app-root">
+  <div class="container" id="main-container">
+    <div style="text-align:center;padding:60px 0"><div style="border:3px solid var(--red);border-top-color:transparent;width:40px;height:40px;border-radius:50%;margin:0 auto 20px;animation:spin 1s linear infinite"></div><p>Caricamento articoli sull'Intelligenza Artificiale...</p></div>
   </div>
 </div>
 
-<!-- Banner collaborazione -->
-<div class="container">
-  <div class="collab-banner">
-    <i class="ti ti-rocket collab-icon"></i>
-    <div class="collab-text">
-      <div class="collab-title">Scrivi di Intelligenza Artificiale</div>
-      <div class="collab-desc">Sei un esperto, sviluppatore o appassionato di AI? Unisciti al nostro blog. Invia la tua proposta a <strong>gastroboostmarketingdegital@gmail.com</strong></div>
-    </div>
-    <a href="mailto:gastroboostmarketingdegital@gmail.com" class="collab-btn"><i class="ti ti-mail"></i> Proponi articolo</a>
-  </div>
-</div>
-
-<!-- LIVE CHAT PUBBLICA (IDENTICA AL SITO ORIGINALE) -->
+<!-- LIVE CHAT -->
 <div class="live-chat-section">
   <div class="chat-public-container">
-    <div class="chat-header"><i class="ti ti-messages"></i> 💬 Live Chat Pubblica — Tutti possono scrivere</div>
-    <div class="chat-messages" id="chat-messages"></div>
+    <div class="chat-header"><i class="ti ti-messages"></i> 💬 Community AI — Discuti di intelligenza artificiale con altri lettori</div>
+    <div class="chat-messages" id="global-chat-messages"><div class="chat-empty">💬 Nessun messaggio. Scrivi il primo!</div></div>
     <div class="chat-form">
-      <input type="text" id="chat-name" placeholder="Il tuo nome (opzionale)" maxlength="30">
-      <textarea id="chat-text" placeholder="Commenta gli articoli AI..." maxlength="500"></textarea>
-      <button id="chat-submit">Invia messaggio <i class="ti ti-send"></i></button>
+      <input type="text" id="global-chat-name" placeholder="Il tuo nome (facoltativo)" maxlength="30">
+      <textarea id="global-chat-text" placeholder="Commenta, chiedi, condividi opinioni sull'AI..." maxlength="500"></textarea>
+      <button id="global-chat-submit"><i class="ti ti-send"></i> Invia messaggio</button>
     </div>
   </div>
 </div>
 
 <footer>
   <div class="footer-top">
-    <div><div class="footer-logo"><span>A</span>NKOAUTCA</div><div class="footer-desc" style="margin-top:8px;">Blog dedicato all'intelligenza artificiale, machine learning e futuro tecnologico.</div></div>
-    <div><div class="footer-col-title">Categorie AI</div><div class="footer-col-links"><a href="#">Machine Learning</a><a href="#">Generative AI</a><a href="#">Computer Vision</a><a href="#">NLP</a></div></div>
-    <div><div class="footer-col-title">Risorse</div><div class="footer-col-links"><a href="#">Chi siamo</a><a href="mailto:gastroboostmarketingdegital@gmail.com">Collabora</a><a href="#">Privacy policy</a></div></div>
+    <div><div class="footer-logo"><span>A</span>NKOAUTCA AI</div><div class="footer-desc">Il blog indipendente sull'Intelligenza Artificiale. Articoli approfonditi, news, strumenti e riflessioni etiche. Nessun abbonamento, nessun tracciamento.</div></div>
+    <div><div class="footer-col-title">Categorie AI</div><div class="footer-col-links"><a href="#" onclick="loadCategory('generative');return false">AI Generativa</a><a href="#" onclick="loadCategory('machine-learning');return false">Machine Learning</a><a href="#" onclick="loadCategory('etica');return false">Etica Digitale</a><a href="#" onclick="loadCategory('strumenti');return false">Strumenti</a><a href="#" onclick="loadCategory('lavoro');return false">Lavoro & AI</a></div></div>
+    <div><div class="footer-col-title">Redazione</div><div class="footer-col-links"><a href="#">Chi siamo</a><a href="mailto:gastroboostmarketingdegital@gmail.com">Collabora (scrivi di AI)</a><a href="#">Privacy policy</a></div></div>
   </div>
-  <div class="footer-bottom"><span>© 2025 ANKOAUTCA AI Blog — Tutti i diritti riservati</span><span>Nessun social, solo informazione di qualità</span></div>
+  <div class="footer-bottom"><span>© 2025 ANKOAUTCA AI Blog — Tutti i diritti riservati</span><span>Nessun social · Solo informazione di qualità sull'IA</span></div>
 </footer>
 
-<!-- MODALE PER LETTURA ARTICOLO -->
-<div id="articleModal" class="modal">
-  <div class="modal-content">
-    <span class="close-modal">&times;</span>
-    <div id="modal-content-inner"></div>
-  </div>
-</div>
-
 <script>
-  // DATI ARTICOLI BLOG IA
-  const blogPosts = [
-    {
-      id: 1,
-      title: "L'ascesa dei modelli linguistici open source",
-      excerpt: "Llama 3, Mistral e Qwen stanno democratizzando l'accesso all'AI generativa. Analisi delle performance e dei costi.",
-      fullContent: `<p>Negli ultimi mesi, il panorama dell'intelligenza artificiale ha visto una proliferazione di modelli open source che competono con le controparti proprietarie come GPT-4. Modelli come Llama 3 (Meta), Mistral Large e Qwen 2.5 offrono prestazioni eccezionali con costi di inferenza ridotti.</p>
-      <p>Questi modelli possono essere eseguiti localmente, garantendo privacy e personalizzazione. Le aziende iniziano a preferirli per applicazioni sensibili. Secondo Hugging Face, i download di modelli open source sono cresciuti del 400% nell'ultimo anno.</p>
-      <p>Il futuro sarà un mix: modelli closed-source per task generici e open source per scenari verticali. L'innovazione corre su due binari paralleli.</p>`,
-      category: "Generative AI",
-      author: "Redazione AI",
-      date: "15 Maggio 2026",
-      img: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&h=400&fit=crop"
-    },
-    {
-      id: 2,
-      title: "Agenti AI autonomi: la prossima frontiera",
-      excerpt: "Gli agenti basati su LLM sono in grado di pianificare, eseguire task e collaborare. Cosa cambierà nel mondo del lavoro?",
-      fullContent: `<p>Gli agenti AI autonomi rappresentano l'evoluzione più significativa dopo ChatGPT. Invece di rispondere a domande, questi agenti eseguono obiettivi complessi: prenotano viaggi, scrivono codice, analizzano dati e comunicano tra loro.</p>
-      <p>Aziende come Adept, Cognition e AutoGPT stanno sviluppando framework che permettono agli agenti di utilizzare strumenti esterni (API, browser, terminale). Si prevede che entro il 2027 il 30% delle attività operative aziendali sarà gestito da agenti autonomi.</p>
-      <p>Le sfide riguardano sicurezza, allineamento e controllo. Tuttavia, il potenziale è immenso.</p>`,
-      category: "Autonomous Agents",
-      author: "Marco Verdi",
-      date: "8 Maggio 2026",
-      img: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop"
-    },
-    {
-      id: 3,
-      title: "Etica e AI: come evitare bias negli algoritmi",
-      excerpt: "I modelli addestrati su dati distorti perpetuano discriminazioni. Strategie pratiche per un'IA più equa.",
-      fullContent: `<p>Il problema del bias negli algoritmi non è più solo teorico. Casi di discriminazione razziale nei sistemi di assunzione, di genere nei modelli linguistici e di reddito nei credit scoring hanno spinto regolatori e aziende a intervenire.</p>
-      <p>Tecniche come la fairness-aware learning, la diversificazione dei dataset e gli audit continui sono essenziali. La nuova legge europea sull'AI (AI Act) impone obblighi stringenti per i sistemi ad alto rischio.</p>
-      <p>Costruire un'IA etica non è solo una scelta morale, ma un vantaggio competitivo per guadagnare fiducia degli utenti.</p>`,
-      category: "Etica Digitale",
-      author: "Laura Bianchi",
-      date: "2 Maggio 2026",
-      img: "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=600&h=400&fit=crop"
-    },
-    {
-      id: 4,
-      title: "Il futuro del lavoro con l'AI: professioni che nasceranno",
-      excerpt: "Non solo automazione: l'IA creerà nuove figure professionali. Scopri quali.",
-      fullContent: `<p>Secondo il World Economic Forum, entro il 2030 l'AI genererà 97 milioni di nuovi posti di lavoro. Tra le professioni emergenti: AI ethicist, prompt engineer, AI-augmented data analyst, e model auditor.</p>
-      <p>Le competenze più richieste non saranno solo tecniche, ma anche capacità di interazione con l'AI, pensiero critico e adattabilità. Le aziende investono massicciamente nella riqualificazione.</p>
-      <p>Il timore della sostituzione è in gran parte infondato: l'AI amplifica le capacità umane, non le rimpiazza.</p>`,
-      category: "Lavoro",
-      author: "Stefano Rizzo",
-      date: "25 Aprile 2026",
-      img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop"
-    },
-    {
-      id: 5,
-      title: "Multimodalità: quando l'AI vede, ascolta e scrive",
-      excerpt: "GPT-4o, Gemini e Claude 3 sono solo l'inizio. L'integrazione di testo, immagini, audio e video cambierà le interfacce.",
-      fullContent: `<p>I modelli multimodali sono in grado di elaborare e generare contenuti su più canali sensoriali. Le applicazioni spaziano dall'assistenza sanitaria (diagnosi da immagini e referti) all'educazione personalizzata.</p>
-      <p>Le sfide computazionali sono enormi, ma i progressi delle architetture transformer stanno rendendo possibile la comprensione olistica del mondo. Il prossimo passo sarà la ragione temporale su video lunghi.</p>`,
-      category: "Multimodal AI",
-      author: "Giulia Costa",
-      date: "18 Aprile 2026",
-      img: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=600&h=400&fit=crop"
-    },
-    {
-      id: 6,
-      title: "AI generativa per il codice: oltre GitHub Copilot",
-      excerpt: "Nuovi strumenti come Cursor e Cody stanno ridefinendo lo sviluppo software. Pro e contro.",
-      fullContent: `<p>GitHub Copilot ha aperto la strada, ma oggi esistono alternative più potenti e personalizzabili. Cursor permette di editare codice con linguaggio naturale, mentre Cody (Sourcegraph) si integra con repository aziendali.</p>
-      <p>Secondo uno studio di Google, gli sviluppatori che usano assistenti AI sono il 55% più produttivi. Tuttavia, crescono le preoccupazioni sulla sicurezza del codice generato e sul diritto d'autore.</p>
-      <p>Il futuro sarà una collaborazione simbiotica: l'AI scrive boilerplate e test, l'umano progetta l'architettura.</p>`,
-      category: "Dev AI",
-      author: "Luca Neri",
-      date: "10 Aprile 2026",
-      img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop"
-    }
-  ];
+// ============================================================
+// DATI ARTICOLI STATICI (TESTI LUNGHI, SEO OTTIMIZZATI)
+// ============================================================
+const allArticles = [
+  { id:1, titolo:"GPT-5 è alle porte: cosa cambierà per l'intelligenza artificiale generativa", sottotitolo:"Le attese per il nuovo modello di OpenAI sono altissime. Ecco le caratteristiche tecniche e le implicazioni per il mercato.", categoria:"generative", autore:"Marco Verdi", minutiLettura:8, imgCat:"tecnologia",
+    corpo:"Secondo fonti vicine all'azienda, OpenAI presenterà GPT-5 entro la fine dell'anno. Il nuovo modello promette capacità di ragionamento molto superiori, una memoria di contesto fino a 1 milione di token e la nativa multimodalità integrata.\n\nA differenza di GPT-4, che ancora mostra limiti nel calcolo logico complesso, GPT-5 adotterà un'architettura modulare che separa il ragionamento simbolico dalla generazione di testo. Questo approccio, già anticipato dal progetto \"Q*\", potrebbe ridurre drasticamente le allucinazioni.\n\nDal punto di vista pratico, gli sviluppatori potranno contare su API molto più efficienti, con costi di inferenza ridotti del 40% rispetto alle versioni precedenti. Le aziende stanno già preparando l'integrazione, specialmente nel settore legale e sanitario.\n\nTuttavia restano aperte le questioni etiche: la capacità di generare codice sempre più complesso solleva interrogativi sul futuro dei programmatori junior. Anche la disinformazione generata da deepfake diventerà più difficile da distinguere.\n\nL'Unione Europea sta monitorando da vicino lo sviluppo, in attesa che l'AI Act entri pienamente in vigore. OpenAI ha dichiarato di voler collaborare con i regolatori per garantire un rilascio responsabile." },
+  { id:2, titolo:"Machine Learning spiegato ai non esperti: come funzionano gli algoritmi che ci guidano", sottotitolo:"Dai consigli di Netflix alle diagnosi mediche, il ML è ovunque. Una guida accessibile.", categoria:"machine-learning", autore:"Laura Bianchi", minutiLettura:7, imgCat:"tecnologia",
+    corpo:"Il Machine Learning è una branca dell'IA che permette ai computer di apprendere dai dati senza essere esplicitamente programmati. Invece di seguire regole fisse, gli algoritmi trovano pattern statistici e fanno previsioni.\n\nEsistono tre tipi principali: apprendimento supervisionato (etichette fornite), non supervisionato (scopre strutture nascoste) e per rinforzo (impara per tentativi ed errori). I modelli moderni come le reti neurali profonde combinano questi approcci.\n\nUn esempio concreto: quando Netflix ti consiglia un film, ha analizzato milioni di visioni passate, ha identificato le tue preferenze e ha confrontato utenti simili. Lo stesso principio viene usato nei motori di ricerca, nei sistemi antifrode e nelle auto a guida autonoma.\n\nNonostante i progressi, il ML ha limiti: necessita di grandi quantità di dati di qualità, può incorporare bias esistenti e i modelli complessi sono spesso \"scatole nere\" difficili da interpretare.\n\nIl futuro è nell'XAI (Explainable AI), che mira a rendere trasparenti le decisioni algoritmiche. Normative come l'AI Act richiederanno sempre più spiegabilità per i sistemi ad alto rischio." },
+  { id:3, titolo:"AI Act europeo: cosa cambia per sviluppatori e aziende", sottotitolo:"Il regolamento storico entra in vigore. Obblighi, sanzioni e opportunità per il settore.", categoria:"etica", autore:"Giulia Romano", minutiLettura:9, imgCat:"politica",
+    corpo:"Dopo anni di negoziati, l'Unione Europea ha approvato definitivamente l'AI Act, il primo quadro normativo al mondo sull'intelligenza artificiale. Il regolamento classifica i sistemi AI in base al rischio: minimo, limitato, alto e inaccettabile.\n\nLe applicazioni considerate a rischio inaccettabile (es. social scoring, manipolazione subliminale, sorveglianza biometrica in tempo reale in spazi pubblici) sono vietate. Quelle ad alto rischio (es. infrastrutture critiche, istruzione, HR, credito) devono rispettare requisiti stringenti: governance dei dati, trasparenza, supervisione umana.\n\nPer sviluppatori e aziende, l'AI Act impone di documentare i processi di sviluppo, effettuare valutazioni di conformità e garantire la tracciabilità dei log. Le sanzioni arrivano fino a 35 milioni di euro o il 7% del fatturato globale.\n\nParallelamente, la norma incentiva l'innovazione con \"sandbox regolatori\" dove testare soluzioni innovative in un ambiente controllato. PMI e startup avranno costi di conformità ridotti.\n\nL'impatto sarà profondo: molte aziende dovranno rivedere i propri modelli di governance dei dati e investire in esperti di conformità. L'Europa punta a diventare il gold standard mondiale per un'IA affidabile." },
+  { id:4, titolo:"I migliori strumenti AI gratis per il lavoro quotidiano (2026)", sottotitolo:"Da ChatGPT a Claude, da Midjourney a Perplexity: guida ai tool essenziali.", categoria:"strumenti", autore:"Andrea Costa", minutiLettura:6, imgCat:"tecnologia",
+    corpo:"L'offerta di strumenti AI gratuiti è cresciuta enormemente. Per la scrittura, ChatGPT (versione free con GPT-3.5 o limiti su GPT-4o) e Claude di Anthropic offrono capacità eccellenti per bozze, email e riassunti. Per la ricerca, Perplexity AI combina chatbot e fonti web.\n\nPer la generazione di immagini, Leonardo.ai e Playground v2 forniscono crediti giornalieri gratuiti sufficienti per uso professionale leggero. Ideogram eccelle nel testo nelle immagini. Per video animati, Runway ML offre un piano free limitato.\n\nPer la produttività: Notion AI ha una versione base, mentre Microsoft Copilot integrato in Edge e Bing è completamente gratuito. Gamma.ai crea presentazioni automatiche. Otter.ai trascrive riunioni.\n\nPer sviluppatori: GitHub Copilot per studenti è gratis; Cody (Sourcegraph) offre un piano free per uso personale. Replit Ghostwriter ha crediti settimanali.\n\nQuesti strumenti aumentano l'efficienza, ma vanno usati con consapevolezza: verifica sempre i contenuti generati, evita dati sensibili, e ricorda che la creatività umana resta insostituibile." },
+  { id:5, titolo:"IA e lavoro: quali professioni sopravviveranno e quali nasceranno", sottotitolo:"Secondo il WEF, entro il 2030 verranno creati 97 milioni di nuovi posti legati all'AI.", categoria:"lavoro", autore:"Stefano Neri", minutiLettura:8, imgCat:"economia",
+    corpo:"Il dibattito sulla sostituzione dei lavoratori da parte dell'IA è acceso. Il World Economic Forum nel suo Future of Jobs Report 2025 stima che entro il 2030 l'AI sostituirà 85 milioni di posti di lavoro, ma ne creerà 97 milioni di nuovi, per un saldo positivo.\n\nLe professioni più a rischio sono quelle ripetitive: operatori di data entry, traduttori di base, addetti al customer service semplice. Al contrario, cresceranno esponenzialmente i ruoli di AI specialist, data engineer, AI ethicist, prompt engineer, e auditor di algoritmi.\n\nLe competenze più richieste non saranno solo tecniche: il pensiero critico, la creatività, l'intelligenza emotiva e la capacità di collaborare con l'IA diventeranno fondamentali. Le aziende stanno investendo in programmi di upskilling e reskilling.\n\nUn'analisi di McKinsey mostra che i lavoratori che utilizzano l'IA come assistente aumentano la produttività del 40% rispetto a chi la ignora. La chiave è l'integrazione uomo-macchina, non la sostituzione.\n\nLe istituzioni devono prepararsi: riforme dei sistemi educativi, formazione continua, e politiche di supporto alla riqualificazione. Il futuro non sarà senza lavoro, ma con lavoro trasformato." }
+];
 
-  // Render blog grid
-  const gridContainer = document.getElementById('blog-grid');
-  function renderBlog() {
-    gridContainer.innerHTML = '';
-    blogPosts.forEach(post => {
-      const card = document.createElement('div');
-      card.className = 'blog-card';
-      card.setAttribute('data-id', post.id);
-      card.innerHTML = `
-        <div class="blog-img" style="background-image: url('${post.img}');">
-          <span class="blog-cat">${post.category}</span>
-        </div>
-        <div class="blog-content">
-          <h3 class="blog-title">${post.title}</h3>
-          <p class="blog-excerpt">${post.excerpt}</p>
-          <div class="blog-meta">
-            <span class="blog-author"><i class="ti ti-user"></i> ${post.author}</span>
-            <span class="blog-date"><i class="ti ti-calendar"></i> ${post.date}</span>
-          </div>
-        </div>
-      `;
-      card.addEventListener('click', () => openModal(post.id));
-      gridContainer.appendChild(card);
-    });
-  }
-
-  // Modal articolo
-  const modal = document.getElementById('articleModal');
-  const modalInner = document.getElementById('modal-content-inner');
-  const closeModal = document.querySelector('.close-modal');
-
-  function openModal(id) {
-    const post = blogPosts.find(p => p.id === id);
-    if (post) {
-      modalInner.innerHTML = `
-        <h2>${post.title}</h2>
-        <div class="modal-meta"><i class="ti ti-user"></i> ${post.author} · <i class="ti ti-calendar"></i> ${post.date} · <i class="ti ti-category"></i> ${post.category}</div>
-        ${post.fullContent}
-      `;
-      modal.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    }
-  }
-
-  closeModal.onclick = () => {
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
+function getImgUrl(cat, idx=0) {
+  const imgs = {
+    'generative':'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=500&fit=crop',
+    'machine-learning':'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&h=500&fit=crop',
+    'etica':'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=800&h=500&fit=crop',
+    'strumenti':'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=500&fit=crop',
+    'lavoro':'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=500&fit=crop',
+    'tecnologia':'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&h=500&fit=crop',
+    'politica':'https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?w=800&h=500&fit=crop'
   };
-  window.onclick = (e) => {
-    if (e.target === modal) {
-      modal.style.display = 'none';
-      document.body.style.overflow = 'auto';
-    }
-  };
+  return imgs[cat] || imgs.tecnologia;
+}
 
-  // LIVE CHAT PUBBLICA (stessa identica funzionalità del sito originale)
-  const CHAT_KEY = 'ankoautca_ai_blog_chat';
-  function loadChat() {
-    return JSON.parse(localStorage.getItem(CHAT_KEY) || '[]');
-  }
-  function saveChat(messages) {
-    localStorage.setItem(CHAT_KEY, JSON.stringify(messages));
-  }
-  function renderChat() {
-    const container = document.getElementById('chat-messages');
-    const messages = loadChat();
-    if (messages.length === 0) {
-      container.innerHTML = '<div style="padding:12px;text-align:center;color:#888;">💬 Nessun commento. Sii il primo a parlare di AI!</div>';
-      return;
-    }
-    container.innerHTML = messages.slice().reverse().map(m => `
-      <div class="chat-msg">
-        <span class="chat-name">${escapeHtml(m.name || 'Anonimo')}</span>
-        <span class="chat-time">${m.time}</span>
-        <div class="chat-text">${escapeHtml(m.text)}</div>
-      </div>
-    `).join('');
-  }
-  function escapeHtml(str) {
-    return str.replace(/[&<>]/g, function(m) {
-      if (m === '&') return '&amp;';
-      if (m === '<') return '&lt;';
-      if (m === '>') return '&gt;';
-      return m;
-    });
-  }
-  document.getElementById('chat-submit').addEventListener('click', () => {
-    const nameInput = document.getElementById('chat-name');
-    const textInput = document.getElementById('chat-text');
-    const name = nameInput.value.trim();
-    const text = textInput.value.trim();
-    if (!text) return alert('Scrivi un messaggio.');
-    const messages = loadChat();
-    const now = new Date();
-    const timeStr = `${now.getHours().toString().padStart(2,'0')}:${now.getMinutes().toString().padStart(2,'0')} - ${now.getDate()}/${now.getMonth()+1}`;
-    messages.push({ name: name.substring(0,30) || 'Anonimo', text: text.substring(0,500), time: timeStr });
-    if (messages.length > 200) messages.shift();
-    saveChat(messages);
-    renderChat();
-    textInput.value = '';
-    nameInput.value = '';
-  });
+// FUNZIONI RENDER
+function escapeHtml(s){return String(s||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}
+function renderCard(a,i){return `<div class="card" onclick="openArticle(${JSON.stringify(a).replace(/"/g,'&quot;')})"><div class="card-img"><img src="${getImgUrl(a.categoria,i)}" loading="lazy"><span class="card-cat-badge">${a.categoria}</span></div><div class="card-body"><h2 class="card-title">${a.titolo}</h2><p class="card-excerpt">${a.sottotitolo}</p><div class="card-meta"><span>${a.autore}</span><span><i class="ti ti-clock"></i> ${a.minutiLettura} min</span></div></div></div>`;}
+function renderListItem(a,i){return `<div class="article-list-item" onclick="openArticle(${JSON.stringify(a).replace(/"/g,'&quot;')})"><div class="ali-img"><img src="${getImgUrl(a.categoria,i)}" loading="lazy"></div><div class="ali-content"><div class="ali-cat">${a.categoria}</div><div class="ali-title">${a.titolo}</div><div class="ali-meta">${a.autore} · ${a.minutiLettura} min</div></div></div>`;}
+function renderHero(articles){const h=articles.slice(0,3);return `<div class="hero-grid"><div class="hero-main" onclick="openArticle(${JSON.stringify(h[0]).replace(/"/g,'&quot;')})"><div class="hero-main-bg" style="background-image:url('${getImgUrl(h[0].categoria,0)}')"></div><div class="hero-main-overlay"></div><div class="hero-main-content"><span class="hero-category">🔴 IN EVIDENZA</span><h1 class="hero-title">${h[0].titolo}</h1><p class="hero-excerpt">${h[0].sottotitolo}</p><div class="hero-meta"><span>${h[0].autore}</span><span><i class="ti ti-clock"></i> ${h[0].minutiLettura} min</span></div></div></div><div class="hero-side">${h.slice(1).map((a,i)=>`<div class="hero-side-item" onclick="openArticle(${JSON.stringify(a).replace(/"/g,'&quot;')})"><div class="hsi-bg" style="background-image:url('${getImgUrl(a.categoria,i+1)}')"></div><div class="hsi-overlay"></div><div class="hsi-content"><div class="hsi-cat">${a.categoria}</div><div class="hsi-title">${a.titolo}</div></div></div>`).join('')}</div></div>`;}
+function renderMagGrid(articles){return `<div class="magazine-grid">${articles.slice(0,3).map((a,i)=>`<div class="mag-item ${i===0?'mag-main':''}" onclick="openArticle(${JSON.stringify(a).replace(/"/g,'&quot;')})"><div class="mag-item-bg" style="background-image:url('${getImgUrl(a.categoria,i)}')"></div><div class="mag-overlay"></div><div class="mag-content"><div class="mag-cat">${a.categoria}</div><div class="mag-title">${a.titolo}</div></div></div>`).join('')}</div>`;}
 
-  // Data topbar
-  const days = ['Domenica','Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato'];
-  const months = ['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'];
-  const now = new Date();
-  document.getElementById('topbar-date').innerHTML = `${days[now.getDay()]} ${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`;
+async function renderHome(){
+  document.querySelectorAll('.mainnav-inner a').forEach(a=>a.classList.remove('active'));
+  document.querySelector('.mainnav-inner a').classList.add('active');
+  const mc = document.getElementById('main-container');
+  const primi = allArticles.slice(0,8);
+  const heroArts = allArticles.slice(0,3);
+  const cards = allArticles.slice(3,9);
+  const lista = allArticles.slice(9,12);
+  const mlArts = allArticles.filter(a=>a.categoria==='machine-learning').slice(0,3);
+  const eticaArts = allArticles.filter(a=>a.categoria==='etica').slice(0,3);
+  mc.innerHTML = `
+    ${renderHero(heroArts)}
+    <div class="main-layout">
+      <main>
+        <div class="category-section"><div class="section-header"><div class="section-red-line"></div><span class="section-label">Ultimi approfondimenti AI</span></div><div class="articles-grid" id="latest-grid">${cards.map((a,i)=>renderCard(a,i)).join('')}</div><div id="more-list">${lista.map((a,i)=>renderListItem(a,i)).join('')}</div><button class="btn-more" id="loadMoreBtn">Carica altri articoli <i class="ti ti-arrow-down"></i></button></div>
+        <div class="category-section"><div class="section-header"><div class="section-red-line"></div><span class="section-label">Machine Learning</span></div>${renderMagGrid(mlArts)}</div>
+        <div class="category-section"><div class="section-header"><div class="section-red-line"></div><span class="section-label">Etica & AI Act</span></div><div class="articles-grid">${eticaArts.map((a,i)=>renderCard(a,i)).join('')}</div></div>
+        <div class="collab-banner"><i class="ti ti-rocket collab-icon"></i><div class="collab-text"><div class="collab-title">Scrivi di Intelligenza Artificiale</div><div class="collab-desc">Sei un esperto, sviluppatore o appassionato? Collabora con il nostro blog AI. Invia la tua proposta a <strong>gastroboostmarketingdegital@gmail.com</strong></div></div><a href="mailto:gastroboostmarketingdegital@gmail.com" class="collab-btn">Proponi articolo</a></div>
+      </main>
+      <aside class="sidebar">
+        <div class="widget"><div class="widget-header"><i class="ti ti-news"></i> Informazione libera</div><div class="info-gratis"><i class="ti ti-device-mobile"></i><h3>100% Gratuito</h3><p>Nessun abbonamento, nessun dato personale. Leggi tutto sull'IA senza barriere.</p><div class="badge-free"><i class="ti ti-check"></i> Zero tracciamento</div></div></div>
+        <div class="widget"><div class="widget-header"><i class="ti ti-pencil"></i> Scrivi per noi</div><div style="padding:16px;text-align:center"><p style="font-size:13px;margin-bottom:12px;color:var(--gray-500)">Invia il tuo articolo sull'IA</p><a href="mailto:gastroboostmarketingdegital@gmail.com" style="background:var(--red);color:white;padding:10px;display:block;font-weight:700;font-size:12px;text-transform:uppercase;">Invia candidatura</a></div></div>
+        <div class="widget"><div class="widget-header"><i class="ti ti-flame"></i> Temi AI</div><div style="padding:8px 0">${['generative','machine-learning','etica','strumenti','lavoro'].map(c=>`<div style="padding:10px 16px;border-bottom:1px solid #f0ede8;cursor:pointer;font-size:14px;display:flex;justify-content:space-between" onclick="loadCategory('${c}')"><span style="font-weight:600">${c==='generative'?'AI Generativa':c==='machine-learning'?'Machine Learning':c==='etica'?'Etica e Sicurezza':c==='strumenti'?'Strumenti AI':'Lavoro & Futuro'}</span><i class="ti ti-chevron-right" style="color:var(--red)"></i></div>`).join('')}</div></div>
+      </aside>
+    </div>`;
+  document.getElementById('loadMoreBtn').onclick = ()=>{ const more = allArticles.slice(12,16); document.getElementById('more-list').innerHTML += more.map((a,i)=>renderListItem(a,i+12)).join(''); };
+}
 
-  // Search semplice
-  document.getElementById('search-btn').addEventListener('click', () => {
-    const query = document.getElementById('search-input').value.toLowerCase();
-    if (!query) return;
-    const filtered = blogPosts.filter(p => p.title.toLowerCase().includes(query) || p.category.toLowerCase().includes(query) || p.excerpt.toLowerCase().includes(query));
-    if (filtered.length === 0) {
-      gridContainer.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:40px;">Nessun articolo trovato per "' + query + '"</div>';
-    } else {
-      gridContainer.innerHTML = '';
-      filtered.forEach(post => {
-        const card = document.createElement('div');
-        card.className = 'blog-card';
-        card.setAttribute('data-id', post.id);
-        card.innerHTML = `
-          <div class="blog-img" style="background-image: url('${post.img}');"><span class="blog-cat">${post.category}</span></div>
-          <div class="blog-content"><h3 class="blog-title">${post.title}</h3><p class="blog-excerpt">${post.excerpt}</p><div class="blog-meta"><span><i class="ti ti-user"></i> ${post.author}</span><span><i class="ti ti-calendar"></i> ${post.date}</span></div></div>
-        `;
-        card.addEventListener('click', () => openModal(post.id));
-        gridContainer.appendChild(card);
-      });
-    }
-  });
+async function loadCategory(cat){
+  const mc = document.getElementById('main-container');
+  const filtered = allArticles.filter(a=>a.categoria===cat);
+  if(filtered.length===0){ mc.innerHTML='<div style="padding:60px;text-align:center">Nessun articolo in questa categoria.</div>'; return; }
+  mc.innerHTML = `<div style="padding:30px 0"><div class="section-header"><div class="section-red-line"></div><span class="section-label">${cat}</span></div>${renderHero(filtered)}<div class="articles-grid" style="margin-top:24px">${filtered.slice(3).map((a,i)=>renderCard(a,i)).join('')}</div></div>`;
+}
 
-  renderBlog();
+async function openArticle(articleData){
+  let a = typeof articleData === 'string' ? JSON.parse(articleData) : articleData;
+  const mc = document.getElementById('main-container');
+  const imgUrl = getImgUrl(a.categoria,0);
+  const paragraphs = (a.corpo||'').split('\n\n').filter(p=>p.trim());
+  mc.innerHTML = `<div class="article-full-page"><div class="back-home" onclick="renderHome()">← Torna alla home</div><div style="margin-bottom:12px"><span style="background:var(--red);color:white;font-size:10px;font-weight:700;padding:3px 9px;letter-spacing:2px;text-transform:uppercase">${a.categoria}</span></div><h1>${a.titolo}</h1><p style="font-family:var(--font-serif);font-style:italic;font-size:18px;color:var(--gray-500);margin-bottom:16px">${a.sottotitolo}</p><div class="article-meta"><i class="ti ti-user"></i> ${a.autore} &nbsp;·&nbsp; <i class="ti ti-clock"></i> ${a.minutiLettura} minuti di lettura</div><img src="${imgUrl}" alt="${a.titolo}" style="width:100%;max-height:500px;object-fit:cover;margin:20px 0"><div class="article-content">${paragraphs.map(p=>`<p>${p}</p>`).join('')}</div></div>`;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// RICERCA
+document.getElementById('search-btn').addEventListener('click',()=>{
+  const q=document.getElementById('search-input').value.trim().toLowerCase();
+  if(!q) return;
+  const risultati = allArticles.filter(a=>a.titolo.toLowerCase().includes(q)||a.sottotitolo.toLowerCase().includes(q)||a.categoria.includes(q));
+  const mc=document.getElementById('main-container');
+  if(risultati.length===0){ mc.innerHTML=`<div style="padding:60px;text-align:center"><div class="back-home" onclick="renderHome()">← Torna alla home</div><h2>Nessun risultato per "${q}"</h2></div>`; return; }
+  mc.innerHTML=`<div style="padding:30px 0"><div class="back-home" onclick="renderHome()">← Torna alla home</div><h2 style="margin:20px 0 30px">Risultati per: "${q}"</h2><div class="articles-grid">${risultati.map((a,i)=>renderCard(a,i)).join('')}</div></div>`;
+});
+document.getElementById('search-input').addEventListener('keypress',e=>{if(e.key==='Enter') document.getElementById('search-btn').click();});
+
+// LIVE CHAT
+const CHAT_KEY='ankoautca_ai_chat';
+function loadChat(){return JSON.parse(localStorage.getItem(CHAT_KEY)||'[]');}
+function saveChat(m){localStorage.setItem(CHAT_KEY,JSON.stringify(m));}
+function renderChat(){
+  const el=document.getElementById('global-chat-messages');
+  const msgs=loadChat();
+  if(!msgs.length){el.innerHTML='<div class="chat-empty">💬 Nessun messaggio. Scrivi il primo commento sull\'IA!</div>';return;}
+  el.innerHTML=msgs.slice().reverse().map(m=>`<div class="chat-msg"><span class="chat-name">${escapeHtml(m.name||'Anonimo')}</span><span class="chat-time">${m.time}</span><div class="chat-text">${escapeHtml(m.text)}</div></div>`).join('');
+}
+document.getElementById('global-chat-submit').addEventListener('click',()=>{
+  const name=document.getElementById('global-chat-name').value.trim();
+  const text=document.getElementById('global-chat-text').value.trim();
+  if(!text) return alert('Scrivi un messaggio.');
+  const msgs=loadChat();
+  const now=new Date();
+  msgs.push({name:name||'Anonimo',text:text.substring(0,500),time:`${now.getHours().toString().padStart(2,'0')}:${now.getMinutes().toString().padStart(2,'0')} · ${now.getDate()}/${now.getMonth()+1}`});
+  if(msgs.length>200) msgs.shift();
+  saveChat(msgs);
   renderChat();
+  document.getElementById('global-chat-text').value='';
+});
+
+// DATA TOPBAR
+document.getElementById('topbar-date').innerText=new Date().toLocaleDateString('it-IT',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+renderChat();
+renderHome();
 </script>
 </body>
 </html>
