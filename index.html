@@ -172,13 +172,6 @@ nav{background:var(--ink)}
 .trend-title{font-family:var(--serif);font-size:14px;font-weight:600;line-height:1.3;transition:color var(--t)}
 .trend-item:hover .trend-title{color:var(--red)}
 
-/* METEO WIDGET */
-.meteo-box{text-align:center;padding:20px 16px}
-.meteo-city{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
-.meteo-temp{font-family:var(--display);font-size:48px;font-weight:700;line-height:1;margin:8px 0}
-.meteo-desc{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--muted)}
-.meteo-row{display:flex;justify-content:space-around;margin-top:12px;font-size:12px;color:var(--muted)}
-
 /* ARTICLE PAGE */
 .art-page{background:var(--white);border-radius:var(--radius);padding:36px;box-shadow:var(--shadow);margin:28px 0;animation:fadeUp .4s ease}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
@@ -193,18 +186,6 @@ nav{background:var(--ink)}
 .share-btn:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
 .back-btn{display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:#fff;padding:7px 14px;border-radius:4px;font-size:13px;font-weight:600;cursor:pointer;margin-bottom:22px;transition:all var(--t)}
 .back-btn:hover{background:var(--red)}
-
-/* LOADING */
-.loading{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 20px;gap:16px}
-.spinner{width:36px;height:36px;border:3px solid var(--warm);border-top-color:var(--red);border-radius:50%;animation:spin 1s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.loading p{font-family:var(--serif);font-style:italic;color:var(--muted)}
-
-/* SKELETON */
-.skel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.skel-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
-.skel{background:linear-gradient(90deg,var(--paper) 25%,var(--warm) 50%,var(--paper) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite}
-@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
 
 /* FORUM */
 .forum-section{background:var(--paper);border-top:3px solid var(--ink);margin-top:40px}
@@ -321,10 +302,10 @@ footer{background:var(--ink);color:#888;margin-top:0}
     <div class="ts-date" id="ts-date"></div>
     <div class="ts-links">
       <span class="live-pill">● LIVE</span>
-      <a onclick="nav('politica')">Politica</a>
-      <a onclick="nav('cronaca')">Cronaca</a>
-      <a onclick="nav('mondo')">Mondo</a>
-      <a onclick="nav('sport')">Sport</a>
+      <a href="Politica.html">Politica</a>
+      <a href="Cronaca.html">Cronaca</a>
+      <a href="Mondo.html">Mondo</a>
+      <a href="Sport.html">Sport</a>
     </div>
   </div>
 </div>
@@ -337,12 +318,10 @@ footer{background:var(--ink);color:#888;margin-top:0}
       <span>Meteo: vague di calore nel weekend — temperature record attese</span>
       <span>Serie A: fissate le date della prossima stagione</span>
       <span>Unione Europea: summit straordinario a Bruxelles</span>
-      <span>Borsa di Milano: il FTSE MIB registra movimenti significativi</span>
       <span>Governo esamina nuove misure per l'economia italiana</span>
       <span>Meteo: vague di calore nel weekend — temperature record attese</span>
       <span>Serie A: fissate le date della prossima stagione</span>
       <span>Unione Europea: summit straordinario a Bruxelles</span>
-      <span>Borsa di Milano: il FTSE MIB registra movimenti significativi</span>
     </div>
   </div>
 </div>
@@ -362,16 +341,17 @@ footer{background:var(--ink);color:#888;margin-top:0}
   </div>
   <nav>
     <div class="nav-in" id="mainnav">
-      <a class="act" onclick="goHome()">Home</a>
-      <a onclick="nav('politica')">Politica</a>
-      <a onclick="nav('economia')">Economia</a>
-      <a onclick="nav('mondo')">Mondo</a>
-      <a onclick="nav('cronaca')">Cronaca</a>
-      <a onclick="nav('sport')">Sport</a>
-      <a onclick="nav('tecnologia')">Tecnologia</a>
-      <a onclick="nav('cultura')">Cultura</a>
-      <a onclick="nav('ambiente')">Ambiente</a>
-      <a onclick="scrollToForum()">Forum</a>
+      <a class="act" href="index.html">Home</a>
+      <a href="Politica.html">Politica</a>
+      <a href="Economia.html">Economia</a>
+      <a href="Mondo.html">Mondo</a>
+      <a href="Cronaca.html">Cronaca</a>
+      <a href="Sport.html">Sport</a>
+      <a href="Tecnologia.html">Tecnologia</a>
+      <a href="Cultura.html">Cultura</a>
+      <a href="Ambiente.html">Ambiente</a>
+      <a href="Opinione.html">Opinione</a>
+      <a href="#forum-section">Forum</a>
     </div>
   </nav>
 </header>
@@ -461,14 +441,15 @@ footer{background:var(--ink);color:#888;margin-top:0}
     <div>
       <div class="ft-htitle">Sezioni</div>
       <div class="ft-links">
-        <a onclick="nav('politica')">Politica</a>
-        <a onclick="nav('economia')">Economia</a>
-        <a onclick="nav('mondo')">Mondo</a>
-        <a onclick="nav('cronaca')">Cronaca</a>
-        <a onclick="nav('sport')">Sport</a>
-        <a onclick="nav('tecnologia')">Tecnologia</a>
-        <a onclick="nav('cultura')">Cultura</a>
-        <a onclick="nav('ambiente')">Ambiente</a>
+        <a href="Politica.html">Politica</a>
+        <a href="Economia.html">Economia</a>
+        <a href="Mondo.html">Mondo</a>
+        <a href="Cronaca.html">Cronaca</a>
+        <a href="Sport.html">Sport</a>
+        <a href="Tecnologia.html">Tecnologia</a>
+        <a href="Cultura.html">Cultura</a>
+        <a href="Ambiente.html">Ambiente</a>
+        <a href="Opinione.html">Opinione</a>
       </div>
     </div>
     <div>
@@ -484,6 +465,7 @@ footer{background:var(--ink);color:#888;margin-top:0}
   <div class="ft-bottom">
     <span>© 2025 ANKOAUTCA — Tutti i diritti riservati</span>
     <span>Informazione libera · Nessun tracciamento · Nessun paywall</span>
+    <span style="cursor:pointer;color:#555;" onclick="showAdminLogin()">🔑 Admin</span>
   </div>
 </footer>
 
@@ -492,6 +474,7 @@ footer{background:var(--ink);color:#888;margin-top:0}
 </button>
 <div class="notify" id="notify"></div>
 
+<script src="https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"></script>
 <script>
 // ═══════════════════════════════════════════════
 //  DATA — articoli pre-scritti, alta qualità
@@ -502,7 +485,7 @@ const ARTICLES_DB = {
     {id:'a2',cat:'Attualità',title:'Caldo record: temperature oltre i 40 gradi al Sud, allerta rossa in Sicilia e Sardegna',sub:'L\'anticiclone africano porta una nuova ondata di calore sull\'Italia. La Protezione Civile attiva i piani di emergenza.',author:'Laura Ferri',read:4,img:'cronaca',body:`Un'imponente massa d'aria calda proveniente dall'Africa subsahariana ha investito l'Italia meridionale e le isole maggiori, portando le temperature a toccare livelli eccezionali. In alcune località della Sicilia interna il termometro ha sfiorato i 44 gradi, mentre a Cagliari la colonnina di mercurio ha registrato valori superiori ai 41 gradi.\n\nLa Protezione Civile ha emesso allerta rossa per Sicilia, Sardegna, Calabria e Basilicata. Le autorità sanitarie raccomandano di evitare l'esposizione al sole nelle ore centrali della giornata, di idratarsi frequentemente e di prestare particolare attenzione agli anziani e ai soggetti fragili.\n\nI pronto soccorso di Palermo e Catania hanno registrato un sensibile aumento degli accessi per colpi di calore e disidratazione. Il sindaco di Palermo ha firmato un'ordinanza che dispone l'apertura straordinaria di centri climatizzati pubblici e biblioteche comunali come rifugi per i cittadini in difficoltà.\n\nIn campagna la situazione è critica: Coldiretti stima danni all'agricoltura per centinaia di milioni di euro, con perdite drammatiche per gli agrumi, i pomodori e il grano duro. I gestori dei bacini idrici segnalano un calo delle riserve idriche che non si vedeva da decenni.\n\nLe previsioni meteorologiche indicano che l'ondata di calore potrebbe durare almeno altri quattro giorni, prima che un fronte atlantico porti un parziale sollievo alle temperature.`},
     {id:'a3',cat:'Attualità',title:'Boom del turismo estivo: arrivi internazionali in crescita del 18% rispetto all\'anno scorso',sub:'L\'Italia si conferma la prima destinazione culturale d\'Europa. Venezia e Roma ai vertici delle classifiche mondiali.',author:'Giulia Romano',read:5,img:'cultura',body:`L'estate italiana registra numeri da record per il turismo internazionale. Secondo i dati diffusi dall'Ente Nazionale del Turismo, nei primi sei mesi dell'anno gli arrivi dall'estero hanno segnato un incremento del 18% rispetto allo stesso periodo dell'anno precedente, superando i 48 milioni di visitatori.\n\nVenezia e Roma si confermano le mete preferite, ma emergono con forza destinazioni come Matera, le Langhe piemontesi e la Costiera Amalfitana, segnalate dalle principali guide internazionali come esperienze imperdibili. Il turismo culturale — musei, siti Unesco, festival — traina la crescita con un +24%.\n\nGli operatori del settore sono fiduciosi per l'intera stagione estiva: l'indice di prenotazione alberghiera per luglio e agosto indica un tasso di occupazione medio dell'87% nelle principali città d'arte, con picchi superiori al 95% per le strutture di lusso.\n\nIl presidente di Federturismo ha sottolineato come il «brand Italia» continui a esercitare una forza di attrazione senza eguali: «Siamo il Paese più amato al mondo, e i numeri lo confermano. Ora dobbiamo lavorare per distribuire meglio i flussi, alleggerendo le destinazioni più sature e valorizzando i borghi meno conosciuti».\n\nL'impatto economico è significativo: il settore turistico contribuisce al PIL nazionale con una quota stimata intorno al 13%, e l'anno corrente potrebbe portarlo a un nuovo massimo storico.`},
     {id:'a4',cat:'Attualità',title:'Riforma della giustizia: la Camera vota a favore della separazione delle carriere',sub:'Storico passaggio parlamentare dopo anni di dibattiti. Il provvedimento ora passa al Senato per la seconda lettura.',author:'Paolo Esposito',read:7,img:'politica',body:`La Camera dei Deputati ha approvato ieri sera, con 278 voti a favore e 214 contrari, il disegno di legge costituzionale sulla separazione delle carriere tra magistratura requirente e giudicante. È un passaggio storico che riapre uno dei dibattiti più longevi della politica italiana.\n\nIl provvedimento, primo atto formale di una riforma della giustizia annunciata da anni, prevede che i magistrati debbano scegliere all'inizio della carriera se fare il pubblico ministero o il giudice, senza più possibilità di passare dall'una all'altra funzione. Vengono inoltre istituiti due organi di autogoverno separati per le due categorie.\n\nI sostenitori della riforma la presentano come un pilastro dello Stato di diritto e della parità tra accusa e difesa: «Finalmente i cittadini potranno contare su un giudice davvero terzo», ha detto il Ministro della Giustizia dopo il voto. Le associazioni dell'avvocatura hanno espresso un giudizio favorevole.\n\nL'Associazione Nazionale Magistrati ha invece reagito duramente, parlando di «attacco all'autonomia della magistratura» e annunciando iniziative di protesta. Anche diversi costituzionalisti hanno sollevato dubbi sulla tenuta del sistema nell'ipotesi di due CSM separati.\n\nTrattandosi di legge costituzionale, il percorso parlamentare richiede una doppia approvazione con intervallo di tre mesi. Il testo passa ora al Senato, dove la maggioranza conta su un margine più risicato.`},
-    {id:'a5',cat:'Attualità',title:'Intelligenza artificiale nelle scuole: parte il programma pilota in 500 istituti italiani',sub:'Il Ministero dell\'Istruzione lancia un ambizioso piano di formazione digitale. Coinvolti 120.000 studenti.',author:'Andrea Costa',read:5,img:'tecnologia',body:`Il Ministero dell'Istruzione e del Merito ha avviato ufficialmente il programma pilota «AI per tutti», che porterà l'educazione all'intelligenza artificiale in 500 istituti scolastici distribuiti su tutto il territorio nazionale. Coinvolti oltre 120.000 studenti dalla prima media alla quinta superiore.\n\nIl programma prevede un ciclo formativo di 40 ore annue, integrate nel curricolo ordinario, durante le quali gli studenti impareranno le basi del machine learning, l'uso critico degli strumenti di IA generativa e le implicazioni etiche e sociali di queste tecnologie. Alla formazione degli studenti si affiancherà un percorso obbligatorio per i docenti coinvolti.\n\nLa scelta dei 500 istituti è avvenuta attraverso una selezione che ha privilegiato la distribuzione geografica e la varietà degli indirizzi scolastici: licei classici, scientifici, tecnici e professionali sono tutti rappresentati. Quattro atenei italiani affiancheranno il progetto con consulenza scientifica e monitoraggio dei risultati.\n\nIl Ministro ha dichiarato: «Non possiamo formare i cittadini del futuro ignorando le tecnologie che già oggi stanno trasformando il mercato del lavoro e la società. Vogliamo dare agli studenti strumenti critici, non solo competenze tecniche». I sindacati della scuola hanno accolto positivamente l'iniziativa, chiedendo però maggiori risorse per la formazione dei docenti.\n\nIl programma, finanziato con fondi PNRR per un totale di 180 milioni di euro, sarà valutato a fine anno scolastico e potrà essere esteso a tutti gli istituti italiani a partire dal prossimo anno.`},
+    {id:'a5',cat:'Attualità',title:'Intelligenza artificiale nelle scuole: parte il programma pilota in 500 istituti italiani',sub:'Il Ministero dell\'Istruzione lancia un ambizioso piano di formazione digitale. Coinvolti 120.000 studenti.',author:'Andrea Costa',read:5,img:'tecnologia',body:`Il Ministero dell'Istruzione e del Merito ha avviato ufficialmente il programma pilota «AI per tutti», che porterà l'educazione all'intelligenza artificiale in 500 istituti scolastici distribuiti su tutto il territorio nazionale. Coinvolti oltre 120.000 studenti dalla prima media alla quinta superiore.\n\nIl programma prevede un ciclo formativo di 40 ore annue, integrato nel curricolo ordinario, durante le quali gli studenti impareranno le basi del machine learning, l'uso critico degli strumenti di IA generativa e le implicazioni etiche e sociali di queste tecnologie. Alla formazione degli studenti si affiancherà un percorso obbligatorio per i docenti coinvolti.\n\nLa scelta dei 500 istituti è avvenuta attraverso una selezione che ha privilegiato la distribuzione geografica e la varietà degli indirizzi scolastici: licei classici, scientifici, tecnici e professionali sono tutti rappresentati. Quattro atenei italiani affiancheranno il progetto con consulenza scientifica e monitoraggio dei risultati.\n\nIl Ministro ha dichiarato: «Non possiamo formare i cittadini del futuro ignorando le tecnologie che già oggi stanno trasformando il mercato del lavoro e la società. Vogliamo dare agli studenti strumenti critici, non solo competenze tecniche». I sindacati della scuola hanno accolto positivamente l'iniziativa, chiedendo però maggiori risorse per la formazione dei docenti.\n\nIl programma, finanziato con fondi PNRR per un totale di 180 milioni di euro, sarà valutato a fine anno scolastico e potrà essere esteso a tutti gli istituti italiani a partire dal prossimo anno.`},
     {id:'a6',cat:'Attualità',title:'Calcio: la Nazionale Under 21 conquista il bronzo agli Europei in Germania',sub:'Gli azzurrini battono la Francia 2-1 in una finale drammatica. Esultanza in tutta Italia.',author:'Pietro Greco',read:4,img:'sport',body:`La Nazionale italiana Under 21 ha conquistato la medaglia di bronzo agli Europei di categoria disputati in Germania, battendo la Francia 2-1 in una gara carica di emozione giocata allo stadio di Colonia.\n\nGli azzurrini, in vantaggio grazie alla rete di Miretti al 23° minuto, erano stati raggiunti dai francesi nella ripresa su calcio di rigore. Il gol vittoria è arrivato all'88° minuto, firmato dal bomber Ambrosino su assist di Baldanzi, scatenando la festa tra i 4.000 tifosi italiani presenti sugli spalti.\n\nIl commissario tecnico della Nazionale maggiore, presente in tribuna, ha fatto i complimenti alla squadra: «Questi ragazzi sono il futuro del calcio italiano. Ho visto personalità, tecnica e cuore. Alcuni di loro saranno presto in Nazionale A».\n\nIl risultato è accolto con grande soddisfazione dalla Federazione Italiana Giuoco Calcio, che negli ultimi anni ha investito molto nel settore giovanile. Il tecnico della Under 21 ha dedicato il terzo posto «a tutti i giovani calciatori italiani che sognano di vestire la maglia azzurra».\n\nLa sera della partita, nelle principali piazze italiane si sono radunati migliaia di tifosi. A Roma la festa è durata fino all'alba, con cortei spontanei lungo le vie del centro storico.`},
     {id:'a7',cat:'Attualità',title:'Spazio: l\'agenzia spaziale italiana lancia il satellite per l\'osservazione dei ghiacciai alpini',sub:'Il progetto CRYO-IT monitorerà in tempo reale la fusione dei ghiacciai con una precisione senza precedenti.',author:'Francesca Neri',read:6,img:'tecnologia',body:`L'Agenzia Spaziale Italiana (ASI) ha completato con successo il lancio del satellite CRYO-IT, un avanzato sistema di osservazione dedicato al monitoraggio dei ghiacciai alpini e delle riserve di neve nelle Alpi e negli Appennini. Il vettore Vega-C è decollato dalla base di Kourou nella Guyana Francese alle 3:42 ora italiana.\n\nCRYO-IT, frutto di un'eccellenza tutta italiana con la partecipazione di tre università — Politecnico di Milano, La Sapienza e Università di Bologna — è dotato di un radar ad apertura sintetica di nuova generazione capace di rilevare variazioni di spessore glaciale dell'ordine del centimetro. I dati saranno trasmessi in quasi tempo reale e messi a disposizione della comunità scientifica internazionale.\n\nL'obiettivo primario è quantificare con precisione inedita il ritmo di fusione dei ghiacciai alpini, che negli ultimi trent'anni hanno perso il 35% del loro volume. Ma le applicazioni si estendono alla gestione delle risorse idriche, alla prevenzione delle alluvioni e alla pianificazione agricola nelle zone di montagna.\n\nIl presidente dell'ASI ha definito CRYO-IT «un salto di qualità nella nostra capacità di capire e documentare i cambiamenti climatici in atto». Il progetto ha un costo complessivo di 120 milioni di euro, finanziati in parte dall'ESA e in parte dal governo italiano attraverso il Piano Nazionale per la Ricerca.\n\nI primi dati scientifici sono attesi entro 90 giorni dal lancio, dopo una fase di messa in orbita e calibrazione degli strumenti.`},
     {id:'a8',cat:'Attualità',title:'Vino italiano: record di esportazioni nel primo semestre, +22% verso gli Stati Uniti',sub:'Il Prosecco e il Barolo conquistano i mercati anglosassoni. Le cantine del Piemonte e del Veneto trainano la crescita.',author:'Valentina Rossi',read:5,img:'economia',body:`Il primo semestre dell'anno si chiude con dati straordinari per il vino italiano sui mercati internazionali. Secondo il report semestrale di Federvini, le esportazioni hanno raggiunto i 3,8 miliardi di euro, con un incremento del 22% verso gli Stati Uniti e del 17% verso il Canada e il Nord Europa.\n\nIl Prosecco DOC si conferma il vino italiano più venduto al mondo in termini di volume, mentre per valore il primato spetta al Barolo, il «re dei vini italiani», la cui bottiglia base ha superato per la prima volta in media i 40 euro al dettaglio nei mercati anglofoni. Il Brunello di Montalcino e il Primitivo di Manduria sono i più dinamici in termini di crescita percentuale.\n\nI produttori interpellati individuano nella crescente domanda di vini premium e nella riscoperta della dieta mediterranea i principali motori del boom. Anche il turismo enogastronomico gioca un ruolo: chi visita l'Italia e assaggia i vini sui luoghi di produzione diventa poi un ambasciatore spontaneo nei propri Paesi.\n\nTuttavia, il settore non è esente da preoccupazioni: i cambiamenti climatici stanno alterando la fenologia della vite, e le annate delle prossime stagioni sono incerte. Coldiretti stima che il 40% delle cantine stia già sperimentando nuovi vitigni o nuove altitudini di coltivazione per adattarsi al riscaldamento globale.\n\nNonostante le sfide, i consorzi di tutela dei principali DOC e DOCG italiani guardano con ottimismo al secondo semestre, tradizionalmente il più forte per le vendite.`},
@@ -553,7 +536,13 @@ const IMGS = {
   default:['https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=900&h=560&fit=crop&q=80']
 };
 
-function img(cat,i=0){const arr=IMGS[cat]||IMGS.default;return arr[i%arr.length];}
+function img(catOrUrl, i=0){
+  if (typeof catOrUrl === 'string' && (catOrUrl.startsWith('http://') || catOrUrl.startsWith('https://'))) {
+    return catOrUrl;
+  }
+  const arr = IMGS[catOrUrl] || IMGS.default;
+  return arr[i % arr.length];
+}
 
 function esc(s){if(!s)return'';return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 
@@ -567,7 +556,6 @@ function saveMsgs(m){localStorage.setItem(FORUM_KEY,JSON.stringify(m.slice(-300)
 let currentTopic='Tutti';
 let currentSearch='';
 
-// Messaggi iniziali di esempio (solo se forum vuoto)
 const SEED_MSGS=[
   {id:'s1',name:'Redazione Ankoautca',avatar:'RA',badge:'editor',topic:'Politica',text:'Benvenuti nel Forum di Ankoautca! Questo è uno spazio di discussione aperto a tutti i lettori. Commentate le notizie, condividete le vostre opinioni, fate domande. L\'unica regola: rispetto reciproco.',time:Date.now()-3600000*5,reactions:{like:12,cuore:8,bravo:4},replies:[]},
   {id:'s2',name:'Carlo da Torino',avatar:'CT',badge:'guest',topic:'Economia',text:'Ottima notizia quella sul PNRR. Finalmente l\'Italia sta usando i fondi europei in modo efficace. Speriamo che questa tendenza continui anche nei prossimi trimestri.',time:Date.now()-3600000*3,reactions:{like:7,cuore:2,bravo:1},replies:[{name:'Marco B.',text:'Concordo, ma bisogna vedere la qualità degli investimenti, non solo la quantità di spesa.',time:Date.now()-3600000*2}]},
@@ -721,22 +709,134 @@ function timeAgo(ts){
 }
 
 // ═══════════════════════════════════════════════
+//  ADMIN AUTHENTICATION (bcrypt)
+// ═══════════════════════════════════════════════
+const ADMIN_HASH = '$2a$12$ASJhqiO.BxApGhaKGJ6hCe4J1Qbq1Z1hf06gC2C5vTQbeNp0Eb0Ue';
+let isAdmin = false;
+
+function showAdminLogin() {
+  const password = prompt('Inserisci la password di amministrazione:');
+  if (!password) return;
+  
+  if (typeof dcodeIO === 'undefined' || !dcodeIO.bcrypt) {
+    alert('Errore: libreria bcrypt non caricata. Ricarica la pagina.');
+    return;
+  }
+  dcodeIO.bcrypt.compare(password, ADMIN_HASH, function(err, res) {
+    if (res) {
+      isAdmin = true;
+      notify('✅ Accesso amministratore riuscito');
+      showAdminPanel();
+    } else {
+      alert('Password errata!');
+      isAdmin = false;
+    }
+  });
+}
+
+function showAdminPanel() {
+  const old = document.getElementById('admin-overlay');
+  if (old) old.remove();
+
+  const catMap = {
+    attualita:'Attualità', politica:'Politica', economia:'Economia', mondo:'Mondo',
+    cronaca:'Cronaca', sport:'Sport', tecnologia:'Tecnologia', cultura:'Cultura', ambiente:'Ambiente'
+  };
+
+  const adminHTML = `
+    <div id="admin-overlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:9998;display:flex;align-items:center;justify-content:center;">
+      <div style="background:white;max-width:700px;width:90%;max-height:90vh;overflow-y:auto;border-radius:12px;padding:24px;position:relative;">
+        <button onclick="closeAdmin()" style="position:absolute;top:12px;right:16px;background:none;border:none;font-size:24px;cursor:pointer;">&times;</button>
+        <h2 style="font-family:var(--display);margin-bottom:16px;">🛠️ Pannello Admin — Pubblica Articolo</h2>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <label>Titolo</label>
+          <input id="admin-title" class="ff-input" placeholder="Titolo dell'articolo">
+          <label>Categoria</label>
+          <select id="admin-cat" class="ff-select">
+            ${Object.entries(catMap).map(([k,v])=>`<option value="${k}">${v}</option>`).join('')}
+          </select>
+          <label>Sottotitolo</label>
+          <input id="admin-sub" class="ff-input" placeholder="Sottotitolo">
+          <label>Autore</label>
+          <input id="admin-author" class="ff-input" placeholder="Nome autore">
+          <label>URL immagine (opzionale)</label>
+          <input id="admin-img" class="ff-input" placeholder="https://... (lascia vuoto per immagine predefinita)">
+          <label>Tempo di lettura (min)</label>
+          <input id="admin-read" class="ff-input" type="number" value="5" min="1">
+          <label>Testo dell'articolo (paragrafi separati da doppio invio)</label>
+          <textarea id="admin-body" class="ff-textarea" placeholder="Scrivi qui il testo..."></textarea>
+          <button onclick="submitAdminArticle()" class="ff-submit">Pubblica Articolo</button>
+        </div>
+      </div>
+    </div>
+  `;
+  document.body.insertAdjacentHTML('beforeend', adminHTML);
+}
+
+function closeAdmin() {
+  const overlay = document.getElementById('admin-overlay');
+  if (overlay) overlay.remove();
+  isAdmin = false;
+}
+
+function submitAdminArticle() {
+  const title = document.getElementById('admin-title').value.trim();
+  const catKey = document.getElementById('admin-cat').value;
+  const sub = document.getElementById('admin-sub').value.trim();
+  const author = document.getElementById('admin-author').value.trim() || 'Redazione';
+  const imgUrl = document.getElementById('admin-img').value.trim();
+  const read = parseInt(document.getElementById('admin-read').value) || 5;
+  const body = document.getElementById('admin-body').value.trim();
+
+  if (!title || !body) {
+    alert('Titolo e testo sono obbligatori');
+    return;
+  }
+
+  const catLabel = {
+    attualita:'Attualità', politica:'Politica', economia:'Economia', mondo:'Mondo',
+    cronaca:'Cronaca', sport:'Sport', tecnologia:'Tecnologia', cultura:'Cultura', ambiente:'Ambiente'
+  }[catKey] || catKey;
+
+  const finalImg = imgUrl || catKey;
+
+  const newArticle = {
+    id: 'custom_' + Date.now(),
+    cat: catLabel,
+    title,
+    sub,
+    author,
+    read,
+    img: finalImg,
+    body,
+  };
+
+  let customArts = JSON.parse(localStorage.getItem('ankoautca_custom_arts') || '[]');
+  customArts.push(newArticle);
+  localStorage.setItem('ankoautca_custom_arts', JSON.stringify(customArts));
+
+  closeAdmin();
+  notify('✅ Articolo pubblicato con successo!');
+  goHome();
+}
+
+// ═══════════════════════════════════════════════
 //  RENDER ARTICOLI
 // ═══════════════════════════════════════════════
 function allArticles(){
-  return Object.values(ARTICLES_DB).flat();
-}
-
-function artsBySection(sec,n=12){
-  if(sec==='attualita')return ARTICLES_DB.attualita.slice(0,n);
-  return (ARTICLES_DB[sec]||ARTICLES_DB.attualita).slice(0,n);
+  const base = Object.values(ARTICLES_DB).flat();
+  let custom = [];
+  try {
+    custom = JSON.parse(localStorage.getItem('ankoautca_custom_arts') || '[]');
+  } catch(e) {}
+  return [...custom, ...base];
 }
 
 function heroHtml(arts){
   const [h,...rest]=arts;
   const sides=rest.slice(0,2);
   return`<div class="hero-grid">
-  <div class="hero-main" onclick="openArt(${JSON.stringify(h.id)})">
+  <div class="hero-main" onclick="openArt('${esc(h.id)}')">
     <div class="h-bg" style="background-image:url('${img(h.img,0)}')"></div>
     <div class="h-grad"></div>
     <div class="h-content">
@@ -746,7 +846,7 @@ function heroHtml(arts){
       <div class="h-meta"><i class="ti ti-user" style="font-size:12px"></i>${esc(h.author)}<i class="ti ti-clock" style="font-size:12px"></i>${h.read} min</div>
     </div>
   </div>
-  ${sides.map((a,i)=>`<div class="hero-side" onclick="openArt(${JSON.stringify(a.id)})">
+  ${sides.map((a,i)=>`<div class="hero-side" onclick="openArt('${esc(a.id)}')">
     <div class="h-bg" style="background-image:url('${img(a.img,i+1)}')"></div>
     <div class="h-grad"></div>
     <div class="h-content">
@@ -758,7 +858,7 @@ function heroHtml(arts){
 }
 
 function cardHtml(a,i){
-  return`<div class="card" onclick="openArt(${JSON.stringify(a.id)})" style="animation-delay:${i*.07}s">
+  return`<div class="card" onclick="openArt('${esc(a.id)}')" style="animation-delay:${i*.07}s">
   <div class="card-img">
     <img src="${img(a.img,i)}" alt="${esc(a.title)}" loading="lazy">
     <span class="card-badge">${esc(a.cat)}</span>
@@ -772,7 +872,7 @@ function cardHtml(a,i){
 }
 
 function aliHtml(a,i){
-  return`<div class="ali" onclick="openArt(${JSON.stringify(a.id)})">
+  return`<div class="ali" onclick="openArt('${esc(a.id)}')">
   <div class="ali-img"><img src="${img(a.img,i)}" alt="${esc(a.title)}" loading="lazy"></div>
   <div><div class="ali-cat">${esc(a.cat)}</div><div class="ali-title">${esc(a.title)}</div><div class="ali-meta">${esc(a.author)} · ${a.read} min</div></div>
   </div>`;
@@ -782,13 +882,13 @@ function magHtml(arts){
   const [main,...rest]=arts.slice(0,3);
   const stack=rest.slice(0,2);
   return`<div class="mag">
-  <div class="mag-item mag-main" onclick="openArt(${JSON.stringify(main.id)})">
+  <div class="mag-item mag-main" onclick="openArt('${esc(main.id)}')">
     <div class="mag-bg" style="background-image:url('${img(main.img,0)}')"></div>
     <div class="mag-grad"></div>
     <div class="mag-content"><div class="mag-cat">${esc(main.cat)}</div><div class="mag-title">${esc(main.title)}</div></div>
   </div>
   <div class="mag-stack">
-  ${stack.map((a,i)=>`<div class="mag-item" onclick="openArt(${JSON.stringify(a.id)})">
+  ${stack.map((a,i)=>`<div class="mag-item" onclick="openArt('${esc(a.id)}')">
     <div class="mag-bg" style="background-image:url('${img(a.img,i+1)}')"></div>
     <div class="mag-grad"></div>
     <div class="mag-content"><div class="mag-cat">${esc(a.cat)}</div><div class="mag-title">${esc(a.title)}</div></div>
@@ -797,7 +897,7 @@ function magHtml(arts){
 }
 
 function trendHtml(arts){
-  return arts.slice(0,5).map((a,i)=>`<div class="trend-item" onclick="openArt(${JSON.stringify(a.id)})">
+  return arts.slice(0,5).map((a,i)=>`<div class="trend-item" onclick="openArt('${esc(a.id)}')">
     <div class="trend-num">0${i+1}</div>
     <div><div class="trend-cat">${esc(a.cat)}</div><div class="trend-title">${esc(a.title)}</div></div>
   </div>`).join('');
@@ -808,12 +908,12 @@ function trendHtml(arts){
 // ═══════════════════════════════════════════════
 function goHome(){
   setNav(0);
-  const all=ARTICLES_DB.attualita;
-  const pol=ARTICLES_DB.politica;
-  const sport=ARTICLES_DB.sport;
-  const ec=ARTICLES_DB.economia;
-  const mondo=ARTICLES_DB.mondo;
-  const trend=allArticles();
+  const all = allArticles();
+  const pol = ARTICLES_DB.politica;
+  const sport = ARTICLES_DB.sport;
+  const ec = ARTICLES_DB.economia;
+  const mondo = ARTICLES_DB.mondo;
+  const trend = all;
 
   document.getElementById('page-root').innerHTML=`
   <div class="wrap">
@@ -821,24 +921,24 @@ function goHome(){
     <div class="layout">
       <main>
         <div class="section-gap">
-          <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Ultime Notizie</div><span class="sec-more" onclick="nav('attualita')">Tutte →</span></div>
+          <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Ultime Notizie</div><span class="sec-more" onclick="location.href='Attualita.html'">Tutte →</span></div>
           <div class="cards-3">${all.slice(3,6).map((a,i)=>cardHtml(a,i)).join('')}</div>
           <div class="art-list">${all.slice(6,10).map((a,i)=>aliHtml(a,i)).join('')}</div>
         </div>
         <div class="section-gap">
-          <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Politica</div><span class="sec-more" onclick="nav('politica')">Tutte →</span></div>
+          <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Politica</div><span class="sec-more" onclick="location.href='Politica.html'">Tutte →</span></div>
           ${magHtml(pol)}
         </div>
         <div class="section-gap">
-          <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Economia</div><span class="sec-more" onclick="nav('economia')">Tutte →</span></div>
+          <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Economia</div><span class="sec-more" onclick="location.href='Economia.html'">Tutte →</span></div>
           <div class="cards-3">${ec.slice(0,2).map((a,i)=>cardHtml(a,i)).join('')}${all.slice(10,11).map((a,i)=>cardHtml(a,i+2)).join('')}</div>
         </div>
         <div class="section-gap">
-          <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Sport</div><span class="sec-more" onclick="nav('sport')">Tutte →</span></div>
+          <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Sport</div><span class="sec-more" onclick="location.href='Sport.html'">Tutte →</span></div>
           ${magHtml(sport)}
         </div>
         <div class="section-gap">
-          <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Mondo</div><span class="sec-more" onclick="nav('mondo')">Tutte →</span></div>
+          <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Mondo</div><span class="sec-more" onclick="location.href='Mondo.html'">Tutte →</span></div>
           <div class="cards-3">${mondo.slice(0,2).map((a,i)=>cardHtml(a,i)).join('')}${ARTICLES_DB.ambiente.slice(0,1).map((a,i)=>cardHtml(a,i+2)).join('')}</div>
         </div>
         <div class="collab">
@@ -853,19 +953,6 @@ function goHome(){
           <div class="wbody">${trendHtml(trend)}</div>
         </div>
         <div class="widget">
-          <div class="wh"><i class="ti ti-sun"></i> Meteo Roma</div>
-          <div class="meteo-box">
-            <div class="meteo-city">Roma, Lazio</div>
-            <div class="meteo-temp" id="meteo-temp">—</div>
-            <div class="meteo-desc" id="meteo-desc">Caricamento…</div>
-            <div class="meteo-row">
-              <span><i class="ti ti-droplet"></i> <span id="m-hum">—</span></span>
-              <span><i class="ti ti-wind"></i> <span id="m-wind">—</span></span>
-              <span><i class="ti ti-eye"></i> <span id="m-feel">—</span></span>
-            </div>
-          </div>
-        </div>
-        <div class="widget">
           <div class="wh"><i class="ti ti-lock"></i> Informazione libera</div>
           <div class="wbody" style="text-align:center;padding:20px">
             <i class="ti ti-shield-check" style="font-size:32px;color:var(--red)"></i>
@@ -875,22 +962,6 @@ function goHome(){
         </div>
       </aside>
     </div>
-  </div>`;
-  loadMeteo();
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-
-function nav(sec){
-  setNav(sec);
-  const catMap={attualita:'Attualità',politica:'Politica',economia:'Economia',mondo:'Mondo',cronaca:'Cronaca',sport:'Sport',tecnologia:'Tecnologia',cultura:'Cultura',ambiente:'Ambiente'};
-  const label=catMap[sec]||sec;
-  const arts=ARTICLES_DB[sec]||ARTICLES_DB.attualita;
-  document.getElementById('page-root').innerHTML=`
-  <div class="wrap" style="padding-top:28px">
-    <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">${esc(label)}</div></div>
-    ${heroHtml(arts.slice(0,3))}
-    <div class="cards-3" style="margin-top:26px">${arts.slice(0,6).map((a,i)=>cardHtml(a,i)).join('')}</div>
-    <div class="art-list">${arts.slice(0,3).map((a,i)=>aliHtml(a,i+6)).join('')}</div>
   </div>`;
   window.scrollTo({top:0,behavior:'smooth'});
 }
@@ -955,28 +1026,6 @@ function doSearch(){
 }
 document.getElementById('search-btn').onclick=doSearch;
 document.getElementById('search-input').addEventListener('keydown',e=>{if(e.key==='Enter')doSearch();});
-
-// ═══════════════════════════════════════════════
-//  METEO (Open Meteo, no API key)
-// ═══════════════════════════════════════════════
-async function loadMeteo(){
-  try{
-    const r=await fetch('https://api.open-meteo.com/v1/forecast?latitude=41.9028&longitude=12.4964&current_weather=true&hourly=relativehumidity_2m,apparent_temperature,windspeed_10m&timezone=Europe/Rome');
-    const d=await r.json();
-    const cw=d.current_weather;
-    const wmoMap={0:'Sereno ☀️',1:'Poco nuvoloso 🌤',2:'Nuvoloso 🌥',3:'Coperto ☁️',45:'Nebbia 🌫',48:'Nebbia 🌫',51:'Pioviggine 🌦',53:'Pioviggine 🌦',55:'Pioviggine 🌦',61:'Pioggia 🌧',63:'Pioggia 🌧',65:'Pioggia intensa 🌧',71:'Neve 🌨',73:'Neve 🌨',75:'Neve intensa ❄️',80:'Acquazzoni 🌦',81:'Acquazzoni 🌦',82:'Acquazzoni forti ⛈',95:'Temporale ⛈',96:'Temporale ⛈'};
-    const ti=d.hourly?.time?.findIndex(t=>t===cw.time)||0;
-    const hum=d.hourly?.relativehumidity_2m?.[ti]||'—';
-    const feel=d.hourly?.apparent_temperature?.[ti]||'—';
-    document.getElementById('meteo-temp').textContent=Math.round(cw.temperature)+'°C';
-    document.getElementById('meteo-desc').textContent=wmoMap[cw.weathercode]||'—';
-    document.getElementById('m-hum').textContent=hum+'%';
-    document.getElementById('m-wind').textContent=Math.round(cw.windspeed)+' km/h';
-    document.getElementById('m-feel').textContent=Math.round(feel)+'°C';
-  }catch(e){
-    if(document.getElementById('meteo-temp'))document.getElementById('meteo-temp').textContent='—';
-  }
-}
 
 // ═══════════════════════════════════════════════
 //  UTILS
