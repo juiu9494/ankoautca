@@ -6,6 +6,7 @@
 <title>ANKOAUTCA — Notizie in Diretta, Attualità, Mondo</title>
 <meta name="description" content="ANKOAUTCA - Il portale italiano di notizie, attualità, politica, economia, sport, cultura e tecnologia. Informazione libera e senza registrazione.">
 <meta name="robots" content="index, follow">
+<!-- Nessun Google Analytics, nessun pixel, nessun social -->
 
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +19,6 @@
   --red: #C0121C;
   --red-dark: #8B0000;
   --black: #0A0A0A;
-  --dark: #1a1a1a;
   --gray-700: #444;
   --gray-500: #777;
   --gray-300: #ccc;
@@ -29,14 +29,13 @@
   --font-body: 'Source Sans 3', Arial, sans-serif;
   --font-serif: 'Source Serif 4', Georgia, serif;
 }
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   font-family: var(--font-body);
   background: var(--cream);
   color: var(--black);
   font-size: 16px;
   line-height: 1.6;
-  overflow-x: hidden;
 }
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
@@ -153,7 +152,6 @@ nav.mainnav { background: var(--black); }
   padding: 0 20px;
   display: flex;
   overflow-x: auto;
-  gap: 0;
 }
 .mainnav-inner a {
   color: #ddd;
@@ -167,7 +165,6 @@ nav.mainnav { background: var(--black); }
 }
 .mainnav-inner a:hover, .mainnav-inner a.active { color: white; border-bottom-color: var(--red); }
 
-/* Layout */
 .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
 .main-layout {
   display: grid;
@@ -375,7 +372,7 @@ nav.mainnav { background: var(--black); }
 }
 .ali-meta { font-size: 11px; color: var(--gray-500); margin-top: 5px; }
 
-/* Magazine grid (politica) */
+/* Magazine grid */
 .magazine-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
@@ -415,16 +412,14 @@ nav.mainnav { background: var(--black); }
 .mag-title { font-family: var(--font-display); font-weight: 700; }
 .mag-main .mag-title { font-size: 26px; }
 
-/* big article horizont */
+/* Big horizontal */
 .big-article-horiz {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0;
   background: var(--black);
   margin-bottom: 20px;
   cursor: pointer;
 }
-.bah-img { overflow: hidden; }
 .bah-img img { width: 100%; height: 100%; object-fit: cover; }
 .bah-content {
   padding: 24px;
@@ -435,7 +430,6 @@ nav.mainnav { background: var(--black); }
 .bah-title { font-family: var(--font-display); font-size: 22px; font-weight: 900; margin: 8px 0; }
 .bah-excerpt { font-size: 13px; color: rgba(255,255,255,.7); font-style: italic; }
 
-/* two col cultura */
 .category-two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -443,7 +437,7 @@ nav.mainnav { background: var(--black); }
 }
 @media (max-width: 600px) { .category-two-col { grid-template-columns: 1fr; } }
 
-/* SIDEBAR */
+/* Sidebar senza social e newsletter */
 .sidebar { display: flex; flex-direction: column; gap: 26px; }
 .widget {
   background: white;
@@ -472,7 +466,6 @@ nav.mainnav { background: var(--black); }
   margin-top: 10px;
 }
 
-/* Collaborazione banner */
 .collab-banner {
   background: linear-gradient(135deg, var(--black) 0%, #1a0a0a 100%);
   border-left: 4px solid var(--red);
@@ -496,7 +489,7 @@ nav.mainnav { background: var(--black); }
   border-radius: 2px;
 }
 
-/* LIVE CHAT PUBBLICO (FONDO) */
+/* LIVE CHAT PUBBLICO (BOTTOM) */
 .live-chat-section {
   max-width: 1280px;
   margin: 20px auto 30px;
@@ -528,7 +521,7 @@ nav.mainnav { background: var(--black); }
 }
 .chat-name { font-weight: 700; color: var(--red); }
 .chat-time { font-size: 10px; color: gray; margin-left: 8px; }
-.chat-text { margin-top: 4px; }
+.chat-text { margin-top: 4px; word-break: break-word; }
 .chat-form {
   padding: 16px;
   background: #f8f6f2;
@@ -552,7 +545,6 @@ nav.mainnav { background: var(--black); }
   cursor: pointer;
   width: fit-content;
 }
-
 .btn-more {
   background: transparent;
   border: 1.5px solid var(--black);
@@ -566,6 +558,19 @@ nav.mainnav { background: var(--black); }
   cursor: pointer;
 }
 .btn-more:hover { background: var(--black); color: white; }
+
+/* Articolo singolo (vista dinamica) */
+.article-full-page {
+  background: white;
+  padding: 30px;
+  margin-bottom: 30px;
+  border-radius: 4px;
+}
+.article-full-page h1 { font-family: var(--font-display); font-size: 42px; margin-bottom: 20px; }
+.article-full-page .article-meta { color: gray; margin-bottom: 20px; }
+.article-full-page img { max-width: 100%; margin: 20px 0; border-radius: 4px; }
+.article-full-page .article-content { font-size: 18px; line-height: 1.7; }
+.back-home { display: inline-block; margin-bottom: 20px; background: var(--black); color: white; padding: 6px 12px; border-radius: 3px; cursor: pointer; }
 
 footer {
   background: var(--black);
@@ -597,19 +602,6 @@ footer {
   font-size: 12px;
   border-top: 1px solid #333;
 }
-
-/* Articolo completo (vista dettaglio) */
-.article-full-page {
-  background: white;
-  padding: 30px;
-  margin-bottom: 30px;
-  border-radius: 4px;
-}
-.article-full-page h1 { font-family: var(--font-display); font-size: 42px; margin-bottom: 20px; }
-.article-full-page .article-meta { color: gray; margin-bottom: 20px; }
-.article-full-page img { max-width: 100%; margin: 20px 0; border-radius: 4px; }
-.article-full-page .article-content { font-size: 18px; line-height: 1.7; }
-.back-home { display: inline-block; margin-bottom: 20px; background: var(--black); color: white; padding: 6px 12px; border-radius: 3px; cursor: pointer; }
 </style>
 </head>
 <body>
@@ -657,19 +649,18 @@ footer {
   </nav>
 </header>
 
-<!-- Contenitore principale dinamico -->
 <div id="app-root">
   <div class="container" id="main-container"></div>
 </div>
 
-<!-- LIVE CHAT PUBBLICO (fondo) -->
+<!-- LIVE CHAT PUBBLICO (FONDO) -->
 <div class="live-chat-section">
   <div class="chat-public-container">
-    <div class="chat-header"><i class="ti ti-messages"></i> 💬 Live Chat Pubblica — Tutti possono scrivere</div>
+    <div class="chat-header"><i class="ti ti-messages"></i> 💬 Live Chat Pubblica — Tutti possono scrivere (nessuna registrazione)</div>
     <div class="chat-messages" id="global-chat-messages"></div>
     <div class="chat-form">
       <input type="text" id="global-chat-name" placeholder="Il tuo nome (opzionale)" maxlength="30">
-      <textarea id="global-chat-text" placeholder="Scrivi un messaggio pubblico..." maxlength="500"></textarea>
+      <textarea id="global-chat-text" placeholder="Scrivi un messaggio pubblico, rispetto reciproco..." maxlength="500"></textarea>
       <button id="global-chat-submit">Invia messaggio <i class="ti ti-send"></i></button>
     </div>
   </div>
@@ -685,14 +676,12 @@ footer {
 </footer>
 
 <script>
-// ---------- CONFIG NEWSAPI ----------
+// ---------- NEWS API ----------
 const API_KEY = '1142e33f1ee5465e876b9a708bbbf80b';
 const BASE = 'https://newsapi.org/v2/';
 
-let currentCategory = 'home';
-let currentArticle = null; // se in modalità lettura articolo
+let currentView = 'home';
 
-// Utility
 function timeAgo(dateStr) {
   const date = new Date(dateStr);
   const diff = Math.floor((new Date() - date) / 60000);
@@ -702,7 +691,7 @@ function timeAgo(dateStr) {
 }
 function truncate(str, len) { return str?.length > len ? str.substr(0,len)+'…' : str || ''; }
 function getImage(art) { return art.urlToImage?.startsWith('http') ? art.urlToImage : `https://picsum.photos/seed/${Math.random()}/800/450`; }
-function getCategoryFromTitle(art) {
+function getCat(art) {
   const t = (art.title || '').toLowerCase();
   if (t.includes('governo')||t.includes('elezioni')) return 'Politica';
   if (t.includes('borsa')||t.includes('economi')) return 'Economia';
@@ -718,29 +707,46 @@ async function fetchNews(queryCat, pageSize=15) {
   else if (queryCat === 'economia') q = 'economia finanza italia';
   else if (queryCat === 'mondo') q = 'mondo esteri internazionale';
   else if (queryCat === 'sport') q = 'sport calcio serie A';
-  else if (queryCat === 'tecnologia') q = 'tecnologia innovazione AI';
+  else if (queryCat === 'tecnologia') q = 'tecnologia innovazione';
   else if (queryCat === 'cultura') q = 'cultura cinema arte';
-  else if (queryCat === 'opinioni') q = 'opinione editoriale';
   const url = `${BASE}everything?q=${encodeURIComponent(q)}&language=it&sortBy=publishedAt&pageSize=${pageSize}&apiKey=${API_KEY}`;
   try {
     const res = await fetch(url);
     const data = await res.json();
     if (data.status === 'ok' && data.articles.length) return data.articles;
-    return getFallbackArticles(queryCat);
-  } catch(e) { return getFallbackArticles(queryCat); }
+    return getFallback(queryCat);
+  } catch(e) { return getFallback(queryCat); }
 }
-
-function getFallbackArticles(cat) {
+function getFallback(cat) {
   const fall = {
     home: [{title:'Governo: nuovo decreto legge in arrivo', description:'Misure per il lavoro', author:'Redazione', publishedAt:new Date().toISOString()},{title:'Calcio, Serie A: risultati e classifica', description:'Juventus vince il derby', author:'Sport', publishedAt:new Date().toISOString()}],
-    politica: [{title:'Camera e Senato, scontro sulla manovra', description:'Discussione in corso', author:'Agenzia', publishedAt:new Date().toISOString()}],
-    economia: [{title:'Borse europee in rialzo', description:'Pil in crescita', author:'Finanza', publishedAt:new Date().toISOString()}]
+    politica: [{title:'Camera e Senato, scontro sulla manovra', description:'Discussione in corso', author:'Agenzia', publishedAt:new Date().toISOString()}]
   };
   return fall[cat] || fall.home;
 }
 
-// Render home normale (griglie)
+// Vista articolo completo
+function viewArticle(article) {
+  const fullHtml = `
+    <div class="article-full-page">
+      <div class="back-home" onclick="renderHome()">← Torna alla home</div>
+      <h1>${article.title}</h1>
+      <div class="article-meta">di ${article.author || 'Redazione'} · ${timeAgo(article.publishedAt)} · 5 min lettura</div>
+      <img src="${getImage(article)}" alt="${article.title}" style="width:100%; max-height:500px; object-fit:cover;">
+      <div class="article-content">
+        <p>${article.description || 'Contenuto completo dell\'articolo. '} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+        <p><strong>Fonte originale:</strong> <a href="${article.url || '#'}" target="_blank">${article.source?.name || 'Ansa/Reuters'}</a></p>
+      </div>
+    </div>
+  `;
+  document.getElementById('main-container').innerHTML = fullHtml;
+  currentView = 'article';
+}
+
+// Render home
 async function renderHome() {
+  currentView = 'home';
   const articles = await fetchNews('home', 18);
   const hero = articles.slice(0,3);
   const latest = articles.slice(3,12);
@@ -752,13 +758,13 @@ async function renderHome() {
         <div class="hero-main-content"><span class="hero-category">🔴 PRIMA PAGINA</span><h1 class="hero-title">${hero[0].title}</h1><p class="hero-excerpt">${truncate(hero[0].description,150)}</p><div class="hero-meta"><span>${hero[0].author||'Redazione'}</span><span>${timeAgo(hero[0].publishedAt)}</span></div></div>
       </div>
       <div class="hero-side">
-        <div class="hero-side-item" onclick="viewArticle(${JSON.stringify(hero[1]||hero[0]).replace(/"/g, '&quot;')})"><div class="hsi-bg" style="background-image:url('${getImage(hero[1]||hero[0])}')"></div><div class="hsi-overlay"></div><div class="hsi-content"><div class="hsi-cat">${getCategoryFromTitle(hero[1]||hero[0])}</div><div class="hsi-title">${truncate((hero[1]?.title||hero[0].title),80)}</div></div></div>
-        <div class="hero-side-item" onclick="viewArticle(${JSON.stringify(hero[2]||hero[0]).replace(/"/g, '&quot;')})"><div class="hsi-bg" style="background-image:url('${getImage(hero[2]||hero[0])}')"></div><div class="hsi-overlay"></div><div class="hsi-content"><div class="hsi-cat">${getCategoryFromTitle(hero[2]||hero[0])}</div><div class="hsi-title">${truncate((hero[2]?.title||hero[0].title),80)}</div></div></div>
+        <div class="hero-side-item" onclick="viewArticle(${JSON.stringify(hero[1]||hero[0]).replace(/"/g, '&quot;')})"><div class="hsi-bg" style="background-image:url('${getImage(hero[1]||hero[0])}')"></div><div class="hsi-overlay"></div><div class="hsi-content"><div class="hsi-cat">${getCat(hero[1]||hero[0])}</div><div class="hsi-title">${truncate((hero[1]?.title||hero[0].title),80)}</div></div></div>
+        <div class="hero-side-item" onclick="viewArticle(${JSON.stringify(hero[2]||hero[0]).replace(/"/g, '&quot;')})"><div class="hsi-bg" style="background-image:url('${getImage(hero[2]||hero[0])}')"></div><div class="hsi-overlay"></div><div class="hsi-content"><div class="hsi-cat">${getCat(hero[2]||hero[0])}</div><div class="hsi-title">${truncate((hero[2]?.title||hero[0].title),80)}</div></div></div>
       </div>
     </div>
     <div class="main-layout">
       <main>
-        <div class="category-section"><div class="section-header"><div class="section-red-line"></div><span class="section-label">Ultime Notizie</span></div><div class="articles-grid" id="latest-grid">${latest.map(a=>`<div class="card" onclick="viewArticle(${JSON.stringify(a).replace(/"/g, '&quot;')})"><div class="card-img"><img src="${getImage(a)}"><span class="card-cat-badge">${getCategoryFromTitle(a)}</span></div><div class="card-body"><h2 class="card-title">${a.title}</h2><p class="card-excerpt">${truncate(a.description,100)}</p><div class="card-meta"><span>${a.author||'Redazione'}</span><span>${timeAgo(a.publishedAt)}</span></div></div></div>`).join('')}</div><div id="more-list">${more.map(a=>`<div class="article-list-item" onclick="viewArticle(${JSON.stringify(a).replace(/"/g, '&quot;')})"><div class="ali-img"><img src="${getImage(a)}"></div><div class="ali-content"><div class="ali-cat">${getCategoryFromTitle(a)}</div><div class="ali-title">${a.title}</div><div class="ali-meta">${a.author||'Redazione'} · ${timeAgo(a.publishedAt)}</div></div></div>`).join('')}</div><button class="btn-more" id="loadMoreBtn">Carica altre notizie</button></div>
+        <div class="category-section"><div class="section-header"><div class="section-red-line"></div><span class="section-label">Ultime Notizie</span></div><div class="articles-grid" id="latest-grid">${latest.map(a=>`<div class="card" onclick="viewArticle(${JSON.stringify(a).replace(/"/g, '&quot;')})"><div class="card-img"><img src="${getImage(a)}"><span class="card-cat-badge">${getCat(a)}</span></div><div class="card-body"><h2 class="card-title">${a.title}</h2><p class="card-excerpt">${truncate(a.description,100)}</p><div class="card-meta"><span>${a.author||'Redazione'}</span><span>${timeAgo(a.publishedAt)}</span></div></div></div>`).join('')}</div><div id="more-list">${more.map(a=>`<div class="article-list-item" onclick="viewArticle(${JSON.stringify(a).replace(/"/g, '&quot;')})"><div class="ali-img"><img src="${getImage(a)}"></div><div class="ali-content"><div class="ali-cat">${getCat(a)}</div><div class="ali-title">${a.title}</div><div class="ali-meta">${a.author||'Redazione'} · ${timeAgo(a.publishedAt)}</div></div></div>`).join('')}</div><button class="btn-more" id="loadMoreBtn">Carica altre notizie</button></div>
         <div class="category-section"><div class="section-header"><div class="section-red-line"></div><span class="section-label">Politica</span></div><div id="politicaWidget"></div></div>
         <div class="collab-banner"><i class="ti ti-rocket collab-icon"></i><div class="collab-text"><div class="collab-title">Collabora con Ankoautca</div><div class="collab-desc">Scrivi con noi, pubblica le tue notizie. Invia a <strong>gastroboostmarketingdegital@gmail.com</strong></div></div><a href="mailto:gastroboostmarketingdegital@gmail.com" class="collab-btn">Proponi collaborazione</a></div>
       </main>
@@ -766,60 +772,55 @@ async function renderHome() {
     </div>
   `;
   document.getElementById('main-container').innerHTML = html;
-  // Carica widget politica
+  // Politica widget
   const poli = await fetchNews('politica', 3);
   document.getElementById('politicaWidget').innerHTML = `<div class="magazine-grid">${poli.map((p,i)=>`<div class="mag-item ${i===0?'mag-main':''}" onclick="viewArticle(${JSON.stringify(p).replace(/"/g, '&quot;')})"><div class="mag-item-bg" style="background-image:url('${getImage(p)}')"></div><div class="mag-overlay"></div><div class="mag-content"><div class="mag-cat">${i===0?'Governo':'Politica'}</div><div class="mag-title">${truncate(p.title, i===0?80:60)}</div></div></div>`).join('')}</div>`;
-  document.getElementById('loadMoreBtn').onclick = async () => { const more = await fetchNews('home', 6); const container = document.getElementById('more-list'); container.innerHTML += more.map(a=>`<div class="article-list-item" onclick="viewArticle(${JSON.stringify(a).replace(/"/g, '&quot;')})"><div class="ali-img"><img src="${getImage(a)}"></div><div class="ali-content"><div class="ali-cat">${getCategoryFromTitle(a)}</div><div class="ali-title">${a.title}</div><div class="ali-meta">${a.author||'Redazione'} · ${timeAgo(a.publishedAt)}</div></div></div>`).join(''); };
+  document.getElementById('loadMoreBtn').onclick = async () => {
+    const moreArts = await fetchNews('home', 6);
+    const container = document.getElementById('more-list');
+    container.innerHTML += moreArts.map(a=>`<div class="article-list-item" onclick="viewArticle(${JSON.stringify(a).replace(/"/g, '&quot;')})"><div class="ali-img"><img src="${getImage(a)}"></div><div class="ali-content"><div class="ali-cat">${getCat(a)}</div><div class="ali-title">${a.title}</div><div class="ali-meta">${a.author||'Redazione'} · ${timeAgo(a.publishedAt)}</div></div></div>`).join('');
+  };
   // ticker
   document.getElementById('ticker').innerHTML = articles.slice(0,8).map(t=>`<span>${t.title}</span>`).join('');
 }
 
-// Vista articolo completo
-window.viewArticle = function(article) {
-  currentArticle = article;
-  const fullHtml = `
-    <div class="article-full-page">
-      <div class="back-home" onclick="renderHome()">← Torna alla home</div>
-      <h1>${article.title}</h1>
-      <div class="article-meta">di ${article.author || 'Redazione'} · ${timeAgo(article.publishedAt)} · 5 min lettura</div>
-      <img src="${getImage(article)}" alt="${article.title}" style="width:100%; max-height:500px; object-fit:cover;">
-      <div class="article-content">
-        <p>${article.description || 'Contenuto completo dell\'articolo. '} Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p><strong>Fonte originale:</strong> <a href="${article.url || '#'}" target="_blank">${article.source?.name || 'Ansa/Reuters'}</a></p>
-      </div>
-    </div>
-  `;
-  document.getElementById('main-container').innerHTML = fullHtml;
-};
-
-// Navigazione categorie (link)
+// Navigazione categorie
 document.querySelectorAll('[data-category]').forEach(link => {
   link.addEventListener('click', async (e) => {
     e.preventDefault();
     const cat = link.getAttribute('data-category');
     if (cat === 'home') renderHome();
     else {
-      const articles = await fetchNews(cat, 15);
-      document.getElementById('main-container').innerHTML = `<div class="container"><h2 style="margin:20px 0">Notizie: ${cat.charAt(0).toUpperCase()+cat.slice(1)}</h2><div class="articles-grid">${articles.map(a=>`<div class="card" onclick="viewArticle(${JSON.stringify(a).replace(/"/g, '&quot;')})"><div class="card-img"><img src="${getImage(a)}"><span class="card-cat-badge">${getCategoryFromTitle(a)}</span></div><div class="card-body"><h2 class="card-title">${a.title}</h2><p class="card-excerpt">${truncate(a.description,100)}</p><div class="card-meta"><span>${a.author||'Redazione'}</span><span>${timeAgo(a.publishedAt)}</span></div></div></div>`).join('')}</div></div>`;
+      const arts = await fetchNews(cat, 15);
+      document.getElementById('main-container').innerHTML = `<div class="container"><h2 style="margin:20px 0">Notizie: ${cat.charAt(0).toUpperCase()+cat.slice(1)}</h2><div class="articles-grid">${arts.map(a=>`<div class="card" onclick="viewArticle(${JSON.stringify(a).replace(/"/g, '&quot;')})"><div class="card-img"><img src="${getImage(a)}"><span class="card-cat-badge">${getCat(a)}</span></div><div class="card-body"><h2 class="card-title">${a.title}</h2><p class="card-excerpt">${truncate(a.description,100)}</p><div class="card-meta"><span>${a.author||'Redazione'}</span><span>${timeAgo(a.publishedAt)}</span></div></div></div>`).join('')}</div></div>`;
     }
     document.querySelectorAll('.mainnav-inner a').forEach(a => a.classList.remove('active'));
     link.classList.add('active');
   });
 });
 
-// Chat pubblica
-const CHAT_KEY = 'ankoautca_chat_public';
+// Ricerca
+document.getElementById('search-btn').addEventListener('click', async () => {
+  const q = document.getElementById('search-input').value.trim();
+  if(!q) return;
+  const url = `${BASE}everything?q=${encodeURIComponent(q)}&language=it&pageSize=12&apiKey=${API_KEY}`;
+  const res = await fetch(url); const data = await res.json();
+  const arts = data.articles || [];
+  document.getElementById('main-container').innerHTML = `<div class="container"><h2>Risultati per: ${q}</h2><div class="articles-grid">${arts.map(a=>`<div class="card" onclick="viewArticle(${JSON.stringify(a).replace(/"/g, '&quot;')})"><div class="card-img"><img src="${getImage(a)}"><span class="card-cat-badge">News</span></div><div class="card-body"><h2 class="card-title">${a.title}</h2><p class="card-excerpt">${truncate(a.description,100)}</p></div></div>`).join('')}</div></div>`;
+});
+
+// LIVE CHAT PUBBLICO (localStorage)
+const CHAT_KEY = 'ankoautca_live_public';
 function loadChat() { return JSON.parse(localStorage.getItem(CHAT_KEY) || '[]'); }
 function saveChat(msgs) { localStorage.setItem(CHAT_KEY, JSON.stringify(msgs)); }
-function renderChat() {
+function renderGlobalChat() {
   const container = document.getElementById('global-chat-messages');
   const msgs = loadChat();
   if(!msgs.length) { container.innerHTML = '<div style="padding:12px;text-align:center;">💬 Nessun messaggio. Scrivi il primo commento pubblico!</div>'; return; }
   container.innerHTML = msgs.slice().reverse().map(m => `<div class="chat-msg"><span class="chat-name">${escapeHtml(m.name||'Anonimo')}</span><span class="chat-time">${m.time}</span><div class="chat-text">${escapeHtml(m.text)}</div></div>`).join('');
 }
 function escapeHtml(s) { return s.replace(/[&<>]/g, function(m){if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;}); }
-document.getElementById('global-chat-submit')?.addEventListener('click',()=>{
+document.getElementById('global-chat-submit').addEventListener('click',()=>{
   const name = document.getElementById('global-chat-name').value.trim();
   const text = document.getElementById('global-chat-text').value.trim();
   if(!text) return alert('Scrivi un messaggio.');
@@ -829,23 +830,13 @@ document.getElementById('global-chat-submit')?.addEventListener('click',()=>{
   msgs.push({ name: name.substring(0,30)||'Anonimo', text: text.substring(0,500), time: timeStr });
   if(msgs.length>200) msgs.shift();
   saveChat(msgs);
-  renderChat();
+  renderGlobalChat();
   document.getElementById('global-chat-text').value = '';
 });
-renderChat();
+renderGlobalChat();
 
 // Data topbar
 document.getElementById('topbar-date').innerText = new Date().toLocaleDateString('it-IT', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
-
-// Ricerca
-document.getElementById('search-btn').addEventListener('click', async () => {
-  const q = document.getElementById('search-input').value;
-  if(!q) return;
-  const url = `${BASE}everything?q=${encodeURIComponent(q)}&language=it&pageSize=12&apiKey=${API_KEY}`;
-  const res = await fetch(url); const data = await res.json();
-  const articles = data.articles || [];
-  document.getElementById('main-container').innerHTML = `<div class="container"><h2>Risultati per: ${q}</h2><div class="articles-grid">${articles.map(a=>`<div class="card" onclick="viewArticle(${JSON.stringify(a).replace(/"/g, '&quot;')})"><div class="card-img"><img src="${getImage(a)}"><span class="card-cat-badge">News</span></div><div class="card-body"><h2 class="card-title">${a.title}</h2><p class="card-excerpt">${truncate(a.description,100)}</p></div></div>`).join('')}</div></div>`;
-});
 
 // Avvio
 renderHome();
