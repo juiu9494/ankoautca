@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opinioni sulle Notizie — ANKOAUTCA</title>
+    <meta name="description" content="Esprimi la tua opinione sulle notizie del giorno. Vota, commenta e confrontati con la community.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Opinioni sulle Notizie — ANKOAUTCA">
+    <meta property="og:description" content="Vota le notizie, lascia commenti e leggi cosa ne pensano gli altri.">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Sans+3:wght@300;400;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+    <style>
+        :root {
+            --red: #C0121C;
+            --red-dark: #8B0000;
+            --red-light: #f8e8e8;
+            --black: #0A0A0A;
+            --dark: #1a1a1a;
+            --gray-900: #222;
+            --gray-700: #444;
+            --gray-500: #777;
+            --gray-300: #ccc;
+            --gray-100: #f4f4f2;
+            --white: #fff;
+            --cream: #faf9f7;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Source Sans 3', Arial, sans-serif;
+            --font-serif: 'Source Serif 4', Georgia, serif;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: var(--font-body);
+            background: var(--cream);
+            color: var(--black);
+            font-size: 16px;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
+
+        .topbar {
+            background: var(--black);
+            color: var(--gray-300);
+            font-size: 12px;
+            padding: 6px 0;
+            border-bottom: 2px solid var(--red);
+        }
+        .topbar-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .topbar-date { font-family: var(--font-serif); font-style: italic; color: #aaa; }
+        .topbar-links { display: flex; gap: 20px; align-items: center; }
+        .topbar-links a { color: #bbb; transition: color .2s; font-size: 11px; letter-spacing: .5px; text-transform: uppercase; }
+        .topbar-links a:hover { color: var(--red); }
+        .live-badge {
+            background: var(--red);
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 2px 7px;
+            border-radius: 2px;
+            text-transform: uppercase;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.7} }
+
+        header {
+            background: var(--white);
+            border-bottom: 3px solid var(--black);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 12px rgba(0,0,0,.08);
+        }
+        .masthead {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 16px 20px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 52px;
+            font-weight: 900;
+            letter-spacing: -2px;
+            color: var(--black);
+            line-height: 1;
+        }
+        .logo-text .logo-a { color: var(--red); }
+        .logo-tagline {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 12px;
+            color: var(--gray-500);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 2px;
+            padding-left: 2px;
+        }
+        .logo-rule {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--red), transparent);
+            margin-top: 4px;
+        }
+        nav.mainnav { background: var(--black); }
+        .mainnav-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 0;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .mainnav-inner::-webkit-scrollbar { display: none; }
+        .mainnav-inner a {
+            color: #ddd;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 12px 16px;
+            white-space: nowrap;
+            transition: all .2s;
+            border-bottom: 3px solid transparent;
+        }
+        .mainnav-inner a:hover, .mainnav-inner a.active { color: white; border-bottom-color: var(--red); }
+
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+        .page-header {
+            padding: 30px 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            border-bottom: 2px solid var(--black);
+            margin-bottom: 30px;
+        }
+        .page-header i { font-size: 34px; color: var(--red); }
+        .page-header h1 { font-family: var(--font-display); font-size: 36px; font-weight: 900; }
+        .page-header p { margin-left: auto; font-size: 14px; color: var(--gray-500); font-style: italic; }
+
+        .news-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .news-card {
+            background: var(--white);
+            border: 1px solid #e8e6e1;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .news-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.06); }
+
+        .news-header {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            align-items: flex-start;
+            cursor: pointer;
+        }
+        .news-img {
+            width: 260px;
+            height: 160px;
+            flex-shrink: 0;
+            border-radius: 4px;
+            overflow: hidden;
+            background: #eee;
+        }
+        .news-img img { width: 100%; height: 100%; object-fit: cover; }
+        .news-info { flex: 1; }
+        .news-category {
+            display: inline-block;
+            background: var(--red);
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 2px 8px;
+            border-radius: 2px;
+            margin-bottom: 8px;
+        }
+        .news-title {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 6px;
+        }
+        .news-excerpt {
+            font-size: 14px;
+            color: var(--gray-700);
+            font-family: var(--font-serif);
+            font-style: italic;
+        }
+        .news-meta {
+            font-size: 12px;
+            color: var(--gray-500);
+            margin-top: 10px;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .vote-section {
+            border-top: 1px solid #e8e6e1;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+        .vote-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border: 2px solid var(--gray-300);
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 14px;
+            transition: all 0.2s;
+            color: var(--gray-700);
+        }
+        .vote-btn i { font-size: 18px; }
+        .vote-btn.up:hover, .vote-btn.up.selected { border-color: #2a9d8f; background: #e9f7f5; color: #2a9d8f; }
+        .vote-btn.down:hover, .vote-btn.down.selected { border-color: var(--red); background: #fdecea; color: var(--red); }
+        .vote-stats {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: auto;
+            font-size: 13px;
+            color: var(--gray-700);
+        }
+        .total-votes { font-weight: 700; white-space: nowrap; }
+        .bar-container {
+            width: 120px;
+            height: 8px;
+            background: #eee;
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+        }
+        .bar-up { background: #2a9d8f; transition: width 0.3s; }
+        .bar-down { background: var(--red); transition: width 0.3s; }
+
+        .comments-area {
+            border-top: 1px solid #e8e6e1;
+            background: #fcfcf9;
+            padding: 16px 20px;
+        }
+        .comments-header {
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .comments-list {
+            max-height: 250px;
+            overflow-y: auto;
+            margin-bottom: 12px;
+        }
+        .comment-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0ede8;
+        }
+        .comment-item:last-child { border-bottom: none; }
+        .comment-author { font-weight: 700; font-size: 13px; color: var(--red); }
+        .comment-time { font-size: 10px; color: var(--gray-500); margin-left: 6px; }
+        .comment-text { margin-top: 2px; font-size: 14px; }
+        .comment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .comment-form input, .comment-form textarea {
+            border: 1.5px solid var(--gray-300);
+            padding: 8px 10px;
+            font-family: var(--font-body);
+            font-size: 13px;
+            border-radius: 3px;
+            outline: none;
+            width: 100%;
+        }
+        .comment-form textarea { min-height: 60px; resize: vertical; }
+        .comment-form button {
+            align-self: flex-start;
+            background: var(--black);
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .comment-form button:hover { background: var(--red); }
+
+        footer {
+            background: var(--black);
+            color: #aaa;
+            margin-top: 60px;
+        }
+        .footer-top { border-bottom: 1px solid #333; padding: 40px 0 30px; }
+        .footer-top-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+        @media(max-width:800px){ .footer-top-inner { grid-template-columns: 1fr 1fr; } }
+        .footer-logo { font-family: var(--font-display); font-size: 36px; font-weight: 900; color: white; }
+        .footer-logo span { color: var(--red); }
+        .footer-desc { font-size: 13px; color: #888; line-height: 1.7; margin: 12px 0 16px; }
+        .footer-collab { background: var(--red); color: white; padding: 10px 16px; font-size: 12px; display: inline-block; border-radius: 2px; font-weight: 600; }
+        .footer-col-title { color: white; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid #333; }
+        .footer-col-links { display: flex; flex-direction: column; gap: 8px; }
+        .footer-col-links a { color: #888; font-size: 13px; }
+        .footer-col-links a:hover { color: var(--red); }
+        .footer-social-row { display: flex; gap: 10px; margin-top: 16px; }
+        .footer-social-btn { width: 34px; height: 34px; background: #333; color: #aaa; display: flex; align-items: center; justify-content: center; border-radius: 2px; font-size: 16px; }
+        .footer-social-btn:hover { background: var(--red); color: white; }
+        .footer-bottom {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 20px 20px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #555;
+            flex-wrap: wrap;
+        }
+        .footer-bottom a { color: #555; margin-left: 16px; }
+    </style>
+</head>
+<body>
+    <div class="topbar">
+        <div class="topbar-inner">
+            <div class="topbar-date" id="topbar-date"></div>
+            <div class="topbar-links">
+                <span class="live-badge">● Live</span>
+                <a href="Politica.html">Politica</a>
+                <a href="Economia.html">Economia</a>
+                <a href="Mondo.html">Mondo</a>
+                <a href="Sport.html">Sport</a>
+                <a href="Tecnologia.html">Tecnologia</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="masthead">
+            <div class="logo-wrap">
+                <div class="logo-text"><span class="logo-a">A</span>NKOAUTCA</div>
+                <div class="logo-tagline">Il Portale Italiano dell'Informazione</div>
+                <div class="logo-rule"></div>
+            </div>
+        </div>
+        <nav class="mainnav">
+            <div class="mainnav-inner">
+                <a href="index.html">Home</a>
+                <a href="Politica.html">Politica</a>
+                <a href="Economia.html">Economia</a>
+                <a href="Mondo.html">Mondo</a>
+                <a href="Sport.html">Sport</a>
+                <a href="Tecnologia.html">Tecnologia</a>
+                <a href="categoria.html?cat=salute">Salute</a>
+                <a href="categoria.html?cat=scienze">Scienze</a>
+                <a href="categoria.html?cat=ambiente">Ambiente</a>
+                <a href="opinioni.html" class="active">Opinioni</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="page-header">
+            <i class="ti ti-messages"></i>
+            <h1>La tua opinione sulle notizie</h1>
+            <p>Vota e commenta gli articoli del momento</p>
+        </div>
+        <div class="news-grid" id="news-container">
+            <div style="text-align:center; padding:40px; color:var(--gray-500);">
+                <i class="ti ti-loader" style="font-size:32px; animation:spin 1s linear infinite;"></i>
+                <p>Caricamento notizie...</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-top">
+            <div class="footer-top-inner">
+                <div>
+                    <div class="footer-logo"><span>A</span>NKOAUTCA</div>
+                    <div class="footer-desc">Il portale italiano di notizie, attualità e approfondimento. Informazione libera, indipendente e rigorosa.</div>
+                    <a href="mailto:gastroboostmarketingdegital@gmail.com" class="footer-collab"><i class="ti ti-briefcase"></i> Proponi una Collaborazione</a>
+                    <div class="footer-social-row">
+                        <a class="footer-social-btn" href="#"><i class="ti ti-brand-facebook"></i></a>
+                        <a class="footer-social-btn" href="#"><i class="ti ti-brand-x"></i></a>
+                        <a class="footer-social-btn" href="#"><i class="ti ti-brand-instagram"></i></a>
+                        <a class="footer-social-btn" href="#"><i class="ti ti-brand-youtube"></i></a>
+                        <a class="footer-social-btn" href="#"><i class="ti ti-brand-telegram"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <div class="footer-col-title">Sezioni</div>
+                    <div class="footer-col-links">
+                        <a href="categoria.html?cat=politica">Politica</a>
+                        <a href="categoria.html?cat=economia">Economia</a>
+                        <a href="categoria.html?cat=mondo">Mondo</a>
+                        <a href="categoria.html?cat=italia">Italia</a>
+                        <a href="categoria.html?cat=sport">Sport</a>
+                        <a href="categoria.html?cat=cultura">Cultura</a>
+                    </div>
+                </div>
+                <div>
+                    <div class="footer-col-title">Redazione</div>
+                    <div class="footer-col-links">
+                        <a href="#">Chi siamo</a>
+                        <a href="mailto:gastroboostmarketingdegital@gmail.com">Collabora con noi</a>
+                    </div>
+                </div>
+                <div>
+                    <div class="footer-col-title">Servizi</div>
+                    <div class="footer-col-links">
+                        <a href="#">Newsletter</a>
+                        <a href="#">App Mobile</a>
+                        <a href="mailto:gastroboostmarketingdegital@gmail.com">Contatti</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2025 ANKOAUTCA — Tutti i diritti riservati</span>
+            <div>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Cookie Policy</a>
+                <a href="#">Termini di Servizio</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const NEWS_API_KEY = '1142e33f1ee5465e876b9a708bbbf80b';
+        const days = ['Domenica','Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato'];
+        const months = ['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'];
+        const now = new Date();
+        document.getElementById('topbar-date').textContent = days[now.getDay()] + ' ' + now.getDate() + ' ' + months[now.getMonth()] + ' ' + now.getFullYear();
+
+        // ========== utility ==========
+        function timeAgo(dateStr) {
+            const diffMin = Math.floor((Date.now() - new Date(dateStr)) / 60000);
+            if (diffMin < 60) return diffMin + ' minuti fa';
+            const diffH = Math.floor(diffMin / 60);
+            if (diffH < 24) return diffH + ' ore fa';
+            return Math.floor(diffH / 24) + ' giorni fa';
+        }
+
+        function truncate(str, max) {
+            return str && str.length > max ? str.slice(0, max) + '...' : str || '';
+        }
+
+        function getImageUrl(article) {
+            if (article.urlToImage && article.urlToImage.startsWith('http')) return article.urlToImage;
+            return `https://picsum.photos/seed/${Math.random().toString(36).substr(2,5)}/260/160`;
+        }
+
+        function getCategory(article) {
+            const t = (article.title || '').toLowerCase();
+            if (t.includes('governo')||t.includes('parlamento')||t.includes('elezioni')) return 'Politica';
+            if (t.includes('borsa')||t.includes('economi')||t.includes('finanza')) return 'Economia';
+            if (t.includes('nato')||t.includes('ue')||t.includes('usa')||t.includes('cina')) return 'Mondo';
+            if (t.includes('calcio')||t.includes('serie a')||t.includes('champions')) return 'Sport';
+            if (t.includes('film')||t.includes('arte')||t.includes('musica')) return 'Cultura';
+            if (t.includes('ai')||t.includes('tech')||t.includes('digitale')) return 'Tecnologia';
+            return 'Attualità';
+        }
+
+        // ========== fetch news ==========
+        async function fetchNews() {
+            const url = `https://newsapi.org/v2/top-headlines?country=it&pageSize=12&apiKey=${NEWS_API_KEY}`;
+            try {
+                const resp = await fetch(url);
+                if (!resp.ok) throw new Error('API error');
+                const data = await resp.json();
+                if (data.articles && data.articles.length) return data.articles;
+            } catch(e) {
+                console.warn('Usando fallback news');
+            }
+            // fallback
+            return [
+                {title:'Il Parlamento vota la riforma costituzionale: approvata con 318 voti', description:'Una storica riforma che cambia il volto dello Stato italiano.', urlToImage:'https://picsum.photos/seed/pol1/260/160', author:'Giulia Marchetti', publishedAt: new Date().toISOString(), url:'#'},
+                {title:'Borsa di Milano ai massimi storici: FTSE MIB oltre 40.000 punti', description:'Mercati euforici trainati dal settore bancario.', urlToImage:'https://picsum.photos/seed/eco1/260/160', author:'Matteo Caruso', publishedAt: new Date().toISOString(), url:'#'},
+                {title:'Azzurri qualificati ai Mondiali 2026: Grecia battuta 3-0', description:'Doppietta Scamacca e gol Barella.', urlToImage:'https://picsum.photos/seed/sport1/260/160', author:'Roberto Conti', publishedAt: new Date().toISOString(), url:'#'},
+                {title:'OpenAI lancia GPT-5: capacità umana nel ragionamento', description:'Il nuovo modello supera il test di Turing.', urlToImage:'https://picsum.photos/seed/tech1/260/160', author:'Elena Russo', publishedAt: new Date().toISOString(), url:'#'},
+            ];
+        }
+
+        // ========== localStorage data ==========
+        const DATA_KEY = 'ankoautca_opinions_data';
+        const VOTES_KEY = 'ankoautca_opinions_votes';
+
+        function loadData() {
+            const raw = localStorage.getItem(DATA_KEY);
+            return raw ? JSON.parse(raw) : {};
+        }
+        function saveData(data) { localStorage.setItem(DATA_KEY, JSON.stringify(data)); }
+        function loadVotes() {
+            const raw = localStorage.getItem(VOTES_KEY);
+            return raw ? JSON.parse(raw) : {};
+        }
+        function saveVotes(votes) { localStorage.setItem(VOTES_KEY, JSON.stringify(votes)); }
+
+        function getArticleId(article) {
+            // usa URL o titolo+data
+            return article.url || (article.title + article.publishedAt).replace(/\s/g,'');
+        }
+
+        function getArticleStats(article) {
+            const id = getArticleId(article);
+            const data = loadData();
+            return data[id] || { up:0, down:0, comments:[] };
+        }
+
+        function voteArticle(articleId, type) {
+            const data = loadData();
+            if (!data[articleId]) data[articleId] = { up:0, down:0, comments:[] };
+            const votes = loadVotes();
+            const prev = votes[articleId];
+            if (prev === 'up') data[articleId].up--;
+            else if (prev === 'down') data[articleId].down--;
+            if (prev === type) {
+                // toggle off
+                delete votes[articleId];
+            } else {
+                votes[articleId] = type;
+                if (type === 'up') data[articleId].up++;
+                else data[articleId].down++;
+            }
+            saveData(data);
+            saveVotes(votes);
+            renderNews(); // refresh
+        }
+
+        function addComment(articleId, name, text) {
+            if (!text.trim()) return;
+            const data = loadData();
+            if (!data[articleId]) data[articleId] = { up:0, down:0, comments:[] };
+            const now = new Date();
+            const timeStr = now.getHours().toString().padStart(2,'0') + ':' + now.getMinutes().toString().padStart(2,'0') + ' - ' + now.getDate() + '/' + (now.getMonth()+1);
+            data[articleId].comments.unshift({ name: name.trim() || 'Anonimo', text: text.trim(), time: timeStr });
+            saveData(data);
+            renderNews();
+        }
+
+        // ========== render ==========
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        let currentArticles = [];
+
+        async function renderNews() {
+            const container = document.getElementById('news-container');
+            if (!currentArticles.length) {
+                currentArticles = await fetchNews();
+            }
+            const votes = loadVotes();
+
+            container.innerHTML = currentArticles.map(article => {
+                const id = getArticleId(article);
+                const stats = getArticleStats(article);
+                const total = stats.up + stats.down;
+                const upPercent = total ? Math.round((stats.up / total)*100) : 50;
+                const downPercent = total ? 100 - upPercent : 50;
+                const userVote = votes[id] || null;
+                const comments = stats.comments.slice(0, 5);
+
+                return `
+                <div class="news-card" id="article-${id}">
+                    <div class="news-header" onclick="window.open('${article.url || '#'}','_blank')">
+                        <div class="news-img"><img src="${getImageUrl(article)}" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                        <div class="news-info">
+                            <span class="news-category">${getCategory(article)}</span>
+                            <h2 class="news-title">${escapeHtml(article.title)}</h2>
+                            <div class="news-excerpt">${escapeHtml(truncate(article.description, 150))}</div>
+                            <div class="news-meta">
+                                <span>${article.author || 'Redazione'}</span>
+                                <span>${timeAgo(article.publishedAt)}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vote-section">
+                        <button class="vote-btn up ${userVote === 'up' ? 'selected' : ''}" data-article-id="${id}" data-vote="up">
+                            <i class="ti ti-thumb-up"></i> Mi piace (${stats.up})
+                        </button>
+                        <button class="vote-btn down ${userVote === 'down' ? 'selected' : ''}" data-article-id="${id}" data-vote="down">
+                            <i class="ti ti-thumb-down"></i> Non mi piace (${stats.down})
+                        </button>
+                        <div class="vote-stats">
+                            <span class="total-votes">${total} voti</span>
+                            <div class="bar-container">
+                                <div class="bar-up" style="width:${upPercent}%"></div>
+                                <div class="bar-down" style="width:${downPercent}%"></div>
+                            </div>
+                            <span style="font-size:12px">${upPercent}% / ${downPercent}%</span>
+                        </div>
+                    </div>
+                    <div class="comments-area">
+                        <div class="comments-header"><i class="ti ti-message-circle"></i> Commenti (${stats.comments.length})</div>
+                        <div class="comments-list">
+                            ${comments.map(c => `
+                                <div class="comment-item">
+                                    <div class="comment-author">${escapeHtml(c.name)} <span class="comment-time">${c.time}</span></div>
+                                    <div class="comment-text">${escapeHtml(c.text)}</div>
+                                </div>
+                            `).join('') || '<div style="color:#888;">Nessun commento. Sii il primo!</div>'}
+                        </div>
+                        <div class="comment-form" data-article-id="${id}">
+                            <input type="text" class="comment-name" placeholder="Il tuo nome (facoltativo)" maxlength="30">
+                            <textarea class="comment-textarea" placeholder="Scrivi un commento..." maxlength="500"></textarea>
+                            <button class="comment-submit">Invia</button>
+                        </div>
+                    </div>
+                </div>
+                `;
+            }).join('');
+
+            // event listeners
+            document.querySelectorAll('.vote-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const articleId = this.dataset.articleId;
+                    const voteType = this.dataset.vote;
+                    voteArticle(articleId, voteType);
+                });
+            });
+
+            document.querySelectorAll('.comment-submit').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const form = this.closest('.comment-form');
+                    const articleId = form.dataset.articleId;
+                    const nameInput = form.querySelector('.comment-name');
+                    const textInput = form.querySelector('.comment-textarea');
+                    addComment(articleId, nameInput.value, textInput.value);
+                });
+            });
+
+            document.querySelectorAll('.comment-textarea').forEach(ta => {
+                ta.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter' && !e.shiftKey) {
+                        e.preventDefault();
+                        this.closest('.comment-form').querySelector('.comment-submit').click();
+                    }
+                });
+            });
+        }
+
+        renderNews();
+    </script>
+</body>
+</html>
