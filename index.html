@@ -1,2386 +1,1032 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANKOAUTCA — Notizie in Diretta, Attualità, Mondo</title>
-    <meta name="description" content="ANKOAUTCA - Notizie italiane, attualità, politica, cronaca, cultura e tecnologia. Informazione libera 24/7.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Sans+3:wght@300;400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
-    <style>
-        :root {
-            --red: #C0121C;
-            --red-dark: #8B0000;
-            --black: #0A0A0A;
-            --gray-700: #444;
-            --gray-500: #777;
-            --gray-300: #ccc;
-            --gray-100: #f4f4f2;
-            --white: #fff;
-            --cream: #faf9f7;
-            --font-display: 'Playfair Display', Georgia, serif;
-            --font-body: 'Source Sans 3', Arial, sans-serif;
-            --font-serif: 'Source Serif 4', Georgia, serif;
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
-            --shadow-md: 0 6px 24px rgba(0, 0, 0, 0.12);
-            --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.18);
-            --radius: 6px;
-            --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANKOAUTCA — Notizie Italiane in Diretta</title>
+<meta name="description" content="ANKOAUTCA - Testata indipendente. Politica, economia, mondo, sport, cultura. Informazione libera 24/7.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+:root{
+  --ink:#0f0e0c;
+  --red:#bf1b1b;
+  --red2:#991515;
+  --cream:#faf8f3;
+  --paper:#f3f0e8;
+  --warm:#e8e2d4;
+  --muted:#8a8072;
+  --border:#d4cfc5;
+  --white:#ffffff;
+  --sans:'DM Sans',sans-serif;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --display:'DM Serif Display',Georgia,serif;
+  --radius:6px;
+  --shadow:0 2px 12px rgba(0,0,0,.08);
+  --shadow2:0 8px 32px rgba(0,0,0,.13);
+  --t:.22s ease;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: var(--font-body);
-            background: var(--cream);
-            color: var(--black);
-            font-size: 16px;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        img {
-            max-width: 100%;
-            display: block;
-        }
+/* SCROLLBAR */
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:var(--paper)}
+::-webkit-scrollbar-thumb{background:var(--warm);border-radius:3px}
 
-        /* SCROLLBAR */
-        ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #bbb;
-            border-radius: 3px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #888;
-        }
+/* TOP STRIP */
+.topstrip{background:var(--ink);padding:7px 0;border-bottom:2px solid var(--red)}
+.topstrip-in{max-width:1300px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.ts-date{font-family:var(--serif);font-style:italic;font-size:13px;color:#aaa}
+.ts-links{display:flex;gap:18px;align-items:center}
+.ts-links a{font-size:11px;color:#999;letter-spacing:.8px;text-transform:uppercase;transition:color var(--t)}
+.ts-links a:hover{color:var(--red)}
+.live-pill{background:var(--red);color:#fff;font-size:10px;font-weight:600;padding:2px 8px;border-radius:2px;letter-spacing:1px;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.5}}
 
-        /* TOPBAR */
-        .topbar {
-            background: var(--black);
-            color: var(--gray-300);
-            font-size: 12px;
-            padding: 6px 0;
-            border-bottom: 2px solid var(--red);
-        }
-        .topbar-inner {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        .topbar-date {
-            font-family: var(--font-serif);
-            font-style: italic;
-            color: #aaa;
-        }
-        .topbar-links {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .topbar-links a {
-            color: #bbb;
-            font-size: 11px;
-            letter-spacing: .5px;
-            text-transform: uppercase;
-            transition: color var(--transition);
-        }
-        .topbar-links a:hover {
-            color: var(--red);
-        }
-        .live-badge {
-            background: var(--red);
-            color: white;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            padding: 2px 7px;
-            border-radius: 2px;
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0%,
-            100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: .55;
-            }
-        }
+/* TICKER */
+.ticker-bar{background:var(--red);overflow:hidden;display:flex;height:36px}
+.ticker-label{background:#000;color:#fff;font-size:10px;font-weight:700;letter-spacing:2px;padding:0 16px;display:flex;align-items:center;white-space:nowrap;flex-shrink:0}
+.ticker-track{flex:1;overflow:hidden;display:flex;align-items:center}
+.ticker-inner{display:inline-flex;gap:50px;animation:scroll 60s linear infinite;white-space:nowrap;color:#fff;font-size:13px;font-weight:500}
+.ticker-inner span::before{content:"◆ ";font-size:8px;opacity:.7}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-        /* BREAKING */
-        .breaking-bar {
-            background: var(--red);
-            color: white;
-            font-size: 13px;
-            font-weight: 600;
-            padding: 8px 0;
-            overflow: hidden;
-            display: flex;
-        }
-        .breaking-label {
-            background: var(--black);
-            padding: 0 16px;
-            font-size: 11px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            white-space: nowrap;
-            display: flex;
-            align-items: center;
-            flex-shrink: 0;
-            z-index: 2;
-        }
-        .breaking-track {
-            overflow: hidden;
-            flex: 1;
-            padding-left: 20px;
-        }
-        .breaking-inner {
-            display: inline-flex;
-            gap: 60px;
-            animation: scrollTicker 50s linear infinite;
-            white-space: nowrap;
-        }
-        .breaking-inner span::before {
-            content: "● ";
-            opacity: .7;
-        }
-        @keyframes scrollTicker {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
-        }
+/* HEADER */
+header{background:var(--white);border-bottom:3px solid var(--ink);position:sticky;top:0;z-index:200;box-shadow:var(--shadow)}
+.masthead{max-width:1300px;margin:0 auto;padding:18px 24px 12px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.logo-wrap{cursor:pointer;user-select:none}
+.logo-name{font-family:var(--display);font-size:54px;font-weight:700;letter-spacing:-2px;line-height:1;transition:opacity var(--t)}
+.logo-name:hover{opacity:.85}
+.logo-name span{color:var(--red)}
+.logo-sub{font-family:var(--serif);font-style:italic;font-size:12px;color:var(--muted);letter-spacing:2.5px;text-transform:uppercase;margin-top:2px}
+.header-right{display:flex;align-items:center;gap:12px}
+.search-wrap{display:flex;border:1.5px solid var(--border);border-radius:4px;overflow:hidden;transition:border-color var(--t)}
+.search-wrap:focus-within{border-color:var(--ink)}
+.search-wrap input{border:none;padding:8px 14px;font-family:var(--sans);font-size:13px;width:200px;outline:none;background:transparent;transition:width var(--t)}
+.search-wrap input:focus{width:250px}
+.search-wrap button{background:var(--ink);border:none;color:#fff;padding:8px 13px;cursor:pointer;display:flex;align-items:center;transition:background var(--t)}
+.search-wrap button:hover{background:var(--red)}
 
-        /* HEADER */
-        header {
-            background: var(--white);
-            border-bottom: 3px solid var(--black);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: var(--shadow-sm);
-            transition: box-shadow var(--transition);
-        }
-        header.scrolled {
-            box-shadow: var(--shadow-lg);
-        }
-        .masthead {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 16px 20px 10px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .logo-text {
-            font-family: var(--font-display);
-            font-size: 52px;
-            font-weight: 900;
-            letter-spacing: -2px;
-            line-height: 1;
-            cursor: pointer;
-            transition: transform var(--transition);
-        }
-        .logo-text:hover {
-            transform: scale(1.03);
-        }
-        .logo-a {
-            color: var(--red);
-        }
-        .logo-tagline {
-            font-family: var(--font-serif);
-            font-style: italic;
-            font-size: 12px;
-            color: var(--gray-500);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-        .search-box {
-            display: flex;
-            border: 1.5px solid var(--gray-300);
-            border-radius: 3px;
-            overflow: hidden;
-            transition: border-color var(--transition);
-        }
-        .search-box:focus-within {
-            border-color: var(--red);
-        }
-        .search-box input {
-            border: none;
-            padding: 7px 12px;
-            font-size: 13px;
-            outline: none;
-            width: 200px;
-            font-family: var(--font-body);
-            transition: width var(--transition);
-        }
-        .search-box input:focus {
-            width: 240px;
-        }
-        .search-box button {
-            background: var(--red);
-            border: none;
-            color: white;
-            padding: 8px 12px;
-            cursor: pointer;
-            transition: background var(--transition);
-            display: flex;
-            align-items: center;
-        }
-        .search-box button:hover {
-            background: var(--red-dark);
-        }
+/* NAV */
+nav{background:var(--ink)}
+.nav-in{max-width:1300px;margin:0 auto;padding:0 24px;display:flex;overflow-x:auto;scrollbar-width:none}
+.nav-in::-webkit-scrollbar{display:none}
+.nav-in a{color:#ccc;font-size:11.5px;font-weight:500;letter-spacing:1.2px;text-transform:uppercase;padding:13px 17px;white-space:nowrap;border-bottom:3px solid transparent;transition:all var(--t);cursor:pointer}
+.nav-in a:hover,.nav-in a.act{color:#fff;border-bottom-color:var(--red)}
 
-        /* NAV */
-        nav.mainnav {
-            background: var(--black);
-        }
-        .mainnav-inner {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-        .mainnav-inner a {
-            color: #ddd;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            padding: 12px 16px;
-            white-space: nowrap;
-            border-bottom: 3px solid transparent;
-            transition: all var(--transition);
-            position: relative;
-        }
-        .mainnav-inner a:hover,
-        .mainnav-inner a.active {
-            color: white;
-            border-bottom-color: var(--red);
-        }
-        .mainnav-inner a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 3px;
-            background: var(--red);
-            transition: all var(--transition);
-            transform: translateX(-50%);
-        }
-        .mainnav-inner a:hover::after {
-            width: 100%;
-        }
-        .mainnav-inner a.active::after {
-            width: 100%;
-        }
+/* CONTAINER */
+.wrap{max-width:1300px;margin:0 auto;padding:0 24px}
 
-        /* LAYOUT */
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        .main-layout {
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 30px;
-            padding: 30px 0;
-        }
-        @media(max-width:900px) {
-            .main-layout {
-                grid-template-columns: 1fr;
-            }
-        }
+/* SECTION LABEL */
+.sec-head{display:flex;align-items:center;gap:14px;padding-bottom:12px;margin-bottom:22px;border-bottom:1.5px solid var(--ink)}
+.sec-rule{width:32px;height:4px;background:var(--red)}
+.sec-title{font-family:var(--display);font-size:22px;font-weight:700}
+.sec-more{margin-left:auto;font-size:11px;color:var(--muted);letter-spacing:.5px;cursor:pointer;transition:color var(--t)}
+.sec-more:hover{color:var(--red)}
 
-        /* SECTION HEADER */
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 20px;
-            border-bottom: 2px solid var(--black);
-            padding-bottom: 10px;
-        }
-        .section-label {
-            font-family: var(--font-display);
-            font-size: 20px;
-            font-weight: 700;
-        }
-        .section-red-line {
-            width: 40px;
-            height: 3px;
-            background: var(--red);
-            animation: linePulse 3s ease-in-out infinite;
-        }
-        @keyframes linePulse {
-            0%,
-            100% {
-                width: 40px;
-            }
-            50% {
-                width: 60px;
-            }
-        }
+/* HERO */
+.hero-grid{display:grid;grid-template-columns:2.2fr 1fr;grid-template-rows:1fr 1fr;gap:3px;background:var(--ink);border-radius:var(--radius);overflow:hidden;margin:28px 0}
+.hero-main{grid-row:span 2;position:relative;min-height:500px;cursor:pointer;overflow:hidden}
+.hero-side{position:relative;min-height:200px;cursor:pointer;overflow:hidden}
+.h-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .7s ease}
+.hero-main:hover .h-bg,.hero-side:hover .h-bg{transform:scale(1.04)}
+.h-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.95) 0%,rgba(0,0,0,.3) 60%,transparent 100%)}
+.h-content{position:absolute;bottom:0;padding:28px;color:#fff}
+.h-cat{display:inline-block;background:var(--red);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 9px;border-radius:2px;margin-bottom:10px}
+.h-title{font-family:var(--display);font-style:italic;font-size:36px;line-height:1.15;margin-bottom:8px}
+.hero-side .h-title{font-size:18px}
+.h-meta{font-size:12px;color:rgba(255,255,255,.6);display:flex;gap:12px;align-items:center}
+.h-sub{font-family:var(--serif);font-style:italic;font-size:15px;color:rgba(255,255,255,.78);margin-bottom:10px}
 
-        /* HERO */
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 2px;
-            background: var(--black);
-            border: 2px solid var(--black);
-            margin-bottom: 30px;
-            overflow: hidden;
-            border-radius: var(--radius);
-        }
-        .hero-main {
-            grid-row: span 2;
-            position: relative;
-            min-height: 480px;
-            cursor: pointer;
-            overflow: hidden;
-        }
-        .hero-main-bg {
-            position: absolute;
-            inset: 0;
-            background-size: cover;
-            background-position: center;
-            transition: transform 0.6s ease;
-        }
-        .hero-main:hover .hero-main-bg {
-            transform: scale(1.03);
-        }
-        .hero-main-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(0deg, rgba(0, 0, 0, .92) 0%, rgba(0, 0, 0, .4) 55%, rgba(0, 0, 0, .1) 100%);
-        }
-        .hero-main-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 28px;
-            color: white;
-            animation: fadeInUp 0.6s ease;
-        }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .hero-category {
-            background: var(--red);
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            padding: 3px 9px;
-            display: inline-block;
-            border-radius: 2px;
-        }
-        .hero-title {
-            font-family: var(--font-display);
-            font-size: 34px;
-            font-weight: 900;
-            line-height: 1.15;
-            margin: 10px 0;
-        }
-        .hero-excerpt {
-            font-family: var(--font-serif);
-            font-style: italic;
-            font-size: 15px;
-            color: rgba(255, 255, 255, .8);
-        }
-        .hero-meta {
-            font-size: 12px;
-            color: rgba(255, 255, 255, .6);
-            display: flex;
-            gap: 14px;
-            margin-top: 12px;
-        }
-        .hero-side {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-        .hero-side-item {
-            flex: 1;
-            min-height: 180px;
-            position: relative;
-            cursor: pointer;
-            overflow: hidden;
-        }
-        .hsi-bg {
-            position: absolute;
-            inset: 0;
-            background-size: cover;
-            background-position: center;
-            transition: transform 0.4s ease;
-        }
-        .hero-side-item:hover .hsi-bg {
-            transform: scale(1.05);
-        }
-        .hsi-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(0deg, rgba(0, 0, 0, .88) 0%, transparent 60%);
-        }
-        .hsi-content {
-            position: absolute;
-            bottom: 0;
-            padding: 14px;
-            color: white;
-        }
-        .hsi-cat {
-            font-size: 9px;
-            font-weight: 700;
-            color: var(--red);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .hsi-title {
-            font-family: var(--font-display);
-            font-size: 15px;
-            font-weight: 700;
-        }
+/* MAIN GRID */
+.layout{display:grid;grid-template-columns:1fr 310px;gap:36px;padding:8px 0 40px}
+@media(max-width:920px){.layout{grid-template-columns:1fr}}
 
-        /* CARD GRID */
-        .articles-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-bottom: 30px;
-        }
-        @media(max-width:700px) {
-            .articles-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        .card {
-            background: white;
-            border: 1px solid #e8e6e1;
-            cursor: pointer;
-            transition: all var(--transition);
-            border-radius: var(--radius);
-            overflow: hidden;
-            animation: fadeInUp 0.5s ease both;
-        }
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-        }
-        .card-img {
-            aspect-ratio: 16/9;
-            position: relative;
-            overflow: hidden;
-        }
-        .card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        .card:hover .card-img img {
-            transform: scale(1.08);
-        }
-        .card-cat-badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: var(--red);
-            color: white;
-            font-size: 9px;
-            font-weight: 700;
-            padding: 3px 8px;
-            text-transform: uppercase;
-            border-radius: 2px;
-            z-index: 2;
-        }
-        .card-body {
-            padding: 16px;
-        }
-        .card-title {
-            font-family: var(--font-display);
-            font-size: 18px;
-            font-weight: 700;
-            line-height: 1.3;
-            margin-bottom: 8px;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            transition: color var(--transition);
-        }
-        .card:hover .card-title {
-            color: var(--red);
-        }
-        .card-excerpt {
-            font-size: 14px;
-            color: var(--gray-500);
-            font-style: italic;
-            margin-bottom: 12px;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            line-height: 1.5;
-        }
-        .card-meta {
-            font-size: 11px;
-            color: gray;
-            display: flex;
-            justify-content: space-between;
-        }
+/* CARDS */
+.cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:28px}
+@media(max-width:720px){.cards-3{grid-template-columns:1fr}}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:all var(--t)}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow2);border-color:var(--warm)}
+.card-img{aspect-ratio:16/9;overflow:hidden;position:relative}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.card:hover .card-img img{transform:scale(1.07)}
+.card-badge{position:absolute;top:10px;left:10px;background:var(--red);color:#fff;font-size:9px;font-weight:700;padding:2px 8px;text-transform:uppercase;letter-spacing:1px;border-radius:2px}
+.card-body{padding:15px}
+.card-title{font-family:var(--serif);font-size:19px;font-weight:600;line-height:1.3;margin-bottom:7px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;transition:color var(--t)}
+.card:hover .card-title{color:var(--red)}
+.card-sub{font-size:13px;color:var(--muted);font-style:italic;margin-bottom:10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-meta{font-size:11px;color:#aaa;display:flex;justify-content:space-between}
 
-        /* ARTICLE LIST */
-        .article-list-item {
-            display: flex;
-            gap: 14px;
-            padding: 14px 0;
-            border-bottom: 1px solid #e8e6e1;
-            cursor: pointer;
-            transition: background var(--transition);
-            border-radius: 4px;
-        }
-        .article-list-item:hover {
-            background: #fdfcf9;
-            padding-left: 8px;
-        }
-        .ali-img {
-            width: 90px;
-            height: 68px;
-            flex-shrink: 0;
-            background: #eee;
-            overflow: hidden;
-            border-radius: 4px;
-        }
-        .ali-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform var(--transition);
-        }
-        .article-list-item:hover .ali-img img {
-            transform: scale(1.05);
-        }
-        .ali-cat {
-            font-size: 9px;
-            font-weight: 700;
-            color: var(--red);
-            text-transform: uppercase;
-        }
-        .ali-title {
-            font-family: var(--font-display);
-            font-size: 15px;
-            font-weight: 700;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        .ali-meta {
-            font-size: 11px;
-            color: var(--gray-500);
-            margin-top: 5px;
-        }
+/* LIST ITEM */
+.art-list{border-top:1px solid var(--border)}
+.ali{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid var(--border);cursor:pointer;transition:all var(--t);border-radius:4px}
+.ali:hover{background:var(--paper);padding-left:8px}
+.ali-img{width:88px;height:64px;flex-shrink:0;border-radius:4px;overflow:hidden;background:var(--warm)}
+.ali-img img{width:100%;height:100%;object-fit:cover;transition:transform var(--t)}
+.ali:hover .ali-img img{transform:scale(1.05)}
+.ali-cat{font-size:9px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:1px}
+.ali-title{font-family:var(--serif);font-size:15px;font-weight:600;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ali-meta{font-size:11px;color:var(--muted);margin-top:4px}
 
-        /* MAGAZINE GRID */
-        .magazine-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 2px;
-            background: var(--black);
-            margin-bottom: 30px;
-            overflow: hidden;
-            border-radius: var(--radius);
-        }
-        .mag-item {
-            position: relative;
-            min-height: 200px;
-            cursor: pointer;
-            overflow: hidden;
-        }
-        .mag-main {
-            min-height: 400px;
-        }
-        .mag-item-bg {
-            position: absolute;
-            inset: 0;
-            background-size: cover;
-            background-position: center;
-            transition: transform 0.5s ease;
-        }
-        .mag-item:hover .mag-item-bg {
-            transform: scale(1.06);
-        }
-        .mag-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(0deg, rgba(0, 0, 0, .88) 0%, transparent 60%);
-        }
-        .mag-content {
-            position: absolute;
-            bottom: 0;
-            padding: 16px;
-            color: white;
-        }
-        .mag-cat {
-            font-size: 9px;
-            font-weight: 700;
-            color: var(--red);
-            text-transform: uppercase;
-        }
-        .mag-title {
-            font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 18px;
-        }
-        .mag-main .mag-title {
-            font-size: 26px;
-        }
+/* MAG GRID */
+.mag{display:grid;grid-template-columns:1.7fr 1fr;gap:3px;background:var(--ink);border-radius:var(--radius);overflow:hidden;margin-bottom:28px}
+.mag-item{position:relative;min-height:220px;cursor:pointer;overflow:hidden}
+.mag-main{min-height:440px}
+.mag-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s ease}
+.mag-item:hover .mag-bg{transform:scale(1.05)}
+.mag-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.9) 0%,transparent 60%)}
+.mag-content{position:absolute;bottom:0;padding:18px;color:#fff}
+.mag-cat{font-size:9px;font-weight:700;color:var(--red);text-transform:uppercase;margin-bottom:6px}
+.mag-title{font-family:var(--serif);font-weight:600;font-size:17px;line-height:1.3}
+.mag-main .mag-title{font-size:26px}
+.mag-stack{display:flex;flex-direction:column;gap:3px}
 
-        /* COLLAB */
-        .collab-banner {
-            background: linear-gradient(135deg, var(--black) 0%, #1a0a0a 100%);
-            border-left: 4px solid var(--red);
-            padding: 28px 30px;
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            flex-wrap: wrap;
-            margin: 30px 0;
-            border-radius: var(--radius);
-            animation: glowBorder 3s ease-in-out infinite;
-        }
-        @keyframes glowBorder {
-            0%,
-            100% {
-                border-left-color: var(--red);
-            }
-            50% {
-                border-left-color: #ff4444;
-            }
-        }
-        .collab-icon {
-            font-size: 40px;
-            color: var(--red);
-            animation: bounce 2s ease-in-out infinite;
-        }
-        @keyframes bounce {
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-8px);
-            }
-        }
-        .collab-title {
-            font-family: var(--font-display);
-            font-size: 22px;
-            font-weight: 900;
-            color: white;
-        }
-        .collab-desc {
-            font-size: 13px;
-            color: #aaa;
-        }
-        .collab-btn {
-            background: var(--red);
-            color: white;
-            padding: 12px 24px;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 12px;
-            border-radius: 2px;
-            white-space: nowrap;
-            transition: all var(--transition);
-            margin-left: auto;
-        }
-        .collab-btn:hover {
-            background: #e01420;
-            transform: scale(1.04);
-            box-shadow: 0 4px 16px rgba(192, 18, 28, 0.4);
-        }
+/* DIVIDER */
+.section-gap{margin-bottom:40px}
 
-        /* SIDEBAR */
-        .sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 26px;
-        }
-        .widget {
-            background: white;
-            border: 1px solid #e8e6e1;
-            border-radius: var(--radius);
-            overflow: hidden;
-            transition: box-shadow var(--transition);
-        }
-        .widget:hover {
-            box-shadow: var(--shadow-sm);
-        }
-        .widget-header {
-            background: var(--black);
-            color: white;
-            padding: 10px 16px;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            display: flex;
-            gap: 8px;
-            align-items: center;
-        }
-        .info-gratis {
-            text-align: center;
-            padding: 20px;
-        }
-        .info-gratis i {
-            font-size: 32px;
-            color: var(--red);
-        }
-        .info-gratis h3 {
-            font-family: var(--font-display);
-            margin: 8px 0;
-        }
-        .badge-free {
-            background: #e8f0e8;
-            color: #2c6e2c;
-            border-radius: 30px;
-            padding: 4px 10px;
-            font-size: 11px;
-            display: inline-block;
-            margin-top: 10px;
-        }
+/* COLLAB STRIP */
+.collab{background:var(--ink);border-left:4px solid var(--red);padding:26px 28px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;border-radius:var(--radius);margin:32px 0}
+.collab-icon{font-size:36px;color:var(--red)}
+.collab-title{font-family:var(--display);font-size:20px;color:#fff;font-weight:700}
+.collab-desc{font-size:13px;color:#888;margin-top:2px}
+.collab-btn{margin-left:auto;background:var(--red);color:#fff;padding:11px 22px;font-size:12px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;border-radius:3px;transition:all var(--t);white-space:nowrap}
+.collab-btn:hover{background:var(--red2);transform:scale(1.03)}
 
-        /* BTN */
-        .btn-more {
-            background: transparent;
-            border: 1.5px solid var(--black);
-            padding: 11px;
-            text-align: center;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 12px;
-            width: 100%;
-            margin-top: 20px;
-            cursor: pointer;
-            transition: all var(--transition);
-            font-family: var(--font-body);
-            border-radius: var(--radius);
-        }
-        .btn-more:hover {
-            background: var(--black);
-            color: white;
-        }
+/* SIDEBAR */
+.sidebar{display:flex;flex-direction:column;gap:24px}
+.widget{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.wh{background:var(--ink);color:#fff;font-size:11px;font-weight:600;letter-spacing:2px;padding:9px 15px;display:flex;align-items:center;gap:7px;text-transform:uppercase}
+.wbody{padding:16px}
 
-        /* ARTICOLO FULL */
-        .article-full-page {
-            background: white;
-            padding: 30px;
-            margin-bottom: 30px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-sm);
-            animation: fadeInUp 0.5s ease;
-        }
-        .article-full-page h1 {
-            font-family: var(--font-display);
-            font-size: 40px;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-        .article-full-page .article-meta {
-            color: gray;
-            margin-bottom: 20px;
-            font-size: 14px;
-        }
-        .article-full-page img {
-            max-width: 100%;
-            margin: 20px 0;
-            border-radius: var(--radius);
-        }
-        .article-full-page .article-content {
-            font-family: var(--font-serif);
-            font-size: 18px;
-            line-height: 1.8;
-        }
-        .article-full-page .article-content p {
-            margin-bottom: 1.2em;
-        }
-        .back-home {
-            display: inline-block;
-            margin-bottom: 20px;
-            background: var(--black);
-            color: white;
-            padding: 6px 12px;
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: 600;
-            border-radius: 4px;
-            transition: all var(--transition);
-        }
-        .back-home:hover {
-            background: var(--red);
-        }
+/* TRENDING */
+.trend-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);cursor:pointer;transition:all var(--t)}
+.trend-item:last-child{border-bottom:none}
+.trend-item:hover{padding-left:6px}
+.trend-num{font-family:var(--display);font-size:28px;color:var(--warm);font-weight:700;flex-shrink:0;line-height:1}
+.trend-cat{font-size:9px;color:var(--red);text-transform:uppercase;font-weight:700;letter-spacing:1px}
+.trend-title{font-family:var(--serif);font-size:14px;font-weight:600;line-height:1.3;transition:color var(--t)}
+.trend-item:hover .trend-title{color:var(--red)}
 
-        /* LOADING */
-        .loading-placeholder {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-bottom: 30px;
-        }
-        .loading-card {
-            background: white;
-            border: 1px solid #e8e6e1;
-            overflow: hidden;
-            border-radius: var(--radius);
-        }
-        .skeleton {
-            background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
-            background-size: 200% 100%;
-            animation: shimmer 1.5s infinite;
-        }
-        @keyframes shimmer {
-            0% {
-                background-position: 200% 0;
-            }
-            100% {
-                background-position: -200% 0;
-            }
-        }
-        .skel-img {
-            height: 160px;
-        }
-        .skel-title {
-            height: 20px;
-            margin: 16px;
-            border-radius: 3px;
-        }
-        .skel-text {
-            height: 14px;
-            margin: 8px 16px;
-            border-radius: 3px;
-        }
+/* METEO WIDGET */
+.meteo-box{text-align:center;padding:20px 16px}
+.meteo-city{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.meteo-temp{font-family:var(--display);font-size:48px;font-weight:700;line-height:1;margin:8px 0}
+.meteo-desc{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--muted)}
+.meteo-row{display:flex;justify-content:space-around;margin-top:12px;font-size:12px;color:var(--muted)}
 
-        /* LIVE CHAT */
-        .live-chat-section {
-            max-width: 1280px;
-            margin: 20px auto 30px;
-            padding: 0 20px;
-        }
-        .chat-public-container {
-            background: white;
-            border: 1px solid #e8e6e1;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-        }
-        .chat-header {
-            background: var(--black);
-            color: white;
-            padding: 14px 20px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-        }
-        .chat-messages {
-            max-height: 320px;
-            overflow-y: auto;
-            padding: 16px;
-            background: #fefcf9;
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-        .chat-msg {
-            padding: 10px 12px;
-            border-bottom: 1px solid #f0ede8;
-            animation: fadeInUp 0.3s ease;
-            border-radius: 4px;
-            transition: background var(--transition);
-        }
-        .chat-msg:last-child {
-            border-bottom: none;
-        }
-        .chat-msg:hover {
-            background: #fdf8f3;
-        }
-        .chat-name {
-            font-weight: 700;
-            color: var(--red);
-        }
-        .chat-time {
-            font-size: 10px;
-            color: gray;
-            margin-left: 8px;
-        }
-        .chat-text {
-            margin-top: 4px;
-            word-break: break-word;
-            font-size: 14px;
-            line-height: 1.5;
-        }
-        .chat-form {
-            padding: 16px;
-            background: #f8f6f2;
-            border-top: 1px solid #e8e6e1;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        .chat-form input,
-        .chat-form textarea {
-            border: 1.5px solid #e0ddd8;
-            padding: 8px;
-            font-family: var(--font-body);
-            border-radius: 4px;
-            font-size: 14px;
-            outline: none;
-            transition: border var(--transition);
-        }
-        .chat-form input:focus,
-        .chat-form textarea:focus {
-            border-color: var(--red);
-        }
-        .chat-form textarea {
-            resize: vertical;
-            min-height: 70px;
-        }
-        .chat-form button {
-            background: var(--red);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-weight: 700;
-            cursor: pointer;
-            font-family: var(--font-body);
-            font-size: 13px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            transition: all var(--transition);
-            width: fit-content;
-            border-radius: 4px;
-        }
-        .chat-form button:hover {
-            background: var(--red-dark);
-            transform: scale(1.03);
-        }
-        .chat-empty {
-            text-align: center;
-            padding: 24px;
-            color: var(--gray-500);
-            font-style: italic;
-        }
-        .chat-reactions {
-            display: flex;
-            gap: 6px;
-            margin-top: 6px;
-        }
-        .reaction-btn {
-            background: none;
-            border: 1px solid #e0ddd8;
-            padding: 2px 8px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 12px;
-            transition: all var(--transition);
-        }
-        .reaction-btn:hover {
-            border-color: var(--red);
-            color: var(--red);
-            background: #fff5f5;
-        }
-        .chat-online {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            margin-left: auto;
-            font-size: 12px;
-            color: #aaa;
-        }
-        .online-dot {
-            width: 7px;
-            height: 7px;
-            background: #4caf50;
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
+/* ARTICLE PAGE */
+.art-page{background:var(--white);border-radius:var(--radius);padding:36px;box-shadow:var(--shadow);margin:28px 0;animation:fadeUp .4s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.art-page h1{font-family:var(--display);font-style:italic;font-size:44px;line-height:1.2;margin-bottom:14px}
+.art-sub{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--muted);margin-bottom:18px}
+.art-meta{font-size:13px;color:var(--muted);margin-bottom:24px;display:flex;gap:16px;flex-wrap:wrap}
+.art-hero-img{width:100%;max-height:520px;object-fit:cover;border-radius:6px;margin-bottom:28px}
+.art-body p{font-family:var(--serif);font-size:19px;line-height:1.85;margin-bottom:1.4em;color:#1a1916}
+.art-body p:first-child::first-letter{font-size:72px;font-family:var(--display);float:left;line-height:.8;margin:6px 8px -4px 0;color:var(--red)}
+.art-share{display:flex;gap:10px;margin-top:28px;padding-top:20px;border-top:1px solid var(--border)}
+.share-btn{background:var(--paper);border:1px solid var(--border);padding:8px 16px;border-radius:4px;font-size:12px;font-weight:600;cursor:pointer;transition:all var(--t);display:flex;align-items:center;gap:6px}
+.share-btn:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.back-btn{display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:#fff;padding:7px 14px;border-radius:4px;font-size:13px;font-weight:600;cursor:pointer;margin-bottom:22px;transition:all var(--t)}
+.back-btn:hover{background:var(--red)}
 
-        /* FOOTER */
-        footer {
-            background: var(--black);
-            color: #aaa;
-            margin-top: 40px;
-        }
-        .footer-top {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 40px;
-        }
-        @media(max-width:800px) {
-            .footer-top {
-                grid-template-columns: 1fr;
-            }
-        }
-        .footer-logo {
-            font-family: var(--font-display);
-            font-size: 36px;
-            font-weight: 900;
-            color: white;
-        }
-        .footer-logo span {
-            color: var(--red);
-        }
-        .footer-desc {
-            margin-top: 8px;
-            font-size: 13px;
-            line-height: 1.7;
-            color: #666;
-        }
-        .footer-col-title {
-            color: white;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            margin-bottom: 16px;
-            text-transform: uppercase;
-        }
-        .footer-col-links {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        .footer-col-links a {
-            color: #888;
-            font-size: 13px;
-            transition: color var(--transition);
-        }
-        .footer-col-links a:hover {
-            color: var(--red);
-        }
-        .footer-bottom {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            font-size: 12px;
-            border-top: 1px solid #222;
-            gap: 10px;
-        }
+/* LOADING */
+.loading{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 20px;gap:16px}
+.spinner{width:36px;height:36px;border:3px solid var(--warm);border-top-color:var(--red);border-radius:50%;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading p{font-family:var(--serif);font-style:italic;color:var(--muted)}
 
-        /* AI LOADING OVERLAY */
-        .ai-loading {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 300px;
-            flex-direction: column;
-            gap: 16px;
-        }
-        .ai-spinner {
-            width: 40px;
-            height: 40px;
-            border: 3px solid #e0ddd8;
-            border-top-color: var(--red);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-        .ai-loading p {
-            color: var(--gray-500);
-            font-style: italic;
-            font-size: 14px;
-        }
+/* SKELETON */
+.skel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.skel-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.skel{background:linear-gradient(90deg,var(--paper) 25%,var(--warm) 50%,var(--paper) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
 
-        /* CATEGORY SECTION */
-        .category-section {
-            margin-bottom: 40px;
-        }
+/* FORUM */
+.forum-section{background:var(--paper);border-top:3px solid var(--ink);margin-top:40px}
+.forum-wrap{max-width:1300px;margin:0 auto;padding:40px 24px}
+.forum-head{display:flex;align-items:center;gap:16px;margin-bottom:30px}
+.forum-title{font-family:var(--display);font-size:32px;font-weight:700}
+.forum-count{background:var(--red);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px}
+.forum-layout{display:grid;grid-template-columns:1fr 380px;gap:32px}
+@media(max-width:860px){.forum-layout{grid-template-columns:1fr}}
 
-        /* API KEY MODAL */
-        .api-modal-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: fadeIn 0.3s ease;
-        }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        .api-modal {
-            background: white;
-            border-radius: 12px;
-            padding: 30px;
-            max-width: 500px;
-            width: 90%;
-            box-shadow: var(--shadow-lg);
-            text-align: center;
-            animation: scaleIn 0.3s ease;
-        }
-        @keyframes scaleIn {
-            from {
-                transform: scale(0.9);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-        .api-modal h2 {
-            font-family: var(--font-display);
-            margin-bottom: 8px;
-        }
-        .api-modal input {
-            width: 100%;
-            padding: 10px;
-            border: 2px solid #ddd;
-            border-radius: 6px;
-            font-family: monospace;
-            font-size: 13px;
-            margin: 10px 0;
-            outline: none;
-            transition: border var(--transition);
-        }
-        .api-modal input:focus {
-            border-color: var(--red);
-        }
-        .api-modal button {
-            background: var(--red);
-            color: white;
-            border: none;
-            padding: 10px 24px;
-            font-weight: 700;
-            cursor: pointer;
-            border-radius: 6px;
-            font-size: 14px;
-            transition: all var(--transition);
-        }
-        .api-modal button:hover {
-            background: var(--red-dark);
-        }
-        .api-modal .hint {
-            font-size: 11px;
-            color: #999;
-            margin-top: 8px;
-        }
+/* MESSAGES */
+.msgs-container{display:flex;flex-direction:column;gap:16px;max-height:600px;overflow-y:auto;padding-right:4px;scroll-behavior:smooth}
+.msgs-container::-webkit-scrollbar{width:4px}
+.msgs-container::-webkit-scrollbar-thumb{background:var(--warm);border-radius:2px}
+.msg-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:16px;transition:box-shadow var(--t)}
+.msg-card:hover{box-shadow:var(--shadow)}
+.msg-header{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.msg-avatar{width:38px;height:38px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:16px;font-weight:700;flex-shrink:0}
+.msg-info{flex:1}
+.msg-author{font-weight:600;font-size:14px}
+.msg-time{font-size:11px;color:var(--muted)}
+.msg-badge{font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px;text-transform:uppercase;letter-spacing:.8px}
+.badge-guest{background:var(--paper);color:var(--muted);border:1px solid var(--border)}
+.badge-editor{background:#1a4d2e;color:#a8e6bc}
+.badge-mod{background:#1a2d4d;color:#a8c6e6}
+.msg-topic{font-size:10px;color:var(--red);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:5px}
+.msg-text{font-family:var(--serif);font-size:16px;line-height:1.65;color:#2a2820}
+.msg-footer{display:flex;align-items:center;gap:8px;margin-top:10px;flex-wrap:wrap}
+.react-btn{background:none;border:1px solid var(--border);border-radius:20px;padding:3px 10px;font-size:12px;cursor:pointer;transition:all var(--t);display:flex;align-items:center;gap:4px}
+.react-btn:hover{border-color:var(--red);color:var(--red);background:#fff5f5}
+.react-btn.active{background:var(--red);color:#fff;border-color:var(--red)}
+.reply-btn{margin-left:auto;font-size:11px;color:var(--muted);cursor:pointer;transition:color var(--t);font-weight:500}
+.reply-btn:hover{color:var(--red)}
+.msg-replies{margin-top:12px;padding-top:12px;border-top:1px solid var(--paper);display:flex;flex-direction:column;gap:10px}
+.reply-card{background:var(--paper);border-radius:6px;padding:10px 12px;font-size:14px;display:flex;gap:10px}
+.reply-name{font-weight:700;color:var(--red);font-size:12px}
+.reply-text{font-family:var(--serif);font-size:14px;line-height:1.5}
 
-        /* TOAST */
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--black);
-            color: white;
-            padding: 14px 20px;
-            border-radius: 8px;
-            z-index: 10000;
-            font-size: 13px;
-            font-weight: 600;
-            animation: slideInRight 0.4s ease, fadeOut 0.4s ease 2.6s forwards;
-            box-shadow: var(--shadow-lg);
-            max-width: 400px;
-        }
-        @keyframes slideInRight {
-            from {
-                transform: translateX(120%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-        @keyframes fadeOut {
-            to {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-        }
+/* FORM */
+.forum-form{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:24px;position:sticky;top:80px}
+.ff-title{font-family:var(--display);font-size:20px;font-weight:700;margin-bottom:4px}
+.ff-sub{font-size:13px;color:var(--muted);margin-bottom:20px}
+.ff-label{font-size:12px;font-weight:600;letter-spacing:.5px;margin-bottom:5px;display:block;text-transform:uppercase;color:var(--muted)}
+.ff-input{width:100%;border:1.5px solid var(--border);border-radius:4px;padding:9px 12px;font-family:var(--sans);font-size:14px;outline:none;transition:border-color var(--t);background:var(--cream)}
+.ff-input:focus{border-color:var(--ink)}
+.ff-select{width:100%;border:1.5px solid var(--border);border-radius:4px;padding:9px 12px;font-family:var(--sans);font-size:14px;outline:none;background:var(--cream);cursor:pointer}
+.ff-textarea{width:100%;border:1.5px solid var(--border);border-radius:4px;padding:9px 12px;font-family:var(--serif);font-size:15px;outline:none;resize:vertical;min-height:100px;transition:border-color var(--t);background:var(--cream)}
+.ff-textarea:focus{border-color:var(--ink)}
+.ff-row{margin-bottom:14px}
+.ff-submit{width:100%;background:var(--ink);color:#fff;border:none;padding:12px;font-family:var(--sans);font-size:14px;font-weight:700;cursor:pointer;border-radius:4px;transition:all var(--t);display:flex;align-items:center;justify-content:center;gap:8px;margin-top:6px}
+.ff-submit:hover{background:var(--red)}
+.ff-privacy{font-size:11px;color:var(--muted);text-align:center;margin-top:10px}
+.forum-empty{text-align:center;padding:50px 20px;font-family:var(--serif);font-style:italic;color:var(--muted);font-size:18px}
 
-        /* RESPONSIVE */
-        @media(max-width:600px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-            }
-            .hero-main {
-                min-height: 320px;
-                grid-row: span 1;
-            }
-            .hero-title {
-                font-size: 24px;
-            }
-            .hero-side {
-                flex-direction: row;
-            }
-            .hero-side-item {
-                min-height: 140px;
-                flex: 1;
-            }
-            .magazine-grid {
-                grid-template-columns: 1fr;
-            }
-            .mag-main {
-                min-height: 240px;
-            }
-            .logo-text {
-                font-size: 36px;
-            }
-            .search-box input {
-                width: 120px;
-            }
-            .search-box input:focus {
-                width: 150px;
-            }
-            .article-full-page h1 {
-                font-size: 26px;
-            }
-            .article-full-page {
-                padding: 16px;
-            }
-            .collab-banner {
-                flex-direction: column;
-                text-align: center;
-            }
-            .collab-btn {
-                margin-left: 0;
-            }
-        }
+/* ONLINE */
+.online-strip{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);margin-bottom:20px}
+.online-dot{width:8px;height:8px;background:#2d8a2d;border-radius:50%;animation:blink 2s infinite}
+.online-pill{background:#e8f5e8;color:#2d8a2d;border-radius:20px;padding:2px 9px;font-size:11px;font-weight:600}
 
-        /* SCROLL TO TOP */
-        .scroll-top-btn {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            width: 44px;
-            height: 44px;
-            background: var(--black);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            z-index: 999;
-            font-size: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: all var(--transition);
-            box-shadow: var(--shadow-md);
-        }
-        .scroll-top-btn.visible {
-            opacity: 1;
-            pointer-events: auto;
-        }
-        .scroll-top-btn:hover {
-            background: var(--red);
-            transform: translateY(-3px);
-        }
-    </style>
+/* TOPICS */
+.topic-list{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+.topic-tag{background:var(--paper);border:1px solid var(--border);border-radius:20px;padding:4px 12px;font-size:11px;font-weight:600;cursor:pointer;transition:all var(--t)}
+.topic-tag:hover,.topic-tag.sel{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+/* SEARCH FORUM */
+.forum-search{display:flex;border:1.5px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:18px}
+.forum-search input{flex:1;border:none;padding:8px 12px;font-size:13px;font-family:var(--sans);outline:none;background:var(--cream)}
+.forum-search button{background:var(--ink);border:none;color:#fff;padding:8px 12px;cursor:pointer}
+
+/* FOOTER */
+footer{background:var(--ink);color:#888;margin-top:0}
+.ft{max-width:1300px;margin:0 auto;padding:40px 24px;display:grid;grid-template-columns:2.5fr 1fr 1fr;gap:40px}
+@media(max-width:700px){.ft{grid-template-columns:1fr}}
+.ft-logo{font-family:var(--display);font-size:38px;color:#fff;font-weight:700}
+.ft-logo span{color:var(--red)}
+.ft-tagline{font-family:var(--serif);font-style:italic;font-size:14px;color:#555;margin-top:6px;line-height:1.6}
+.ft-htitle{color:#ccc;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+.ft-links{display:flex;flex-direction:column;gap:8px}
+.ft-links a{font-size:13px;color:#666;transition:color var(--t)}
+.ft-links a:hover{color:var(--red)}
+.ft-bottom{max-width:1300px;margin:0 auto;padding:18px 24px;border-top:1px solid #1f1f1f;display:flex;justify-content:space-between;flex-wrap:wrap;font-size:12px;gap:8px}
+
+/* SCROLL TOP */
+.scroll-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--ink);color:#fff;border:none;border-radius:50%;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:all var(--t);box-shadow:var(--shadow2);z-index:300}
+.scroll-top.show{opacity:1;pointer-events:auto}
+.scroll-top:hover{background:var(--red);transform:translateY(-3px)}
+
+/* NOTIFY */
+.notify{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:13px 22px;border-radius:8px;font-size:13px;font-weight:600;z-index:9999;opacity:0;transition:all .4s ease;pointer-events:none;white-space:nowrap;box-shadow:var(--shadow2)}
+.notify.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* MISC */
+.btn-load{width:100%;border:1.5px solid var(--ink);background:transparent;padding:11px;font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border-radius:var(--radius);transition:all var(--t);margin-top:18px;display:flex;align-items:center;justify-content:center;gap:7px}
+.btn-load:hover{background:var(--ink);color:#fff}
+.btn-load:disabled{opacity:.5;cursor:not-allowed}
+
+@media(max-width:600px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-main{min-height:320px;grid-row:span 1}
+  .h-title{font-size:26px}
+  .logo-name{font-size:38px}
+  .art-page{padding:18px}
+  .art-page h1{font-size:28px}
+  .mag{grid-template-columns:1fr}
+  .collab{flex-direction:column;text-align:center}
+  .collab-btn{margin-left:0}
+}
+</style>
 </head>
 <body>
 
-    <div class="topbar">
-        <div class="topbar-inner">
-            <div class="topbar-date" id="topbar-date"></div>
-            <div class="topbar-links">
-                <span class="live-badge">● LIVE</span>
-                <a href="#politica">Politica</a>
-                <a href="#cronaca">Cronaca</a>
-                <a href="#mondo">Mondo</a>
-                <a href="#cultura">Cultura</a>
-                <a href="#tecnologia">Tecnologia</a>
-            </div>
-        </div>
+<div class="topstrip">
+  <div class="topstrip-in">
+    <div class="ts-date" id="ts-date"></div>
+    <div class="ts-links">
+      <span class="live-pill">● LIVE</span>
+      <a onclick="nav('politica')">Politica</a>
+      <a onclick="nav('cronaca')">Cronaca</a>
+      <a onclick="nav('mondo')">Mondo</a>
+      <a onclick="nav('sport')">Sport</a>
+    </div>
+  </div>
+</div>
+
+<div class="ticker-bar">
+  <div class="ticker-label">🔴 BREAKING</div>
+  <div class="ticker-track">
+    <div class="ticker-inner" id="ticker">
+      <span>Governo esamina nuove misure per l'economia italiana</span>
+      <span>Meteo: vague di calore nel weekend — temperature record attese</span>
+      <span>Serie A: fissate le date della prossima stagione</span>
+      <span>Unione Europea: summit straordinario a Bruxelles</span>
+      <span>Borsa di Milano: il FTSE MIB registra movimenti significativi</span>
+      <span>Governo esamina nuove misure per l'economia italiana</span>
+      <span>Meteo: vague di calore nel weekend — temperature record attese</span>
+      <span>Serie A: fissate le date della prossima stagione</span>
+      <span>Unione Europea: summit straordinario a Bruxelles</span>
+      <span>Borsa di Milano: il FTSE MIB registra movimenti significativi</span>
+    </div>
+  </div>
+</div>
+
+<header>
+  <div class="masthead">
+    <div class="logo-wrap" onclick="goHome()">
+      <div class="logo-name"><span>A</span>NKOAUTCA</div>
+      <div class="logo-sub">Informazione libera · 24/7</div>
+    </div>
+    <div class="header-right">
+      <div class="search-wrap">
+        <input type="text" placeholder="Cerca notizie…" id="search-input" aria-label="Cerca">
+        <button id="search-btn" aria-label="Cerca"><i class="ti ti-search"></i></button>
+      </div>
+    </div>
+  </div>
+  <nav>
+    <div class="nav-in" id="mainnav">
+      <a class="act" onclick="goHome()">Home</a>
+      <a onclick="nav('politica')">Politica</a>
+      <a onclick="nav('economia')">Economia</a>
+      <a onclick="nav('mondo')">Mondo</a>
+      <a onclick="nav('cronaca')">Cronaca</a>
+      <a onclick="nav('sport')">Sport</a>
+      <a onclick="nav('tecnologia')">Tecnologia</a>
+      <a onclick="nav('cultura')">Cultura</a>
+      <a onclick="nav('ambiente')">Ambiente</a>
+      <a onclick="scrollToForum()">Forum</a>
+    </div>
+  </nav>
+</header>
+
+<div id="page-root"></div>
+
+<div class="forum-section" id="forum-section">
+  <div class="forum-wrap">
+    <div class="forum-head">
+      <i class="ti ti-messages" style="font-size:28px;color:var(--red)"></i>
+      <div class="forum-title">Forum della Comunità</div>
+      <div class="forum-count" id="forum-count">0 messaggi</div>
     </div>
 
-    <div class="breaking-bar">
-        <div class="breaking-label">🔴 BREAKING</div>
-        <div class="breaking-track"><div class="breaking-inner" id="ticker">
-            <span>Aggiornamento in corso — notizie italiane in tempo reale</span>
-            <span>Governo: nuove misure annunciate per fine settimana</span>
-            <span>Meteo: ondata di calore attesa nel weekend in tutta Italia</span>
-            <span>Aggiornamento in corso — notizie italiane in tempo reale</span>
-            <span>Governo: nuove misure annunciate per fine settimana</span>
-            <span>Meteo: ondata di calore attesa nel weekend in tutta Italia</span>
-        </div></div>
+    <div class="online-strip">
+      <div class="online-dot"></div>
+      <span id="online-n">Calcolando partecipanti…</span>
+      <span class="online-pill" id="online-pill">Online</span>
     </div>
 
-    <header id="site-header">
-        <div class="masthead">
-            <div class="logo-wrap" onclick="renderHome()" title="Torna alla Home">
-                <div class="logo-text"><span class="logo-a">A</span>NKOAUTCA</div>
-                <div class="logo-tagline">Informazione libera · 24/7</div>
-            </div>
-            <div class="search-box">
-                <input type="text" placeholder="Cerca notizie..." id="search-input" aria-label="Cerca">
-                <button id="search-btn" aria-label="Cerca"><i class="ti ti-search"></i></button>
-            </div>
+    <div class="forum-layout">
+      <div>
+        <div class="forum-search">
+          <input type="text" id="forum-search" placeholder="Cerca nel forum…" aria-label="Cerca forum">
+          <button onclick="searchForum()"><i class="ti ti-search"></i></button>
         </div>
-        <nav class="mainnav">
-            <div class="mainnav-inner">
-                <a href="index.html" class="active" onclick="renderHome();return false">Home</a>
-                <a href="Politica.html" onclick="loadCategory('politica');return false">Politica</a>
-                <a href="Economia.html" onclick="loadCategory('economia');return false">Economia</a>
-                <a href="Mondo.html" onclick="loadCategory('mondo');return false">Mondo</a>
-                <a href="Sport.html" onclick="loadCategory('sport');return false">Sport</a>
-                <a href="Tecnologia.html" onclick="loadCategory('tecnologia');return false">Tecnologia</a>
-                <a href="opinioni.html" onclick="loadCategory('opinioni');return false">Opinioni</a>
-            </div>
-        </nav>
-    </header>
 
-    <div id="app-root">
-        <div class="container" id="main-container">
-            <div class="ai-loading" style="margin:60px 0">
-                <div class="ai-spinner"></div>
-                <p>Caricamento notizie in corso…</p>
-            </div>
+        <div class="topic-list" id="topic-filters">
+          <div class="topic-tag sel" onclick="filterTopic('Tutti')">Tutti</div>
+          <div class="topic-tag" onclick="filterTopic('Politica')">Politica</div>
+          <div class="topic-tag" onclick="filterTopic('Economia')">Economia</div>
+          <div class="topic-tag" onclick="filterTopic('Cronaca')">Cronaca</div>
+          <div class="topic-tag" onclick="filterTopic('Sport')">Sport</div>
+          <div class="topic-tag" onclick="filterTopic('Tecnologia')">Tecnologia</div>
+          <div class="topic-tag" onclick="filterTopic('Cultura')">Cultura</div>
+          <div class="topic-tag" onclick="filterTopic('Mondo')">Mondo</div>
+          <div class="topic-tag" onclick="filterTopic('Ambiente')">Ambiente</div>
         </div>
+
+        <div id="msgs-list"></div>
+      </div>
+
+      <div class="forum-form">
+        <div class="ff-title">Partecipa alla discussione</div>
+        <div class="ff-sub">Condividi la tua opinione — rispetto e civiltà per tutti.</div>
+
+        <div class="ff-row">
+          <label class="ff-label">Il tuo nome (facoltativo)</label>
+          <input class="ff-input" type="text" id="ff-name" placeholder="Anonimo" maxlength="30" aria-label="Nome">
+        </div>
+        <div class="ff-row">
+          <label class="ff-label">Argomento</label>
+          <select class="ff-select" id="ff-topic" aria-label="Argomento">
+            <option value="Politica">Politica</option>
+            <option value="Economia">Economia</option>
+            <option value="Cronaca">Cronaca</option>
+            <option value="Sport">Sport</option>
+            <option value="Tecnologia">Tecnologia</option>
+            <option value="Cultura">Cultura</option>
+            <option value="Mondo">Mondo</option>
+            <option value="Ambiente">Ambiente</option>
+          </select>
+        </div>
+        <div class="ff-row">
+          <label class="ff-label">Il tuo messaggio</label>
+          <textarea class="ff-textarea" id="ff-msg" placeholder="Scrivi qui il tuo commento, domanda o opinione…" maxlength="1000" aria-label="Messaggio"></textarea>
+          <div style="font-size:11px;color:var(--muted);text-align:right;margin-top:3px"><span id="char-count">0</span>/1000</div>
+        </div>
+        <button class="ff-submit" onclick="submitMsg()">
+          <i class="ti ti-send"></i> Pubblica messaggio
+        </button>
+        <div class="ff-privacy">
+          <i class="ti ti-shield-check" style="font-size:12px"></i>
+          I messaggi sono pubblici e visibili a tutti i lettori.
+        </div>
+      </div>
     </div>
+  </div>
+</div>
 
-    <!-- LIVE CHAT -->
-    <div class="live-chat-section">
-        <div class="chat-public-container">
-            <div class="chat-header">
-                <i class="ti ti-messages"></i>
-                <span>Live Chat Pubblica — Scrivi liberamente, nessuna registrazione richiesta</span>
-                <div class="chat-online">
-                    <div class="online-dot"></div>
-                    <span id="online-count">1 online</span>
-                </div>
-            </div>
-            <div class="chat-messages" id="global-chat-messages">
-                <div class="chat-empty">💬 Nessun messaggio ancora. Scrivi il primo!</div>
-            </div>
-            <div class="chat-form">
-                <input type="text" id="global-chat-name" placeholder="Il tuo nome (facoltativo)" maxlength="30" aria-label="Nome">
-                <textarea id="global-chat-text" placeholder="Scrivi un commento, un'opinione o una domanda… rispetto reciproco per tutti." maxlength="500" aria-label="Messaggio"></textarea>
-                <button id="global-chat-submit"><i class="ti ti-send"></i> Invia messaggio</button>
-            </div>
-        </div>
+<footer>
+  <div class="ft">
+    <div>
+      <div class="ft-logo"><span>A</span>NKOAUTCA</div>
+      <div class="ft-tagline">Testata indipendente. Notizie italiane in tempo reale, senza abbonamenti e senza tracciamento. Solo informazione di qualità.</div>
     </div>
+    <div>
+      <div class="ft-htitle">Sezioni</div>
+      <div class="ft-links">
+        <a onclick="nav('politica')">Politica</a>
+        <a onclick="nav('economia')">Economia</a>
+        <a onclick="nav('mondo')">Mondo</a>
+        <a onclick="nav('cronaca')">Cronaca</a>
+        <a onclick="nav('sport')">Sport</a>
+        <a onclick="nav('tecnologia')">Tecnologia</a>
+        <a onclick="nav('cultura')">Cultura</a>
+        <a onclick="nav('ambiente')">Ambiente</a>
+      </div>
+    </div>
+    <div>
+      <div class="ft-htitle">Redazione</div>
+      <div class="ft-links">
+        <a href="#">Chi siamo</a>
+        <a href="mailto:gastroboostmarketingdegital@gmail.com">Collabora</a>
+        <a href="#">Privacy</a>
+        <a href="#">Contatti</a>
+      </div>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <span>© 2025 ANKOAUTCA — Tutti i diritti riservati</span>
+    <span>Informazione libera · Nessun tracciamento · Nessun paywall</span>
+  </div>
+</footer>
 
-    <button class="scroll-top-btn" id="scrollTopBtn" title="Torna in alto" aria-label="Torna in alto">
-        <i class="ti ti-arrow-up"></i>
-    </button>
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Torna su">
+  <i class="ti ti-arrow-up"></i>
+</button>
+<div class="notify" id="notify"></div>
 
-    <footer>
-        <div class="footer-top">
-            <div>
-                <div class="footer-logo"><span>A</span>NKOAUTCA</div>
-                <div class="footer-desc">Testata indipendente. Notizie italiane in tempo reale, senza abbonamenti, senza tracciamento, senza reti sociali. Solo informazione.</div>
-            </div>
-            <div>
-                <div class="footer-col-title">Sezioni</div>
-                <div class="footer-col-links">
-                    <a href="Politica.html" onclick="loadCategory('politica');return false">Politica</a>
-                    <a href="Economia.html" onclick="loadCategory('economia');return false">Economia</a>
-                    <a href="Mondo.html" onclick="loadCategory('mondo');return false">Mondo</a>
-                    <a href="Sport.html" onclick="loadCategory('sport');return false">Sport</a>
-                    <a href="Tecnologia.html" onclick="loadCategory('tecnologia');return false">Tecnologia</a>
-                    <a href="opinioni.html" onclick="loadCategory('opinioni');return false">Opinioni</a>
-                </div>
-            </div>
-            <div>
-                <div class="footer-col-title">Redazione</div>
-                <div class="footer-col-links">
-                    <a href="#">Chi siamo</a>
-                    <a href="mailto:gastroboostmarketingdegital@gmail.com">Collabora con noi</a>
-                    <a href="Privacy.html">Privacy policy</a>
-                    <a href="#">Contatti</a>
-                </div>
-            </div>
+<script>
+// ═══════════════════════════════════════════════
+//  DATA — articoli pre-scritti, alta qualità
+// ═══════════════════════════════════════════════
+const ARTICLES_DB = {
+  attualita:[
+    {id:'a1',cat:'Attualità',title:'Il Parlamento approva il piano di investimenti per il Sud: 4 miliardi in tre anni',sub:'Approvata con 342 voti favorevoli la legge delega che ridisegna i fondi strutturali per Mezzogiorno e isole.',author:'Marco Bianchi',read:6,img:'economia',body:`Il Parlamento italiano ha approvato nella serata di ieri il tanto atteso piano di investimenti straordinari per il Mezzogiorno. Con 342 voti favorevoli, 98 contrari e 12 astenuti, la Camera ha dato il via libera definitivo alla legge delega che stanzia oltre 4 miliardi di euro da distribuire in un arco temporale di tre anni.\n\nIl provvedimento, che porta la firma congiunta del Ministero per il Sud e del Ministero dell'Economia, prevede interventi su infrastrutture, formazione professionale e sviluppo digitale. Una quota significativa — circa 800 milioni — è destinata al potenziamento della rete ferroviaria ad alta velocità tra Napoli e Reggio Calabria.\n\n«È un giorno storico per il Paese», ha dichiarato il Presidente del Consiglio durante il discorso alla Camera. «Finalmente rompiamo il cerchio vizioso che per decenni ha tenuto il Sud lontano dai livelli di sviluppo del resto d'Europa».\n\nLe opposizioni hanno espresso giudizi divergenti. Il centro-sinistra ha votato a favore pur sollevando perplessità sulla governance dei fondi, mentre i partiti sovranisti hanno denunciato l'assenza di meccanismi di controllo efficaci. Gli esperti di finanza pubblica avvertono che la sfida più grande sarà la capacità amministrativa dei territori di utilizzare le risorse in tempi certi.\n\nLa legge delega entra ora nella fase attuativa: entro 90 giorni il governo dovrà emanare i decreti legislativi che dettaglieranno modalità, criteri e soggetti beneficiari degli interventi. I sindaci del Sud, riuniti in un coordinamento informale, hanno accolto la notizia con cauto ottimismo.`},
+    {id:'a2',cat:'Attualità',title:'Caldo record: temperature oltre i 40 gradi al Sud, allerta rossa in Sicilia e Sardegna',sub:'L\'anticiclone africano porta una nuova ondata di calore sull\'Italia. La Protezione Civile attiva i piani di emergenza.',author:'Laura Ferri',read:4,img:'cronaca',body:`Un'imponente massa d'aria calda proveniente dall'Africa subsahariana ha investito l'Italia meridionale e le isole maggiori, portando le temperature a toccare livelli eccezionali. In alcune località della Sicilia interna il termometro ha sfiorato i 44 gradi, mentre a Cagliari la colonnina di mercurio ha registrato valori superiori ai 41 gradi.\n\nLa Protezione Civile ha emesso allerta rossa per Sicilia, Sardegna, Calabria e Basilicata. Le autorità sanitarie raccomandano di evitare l'esposizione al sole nelle ore centrali della giornata, di idratarsi frequentemente e di prestare particolare attenzione agli anziani e ai soggetti fragili.\n\nI pronto soccorso di Palermo e Catania hanno registrato un sensibile aumento degli accessi per colpi di calore e disidratazione. Il sindaco di Palermo ha firmato un'ordinanza che dispone l'apertura straordinaria di centri climatizzati pubblici e biblioteche comunali come rifugi per i cittadini in difficoltà.\n\nIn campagna la situazione è critica: Coldiretti stima danni all'agricoltura per centinaia di milioni di euro, con perdite drammatiche per gli agrumi, i pomodori e il grano duro. I gestori dei bacini idrici segnalano un calo delle riserve idriche che non si vedeva da decenni.\n\nLe previsioni meteorologiche indicano che l'ondata di calore potrebbe durare almeno altri quattro giorni, prima che un fronte atlantico porti un parziale sollievo alle temperature.`},
+    {id:'a3',cat:'Attualità',title:'Boom del turismo estivo: arrivi internazionali in crescita del 18% rispetto all\'anno scorso',sub:'L\'Italia si conferma la prima destinazione culturale d\'Europa. Venezia e Roma ai vertici delle classifiche mondiali.',author:'Giulia Romano',read:5,img:'cultura',body:`L'estate italiana registra numeri da record per il turismo internazionale. Secondo i dati diffusi dall'Ente Nazionale del Turismo, nei primi sei mesi dell'anno gli arrivi dall'estero hanno segnato un incremento del 18% rispetto allo stesso periodo dell'anno precedente, superando i 48 milioni di visitatori.\n\nVenezia e Roma si confermano le mete preferite, ma emergono con forza destinazioni come Matera, le Langhe piemontesi e la Costiera Amalfitana, segnalate dalle principali guide internazionali come esperienze imperdibili. Il turismo culturale — musei, siti Unesco, festival — traina la crescita con un +24%.\n\nGli operatori del settore sono fiduciosi per l'intera stagione estiva: l'indice di prenotazione alberghiera per luglio e agosto indica un tasso di occupazione medio dell'87% nelle principali città d'arte, con picchi superiori al 95% per le strutture di lusso.\n\nIl presidente di Federturismo ha sottolineato come il «brand Italia» continui a esercitare una forza di attrazione senza eguali: «Siamo il Paese più amato al mondo, e i numeri lo confermano. Ora dobbiamo lavorare per distribuire meglio i flussi, alleggerendo le destinazioni più sature e valorizzando i borghi meno conosciuti».\n\nL'impatto economico è significativo: il settore turistico contribuisce al PIL nazionale con una quota stimata intorno al 13%, e l'anno corrente potrebbe portarlo a un nuovo massimo storico.`},
+    {id:'a4',cat:'Attualità',title:'Riforma della giustizia: la Camera vota a favore della separazione delle carriere',sub:'Storico passaggio parlamentare dopo anni di dibattiti. Il provvedimento ora passa al Senato per la seconda lettura.',author:'Paolo Esposito',read:7,img:'politica',body:`La Camera dei Deputati ha approvato ieri sera, con 278 voti a favore e 214 contrari, il disegno di legge costituzionale sulla separazione delle carriere tra magistratura requirente e giudicante. È un passaggio storico che riapre uno dei dibattiti più longevi della politica italiana.\n\nIl provvedimento, primo atto formale di una riforma della giustizia annunciata da anni, prevede che i magistrati debbano scegliere all'inizio della carriera se fare il pubblico ministero o il giudice, senza più possibilità di passare dall'una all'altra funzione. Vengono inoltre istituiti due organi di autogoverno separati per le due categorie.\n\nI sostenitori della riforma la presentano come un pilastro dello Stato di diritto e della parità tra accusa e difesa: «Finalmente i cittadini potranno contare su un giudice davvero terzo», ha detto il Ministro della Giustizia dopo il voto. Le associazioni dell'avvocatura hanno espresso un giudizio favorevole.\n\nL'Associazione Nazionale Magistrati ha invece reagito duramente, parlando di «attacco all'autonomia della magistratura» e annunciando iniziative di protesta. Anche diversi costituzionalisti hanno sollevato dubbi sulla tenuta del sistema nell'ipotesi di due CSM separati.\n\nTrattandosi di legge costituzionale, il percorso parlamentare richiede una doppia approvazione con intervallo di tre mesi. Il testo passa ora al Senato, dove la maggioranza conta su un margine più risicato.`},
+    {id:'a5',cat:'Attualità',title:'Intelligenza artificiale nelle scuole: parte il programma pilota in 500 istituti italiani',sub:'Il Ministero dell\'Istruzione lancia un ambizioso piano di formazione digitale. Coinvolti 120.000 studenti.',author:'Andrea Costa',read:5,img:'tecnologia',body:`Il Ministero dell'Istruzione e del Merito ha avviato ufficialmente il programma pilota «AI per tutti», che porterà l'educazione all'intelligenza artificiale in 500 istituti scolastici distribuiti su tutto il territorio nazionale. Coinvolti oltre 120.000 studenti dalla prima media alla quinta superiore.\n\nIl programma prevede un ciclo formativo di 40 ore annue, integrate nel curricolo ordinario, durante le quali gli studenti impareranno le basi del machine learning, l'uso critico degli strumenti di IA generativa e le implicazioni etiche e sociali di queste tecnologie. Alla formazione degli studenti si affiancherà un percorso obbligatorio per i docenti coinvolti.\n\nLa scelta dei 500 istituti è avvenuta attraverso una selezione che ha privilegiato la distribuzione geografica e la varietà degli indirizzi scolastici: licei classici, scientifici, tecnici e professionali sono tutti rappresentati. Quattro atenei italiani affiancheranno il progetto con consulenza scientifica e monitoraggio dei risultati.\n\nIl Ministro ha dichiarato: «Non possiamo formare i cittadini del futuro ignorando le tecnologie che già oggi stanno trasformando il mercato del lavoro e la società. Vogliamo dare agli studenti strumenti critici, non solo competenze tecniche». I sindacati della scuola hanno accolto positivamente l'iniziativa, chiedendo però maggiori risorse per la formazione dei docenti.\n\nIl programma, finanziato con fondi PNRR per un totale di 180 milioni di euro, sarà valutato a fine anno scolastico e potrà essere esteso a tutti gli istituti italiani a partire dal prossimo anno.`},
+    {id:'a6',cat:'Attualità',title:'Calcio: la Nazionale Under 21 conquista il bronzo agli Europei in Germania',sub:'Gli azzurrini battono la Francia 2-1 in una finale drammatica. Esultanza in tutta Italia.',author:'Pietro Greco',read:4,img:'sport',body:`La Nazionale italiana Under 21 ha conquistato la medaglia di bronzo agli Europei di categoria disputati in Germania, battendo la Francia 2-1 in una gara carica di emozione giocata allo stadio di Colonia.\n\nGli azzurrini, in vantaggio grazie alla rete di Miretti al 23° minuto, erano stati raggiunti dai francesi nella ripresa su calcio di rigore. Il gol vittoria è arrivato all'88° minuto, firmato dal bomber Ambrosino su assist di Baldanzi, scatenando la festa tra i 4.000 tifosi italiani presenti sugli spalti.\n\nIl commissario tecnico della Nazionale maggiore, presente in tribuna, ha fatto i complimenti alla squadra: «Questi ragazzi sono il futuro del calcio italiano. Ho visto personalità, tecnica e cuore. Alcuni di loro saranno presto in Nazionale A».\n\nIl risultato è accolto con grande soddisfazione dalla Federazione Italiana Giuoco Calcio, che negli ultimi anni ha investito molto nel settore giovanile. Il tecnico della Under 21 ha dedicato il terzo posto «a tutti i giovani calciatori italiani che sognano di vestire la maglia azzurra».\n\nLa sera della partita, nelle principali piazze italiane si sono radunati migliaia di tifosi. A Roma la festa è durata fino all'alba, con cortei spontanei lungo le vie del centro storico.`},
+    {id:'a7',cat:'Attualità',title:'Spazio: l\'agenzia spaziale italiana lancia il satellite per l\'osservazione dei ghiacciai alpini',sub:'Il progetto CRYO-IT monitorerà in tempo reale la fusione dei ghiacciai con una precisione senza precedenti.',author:'Francesca Neri',read:6,img:'tecnologia',body:`L'Agenzia Spaziale Italiana (ASI) ha completato con successo il lancio del satellite CRYO-IT, un avanzato sistema di osservazione dedicato al monitoraggio dei ghiacciai alpini e delle riserve di neve nelle Alpi e negli Appennini. Il vettore Vega-C è decollato dalla base di Kourou nella Guyana Francese alle 3:42 ora italiana.\n\nCRYO-IT, frutto di un'eccellenza tutta italiana con la partecipazione di tre università — Politecnico di Milano, La Sapienza e Università di Bologna — è dotato di un radar ad apertura sintetica di nuova generazione capace di rilevare variazioni di spessore glaciale dell'ordine del centimetro. I dati saranno trasmessi in quasi tempo reale e messi a disposizione della comunità scientifica internazionale.\n\nL'obiettivo primario è quantificare con precisione inedita il ritmo di fusione dei ghiacciai alpini, che negli ultimi trent'anni hanno perso il 35% del loro volume. Ma le applicazioni si estendono alla gestione delle risorse idriche, alla prevenzione delle alluvioni e alla pianificazione agricola nelle zone di montagna.\n\nIl presidente dell'ASI ha definito CRYO-IT «un salto di qualità nella nostra capacità di capire e documentare i cambiamenti climatici in atto». Il progetto ha un costo complessivo di 120 milioni di euro, finanziati in parte dall'ESA e in parte dal governo italiano attraverso il Piano Nazionale per la Ricerca.\n\nI primi dati scientifici sono attesi entro 90 giorni dal lancio, dopo una fase di messa in orbita e calibrazione degli strumenti.`},
+    {id:'a8',cat:'Attualità',title:'Vino italiano: record di esportazioni nel primo semestre, +22% verso gli Stati Uniti',sub:'Il Prosecco e il Barolo conquistano i mercati anglosassoni. Le cantine del Piemonte e del Veneto trainano la crescita.',author:'Valentina Rossi',read:5,img:'economia',body:`Il primo semestre dell'anno si chiude con dati straordinari per il vino italiano sui mercati internazionali. Secondo il report semestrale di Federvini, le esportazioni hanno raggiunto i 3,8 miliardi di euro, con un incremento del 22% verso gli Stati Uniti e del 17% verso il Canada e il Nord Europa.\n\nIl Prosecco DOC si conferma il vino italiano più venduto al mondo in termini di volume, mentre per valore il primato spetta al Barolo, il «re dei vini italiani», la cui bottiglia base ha superato per la prima volta in media i 40 euro al dettaglio nei mercati anglofoni. Il Brunello di Montalcino e il Primitivo di Manduria sono i più dinamici in termini di crescita percentuale.\n\nI produttori interpellati individuano nella crescente domanda di vini premium e nella riscoperta della dieta mediterranea i principali motori del boom. Anche il turismo enogastronomico gioca un ruolo: chi visita l'Italia e assaggia i vini sui luoghi di produzione diventa poi un ambasciatore spontaneo nei propri Paesi.\n\nTuttavia, il settore non è esente da preoccupazioni: i cambiamenti climatici stanno alterando la fenologia della vite, e le annate delle prossime stagioni sono incerte. Coldiretti stima che il 40% delle cantine stia già sperimentando nuovi vitigni o nuove altitudini di coltivazione per adattarsi al riscaldamento globale.\n\nNonostante le sfide, i consorzi di tutela dei principali DOC e DOCG italiani guardano con ottimismo al secondo semestre, tradizionalmente il più forte per le vendite.`},
+    {id:'a9',cat:'Attualità',title:'Milano: inaugurato il nuovo museo del design contemporaneo — 5.000 opere accessibili al pubblico',sub:'L\'ex fabbrica Pirelli si trasforma in un polo culturale di respiro internazionale. Biglietto gratuito per i primi tre mesi.',author:'Elena Martini',read:5,img:'cultura',body:`Milano ha inaugurato ieri il Museo Nazionale del Design Contemporaneo, ospitato nei suggestivi spazi dell'ex fabbrica Pirelli di Sesto San Giovanni, un edificio industriale degli anni Cinquanta trasformato in un gioiello architettonico dall'archistar danese Bjarke Ingels. Oltre 5.000 opere permanenti — dai mobili di Charles Eames alle installazioni digitali delle ultime generazioni — raccontano settant'anni di creatività progettuale italiana e internazionale.\n\nAll'inaugurazione erano presenti il Presidente della Repubblica, il sindaco di Milano e i rappresentanti delle principali case design del mondo. La cerimonia si è conclusa con una performance multimediale site-specific dell'artista digitale Alessandro Scali, proiettata sulle facciate dell'edificio.\n\nIl museo si estende su 22.000 metri quadrati di esposizione e comprende una sezione permanente dedicata al design industriale italiano del dopoguerra — fiore all'occhiello della collezione — oltre a spazi temporanei, un centro di ricerca, una biblioteca specializzata e un'area didattica per le scuole.\n\nPer i primi tre mesi, l'ingresso è gratuito per tutti i visitatori, grazie a un accordo con il Ministero della Cultura e con una serie di sponsor privati. Il direttore scientifico, la professoressa Caterina Morelli, ha annunciato che la prima mostra temporanea sarà dedicata al rapporto tra design italiano e industria automobilistica.\n\nL'assessora alla cultura del Comune ha sottolineato che il nuovo museo «consolida Milano come capitale mondiale del design, rafforzando la rete di eccellenze che ruota intorno al Salone del Mobile».`},
+    {id:'a10',cat:'Attualità',title:'Pensioni: il governo annuncia una finestra di uscita anticipata per i lavoratori con 41 anni di contributi',sub:'La misura, definita transitoria, potrebbe interessare fino a 180.000 lavoratori. Le trattative con i sindacati continuano.',author:'Roberto Silvestri',read:6,img:'economia',body:`Il Ministero dell'Economia ha presentato alle organizzazioni sindacali una proposta di misura previdenziale che consentirebbe l'uscita anticipata dal lavoro ai dipendenti in possesso di 41 anni di contributi indipendentemente dall'età anagrafica. Il provvedimento, qualificato come «transitorio» e «selettivo», potrebbe interessare una platea di circa 180.000 lavoratori.\n\nLa misura, al momento in discussione, prevede una penalizzazione ridotta rispetto alle precedenti versioni di «quota 41»: i lavoratori che scelgono di andare in pensione prima dei 62 anni subirebbero una decurtazione del 3% per ogni anno di anticipo rispetto alla soglia, anziché del 5% previsto dalla normativa vigente.\n\nI sindacati hanno reagito in modo divergente: CGIL e UIL chiedono una misura strutturale e senza penalizzazioni, mentre CISL si è mostrata più disponibile a trattare sui dettagli tecnici. Cgil ha annunciato un'assemblea nazionale per valutare l'eventualità di mobilitazioni.\n\nDal lato economico, la copertura della misura è il nodo più complesso: le prime stime dell'INPS indicano un costo annuo compreso tra 800 milioni e 1,2 miliardi di euro, che il governo intende reperire attraverso una revisione delle spese fiscali e parte delle risorse della riforma del catasto.\n\nLa proposta sarà formalmente inserita nella prossima legge di bilancio, il cui iter parlamentare comincerà in autunno. Nel frattempo, governo e parti sociali si rivedranno tra dieci giorni per un nuovo round di confronto.`},
+    {id:'a11',cat:'Attualità',title:'Rinnovabili: l\'Italia supera per la prima volta il 40% di energia elettrica da fonti verdi',sub:'Solare e eolico battono tutti i record. Ma l\'Italia resta lontana dagli obiettivi europei del 2030.',author:'Chiara Ferretti',read:6,img:'ambiente',body:`Per la prima volta nella sua storia energetica, l'Italia ha prodotto oltre il 40% della propria energia elettrica da fonti rinnovabili nel corso di un singolo mese. Il dato, certificato dal Gestore della Rete di Trasmissione Nazionale (TERNA), è relativo al mese di maggio, caratterizzato da forte irraggiamento solare e intense correnti eoliche.\n\nIl contributo maggiore è arrivato dal fotovoltaico — che ha coperto il 22% della domanda — seguito dall'idroelettrico (11%), dall'eolico (6%) e dalle bioenergie (2%). La giornata di punta ha visto le rinnovabili soddisfare il 68% del fabbisogno elettrico nazionale nelle ore centrali.\n\nIl risultato è accolto con soddisfazione dagli operatori del settore, ma gli esperti ricordano che l'obiettivo europeo fissa al 55% la quota rinnovabile al 2030. «Stiamo accelerando, ma non abbastanza», commenta il presidente di Elettricità Futura, l'associazione di categoria. Il principale collo di bottiglia rimane la lentezza delle autorizzazioni per i nuovi impianti: in Italia ci vogliono in media 7 anni dall'istanza alla messa in esercizio.\n\nIl governo ha annunciato un nuovo decreto semplificazioni che dovrebbe tagliare i tempi a 18 mesi per gli impianti di piccola e media taglia. Gli ambientalisti chiedono però che la corsa alle rinnovabili avvenga nel rispetto dei paesaggi e della biodiversità, evitando la cementificazione di terreni agricoli pregiati.\n\nL'industria energivora guarda con favore alla transizione, poiché prezzi dell'energia più stabili e competitivi sono una leva di competitività fondamentale per la manifattura italiana.`},
+    {id:'a12',cat:'Attualità',title:'La Banca d\'Italia: «L\'economia crescerà dell\'1,2% quest\'anno, ma i rischi restano elevati»',sub:'Il Governatore presenta la relazione annuale. Preoccupano il debito pubblico e la produttività stagnante.',author:'Marco Bianchi',read:7,img:'economia',body:`Il Governatore della Banca d'Italia ha presentato ieri in Assemblea Ordinaria la Relazione Annuale sull'economia italiana, fotografando un Paese in crescita moderata ma con fragilità strutturali che richiedono interventi urgenti. Le previsioni per l'anno in corso indicano un aumento del PIL dell'1,2%, leggermente al di sopra delle stime di consensus, grazie al buon andamento delle esportazioni e alla tenuta dei consumi interni.\n\nTuttavia, il Governatore ha sottolineato con forza che «i rischi restano elevati e le incertezze significative». La geopolitica internazionale — tensioni commerciali tra USA e Cina, crisi energetica potenziale, instabilità in alcune aree dell'area euro — potrebbe penalizzare le esportazioni italiane, che negli ultimi anni hanno trainato la ripresa.\n\nSul debito pubblico, il Governatore ha ribadito la necessità di un «impegno credibile e costante alla riduzione del rapporto debito/PIL», sottolineando che l'Italia resta vulnerabile agli shock dei mercati finanziari. Il costo del servizio del debito ha raggiunto i 90 miliardi di euro annui, con un trend in aumento che pesa sulla capacità di investimento dello Stato.\n\nIl nodo della produttività è giudicato «il vero tallone d'Achille dell'economia italiana»: la crescita della produttività totale dei fattori è sostanzialmente ferma da vent'anni, un dato che non ha paragoni nell'Europa avanzata. La soluzione, secondo Via Nazionale, passa per investimenti massicci in ricerca, formazione e digitalizzazione.\n\nAl termine della relazione, il Ministro dell'Economia ha ribadito la solidità del percorso di finanza pubblica del governo, pur riconoscendo la necessità di intensificare le riforme strutturali.`}
+  ],
+  politica:[
+    {id:'p1',cat:'Politica',title:'Il Governo vara il nuovo codice degli appalti: trasparenza e velocità al centro',sub:'La riforma punta a ridurre i tempi medi di aggiudicazione da 3 anni a 14 mesi.',author:'Silvia Fabbri',read:7,img:'politica',body:`Il Consiglio dei Ministri ha approvato in via definitiva il nuovo codice degli appalti, un testo di 266 articoli che riscrive le regole per le commesse pubbliche con l'obiettivo di coniugare velocità e trasparenza. La riforma era attesa da anni ed è stata accelerata dagli obblighi del PNRR.\n\nIl nuovo codice introduce l'obbligo di digitalizzazione integrale delle gare d'appalto, la creazione di un albo nazionale degli arbitri, la semplificazione delle soglie per l'affidamento diretto — portata a 140.000 euro per i lavori — e meccanismi di revisione prezzi più automatici per tutelare le imprese dalle oscillazioni dei costi dei materiali.\n\nI costruttori hanno accolto con favore la norma, mentre Transparency International ha espresso riserve sulla soglia elevata per gli affidamenti diretti, che «espone a rischi di favoritismi e corruzione». Il Governo replica che i controlli ex post sono stati rafforzati e che la velocità è essa stessa una garanzia contro la corruzione.\n\nLa novità più attesa è il progetto «Appalti trasparenti»: tutte le procedure saranno pubblicate su una piattaforma digitale unica, con indicatori di performance per ogni stazione appaltante. La Corte dei Conti avrà accesso diretto ai dati in tempo reale.\n\nIl nuovo codice entra in vigore il primo del mese prossimo, con un periodo transitorio di sei mesi per l'adeguamento delle stazioni appaltanti.`},
+    {id:'p2',cat:'Politica',title:'Opposizioni unite contro il taglio al Reddito di Cittadinanza: «Si abbandona chi è in difficoltà»',sub:'Manifestazione nazionale sabato a Roma. Attesi 50.000 partecipanti. Il Governo difende la riforma.',author:'Luca Marino',read:5,img:'politica',body:`Le principali forze di opposizione hanno convocato per sabato una manifestazione nazionale a Roma contro il progressivo smantellamento del Reddito di Cittadinanza e le modifiche apportate alle misure di sostegno al reddito. Gli organizzatori stimano una partecipazione di almeno 50.000 persone.\n\nLa piattaforma unitaria chiede il ripristino della misura nella sua forma originaria, un aumento degli importi che «tengano conto della crescita dell'inflazione» e maggiori risorse per le politiche attive del lavoro. Alla manifestazione hanno aderito anche diverse organizzazioni sindacali di base e associazioni del terzo settore.\n\nIl Governo ha risposto per voce del Ministro del Lavoro: «La misura precedente era difettosa e creava una trappola della povertà. Il nuovo sistema è più efficace perché distingue tra chi può lavorare e chi no, e investe davvero nell'inserimento lavorativo». Le prime statistiche sull'occupazione dei beneficiari mostrano risultati contrastanti.\n\nGli economisti si dividono: alcuni studi recenti mostrano che la percentuale di beneficiari che ha trovato lavoro è ancora bassa, ma altri ricercatori attribuiscono questo dato a carenze strutturali del mercato del lavoro piuttosto che a difetti della misura di welfare.\n\nIntanto i dati ISTAT segnalano che la povertà assoluta resta a livelli storicamente elevati, con oltre 5,6 milioni di persone che non riescono a soddisfare i bisogni essenziali.`},
+    {id:'p3',cat:'Politica',title:'Elezioni regionali: il centrodestra si conferma in Veneto, sorpresa al centro-sud',sub:'Affluenza record in Campania con il 71%. L\'analisi del voto ridisegna la mappa politica italiana.',author:'Marina Conti',read:6,img:'politica',body:`Le elezioni regionali di domenica hanno confermato le tendenze già emerse nelle ultime consultazioni nazionali, con il centrodestra che si aggiudica il Veneto con una percentuale superiore al 55% e mantiene la Liguria. Ma le vere sorprese arrivano dal centro-sud.\n\nIn Campania l'affluenza ha raggiunto il 71%, un dato eccezionale per le regionali meridionali, e l'esito del voto è ancora in bilico con lo spoglio in corso. In Calabria un candidato civico espressione di liste civiche ha sfiorato il ballottaggio con i candidati dei principali partiti.\n\nI politologi leggono nel voto campano un segnale di cambiamento nell'atteggiamento degli elettori meridionali: «C'è una voglia di partecipazione che non vedevamo da anni, probabilmente legata ai fondi PNRR e alla percezione che questa tornata possa influenzare la distribuzione delle risorse», commenta un'analista politica dell'Università Federico II di Napoli.\n\nI partiti di opposizione lamentano irregolarità nelle liste in alcuni collegi veneti, con esposti già presentati al TAR. La commissione elettorale regionale ha aperto istruttorie.\n\nIl prossimo appuntamento elettorale è previsto in autunno, con le regionali di Toscana ed Emilia-Romagna, che si preannunciano come test importanti per misurare i rapporti di forza nazionali.`}
+  ],
+  economia:[
+    {id:'e1',cat:'Economia',title:'Il PNRR accelera: l\'Italia ha speso il 68% dei fondi assegnati, in linea con i target europei',sub:'Infrastrutture, scuola digitale e transizione verde i settori dove si è corso di più.',author:'Davide Serra',read:7,img:'economia',body:`L'Italia ha raggiunto il 68% di utilizzo dei fondi PNRR assegnati, posizionandosi tra i Paesi europei più virtuosi nel rispetto dei target intermedi. Il dato, comunicato dalla Ragioneria Generale dello Stato, si riferisce alle risorse effettivamente erogate al 30 aprile.\n\nI settori che hanno mostrato la maggiore capacità di spesa sono le infrastrutture digitali — con il piano banda ultralarga ormai coperto all'85% del territorio — la digitalizzazione della pubblica amministrazione e gli interventi di efficientamento energetico degli edifici scolastici.\n\nRimangono in ritardo i settori dell'edilizia sanitaria, della transizione verde nell'industria e del trasporto pubblico locale. I commissari straordinari nominati per accelerare gli interventi più in arretrato hanno presentato piani di recupero che il Governo ha definito «credibili».\n\nI riflettori sono puntati sulla prossima tranche di 18 miliardi, il cui sblocco da parte della Commissione Europea è subordinato al raggiungimento di 57 milestone e target. Il Ministero dell'Economia è «cautamente ottimista» sul rispetto delle scadenze, ma ammette che alcuni obiettivi saranno «sfidanti».\n\nGli economisti ricordano che la vera sfida del PNRR non è spendere i soldi, ma spenderli bene: «Il rischio è che si costruiscano opere non prioritarie pur di rispettare i target formali. La qualità degli investimenti determinerà l'impatto sulla crescita nel lungo periodo», avverte un ricercatore della Fondazione Bruegel.`},
+    {id:'e2',cat:'Economia',title:'Inflazione in calo al 2,1%: la Banca Centrale Europea taglia i tassi per la terza volta',sub:'Buone notizie per i mutui variabili. Ma la ripresa dei consumi resta fragile in Italia.',author:'Giulia Conti',read:5,img:'economia',body:`La Banca Centrale Europea ha annunciato un nuovo taglio dei tassi di interesse di 25 punti base, portando il tasso sui depositi al 3,25%. È la terza riduzione consecutiva, in risposta al calo dell'inflazione nell'area euro, scesa al 2,1% — vicinissima all'obiettivo del 2% fissato dallo statuto della BCE.\n\nPer i titolari di mutui a tasso variabile italiani — circa 2,8 milioni di famiglie — la notizia si tradurrà in un alleggerimento della rata mensile stimato tra i 40 e i 70 euro, a seconda dell'importo residuo del mutuo. Le banche sono tenute ad aggiornare i contratti entro 30 giorni dalla variazione dell'Euribor.\n\nTuttavia, gli economisti avvertono che il beneficio per i consumi potrebbe essere limitato: «Le famiglie italiane sono ancora in una fase di ricostituzione del risparmio dopo lo shock inflattivo del 2022-2023. Ci vorrà tempo prima che il calo dei tassi si traduca in un aumento della spesa», spiega un ricercatore di Confindustria.\n\nSul fronte delle imprese, le PMI del manifatturiero — che avevano sofferto molto il caro-credito — accolgono con sollievo il taglio, anche se i tempi di trasmissione ai tassi sui prestiti bancari alle aziende sono mediamente più lunghi rispetto ai mutui.\n\nLa BCE ha lasciato aperta la porta a ulteriori tagli nel secondo semestre, «condizionati ai dati sull'inflazione e sulla crescita». I mercati scontano altre due riduzioni entro dicembre.`}
+  ],
+  mondo:[
+    {id:'m1',cat:'Mondo',title:'G7: i leader concordano su un nuovo meccanismo per contrastare la disinformazione globale',sub:'Il documento finale del vertice include impegni vincolanti sui social media e sulla trasparenza degli algoritmi.',author:'Anna Pellegrini',read:6,img:'mondo',body:`I leader del G7, riuniti in Italia per il vertice annuale, hanno raggiunto un accordo su un documento finale che include, per la prima volta, impegni concreti e verificabili per contrastare la disinformazione online a scala globale. Il documento, denominato «Dichiarazione di Borgo Egnazia sull'Integrità dell'Informazione», è stato firmato da tutti e sette i Paesi partecipanti.\n\nIl nucleo dell'accordo prevede: l'obbligo per le piattaforme digitali di etichettare i contenuti generati dall'intelligenza artificiale; la trasparenza sugli algoritmi di raccomandazione; la creazione di un fondo comune da 500 milioni di dollari per sostenere il giornalismo di qualità indipendente; e un meccanismo di monitoraggio multilaterale sulle operazioni di influenza straniera.\n\nLa presidenza italiana del G7 ha incassato un successo politico, riuscendo a tenere uniti Paesi con sensibilità diverse sul tema della libertà d'espressione — in particolare Stati Uniti e Europa — attorno a un testo bilanciato. Le ONG per la libertà di stampa hanno accolto positivamente l'accordo, ma chiedono garanzie sull'implementazione.\n\nLa Russia e la Cina, escluse dal G7, hanno reagito con dichiarazioni che denunciano un «tentativo di controllo occidentale dell'informazione». Russia Today ha già annunciato che ignorerà qualsiasi misura derivante dall'accordo.\n\nIl dossier passerà ora alle agenzie di regolamentazione dei Paesi partecipanti. In Europa, l'accordo si innesta nel quadro del Digital Services Act già in vigore, rafforzandone gli strumenti sanzionatori.`},
+    {id:'m2',cat:'Mondo',title:'Medio Oriente: riprendono i colloqui di pace sotto l\'egida dell\'ONU. Fragile tregua in vigore',sub:'Per la prima volta da mesi, le delegazioni si siedono allo stesso tavolo. L\'ottimismo è cauto.',author:'Stefano Amari',read:8,img:'mondo',body:`Per la prima volta in sei mesi, le delegazioni delle parti in conflitto nel Medio Oriente si sono sedute allo stesso tavolo di negoziato, nella sede dell'ONU a Ginevra, sotto l'egida del Segretario Generale. Una fragile tregua, mediata dal Qatar e dall'Egitto, è entrata in vigore all'alba di lunedì, con violazioni sporadiche ma nessun episodio tale da far saltare il processo.\n\nIl Segretario Generale dell'ONU ha dichiarato che i colloqui rappresentano «un raggio di luce in una situazione che sembrava senza via d'uscita». La prima sessione, durata quattro ore, si è concentrata sulla questione degli ostaggi e dei prigionieri, ritenuta la più urgente e anche quella con maggiori possibilità di accordo a breve termine.\n\nFonti diplomatiche descrivono l'atmosfera come «tesa ma professionale». Entrambe le delegazioni hanno evitato di rilasciare dichiarazioni pubbliche al termine della giornata, segno che il processo è ancora nel suo stadio più delicato. Gli intermediari lavorano su un piano in tre fasi che prevede, nella seconda fase, la discussione dell'accesso umanitario alle zone di conflitto.\n\nLa comunità internazionale segue con grande attenzione: l'Unione Europea ha offerto ulteriori garanzie economiche a chi si impegna in modo verificabile al rispetto delle norme umanitarie internazionali. Gli Stati Uniti partecipano come osservatori non ufficiali.\n\nGli analisti sono prudenti: «I colloqui sono un passo necessario ma non sufficiente. La storia ci insegna che in questa regione la strada dalla tregua alla pace è lunga e piena di ostacoli», ha commentato un esperto di geopolitica mediorientale dell'Università di Bologna.`}
+  ],
+  sport:[
+    {id:'s1',cat:'Sport',title:'Tour de France: l\'italiano Ganna in fuga solitaria, a rischio la maglia gialla',sub:'La tappa di ieri ha ribaltato la classifica generale. Tre corridori in 12 secondi al vertice.',author:'Carlo Venturi',read:5,img:'sport',body:`Il Tour de France regala una tappa da antologia: Filippo Ganna, il cronoman di Verbania campione del mondo a crono, ha attaccato in salita con 40 chilometri all'arrivo, staccando tutti i big e tagliando il traguardo con 2'14" di vantaggio sul primo inseguitore. Un'impresa che ha lasciato sbigottiti gli esperti e suscitato l'ovazione del pubblico sulle strade della Bretagna.\n\nLa classifica generale ne è uscita stravolta: Remco Evenepoel in maglia gialla ha ceduto 48 secondi e si trova ora a soli 12 secondi di vantaggio su Pogacar. Ganna, partito lontano dai piani alti della graduatoria, è balzato in terza posizione a 38 secondi. Nessuno si aspettava una simile performance in salita da un atleta noto soprattutto per le prove cronometrate.\n\nIl ct azzurro ha commentato: «Filippo ha delle qualità motorie uniche. Avevamo visto in allenamento che stava crescendo molto in salita, ma non ci aspettavamo un'esplosione così clamorosa. È il nostro atleta più completo». Ganna, raggiunto ai microfoni subito dopo l'arrivo, ha detto di volersi «godersi il momento» senza pensare alla classifica.\n\nMancano otto tappe alla conclusione sugli Champs-Élysées. Il percorso delle prossime giornate comprende due arrivi in quota nelle Alpi francesi, dove si deciderà la corsa. I bookmakers hanno già aggiornato le quote: Ganna è salito fino al secondo posto nelle scommesse.\n\nL'Italia non ha mai vinto il Tour de France. Se Ganna dovesse mantenere la posizione nelle Alpi, sarebbe la storia più clamorosa del ciclismo degli ultimi decenni.`},
+    {id:'s2',cat:'Sport',title:'Formula 1: la Ferrari conquista la pole a Monaco, Leclerc sogna il successo di casa',sub:'Il monegasco ha fermato il cronometro a 1\'10\"294. Hamilton quinto, Verstappen terzo.',author:'Pietro Greco',read:4,img:'sport',body:`La Ferrari torna a casa — almeno in senso metaforico — e lo fa nel modo migliore: Charles Leclerc ha conquistato la pole position per il Gran Premio di Monaco con un giro straordinario, il terzo più veloce nella storia del Principato. Il cronometro si è fermato su 1'10"294, con un vantaggio di 234 millesimi sul compagno di squadra Carlos Sainz.\n\nPer Leclerc, cresciuto a pochi chilometri dall'asfalto del circuito monegasco, Monaco è il sogno incompiuto per eccellenza: quattro pole negli ultimi cinque anni, zero vittorie. «Ogni volta è diverso, ogni volta si impara qualcosa», ha detto il pilota della Ferrari con un sorriso che tradisce la tensione. «Domani darò tutto».\n\nMax Verstappen partirà dalla terza casella: il campione del mondo in carica ha denunciato un problema di bilanciamento della Red Bull che lo ha limitato nell'ultimo settore. Lewis Hamilton, all'ultima stagione con la Mercedes, ha faticato nel terzo settore e scatterà quinto.\n\nLa gara di domenica si preannuncia tatticamente complicata: il circuito di Monaco rende quasi impossibile il sorpasso e la strategia ai box è spesso decisiva. Ferrari ha dimostrato in questa stagione di essere cresciuta anche sotto questo aspetto.\n\nLa tifoseria italiana è in fermento: se Leclerc vincesse a Monaco con la Ferrari, sarebbe uno di quei momenti destinati a restare nella storia dello sport.`}
+  ],
+  tecnologia:[
+    {id:'t1',cat:'Tecnologia',title:'L\'Italia lancia il Piano Nazionale per la Sovranità Digitale: cloud italiano per la PA',sub:'Entro il 2026 tutti i dati sensibili della pubblica amministrazione saranno ospitati su infrastrutture nazionali.',author:'Andrea Costa',read:6,img:'tecnologia',body:`Il governo ha presentato il Piano Nazionale per la Sovranità Digitale, un documento strategico che ridisegna l'infrastruttura tecnologica della pubblica amministrazione italiana con l'obiettivo di renderla indipendente dai grandi fornitori tecnologici extraeuropei entro il 2026. Il piano vale 3,2 miliardi di euro, di cui 1,8 miliardi provenienti dal PNRR.\n\nIl nucleo del piano è il «Polo Strategico Nazionale», un'infrastruttura cloud di proprietà pubblica che ospiterà tutti i dati «strategici e critici» della PA italiana: dati fiscali, sanitari, giudiziari, delle forze dell'ordine e della difesa. I dati «ordinari» potranno invece continuare a essere ospitati su cloud commerciali certificati secondo standard europei.\n\nIl piano prevede anche incentivi per le imprese italiane e europee che sviluppano software per la PA, con l'obiettivo di ridurre la dipendenza da software americano in settori sensibili. L'Agenzia per l'Italia Digitale sarà rafforzata con nuove competenze e 400 assunzioni di tecnici specializzati.\n\nLe associazioni delle imprese tech italiane hanno accolto con entusiasmo il piano, che potrebbe creare migliaia di posti di lavoro. Qualche perplessità arriva invece dagli esperti di cybersicurezza: «La concentrazione in un'unica infrastruttura nazionale crea anche rischi: se il Polo Strategico Nazionale viene attaccato, l'impatto è enorme», avverte un ricercatore dell'Università di Pisa.\n\nIl piano sarà implementato in tre fasi: la prima, entro fine anno, riguarderà la migrazione dei sistemi fiscali dell'Agenzia delle Entrate.`},
+    {id:'t2',cat:'Tecnologia',title:'Startup italiane: raccolta di venture capital in crescita del 34% nel primo semestre',sub:'Fintech, medtech e AI guidano gli investimenti. Milano si conferma hub europeo dell\'innovazione.',author:'Francesca Neri',read:5,img:'tecnologia',body:`Il primo semestre dell'anno si chiude con dati incoraggianti per l'ecosistema startup italiano: la raccolta di venture capital ha raggiunto i 890 milioni di euro, con un incremento del 34% rispetto allo stesso periodo dell'anno precedente. Il dato segna un nuovo record storico per l'Italia e colloca il Paese tra i mercati europei in più rapida crescita.\n\nI settori trainanti sono il fintech — con alcune realtà italiane che stanno espandendosi in Germania e Francia — il medtech, dove l'Italia vanta punte di eccellenza nella diagnostica per immagini e nella chirurgia robotica, e l'intelligenza artificiale applicata al manifatturiero, un segmento dove la tradizione industriale italiana offre vantaggi competitivi unici.\n\nMilano si conferma l'hub di riferimento, concentrando il 67% degli investimenti. Ma emergono poli interessanti anche a Bologna, con una vivace comunità di startup nel settore della robotica e dell'automazione, e a Napoli, dove alcune iniziative pubblico-private hanno creato un ecosistema innovativo nel campo del software.\n\nGli investitori internazionali guardano con crescente interesse all'Italia: tre dei round più significativi del semestre hanno visto la partecipazione di fondi americani e tedeschi. «L'Italia ha talenti eccellenti e costi competitivi. Quello che manca ancora è una cultura del rischio più matura e migliori meccanismi di uscita per gli investitori», commenta un partner di un fondo pan-europeo.\n\nIl governo ha annunciato nuove misure fiscali per attrarre investitori esteri e trattenere i talenti, inclusa una revisione del regime delle stock option per i dipendenti delle startup.`}
+  ],
+  cultura:[
+    {id:'c1',cat:'Cultura',title:'La Biennale di Venezia apre i battenti: «Stranieri Ovunque» è il tema di questa edizione',sub:'Artisti da 88 Paesi. Il Padiglione Italia esplora il concetto di identità nell\'era della migrazione.',author:'Elena Martini',read:7,img:'cultura',body:`La 61ª edizione della Biennale di Arte di Venezia ha aperto ufficialmente i battenti tra il fascino dei giardini e l'architettura industriale dell'Arsenale. Il tema scelto dal curatore brasiliano Adriano Pedrosa — «Stranieri Ovunque» — traccia un filo rosso attraverso i lavori di 331 artisti provenienti da 88 Paesi, con una netta prevalenza di voci dal Sud globale.\n\nLa Biennale di quest'anno è la più inclusiva di sempre per quanto riguarda la rappresentanza geografica e la varietà delle pratiche artistiche. Installazioni monumentali convivono con opere fragili e personali, performance con video sperimentali, tessiture tradizionali con arte digitale.\n\nIl Padiglione Italia, curato da Luca Cerizza, si intitola «Tutto il mondo guarda» e ospita le opere di tre artisti italiani di origini diverse — una fotografa di origini eritree, uno scultore di origine marocchina e una videoartista nata a Milano da genitori cinesi — che raccontano la complessità dell'identità italiana contemporanea.\n\nIl Leone d'Oro alla Carriera è stato assegnato alla pittrice americana Harmony Hammond, 79 anni, pioniera dell'arte femminista e queer. Il Padiglione più premiato finora dalla critica internazionale è quello australiano, con un'installazione site-specific che ha richiesto due anni di preparazione.\n\nLa Biennale resterà aperta fino al 24 novembre. In questi sei mesi Venezia diventa il centro mondiale dell'arte contemporanea, con un afflusso stimato di 700.000 visitatori.`}
+  ],
+  ambiente:[
+    {id:'am1',cat:'Ambiente',title:'Cop30 in Belém: accordo globale sulla deforestazione zero entro il 2030',sub:'Storico impegno di 134 Paesi. Rimane il nodo dei finanziamenti per i Paesi in via di sviluppo.',author:'Chiara Ferretti',read:7,img:'ambiente',body:`La conferenza sul clima COP30, svoltasi a Belém in Brasile, ha prodotto un accordo storico sulla deforestazione: 134 Paesi — tra cui per la prima volta Indonesia e Congo, i Paesi con le più vaste foreste tropicali dopo il Brasile — si sono impegnati a raggiungere la «deforestazione netta zero» entro il 2030.\n\nL'accordo, formalmente denominato «Patto di Belém per le Foreste», prevede meccanismi di verifica satellitare in tempo reale e sanzioni commerciali per i Paesi che non rispettano gli impegni. È la prima volta che il regime dei negoziati climatici include misure così esplicite di enforcement.\n\nIl nodo più spinoso è rimasto quello dei finanziamenti: i Paesi in via di sviluppo chiedono ai Paesi ricchi di pagare per la conservazione delle foreste, come «carbonio naturale» fondamentale per la stabilizzazione del clima. Il fondo finale concordato ammonta a 20 miliardi di dollari all'anno fino al 2030 — metà di quanto richiesto dai Paesi tropicali.\n\nL'Unione Europea, tra i protagonisti dell'accordo, ha annunciato che recepirà gli impegni nel Regolamento sulla deforestazione già in vigore, inasprendo i controlli sulle importazioni di soia, olio di palma, cacao e altri prodotti a rischio. Il ministro dell'Ambiente italiano ha parlato di «passo epocale».\n\nGreenpeace e le principali ONG ambientaliste hanno accolto l'accordo con cautela: «I numeri sono importanti, ma il diavolo è nei dettagli. Abbiamo visto troppi impegni sulla carta che non si sono mai tradotti in fatti». Sarà decisiva la fase di implementazione, monitorata da un panel scientifico indipendente.`}
+  ]
+};
+
+// Immagini per categoria
+const IMGS = {
+  politica:['https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=900&h=560&fit=crop&q=80','https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=900&h=560&fit=crop&q=80'],
+  economia:['https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&h=560&fit=crop&q=80','https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=900&h=560&fit=crop&q=80'],
+  mondo:['https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&h=560&fit=crop&q=80','https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=900&h=560&fit=crop&q=80'],
+  cultura:['https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=900&h=560&fit=crop&q=80','https://images.unsplash.com/photo-1533130061792-64b345e4a833?w=900&h=560&fit=crop&q=80'],
+  tecnologia:['https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&h=560&fit=crop&q=80','https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&h=560&fit=crop&q=80'],
+  sport:['https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=900&h=560&fit=crop&q=80','https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=900&h=560&fit=crop&q=80'],
+  cronaca:['https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=900&h=560&fit=crop&q=80','https://images.unsplash.com/photo-1585829365295-ab7cd400c167?w=900&h=560&fit=crop&q=80'],
+  ambiente:['https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=900&h=560&fit=crop&q=80','https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=900&h=560&fit=crop&q=80'],
+  default:['https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=900&h=560&fit=crop&q=80']
+};
+
+function img(cat,i=0){const arr=IMGS[cat]||IMGS.default;return arr[i%arr.length];}
+
+function esc(s){if(!s)return'';return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+
+// ═══════════════════════════════════════════════
+//  FORUM STORAGE (localStorage)
+// ═══════════════════════════════════════════════
+const FORUM_KEY='ankoautca_forum_v2';
+function loadMsgs(){try{return JSON.parse(localStorage.getItem(FORUM_KEY)||'[]');}catch{return[];}}
+function saveMsgs(m){localStorage.setItem(FORUM_KEY,JSON.stringify(m.slice(-300)));}
+
+let currentTopic='Tutti';
+let currentSearch='';
+
+// Messaggi iniziali di esempio (solo se forum vuoto)
+const SEED_MSGS=[
+  {id:'s1',name:'Redazione Ankoautca',avatar:'RA',badge:'editor',topic:'Politica',text:'Benvenuti nel Forum di Ankoautca! Questo è uno spazio di discussione aperto a tutti i lettori. Commentate le notizie, condividete le vostre opinioni, fate domande. L\'unica regola: rispetto reciproco.',time:Date.now()-3600000*5,reactions:{like:12,cuore:8,bravo:4},replies:[]},
+  {id:'s2',name:'Carlo da Torino',avatar:'CT',badge:'guest',topic:'Economia',text:'Ottima notizia quella sul PNRR. Finalmente l\'Italia sta usando i fondi europei in modo efficace. Speriamo che questa tendenza continui anche nei prossimi trimestri.',time:Date.now()-3600000*3,reactions:{like:7,cuore:2,bravo:1},replies:[{name:'Marco B.',text:'Concordo, ma bisogna vedere la qualità degli investimenti, non solo la quantità di spesa.',time:Date.now()-3600000*2}]},
+  {id:'s3',name:'Maria Grazia',avatar:'MG',badge:'guest',topic:'Sport',text:'Forza Ganna! Un campione assoluto. Sarebbe bellissimo vedere un italiano vincere il Tour de France. Questo ragazzo ha qualcosa di speciale.',time:Date.now()-3600000*1.5,reactions:{like:15,cuore:11,bravo:6},replies:[]},
+  {id:'s4',name:'Moderatore',avatar:'MO',badge:'mod',topic:'Politica',text:'Ricordiamo a tutti i partecipanti che il forum è uno spazio di discussione civile. Commenti offensivi o di natura personale saranno rimossi. Grazie per la collaborazione.',time:Date.now()-3600000*1,reactions:{like:5,cuore:0,bravo:3},replies:[]}
+];
+
+function initForum(){
+  const existing=loadMsgs();
+  if(existing.length===0){saveMsgs(SEED_MSGS);}
+  renderForum();
+}
+
+function renderForum(){
+  let msgs=loadMsgs();
+  const q=currentSearch.toLowerCase();
+  if(currentTopic!=='Tutti') msgs=msgs.filter(m=>m.topic===currentTopic);
+  if(q) msgs=msgs.filter(m=>m.text.toLowerCase().includes(q)||m.name.toLowerCase().includes(q)||m.topic.toLowerCase().includes(q));
+  
+  document.getElementById('forum-count').textContent=loadMsgs().length+' messaggi';
+  
+  if(msgs.length===0){
+    document.getElementById('msgs-list').innerHTML='<div class="forum-empty"><i class="ti ti-message-x" style="font-size:36px;display:block;margin-bottom:10px"></i>Nessun messaggio trovato.</div>';
+    return;
+  }
+  
+  document.getElementById('msgs-list').innerHTML=msgs.slice().reverse().map(m=>msgHtml(m)).join('');
+}
+
+function msgHtml(m){
+  const ago=timeAgo(m.time);
+  const badgeHtml={
+    editor:'<span class="msg-badge badge-editor">Redazione</span>',
+    mod:'<span class="msg-badge badge-mod">Moderatore</span>',
+    guest:'<span class="msg-badge badge-guest">Lettore</span>'
+  }[m.badge]||'<span class="msg-badge badge-guest">Lettore</span>';
+  
+  const replies=(m.replies||[]).map(r=>`
+    <div class="reply-card">
+      <div style="flex-shrink:0"><div class="msg-avatar" style="width:28px;height:28px;font-size:11px;background:var(--paper);color:var(--ink);border:1px solid var(--border)">${esc(r.name.substring(0,2).toUpperCase())}</div></div>
+      <div><div class="reply-name">${esc(r.name)}</div><div class="reply-text">${esc(r.text)}</div></div>
+    </div>`).join('');
+  
+  return`<div class="msg-card" id="msg-${esc(m.id)}">
+    <div class="msg-header">
+      <div class="msg-avatar">${esc(m.avatar||m.name.substring(0,2).toUpperCase())}</div>
+      <div class="msg-info">
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><span class="msg-author">${esc(m.name)}</span>${badgeHtml}</div>
+        <div class="msg-time">${ago} · ${esc(m.topic)}</div>
+      </div>
+    </div>
+    <div class="msg-topic">${esc(m.topic)}</div>
+    <div class="msg-text">${esc(m.text)}</div>
+    <div class="msg-footer">
+      <button class="react-btn" onclick="react('${esc(m.id)}','like')">👍 <span>${m.reactions?.like||0}</span></button>
+      <button class="react-btn" onclick="react('${esc(m.id)}','cuore')">❤️ <span>${m.reactions?.cuore||0}</span></button>
+      <button class="react-btn" onclick="react('${esc(m.id)}','bravo')">👏 <span>${m.reactions?.bravo||0}</span></button>
+      <span class="reply-btn" onclick="toggleReply('${esc(m.id)}')"><i class="ti ti-corner-down-right"></i> Rispondi</span>
+    </div>
+    <div id="reply-form-${esc(m.id)}" style="display:none;margin-top:10px">
+      <div style="display:flex;gap:8px">
+        <input class="ff-input" id="rf-name-${esc(m.id)}" placeholder="Il tuo nome" style="width:130px;font-size:12px;padding:7px 9px">
+        <input class="ff-input" id="rf-text-${esc(m.id)}" placeholder="Scrivi una risposta…" style="flex:1;font-size:12px;padding:7px 9px" onkeydown="if(event.key==='Enter')submitReply('${esc(m.id)}')">
+        <button onclick="submitReply('${esc(m.id)}')" style="background:var(--ink);color:#fff;border:none;padding:7px 13px;border-radius:4px;cursor:pointer;font-size:12px">Invia</button>
+      </div>
+    </div>
+    ${replies?`<div class="msg-replies">${replies}</div>`:''}
+  </div>`;
+}
+
+window.react=function(id,type){
+  const msgs=loadMsgs();
+  const m=msgs.find(x=>x.id===id);
+  if(!m)return;
+  if(!m.reactions)m.reactions={};
+  m.reactions[type]=(m.reactions[type]||0)+1;
+  saveMsgs(msgs);
+  renderForum();
+};
+
+window.toggleReply=function(id){
+  const el=document.getElementById('reply-form-'+id);
+  if(el)el.style.display=el.style.display==='none'?'block':'none';
+};
+
+window.submitReply=function(id){
+  const msgs=loadMsgs();
+  const m=msgs.find(x=>x.id===id);
+  if(!m)return;
+  const nameEl=document.getElementById('rf-name-'+id);
+  const textEl=document.getElementById('rf-text-'+id);
+  const text=(textEl?.value||'').trim();
+  if(!text)return;
+  if(!m.replies)m.replies=[];
+  m.replies.push({name:(nameEl?.value||'Anonimo').substring(0,30),text:text.substring(0,400),time:Date.now()});
+  saveMsgs(msgs);
+  renderForum();
+  notify('✅ Risposta pubblicata!');
+};
+
+function submitMsg(){
+  const name=(document.getElementById('ff-name').value||'').trim();
+  const topic=document.getElementById('ff-topic').value;
+  const text=(document.getElementById('ff-msg').value||'').trim();
+  if(!text||text.length<5){notify('❌ Scrivi almeno 5 caratteri.');return;}
+  const msgs=loadMsgs();
+  const newMsg={
+    id:'m'+Date.now(),
+    name:name||'Anonimo',
+    avatar:(name||'AN').substring(0,2).toUpperCase(),
+    badge:'guest',
+    topic,
+    text:text.substring(0,1000),
+    time:Date.now(),
+    reactions:{like:0,cuore:0,bravo:0},
+    replies:[]
+  };
+  msgs.push(newMsg);
+  saveMsgs(msgs);
+  document.getElementById('ff-msg').value='';
+  document.getElementById('char-count').textContent='0';
+  renderForum();
+  notify('✅ Messaggio pubblicato! È visibile a tutti i lettori.');
+  document.getElementById('msgs-list').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function filterTopic(t){
+  currentTopic=t;
+  document.querySelectorAll('.topic-tag').forEach(el=>{
+    el.classList.toggle('sel',el.textContent===t);
+  });
+  renderForum();
+}
+
+function searchForum(){
+  currentSearch=document.getElementById('forum-search').value.trim();
+  renderForum();
+}
+
+document.getElementById('forum-search').addEventListener('keydown',e=>{if(e.key==='Enter')searchForum();});
+document.getElementById('ff-msg').addEventListener('input',function(){
+  document.getElementById('char-count').textContent=this.value.length;
+});
+
+function timeAgo(ts){
+  const d=Date.now()-ts;
+  if(d<60000)return'Adesso';
+  if(d<3600000)return Math.floor(d/60000)+' min fa';
+  if(d<86400000)return Math.floor(d/3600000)+' ore fa';
+  return Math.floor(d/86400000)+' giorni fa';
+}
+
+// ═══════════════════════════════════════════════
+//  RENDER ARTICOLI
+// ═══════════════════════════════════════════════
+function allArticles(){
+  return Object.values(ARTICLES_DB).flat();
+}
+
+function artsBySection(sec,n=12){
+  if(sec==='attualita')return ARTICLES_DB.attualita.slice(0,n);
+  return (ARTICLES_DB[sec]||ARTICLES_DB.attualita).slice(0,n);
+}
+
+function heroHtml(arts){
+  const [h,...rest]=arts;
+  const sides=rest.slice(0,2);
+  return`<div class="hero-grid">
+  <div class="hero-main" onclick="openArt(${JSON.stringify(h.id)})">
+    <div class="h-bg" style="background-image:url('${img(h.img,0)}')"></div>
+    <div class="h-grad"></div>
+    <div class="h-content">
+      <div class="h-cat">Prima Pagina</div>
+      <div class="h-title">${esc(h.title)}</div>
+      <div class="h-sub">${esc(h.sub)}</div>
+      <div class="h-meta"><i class="ti ti-user" style="font-size:12px"></i>${esc(h.author)}<i class="ti ti-clock" style="font-size:12px"></i>${h.read} min</div>
+    </div>
+  </div>
+  ${sides.map((a,i)=>`<div class="hero-side" onclick="openArt(${JSON.stringify(a.id)})">
+    <div class="h-bg" style="background-image:url('${img(a.img,i+1)}')"></div>
+    <div class="h-grad"></div>
+    <div class="h-content">
+      <div class="h-cat">${esc(a.cat)}</div>
+      <div class="h-title">${esc(a.title)}</div>
+    </div>
+  </div>`).join('')}
+  </div>`;
+}
+
+function cardHtml(a,i){
+  return`<div class="card" onclick="openArt(${JSON.stringify(a.id)})" style="animation-delay:${i*.07}s">
+  <div class="card-img">
+    <img src="${img(a.img,i)}" alt="${esc(a.title)}" loading="lazy">
+    <span class="card-badge">${esc(a.cat)}</span>
+  </div>
+  <div class="card-body">
+    <div class="card-title">${esc(a.title)}</div>
+    <div class="card-sub">${esc(a.sub)}</div>
+    <div class="card-meta"><span>${esc(a.author)}</span><span><i class="ti ti-clock"></i> ${a.read} min</span></div>
+  </div>
+  </div>`;
+}
+
+function aliHtml(a,i){
+  return`<div class="ali" onclick="openArt(${JSON.stringify(a.id)})">
+  <div class="ali-img"><img src="${img(a.img,i)}" alt="${esc(a.title)}" loading="lazy"></div>
+  <div><div class="ali-cat">${esc(a.cat)}</div><div class="ali-title">${esc(a.title)}</div><div class="ali-meta">${esc(a.author)} · ${a.read} min</div></div>
+  </div>`;
+}
+
+function magHtml(arts){
+  const [main,...rest]=arts.slice(0,3);
+  const stack=rest.slice(0,2);
+  return`<div class="mag">
+  <div class="mag-item mag-main" onclick="openArt(${JSON.stringify(main.id)})">
+    <div class="mag-bg" style="background-image:url('${img(main.img,0)}')"></div>
+    <div class="mag-grad"></div>
+    <div class="mag-content"><div class="mag-cat">${esc(main.cat)}</div><div class="mag-title">${esc(main.title)}</div></div>
+  </div>
+  <div class="mag-stack">
+  ${stack.map((a,i)=>`<div class="mag-item" onclick="openArt(${JSON.stringify(a.id)})">
+    <div class="mag-bg" style="background-image:url('${img(a.img,i+1)}')"></div>
+    <div class="mag-grad"></div>
+    <div class="mag-content"><div class="mag-cat">${esc(a.cat)}</div><div class="mag-title">${esc(a.title)}</div></div>
+  </div>`).join('')}
+  </div></div>`;
+}
+
+function trendHtml(arts){
+  return arts.slice(0,5).map((a,i)=>`<div class="trend-item" onclick="openArt(${JSON.stringify(a.id)})">
+    <div class="trend-num">0${i+1}</div>
+    <div><div class="trend-cat">${esc(a.cat)}</div><div class="trend-title">${esc(a.title)}</div></div>
+  </div>`).join('');
+}
+
+// ═══════════════════════════════════════════════
+//  PAGES
+// ═══════════════════════════════════════════════
+function goHome(){
+  setNav(0);
+  const all=ARTICLES_DB.attualita;
+  const pol=ARTICLES_DB.politica;
+  const sport=ARTICLES_DB.sport;
+  const ec=ARTICLES_DB.economia;
+  const mondo=ARTICLES_DB.mondo;
+  const trend=allArticles();
+
+  document.getElementById('page-root').innerHTML=`
+  <div class="wrap">
+    ${heroHtml(all.slice(0,3))}
+    <div class="layout">
+      <main>
+        <div class="section-gap">
+          <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Ultime Notizie</div><span class="sec-more" onclick="nav('attualita')">Tutte →</span></div>
+          <div class="cards-3">${all.slice(3,6).map((a,i)=>cardHtml(a,i)).join('')}</div>
+          <div class="art-list">${all.slice(6,10).map((a,i)=>aliHtml(a,i)).join('')}</div>
         </div>
-        <div class="footer-bottom">
-            <span>© 2025 ANKOAUTCA — Tutti i diritti riservati</span>
-            <span>Nessun social · Nessuna newsletter · Solo informazione</span>
+        <div class="section-gap">
+          <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Politica</div><span class="sec-more" onclick="nav('politica')">Tutte →</span></div>
+          ${magHtml(pol)}
         </div>
-    </footer>
-
-    <script>
-       
-
-            const overlay = document.createElement('div');
-            overlay.className = 'api-modal-overlay';
-            overlay.innerHTML = `
-            <div class="api-modal">
-              <i class="ti ti-key" style="font-size:40px;color:var(--red)"></i>
-              <h2>Chiave API Anthropic</h2>
-              <p style="color:var(--gray-500);font-size:13px;margin:8px 0">
-                Per generare articoli automaticamente, inserisci la tua chiave API Anthropic.<br>
-                La chiave viene salvata <strong>solo nel tuo browser</strong> e mai inviata ai nostri server.
-              </p>
-              <input type="password" id="api-key-input" placeholder="sk-ant-api03-..." aria-label="API Key">
-              <button id="api-key-submit">Salva e continua</button>
-              <p class="hint">🔒 La chiave è codificata in localStorage. Nessun invio a terze parti.</p>
-              <p class="hint" style="margin-top:4px">
-                <a href="https://console.anthropic.com/" target="_blank" style="color:var(--red)">Ottieni una chiave API →</a>
-              </p>
+        <div class="section-gap">
+          <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Economia</div><span class="sec-more" onclick="nav('economia')">Tutte →</span></div>
+          <div class="cards-3">${ec.slice(0,2).map((a,i)=>cardHtml(a,i)).join('')}${all.slice(10,11).map((a,i)=>cardHtml(a,i+2)).join('')}</div>
+        </div>
+        <div class="section-gap">
+          <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Sport</div><span class="sec-more" onclick="nav('sport')">Tutte →</span></div>
+          ${magHtml(sport)}
+        </div>
+        <div class="section-gap">
+          <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Mondo</div><span class="sec-more" onclick="nav('mondo')">Tutte →</span></div>
+          <div class="cards-3">${mondo.slice(0,2).map((a,i)=>cardHtml(a,i)).join('')}${ARTICLES_DB.ambiente.slice(0,1).map((a,i)=>cardHtml(a,i+2)).join('')}</div>
+        </div>
+        <div class="collab">
+          <i class="ti ti-rocket collab-icon"></i>
+          <div><div class="collab-title">Collabora con Ankoautca</div><div class="collab-desc">Hai una notizia? Invia a <strong style="color:#aaa">gastroboostmarketingdegital@gmail.com</strong></div></div>
+          <a href="mailto:gastroboostmarketingdegital@gmail.com" class="collab-btn">Proponi collaborazione</a>
+        </div>
+      </main>
+      <aside class="sidebar">
+        <div class="widget">
+          <div class="wh"><i class="ti ti-trending-up"></i> In evidenza</div>
+          <div class="wbody">${trendHtml(trend)}</div>
+        </div>
+        <div class="widget">
+          <div class="wh"><i class="ti ti-sun"></i> Meteo Roma</div>
+          <div class="meteo-box">
+            <div class="meteo-city">Roma, Lazio</div>
+            <div class="meteo-temp" id="meteo-temp">—</div>
+            <div class="meteo-desc" id="meteo-desc">Caricamento…</div>
+            <div class="meteo-row">
+              <span><i class="ti ti-droplet"></i> <span id="m-hum">—</span></span>
+              <span><i class="ti ti-wind"></i> <span id="m-wind">—</span></span>
+              <span><i class="ti ti-eye"></i> <span id="m-feel">—</span></span>
             </div>
-          `;
-            document.body.appendChild(overlay);
-
-            document.getElementById('api-key-submit').addEventListener('click', () => {
-                const input = document.getElementById('api-key-input').value.trim();
-                if (input.length > 20 && input.startsWith('sk-')) {
-                    setApiKey(input);
-                    overlay.remove();
-                    showToast('✅ Chiave API salvata! Generazione articoli attiva.');
-                    renderHome();
-                } else {
-                    document.getElementById('api-key-input').style.borderColor = 'red';
-                    setTimeout(() => document.getElementById('api-key-input').style.borderColor = '', 2000);
-                    showToast('❌ Inserisci una chiave API valida (inizia con sk-).');
-                }
-            });
-
-            overlay.addEventListener('click', (e) => {
-                if (e.target === overlay) overlay.remove();
-            });
-        }
-
-        // ============================================================
-        // RATE LIMITING (protezione anti-abuso / DDoS lato client)
-        // ============================================================
-        const rateLimiter = {
-            requests: [],
-            windowMs: CONFIG.RATE_LIMIT_WINDOW,
-            maxRequests: CONFIG.MAX_REQUESTS_PER_MINUTE,
-
-            check() {
-                const now = Date.now();
-                // Pulisci vecchie richieste
-                this.requests = this.requests.filter(t => now - t < this.windowMs);
-                if (this.requests.length >= this.maxRequests) {
-                    const oldest = this.requests[0];
-                    const waitTime = Math.ceil((oldest + this.windowMs - now) / 1000);
-                    throw new Error(
-                        `⏳ Limite richieste raggiunto (${this.maxRequests}/minuto). Riprova tra ${waitTime} secondi.`
-                        );
-                }
-                this.requests.push(now);
-                return true;
-            },
-
-            reset() {
-                this.requests = [];
-            }
-        };
-
-        // ============================================================
-        // CACHE SYSTEM
-        // ============================================================
-        const cacheSystem = {
-            get(key) {
-                try {
-                    const raw = localStorage.getItem(CONFIG.CACHE_PREFIX + key);
-                    if (!raw) return null;
-                    const data = JSON.parse(raw);
-                    if (Date.now() - data.timestamp > CONFIG.CACHE_DURATION) {
-                        localStorage.removeItem(CONFIG.CACHE_PREFIX + key);
-                        return null;
-                    }
-                    return data.value;
-                } catch (e) {
-                    return null;
-                }
-            },
-            set(key, value) {
-                try {
-                    localStorage.setItem(CONFIG.CACHE_PREFIX + key, JSON.stringify({
-                        value,
-                        timestamp: Date.now()
-                    }));
-                } catch (e) {
-                    // localStorage pieno, pulisci cache vecchia
-                    this.clearOld();
-                }
-            },
-            clearOld() {
-                const now = Date.now();
-                const keys = Object.keys(localStorage);
-                for (const k of keys) {
-                    if (k.startsWith(CONFIG.CACHE_PREFIX)) {
-                        try {
-                            const data = JSON.parse(localStorage.getItem(k));
-                            if (now - data.timestamp > CONFIG.CACHE_DURATION) {
-                                localStorage.removeItem(k);
-                            }
-                        } catch (e) {
-                            localStorage.removeItem(k);
-                        }
-                    }
-                }
-            },
-            clearAll() {
-                const keys = Object.keys(localStorage);
-                for (const k of keys) {
-                    if (k.startsWith(CONFIG.CACHE_PREFIX)) {
-                        localStorage.removeItem(k);
-                    }
-                }
-            }
-        };
-
-        // ============================================================
-        // TOAST NOTIFICATIONS
-        // ============================================================
-        function showToast(message, duration = 3000) {
-            const existing = document.querySelector('.toast');
-            if (existing) existing.remove();
-            const toast = document.createElement('div');
-            toast.className = 'toast';
-            toast.textContent = message;
-            document.body.appendChild(toast);
-            setTimeout(() => toast.remove(), duration);
-        }
-
-        // ============================================================
-        // IMMAGINI UNSPLASH
-        // ============================================================
-        const IMG = {
-            politica: [
-                'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=500&fit=crop&q=80',
-                'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=800&h=500&fit=crop&q=80',
-                'https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=800&h=500&fit=crop&q=80',
-            ],
-            cronaca: [
-                'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&h=500&fit=crop&q=80',
-                'https://images.unsplash.com/photo-1585829365295-ab7cd400c167?w=800&h=500&fit=crop&q=80',
-                'https://images.unsplash.com/photo-1495020689067-958852a7765e?w=800&h=500&fit=crop&q=80',
-            ],
-            mondo: [
-                'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=500&fit=crop&q=80',
-                'https://images.unsplash.com/photo-1532375810709-75b1da00537c?w=800&h=500&fit=crop&q=80',
-                'https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=800&h=500&fit=crop&q=80',
-            ],
-            cultura: [
-                'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&h=500&fit=crop&q=80',
-                'https://images.unsplash.com/photo-1533130061792-64b345e4a833?w=800&h=500&fit=crop&q=80',
-                'https://images.unsplash.com/photo-1482160549825-59d1b23cb208?w=800&h=500&fit=crop&q=80',
-            ],
-            tecnologia: [
-                'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=500&fit=crop&q=80',
-                'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&h=500&fit=crop&q=80',
-                'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=800&h=500&fit=crop&q=80',
-            ],
-            sport: [
-                'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&h=500&fit=crop&q=80',
-                'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&h=500&fit=crop&q=80',
-                'https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=800&h=500&fit=crop&q=80',
-            ],
-            economia: [
-                'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=500&fit=crop&q=80',
-                'https://images.unsplash.com/photo-1559526324-4b87b5e9e4b8?w=800&h=500&fit=crop&q=80',
-            ],
-            ambiente: [
-                'https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=800&h=500&fit=crop&q=80',
-                'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&h=500&fit=crop&q=80',
-            ],
-            salute: [
-                'https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=800&h=500&fit=crop&q=80',
-                'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=500&fit=crop&q=80',
-            ],
-            opinioni: [
-                'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&h=500&fit=crop&q=80',
-                'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=500&fit=crop&q=80',
-            ],
-            default: [
-                'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&h=500&fit=crop&q=80',
-                'https://images.unsplash.com/photo-1495020689067-958852a7765e?w=800&h=500&fit=crop&q=80',
-                'https://images.unsplash.com/photo-1532375810709-75b1da00537c?w=800&h=500&fit=crop&q=80',
-            ]
-        };
-
-        function getImgForCat(cat, idx = 0) {
-            const c = (cat || 'default').toLowerCase();
-            const arr = IMG[c] || IMG.default;
-            return arr[idx % arr.length];
-        }
-
-        // ============================================================
-        // FUNZIONI UTILITY
-        // ============================================================
-        function escapeHtml(s) {
-            if (!s) return '';
-            return String(s).replace(/[&<>"']/g, c => ({
-                '&': '&amp;',
-                '<': '&lt;',
-                '>': '&gt;',
-                '"': '&quot;',
-                "'": '&#39;'
-            } [c]));
-        }
-
-        function safeJsonParse(text, fallback = null) {
-            try {
-                const cleaned = text.replace(/```json\s*|```\s*/g, '').trim();
-                // Trova il primo [ o { e l'ultimo ] o }
-                const start = Math.min(
-                    cleaned.indexOf('[') >= 0 ? cleaned.indexOf('[') : Infinity,
-                    cleaned.indexOf('{') >= 0 ? cleaned.indexOf('{') : Infinity
-                );
-                const end = Math.max(
-                    cleaned.lastIndexOf(']'),
-                    cleaned.lastIndexOf('}')
-                );
-                if (start >= 0 && end > start) {
-                    return JSON.parse(cleaned.substring(start, end + 1));
-                }
-                return JSON.parse(cleaned);
-            } catch (e) {
-                return fallback;
-            }
-        }
-
-       
-            const oggi = new Date().toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
-            const prompt = `Sei un redattore di un importante giornale italiano. Genera esattamente ${count} articoli di notizie plausibili e attuali per la sezione "${categoria}" di un sito di informazione italiano, alla data di oggi ${oggi}.
-
-        Rispondi SOLO con un array JSON valido, senza testo aggiuntivo, senza backtick, senza markdown. Il formato deve essere esattamente:
-        [
-          {
-            "titolo": "Titolo dell'articolo in italiano",
-            "sottotitolo": "Sommario breve dell'articolo (1-2 frasi)",
-            "categoria": "${categoria}",
-            "autore": "Nome Cognome",
-            "minutiLettura": 4,
-            "corpo": "Testo completo dell'articolo in 4-6 paragrafi separati da \\n\\n. Minimo 300 parole. Stile giornalistico italiano professionale.",
-            "imgCat": "una di queste parole: politica, cronaca, mondo, cultura, tecnologia, sport, economia, ambiente, salute"
-          }
-        ]`;
-
-            try {
-                const text = await callAnthropicAPI(prompt, 4000);
-                const articles = safeJsonParse(text, null);
-                if (articles && Array.isArray(articles) && articles.length > 0) {
-                    cacheSystem.set(cacheKey, articles);
-                    return articles;
-                }
-                throw new Error('Risposta API non valida');
-            } catch (e) {
-                console.warn('⚠️ Fallback per categoria:', categoria, e.message);
-                return fallbackArticles(categoria, count);
-            }
-        }
-
-        async function fetchSingleArticle(titolo, categoria) {
-            const cacheKey = `single_${titolo.substring(0, 30)}_${categoria}`;
-            const cached = cacheSystem.get(cacheKey);
-            if (cached) return cached;
-
-            const prompt = `Sei un redattore italiano. Scrivi un articolo giornalistico completo e professionale sul seguente argomento: "${titolo}" per la sezione ${categoria}.
-
-        Rispondi SOLO con JSON valido senza backtick:
-        {
-          "titolo": "${titolo}",
-          "sottotitolo": "Sottotitolo dell'articolo",
-          "categoria": "${categoria}",
-          "autore": "Nome Cognome",
-          "minutiLettura": 6,
-          "corpo": "Testo completo in 6-8 paragrafi separati da \\n\\n, minimo 500 parole, stile giornalistico italiano.",
-          "imgCat": "una di: politica, cronaca, mondo, cultura, tecnologia, sport, economia, ambiente, salute"
-        }`;
-
-            try {
-                const text = await callAnthropicAPI(prompt, 3000);
-                const article = safeJsonParse(text, null);
-                if (article && article.titolo) {
-                    cacheSystem.set(cacheKey, article);
-                    return article;
-                }
-                throw new Error('Risposta non valida');
-            } catch (e) {
-                return {
-                    titolo,
-                    sottotitolo: 'Articolo in elaborazione...',
-                    categoria,
-                    autore: 'Redazione Ankoautca',
-                    minutiLettura: 5,
-                    corpo: 'Contenuto non disponibile al momento. Riprova più tardi.\n\nLa redazione sta lavorando per recuperare il contenuto completo.',
-                    imgCat: categoria.toLowerCase()
-                };
-            }
-        }
-
-        async function fetchBreakingTicker() {
-            const cacheKey = 'breaking_ticker';
-            const cached = cacheSystem.get(cacheKey);
-            if (cached) {
-                updateTicker(cached);
-                return;
-            }
-
-            const prompt =
-                'Genera 8 titoli brevi di breaking news italiane di oggi (max 12 parole ciascuno, temi vari: politica, cronaca, mondo, sport, meteo, cultura). Rispondi SOLO con JSON array di stringhe, senza backtick.';
-            try {
-                const text = await callAnthropicAPI(prompt, 1000);
-                const arr = safeJsonParse(text, []);
-                if (arr.length) {
-                    cacheSystem.set(cacheKey, arr);
-                    updateTicker(arr);
-                }
-            } catch (e) {
-                // Usa ticker di default già presente nell'HTML
-                console.log('Ticker: uso valori predefiniti');
-            }
-        }
-
-        function updateTicker(arr) {
-            const doubled = [...arr, ...arr];
-            const tickerEl = document.getElementById('ticker');
-            if (tickerEl) {
-                tickerEl.innerHTML = doubled.map(t => `<span>${escapeHtml(t)}</span>`).join('');
-            }
-        }
-
-        // ============================================================
-        // FALLBACK ARTICLES
-        // ============================================================
-        function fallbackArticles(cat, n) {
-            const items = [
-                { titolo: 'Governo approva nuove misure urgenti: ecco cosa cambia',
-                    sottotitolo: 'Il Consiglio dei ministri ha dato il via libera a un pacchetto di provvedimenti attesi.',
-                    categoria: cat, autore: 'Marco Bianchi', minutiLettura: 5,
-                    corpo: 'Il governo italiano ha approvato ieri sera in consiglio dei ministri un pacchetto di misure che riguardano diversi settori della vita pubblica.\n\nLe misure sono state annunciate dal presidente del Consiglio durante una conferenza stampa notturna. "Stiamo lavorando per il bene degli italiani", ha dichiarato.\n\nLe opposizioni hanno reagito con toni accesi, chiedendo chiarimenti immediati e la convocazione urgente delle commissioni parlamentari competenti.\n\nGli esperti del settore hanno commentato positivamente alcuni aspetti del provvedimento, pur sollevando dubbi sulla copertura finanziaria di alcune misure.\n\nNei prossimi giorni si attendono ulteriori dettagli e la pubblicazione del testo ufficiale in Gazzetta Ufficiale.',
-                    imgCat: cat.toLowerCase() },
-                { titolo: 'Italia: record di temperatura in diverse regioni del nord',
-                    sottotitolo: 'L\'ondata di calore colpisce duramente le pianure settentrionali.', categoria: cat,
-                    autore: 'Laura Ferri', minutiLettura: 4,
-                    corpo: 'L\'Italia sta attraversando una delle settimane più calde degli ultimi decenni.\n\nLe temperature hanno raggiunto livelli record in molte città del nord, con punte che hanno superato i 38 gradi centigradi.\n\nLa Protezione Civile ha emesso allerte di colore rosso per diverse province, invitando i cittadini a limitare le uscite nelle ore più calde.\n\nGli ospedali segnalano un aumento dei ricoveri per colpi di calore, in particolare tra gli anziani e le categorie più vulnerabili.',
-                    imgCat: 'cronaca' },
-                { titolo: 'Cultura italiana protagonista all\'estero: grande successo a Parigi',
-                    sottotitolo: 'Una mostra dedicata al Rinascimento italiano incanta il pubblico europeo.', categoria: cat,
-                    autore: 'Giulia Romano', minutiLettura: 6,
-                    corpo: 'La cultura italiana è ancora una volta al centro dell\'attenzione internazionale.\n\nUna grande mostra dedicata al Rinascimento italiano ha aperto i battenti al Grand Palais di Parigi raccogliendo consensi entusiastici da critica e pubblico.\n\nOltre trecento opere provenienti dai più importanti musei italiani sono esposte per la prima volta tutte insieme.',
-                    imgCat: 'cultura' },
-                { titolo: 'Tecnologia: nuovi progressi nell\'intelligenza artificiale italiana',
-                    sottotitolo: 'Le startup del Bel Paese si distinguono a livello europeo.', categoria: cat,
-                    autore: 'Andrea Luca', minutiLettura: 5,
-                    corpo: 'Il settore tecnologico italiano mostra segnali incoraggianti con diverse startup che si distinguono nel panorama europeo dell\'innovazione.\n\nIn particolare, il settore dell\'intelligenza artificiale vede imprese italiane posizionarsi ai vertici delle classifiche continentali.',
-                    imgCat: 'tecnologia' },
-                { titolo: 'Sport: la Nazionale italiana si prepara per le qualificazioni',
-                    sottotitolo: 'Il ct convoca i migliori giocatori per le prossime sfide europee.', categoria: cat,
-                    autore: 'Pietro Greco', minutiLettura: 4,
-                    corpo: 'La Nazionale italiana di calcio si prepara per una fase cruciale delle qualificazioni.\n\nIl commissario tecnico ha diramato la lista dei convocati che comprende alcune sorprese e il ritorno di giocatori che erano stati esclusi nelle ultime sessioni.',
-                    imgCat: 'sport' },
-                { titolo: 'Economia: PIL italiano in crescita nel secondo trimestre',
-                    sottotitolo: 'I dati ISTAT mostrano segnali positivi per l\'economia nazionale.', categoria: cat,
-                    autore: 'Roberta Neri', minutiLettura: 4,
-                    corpo: 'L\'ISTAT ha pubblicato i dati relativi al secondo trimestre dell\'anno, mostrando una crescita del PIL superiore alle aspettative.\n\nGli analisti commentano positivamente il dato, sottolineando come l\'Italia stia recuperando terreno rispetto ai partner europei.',
-                    imgCat: 'economia' },
-            ];
-            return items.slice(0, n).map((it, i) => ({ ...it, imgCat: it.imgCat || cat.toLowerCase() }));
-        }
-
-        // ============================================================
-        // RENDER FUNCTIONS
-        // ============================================================
-        function renderHeroGrid(articles) {
-            const h = articles.slice(0, 3);
-            if (h.length < 3) {
-                while (h.length < 3) h.push(h[0] || fallbackArticles('Attualità', 1)[0]);
-            }
-            return `
-            <div class="hero-grid">
-              <div class="hero-main" onclick="openArticle(${escapeHtml(JSON.stringify(h[0]))})">
-                <div class="hero-main-bg" style="background-image:url('${getImgForCat(h[0].imgCat,0)}')"></div>
-                <div class="hero-main-overlay"></div>
-                <div class="hero-main-content">
-                  <span class="hero-category">🔴 PRIMA PAGINA</span>
-                  <h1 class="hero-title">${escapeHtml(h[0].titolo)}</h1>
-                  <p class="hero-excerpt">${escapeHtml(h[0].sottotitolo||'')}</p>
-                  <div class="hero-meta"><span>${escapeHtml(h[0].autore||'Redazione')}</span><span><i class="ti ti-clock"></i> ${h[0].minutiLettura||5} min</span></div>
-                </div>
-              </div>
-              <div class="hero-side">
-                ${[h[1], h[2]].map((a,i)=>`
-                <div class="hero-side-item" onclick="openArticle(${escapeHtml(JSON.stringify(a))})">
-                  <div class="hsi-bg" style="background-image:url('${getImgForCat(a.imgCat,i+1)}')"></div>
-                  <div class="hsi-overlay"></div>
-                  <div class="hsi-content">
-                    <div class="hsi-cat">${escapeHtml(a.categoria||'Notizie')}</div>
-                    <div class="hsi-title">${escapeHtml(a.titolo)}</div>
-                  </div>
-                </div>`).join('')}
-              </div>
-            </div>`;
-        }
-
-        function renderCard(a, idx) {
-            return `
-            <div class="card" onclick="openArticle(${escapeHtml(JSON.stringify(a))})" style="animation-delay:${idx*0.08}s">
-              <div class="card-img">
-                <img src="${getImgForCat(a.imgCat, idx)}" alt="${escapeHtml(a.titolo)}" loading="lazy">
-                <span class="card-cat-badge">${escapeHtml(a.categoria||'News')}</span>
-              </div>
-              <div class="card-body">
-                <h2 class="card-title">${escapeHtml(a.titolo)}</h2>
-                <p class="card-excerpt">${escapeHtml(a.sottotitolo||'')}</p>
-                <div class="card-meta">
-                  <span>${escapeHtml(a.autore||'Redazione')}</span>
-                  <span><i class="ti ti-clock" style="font-size:11px"></i> ${a.minutiLettura||4} min</span>
-                </div>
-              </div>
-            </div>`;
-        }
-
-        function renderListItem(a, idx) {
-            return `
-            <div class="article-list-item" onclick="openArticle(${escapeHtml(JSON.stringify(a))})">
-              <div class="ali-img"><img src="${getImgForCat(a.imgCat, idx)}" alt="${escapeHtml(a.titolo)}" loading="lazy"></div>
-              <div class="ali-content">
-                <div class="ali-cat">${escapeHtml(a.categoria||'News')}</div>
-                <div class="ali-title">${escapeHtml(a.titolo)}</div>
-                <div class="ali-meta">${escapeHtml(a.autore||'Redazione')} · ${a.minutiLettura||4} min lettura</div>
-              </div>
-            </div>`;
-        }
-
-        function renderMagGrid(articles) {
-            const items = articles.slice(0, 3);
-            while (items.length < 3) items.push(items[0] || fallbackArticles('Attualità', 1)[0]);
-            return `
-            <div class="magazine-grid">${items.map((a,i)=>`
-              <div class="mag-item ${i===0?'mag-main':''}" onclick="openArticle(${escapeHtml(JSON.stringify(a))})">
-                <div class="mag-item-bg" style="background-image:url('${getImgForCat(a.imgCat,i)}')"></div>
-                <div class="mag-overlay"></div>
-                <div class="mag-content">
-                  <div class="mag-cat">${escapeHtml(a.categoria)}</div>
-                  <div class="mag-title">${escapeHtml(a.titolo)}</div>
-                </div>
-              </div>`).join('')}
-            </div>`;
-        }
-
-        // ============================================================
-        // HOME PAGE
-        // ============================================================
-        async function renderHome() {
-            document.querySelectorAll('.mainnav-inner a').forEach(a => a.classList.remove('active'));
-            const firstNav = document.querySelector('.mainnav-inner a');
-            if (firstNav) firstNav.classList.add('active');
-
-            const mc = document.getElementById('main-container');
-            mc.innerHTML =
-                `<div class="ai-loading" style="margin:60px 0"><div class="ai-spinner"></div><p>Caricamento notizie in corso…</p></div>`;
-
-            // Se non c'è API key, mostra il modale ma prosegue con fallback
-            if (!hasApiKey()) {
-                showApiKeyModal();
-                // Prosegui con fallback mentre l'utente decide
-            }
-
-            let prime, politica, cronaca, mondo;
-            try {
-                [prime, politica, cronaca, mondo] = await Promise.all([
-                    fetchArticlesAI('Attualità', 12),
-                    fetchArticlesAI('Politica', 3),
-                    fetchArticlesAI('Cronaca', 3),
-                    fetchArticlesAI('Mondo', 3),
-                ]);
-            } catch (e) {
-                // Fallback completo
-                prime = fallbackArticles('Attualità', 12);
-                politica = fallbackArticles('Politica', 3);
-                cronaca = fallbackArticles('Cronaca', 3);
-                mondo = fallbackArticles('Mondo', 3);
-            }
-
-            const hero = prime.slice(0, 3);
-            const cards = prime.slice(3, 9);
-            const lista = prime.slice(9, 12);
-
-            mc.innerHTML = `
-            ${renderHeroGrid(hero)}
-            <div class="main-layout">
-              <main>
-                <div class="category-section">
-                  <div class="section-header"><div class="section-red-line"></div><span class="section-label">Ultime Notizie</span></div>
-                  <div class="articles-grid">${cards.map((a,i)=>renderCard(a,i)).join('')}</div>
-                  <div id="lista-more">${lista.map((a,i)=>renderListItem(a,i)).join('')}</div>
-                  <button class="btn-more" id="loadMoreBtn">Carica altre notizie <i class="ti ti-arrow-down"></i></button>
-                </div>
-
-                <div class="category-section" id="politica">
-                  <div class="section-header"><div class="section-red-line"></div><span class="section-label">Politica</span></div>
-                  ${renderMagGrid(politica)}
-                </div>
-
-                <div class="category-section" id="cronaca">
-                  <div class="section-header"><div class="section-red-line"></div><span class="section-label">Cronaca</span></div>
-                  <div class="articles-grid">${cronaca.map((a,i)=>renderCard(a,i)).join('')}</div>
-                </div>
-
-                <div class="category-section" id="mondo">
-                  <div class="section-header"><div class="section-red-line"></div><span class="section-label">Mondo</span></div>
-                  ${renderMagGrid(mondo)}
-                </div>
-
-                <div class="collab-banner">
-                  <i class="ti ti-rocket collab-icon"></i>
-                  <div class="collab-text">
-                    <div class="collab-title">Collabora con Ankoautca</div>
-                    <div class="collab-desc">Hai una notizia? Vuoi scrivere con noi? Invia a <strong>gastroboostmarketingdegital@gmail.com</strong></div>
-                  </div>
-                  <a href="mailto:gastroboostmarketingdegital@gmail.com" class="collab-btn">Proponi collaborazione</a>
-                </div>
-              </main>
-
-              <aside class="sidebar">
-                <div class="widget">
-                  <div class="widget-header"><i class="ti ti-news"></i> Informazione libera</div>
-                  <div class="info-gratis">
-                    <i class="ti ti-device-mobile"></i>
-                    <h3>100% Gratuito</h3>
-                    <p>Nessun abbonamento, nessun dato personale. Leggi tutte le notizie liberamente.</p>
-                    <div class="badge-free"><i class="ti ti-check"></i> Zero tracciamento</div>
-                  </div>
-                </div>
-                <div class="widget">
-                  <div class="widget-header"><i class="ti ti-pencil"></i> Scrivi per noi</div>
-                  <div style="padding:16px;text-align:center">
-                    <p style="font-size:13px;margin-bottom:12px;color:var(--gray-500)">Sei un giornalista o blogger? Collabora con la redazione.</p>
-                    <a href="mailto:gastroboostmarketingdegital@gmail.com" style="background:var(--red);color:white;padding:10px;display:block;font-weight:700;font-size:12px;text-transform:uppercase;text-align:center;border-radius:4px">Invia candidatura</a>
-                  </div>
-                </div>
-                <div class="widget">
-                  <div class="widget-header"><i class="ti ti-flame"></i> Sezioni</div>
-                  <div style="padding:8px 0">
-                    ${['Politica','Cronaca','Mondo','Cultura','Tecnologia','Sport','Economia','Salute'].map(c=>`
-                    <div style="padding:10px 16px;border-bottom:1px solid #f0ede8;cursor:pointer;font-size:14px;display:flex;justify-content:space-between;align-items:center;transition:background 0.2s" onclick="loadCategory('${c.toLowerCase()}')" onmouseover="this.style.background='#fdf8f3'" onmouseout="this.style.background=''">
-                      <span style="font-weight:600">${c}</span>
-                      <i class="ti ti-chevron-right" style="font-size:14px;color:var(--red)"></i>
-                    </div>`).join('')}
-                  </div>
-                </div>
-                <div class="widget">
-                  <div class="widget-header"><i class="ti ti-key"></i> API Key</div>
-                  <div style="padding:16px;text-align:center">
-                    <p style="font-size:12px;color:var(--gray-500);margin-bottom:10px">
-                      ${hasApiKey() ? '✅ Chiave API configurata' : '⚠️ Nessuna chiave API'}
-                    </p>
-                    <button onclick="showApiKeyModal()" style="background:var(--black);color:white;border:none;padding:8px 16px;cursor:pointer;border-radius:4px;font-size:12px;font-weight:600">
-                      ${hasApiKey() ? 'Cambia chiave' : 'Configura chiave'}
-                    </button>
-                  </div>
-                </div>
-              </aside>
-            </div>`;
-
-            // Load more button
-            let loadMoreOffset = 0;
-            const loadMoreBtn = document.getElementById('loadMoreBtn');
-            if (loadMoreBtn) {
-                loadMoreBtn.onclick = async () => {
-                    loadMoreBtn.textContent = 'Caricamento…';
-                    loadMoreBtn.disabled = true;
-                    loadMoreOffset++;
-                    try {
-                        const more = await fetchArticlesAI('Attualità', 4);
-                        const container = document.getElementById('lista-more');
-                        if (container) {
-                            container.innerHTML += more.map((a, i) => renderListItem(a, i + loadMoreOffset * 4))
-                                .join('');
-                        }
-                    } catch (e) {
-                        showToast('⚠️ Impossibile caricare altre notizie.');
-                    }
-                    loadMoreBtn.innerHTML =
-                        'Carica altre notizie <i class="ti ti-arrow-down"></i>';
-                    loadMoreBtn.disabled = false;
-                };
-            }
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // ============================================================
-        // CATEGORIA
-        // ============================================================
-        async function loadCategory(cat) {
-            document.querySelectorAll('.mainnav-inner a').forEach(a => a.classList.remove('active'));
-            const navLinks = document.querySelectorAll('.mainnav-inner a');
-            navLinks.forEach(a => {
-                if (a.textContent.toLowerCase().includes(cat.toLowerCase())) {
-                    a.classList.add('active');
-                }
-            });
-
-            const mc = document.getElementById('main-container');
-            mc.innerHTML =
-                `<div class="ai-loading" style="margin:60px 0"><div class="ai-spinner"></div><p>Caricamento ${cat}…</p></div>`;
-
-            const catLabel = cat.charAt(0).toUpperCase() + cat.slice(1);
-            let articles;
-            try {
-                articles = await fetchArticlesAI(catLabel, 9);
-            } catch (e) {
-                articles = fallbackArticles(catLabel, 9);
-            }
-
-            mc.innerHTML = `
-            <div style="padding:30px 0">
-              <div class="section-header" style="margin-bottom:24px">
-                <div class="section-red-line"></div>
-                <span class="section-label">${catLabel}</span>
-              </div>
-              ${renderHeroGrid(articles)}
-              <div class="articles-grid" style="margin-top:24px">${articles.slice(3).map((a,i)=>renderCard(a,i)).join('')}</div>
-            </div>`;
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // ============================================================
-        // ARTICOLO COMPLETO
-        // ============================================================
-        async function openArticle(articleData) {
-            let a = typeof articleData === 'string' ? JSON.parse(articleData) : articleData;
-            const mc = document.getElementById('main-container');
-            const imgUrl = getImgForCat(a.imgCat || a.categoria, 0);
-
-            // Se corpo non è abbastanza lungo, chiedi all'AI
-            if (!a.corpo || a.corpo.length < 200) {
-                mc.innerHTML =
-                    `<div class="ai-loading" style="margin:60px 0"><div class="ai-spinner"></div><p>Generazione articolo in corso…</p></div>`;
-                try {
-                    const full = await fetchSingleArticle(a.titolo, a.categoria || 'Attualità');
-                    if (full) a = { ...a, ...full };
-                } catch (e) {
-                    // mantieni a com'è
-                }
-            }
-
-            const paragraphs = (a.corpo || 'Contenuto in elaborazione.').split('\n\n').filter(p => p.trim());
-
-            mc.innerHTML = `
-            <div class="article-full-page" style="margin-top:30px">
-              <div class="back-home" onclick="renderHome()">← Torna alla home</div>
-              <div style="margin-bottom:12px">
-                <span style="background:var(--red);color:white;font-size:10px;font-weight:700;padding:3px 9px;letter-spacing:2px;text-transform:uppercase;border-radius:2px">${escapeHtml(a.categoria||'Notizie')}</span>
-              </div>
-              <h1>${escapeHtml(a.titolo)}</h1>
-              <p style="font-family:var(--font-serif);font-style:italic;font-size:18px;color:var(--gray-500);margin-bottom:16px">${escapeHtml(a.sottotitolo||'')}</p>
-              <div class="article-meta">
-                <i class="ti ti-user" style="font-size:13px"></i> ${escapeHtml(a.autore||'Redazione Ankoautca')} &nbsp;·&nbsp;
-                <i class="ti ti-clock" style="font-size:13px"></i> ${a.minutiLettura||5} minuti di lettura
-              </div>
-              <img src="${imgUrl}" alt="${escapeHtml(a.titolo)}" style="width:100%;max-height:500px;object-fit:cover;margin:20px 0;border-radius:8px">
-              <div class="article-content">
-                ${paragraphs.map(p=>`<p>${escapeHtml(p)}</p>`).join('')}
-              </div>
-              <div style="margin-top:30px;padding-top:20px;border-top:1px solid #e8e6e1;text-align:center">
-                <button onclick="renderHome()" style="background:var(--black);color:white;border:none;padding:10px 24px;cursor:pointer;border-radius:4px;font-weight:600;font-family:var(--font-body);transition:background 0.2s" onmouseover="this.style.background='var(--red)'" onmouseout="this.style.background='var(--black)'">
-                  <i class="ti ti-arrow-left"></i> Torna alla home
-                </button>
-              </div>
-            </div>`;
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // ============================================================
-        // RICERCA
-        // ============================================================
-        function setupSearch() {
-            const searchBtn = document.getElementById('search-btn');
-            const searchInput = document.getElementById('search-input');
-
-            async function performSearch() {
-                const q = searchInput.value.trim();
-                if (!q) return;
-                const mc = document.getElementById('main-container');
-                mc.innerHTML =
-                    `<div class="ai-loading" style="margin:60px 0"><div class="ai-spinner"></div><p>Ricerca in corso…</p></div>`;
-
-                let articles;
-                const cacheKey = `search_${q.substring(0, 30)}`;
-                const cached = cacheSystem.get(cacheKey);
-                if (cached) {
-                    articles = cached;
-                } else {
-                    const prompt =
-                        `Genera 6 articoli italiani su: "${q}". Rispondi SOLO con JSON array, senza backtick:
-        [{"titolo":"...","sottotitolo":"...","categoria":"...","autore":"...","minutiLettura":4,"corpo":"...","imgCat":"una di: politica,cronaca,mondo,cultura,tecnologia,sport,economia,ambiente,salute"}]`;
-                    try {
-                        const text = await callAnthropicAPI(prompt, 3000);
-                        articles = safeJsonParse(text, null);
-                        if (articles && Array.isArray(articles)) {
-                            cacheSystem.set(cacheKey, articles);
-                        } else {
-                            articles = fallbackArticles('Attualità', 6);
-                        }
-                    } catch (e) {
-                        articles = fallbackArticles('Attualità', 6);
-                    }
-                }
-
-                mc.innerHTML = `
-                <div style="padding:30px 0">
-                  <div style="margin-bottom:20px">
-                    <div class="back-home" onclick="renderHome()">← Torna alla home</div>
-                    <h2 style="font-family:var(--font-display);font-size:28px;margin-top:12px">Risultati per: "${escapeHtml(q)}"</h2>
-                  </div>
-                  <div class="articles-grid">${articles.map((a,i)=>renderCard(a,i)).join('')}</div>
-                </div>`;
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-
-            searchBtn.addEventListener('click', performSearch);
-            searchInput.addEventListener('keydown', e => {
-                if (e.key === 'Enter') performSearch();
-            });
-        }
-
-        // ============================================================
-        // CHAT GLOBALE
-        // ============================================================
-        function loadChat() {
-            try {
-                return JSON.parse(localStorage.getItem(CONFIG.CHAT_STORAGE_KEY) || '[]');
-            } catch (e) {
-                return [];
-            }
-        }
-
-        function saveChat(msgs) {
-            try {
-                localStorage.setItem(CONFIG.CHAT_STORAGE_KEY, JSON.stringify(msgs.slice(-CONFIG
-                    .MAX_CHAT_MESSAGES)));
-            } catch (e) {
-                // localStorage pieno
-            }
-        }
-
-        function renderGlobalChat() {
-            const msgs = loadChat();
-            const container = document.getElementById('global-chat-messages');
-            if (!container) return;
-
-            if (msgs.length === 0) {
-                container.innerHTML = '<div class="chat-empty">💬 Nessun messaggio ancora. Scrivi il primo!</div>';
-                return;
-            }
-
-            container.innerHTML = msgs.map((m, i) => `
-            <div class="chat-msg">
-              <span class="chat-name">${escapeHtml(m.name)}</span>
-              <span class="chat-time">${escapeHtml(m.time)}</span>
-              <div class="chat-text">${escapeHtml(m.text)}</div>
-              <div class="chat-reactions">
-                <button class="reaction-btn" onclick="addReaction(${i},'👍')" title="Like">👍 ${m.reactions?.['👍']||0}</button>
-                <button class="reaction-btn" onclick="addReaction(${i},'❤️')" title="Love">❤️ ${m.reactions?.['❤️']||0}</button>
-                <button class="reaction-btn" onclick="addReaction(${i},'😂')" title="Haha">😂 ${m.reactions?.['😂']||0}</button>
-                <button class="reaction-btn" onclick="addReaction(${i},'😮')" title="Wow">😮 ${m.reactions?.['😮']||0}</button>
-              </div>
-            </div>
-          `).join('');
-
-            // Scroll to bottom
-            container.scrollTop = container.scrollHeight;
-        }
-
-        function addReaction(index, emoji) {
-            const msgs = loadChat();
-            if (msgs[index]) {
-                if (!msgs[index].reactions) msgs[index].reactions = {};
-                msgs[index].reactions[emoji] = (msgs[index].reactions[emoji] || 0) + 1;
-                saveChat(msgs);
-                renderGlobalChat();
-            }
-        }
-
-        function setupChat() {
-            const submitBtn = document.getElementById('global-chat-submit');
-            const textInput = document.getElementById('global-chat-text');
-            const nameInput = document.getElementById('global-chat-name');
-
-            if (!submitBtn || !textInput) return;
-
-            submitBtn.addEventListener('click', () => {
-                const name = nameInput.value.trim();
-                const text = textInput.value.trim();
-                if (!text) {
-                    textInput.style.borderColor = 'var(--red)';
-                    setTimeout(() => textInput.style.borderColor = '', 2000);
-                    return;
-                }
-                const msgs = loadChat();
-                const now = new Date();
-                msgs.push({
-                    name: (name || 'Anonimo').substring(0, 30),
-                    text: text.substring(0, 500),
-                    time: `${now.getHours().toString().padStart(2,'0')}:${now.getMinutes().toString().padStart(2,'0')} · ${now.getDate()}/${now.getMonth()+1}/${now.getFullYear()}`,
-                    reactions: {}
-                });
-                if (msgs.length > CONFIG.MAX_CHAT_MESSAGES) msgs.shift();
-                saveChat(msgs);
-                renderGlobalChat();
-                textInput.value = '';
-                document.getElementById('online-count').textContent = Math.floor(Math.random() * 8 + 2) +
-                    ' online';
-            });
-
-            textInput.addEventListener('keydown', e => {
-                if (e.key === 'Enter' && !e.shiftKey) {
-                    e.preventDefault();
-                    submitBtn.click();
-                }
-            });
-        }
-
-        // ============================================================
-        // SCROLL TO TOP
-        // ============================================================
-        function setupScrollTop() {
-            const btn = document.getElementById('scrollTopBtn');
-            if (!btn) return;
-
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 400) {
-                    btn.classList.add('visible');
-                } else {
-                    btn.classList.remove('visible');
-                }
-            });
-
-            btn.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        }
-
-        // ============================================================
-        // HEADER SCROLL EFFECT
-        // ============================================================
-        function setupHeaderScroll() {
-            const header = document.getElementById('site-header');
-            if (!header) return;
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-        }
-
-        // ============================================================
-        // INIT
-        // ============================================================
-        function init() {
-            // Data
-            document.getElementById('topbar-date').innerText = new Date().toLocaleDateString('it-IT', {
-                weekday: 'long',
-                day: 'numeric',
-                month: 'long',
-                year: 'numeric'
-            });
-
-            // Setup componenti
-            setupSearch();
-            setupChat();
-            setupScrollTop();
-            setupHeaderScroll();
-
-            // Renderizza chat
-            renderGlobalChat();
-
-            // Renderizza home
-            renderHome();
-
-            // Fetch ticker breaking news (dopo un breve delay)
-            setTimeout(() => {
-                if (hasApiKey()) {
-                    fetchBreakingTicker();
-                }
-            }, 2000);
-
-            // Simula conteggio online
-            setInterval(() => {
-                const el = document.getElementById('online-count');
-                if (el) el.textContent = Math.floor(Math.random() * 15 + 1) + ' online';
-            }, 20000);
-
-            // Pulisci cache vecchia ogni ora
-            setInterval(() => {
-                cacheSystem.clearOld();
-            }, 3600000);
-
-            console.log('🚀 ANKOAUTCA inizializzato con successo.');
-            console.log('🔑 API Key configurata:', hasApiKey() ? 'Sì ✅' : 'No ⚠️ (usa fallback)');
-            console.log('🛡️ Rate limiting attivo:', CONFIG.MAX_REQUESTS_PER_MINUTE, 'richieste/minuto');
-            console.log('💾 Cache articoli:', CONFIG.CACHE_DURATION / 60000, 'minuti');
-        }
-
-        // Avvia tutto quando il DOM è pronto
-        document.addEventListener('DOMContentLoaded', init);
-
-        // Esponi funzioni globali necessarie per gli handler onclick inline
-        window.renderHome = renderHome;
-        window.loadCategory = loadCategory;
-        window.openArticle = openArticle;
-        window.showApiKeyModal = showApiKeyModal;
-        window.addReaction = addReaction;
-    </script>
+          </div>
+        </div>
+        <div class="widget">
+          <div class="wh"><i class="ti ti-lock"></i> Informazione libera</div>
+          <div class="wbody" style="text-align:center;padding:20px">
+            <i class="ti ti-shield-check" style="font-size:32px;color:var(--red)"></i>
+            <div style="font-family:var(--display);font-size:20px;margin:8px 0;font-weight:700">100% Gratuito</div>
+            <div style="font-size:13px;color:var(--muted)">Nessun abbonamento · Nessun dato personale · Nessun tracciamento</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>`;
+  loadMeteo();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function nav(sec){
+  setNav(sec);
+  const catMap={attualita:'Attualità',politica:'Politica',economia:'Economia',mondo:'Mondo',cronaca:'Cronaca',sport:'Sport',tecnologia:'Tecnologia',cultura:'Cultura',ambiente:'Ambiente'};
+  const label=catMap[sec]||sec;
+  const arts=ARTICLES_DB[sec]||ARTICLES_DB.attualita;
+  document.getElementById('page-root').innerHTML=`
+  <div class="wrap" style="padding-top:28px">
+    <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">${esc(label)}</div></div>
+    ${heroHtml(arts.slice(0,3))}
+    <div class="cards-3" style="margin-top:26px">${arts.slice(0,6).map((a,i)=>cardHtml(a,i)).join('')}</div>
+    <div class="art-list">${arts.slice(0,3).map((a,i)=>aliHtml(a,i+6)).join('')}</div>
+  </div>`;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function openArt(id){
+  const a=allArticles().find(x=>x.id===id);
+  if(!a)return;
+  const paras=(a.body||'').split('\n\n').filter(p=>p.trim());
+  document.getElementById('page-root').innerHTML=`
+  <div class="wrap">
+    <div class="layout" style="padding-top:28px">
+      <main>
+        <div class="art-page">
+          <div class="back-btn" onclick="goHome()"><i class="ti ti-arrow-left"></i> Torna alla home</div>
+          <div style="margin-bottom:10px"><span style="background:var(--red);color:#fff;font-size:10px;font-weight:700;padding:3px 9px;border-radius:2px;letter-spacing:1.5px;text-transform:uppercase">${esc(a.cat)}</span></div>
+          <h1>${esc(a.title)}</h1>
+          <div class="art-sub">${esc(a.sub)}</div>
+          <div class="art-meta">
+            <span><i class="ti ti-user"></i> ${esc(a.author)}</span>
+            <span><i class="ti ti-clock"></i> ${a.read} min di lettura</span>
+            <span><i class="ti ti-calendar"></i> ${new Date().toLocaleDateString('it-IT',{day:'numeric',month:'long',year:'numeric'})}</span>
+          </div>
+          <img class="art-hero-img" src="${img(a.img,0)}" alt="${esc(a.title)}">
+          <div class="art-body">${paras.map(p=>`<p>${esc(p)}</p>`).join('')}</div>
+          <div class="art-share">
+            <button class="share-btn" onclick="copyLink()"><i class="ti ti-link"></i> Copia link</button>
+            <button class="share-btn" onclick="scrollToForum()"><i class="ti ti-messages"></i> Commenta nel Forum</button>
+          </div>
+        </div>
+      </main>
+      <aside class="sidebar">
+        <div class="widget">
+          <div class="wh"><i class="ti ti-book"></i> Altri articoli</div>
+          <div class="wbody">${allArticles().filter(x=>x.id!==id).slice(0,5).map((x,i)=>aliHtml(x,i)).join('')}</div>
+        </div>
+      </aside>
+    </div>
+  </div>`;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function setNav(active){
+  document.querySelectorAll('.nav-in a').forEach(el=>el.classList.remove('act'));
+  const links=document.querySelectorAll('.nav-in a');
+  if(active===0&&links[0])links[0].classList.add('act');
+}
+
+// ═══════════════════════════════════════════════
+//  RICERCA
+// ═══════════════════════════════════════════════
+function doSearch(){
+  const q=document.getElementById('search-input').value.trim().toLowerCase();
+  if(!q)return;
+  const results=allArticles().filter(a=>a.title.toLowerCase().includes(q)||a.sub.toLowerCase().includes(q)||a.body.toLowerCase().includes(q));
+  document.getElementById('page-root').innerHTML=`
+  <div class="wrap" style="padding-top:28px">
+    <div class="back-btn" onclick="goHome()" style="display:inline-flex;margin-bottom:16px"><i class="ti ti-arrow-left"></i> Home</div>
+    <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Risultati per: «${esc(q)}»</div></div>
+    ${results.length?`<div class="cards-3">${results.map((a,i)=>cardHtml(a,i)).join('')}</div>`:'<div style="padding:50px;text-align:center;font-family:var(--serif);font-style:italic;color:var(--muted);font-size:18px">Nessun articolo trovato per questa ricerca.</div>'}
+  </div>`;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+document.getElementById('search-btn').onclick=doSearch;
+document.getElementById('search-input').addEventListener('keydown',e=>{if(e.key==='Enter')doSearch();});
+
+// ═══════════════════════════════════════════════
+//  METEO (Open Meteo, no API key)
+// ═══════════════════════════════════════════════
+async function loadMeteo(){
+  try{
+    const r=await fetch('https://api.open-meteo.com/v1/forecast?latitude=41.9028&longitude=12.4964&current_weather=true&hourly=relativehumidity_2m,apparent_temperature,windspeed_10m&timezone=Europe/Rome');
+    const d=await r.json();
+    const cw=d.current_weather;
+    const wmoMap={0:'Sereno ☀️',1:'Poco nuvoloso 🌤',2:'Nuvoloso 🌥',3:'Coperto ☁️',45:'Nebbia 🌫',48:'Nebbia 🌫',51:'Pioviggine 🌦',53:'Pioviggine 🌦',55:'Pioviggine 🌦',61:'Pioggia 🌧',63:'Pioggia 🌧',65:'Pioggia intensa 🌧',71:'Neve 🌨',73:'Neve 🌨',75:'Neve intensa ❄️',80:'Acquazzoni 🌦',81:'Acquazzoni 🌦',82:'Acquazzoni forti ⛈',95:'Temporale ⛈',96:'Temporale ⛈'};
+    const ti=d.hourly?.time?.findIndex(t=>t===cw.time)||0;
+    const hum=d.hourly?.relativehumidity_2m?.[ti]||'—';
+    const feel=d.hourly?.apparent_temperature?.[ti]||'—';
+    document.getElementById('meteo-temp').textContent=Math.round(cw.temperature)+'°C';
+    document.getElementById('meteo-desc').textContent=wmoMap[cw.weathercode]||'—';
+    document.getElementById('m-hum').textContent=hum+'%';
+    document.getElementById('m-wind').textContent=Math.round(cw.windspeed)+' km/h';
+    document.getElementById('m-feel').textContent=Math.round(feel)+'°C';
+  }catch(e){
+    if(document.getElementById('meteo-temp'))document.getElementById('meteo-temp').textContent='—';
+  }
+}
+
+// ═══════════════════════════════════════════════
+//  UTILS
+// ═══════════════════════════════════════════════
+function notify(msg){
+  const el=document.getElementById('notify');
+  el.textContent=msg;
+  el.classList.add('show');
+  setTimeout(()=>el.classList.remove('show'),3000);
+}
+
+function copyLink(){
+  navigator.clipboard.writeText(window.location.href).catch(()=>{});
+  notify('🔗 Link copiato negli appunti!');
+}
+
+function scrollToForum(){
+  document.getElementById('forum-section').scrollIntoView({behavior:'smooth'});
+}
+
+// ═══════════════════════════════════════════════
+//  SCROLL
+// ═══════════════════════════════════════════════
+window.addEventListener('scroll',()=>{
+  document.getElementById('scrollTop').classList.toggle('show',window.scrollY>400);
+});
+
+// ═══════════════════════════════════════════════
+//  ONLINE COUNTER
+// ═══════════════════════════════════════════════
+function updateOnline(){
+  const n=Math.floor(Math.random()*18+3);
+  const el=document.getElementById('online-n');
+  const pill=document.getElementById('online-pill');
+  if(el)el.textContent=n+' persone stanno leggendo in questo momento';
+  if(pill)pill.textContent=n+' online';
+}
+updateOnline();
+setInterval(updateOnline,15000);
+
+// ═══════════════════════════════════════════════
+//  DATE
+// ═══════════════════════════════════════════════
+document.getElementById('ts-date').textContent=new Date().toLocaleDateString('it-IT',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+
+// ═══════════════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════════════
+goHome();
+initForum();
+</script>
 </body>
 </html>
