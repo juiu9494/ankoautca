@@ -10,15 +10,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
 :root{
-  --ink:#0f0e0c;
-  --red:#bf1b1b;
-  --red2:#991515;
-  --cream:#faf8f3;
-  --paper:#f3f0e8;
-  --warm:#e8e2d4;
-  --muted:#8a8072;
-  --border:#d4cfc5;
-  --white:#ffffff;
+  --ink:#0f0e0c; --red:#bf1b1b; --red2:#991515;
+  --cream:#faf8f3; --paper:#f3f0e8; --warm:#e8e2d4;
+  --muted:#8a8072; --border:#d4cfc5; --white:#ffffff;
   --sans:'DM Sans',sans-serif;
   --serif:'Cormorant Garamond',Georgia,serif;
   --display:'DM Serif Display',Georgia,serif;
@@ -32,13 +26,10 @@ html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased}
 a{text-decoration:none;color:inherit}
 img{max-width:100%;display:block}
-
-/* SCROLLBAR */
 ::-webkit-scrollbar{width:5px;height:5px}
 ::-webkit-scrollbar-track{background:var(--paper)}
 ::-webkit-scrollbar-thumb{background:var(--warm);border-radius:3px}
 
-/* TOP STRIP */
 .topstrip{background:var(--ink);padding:7px 0;border-bottom:2px solid var(--red)}
 .topstrip-in{max-width:1300px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
 .ts-date{font-family:var(--serif);font-style:italic;font-size:13px;color:#aaa}
@@ -48,7 +39,6 @@ img{max-width:100%;display:block}
 .live-pill{background:var(--red);color:#fff;font-size:10px;font-weight:600;padding:2px 8px;border-radius:2px;letter-spacing:1px;animation:blink 2s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.5}}
 
-/* TICKER */
 .ticker-bar{background:var(--red);overflow:hidden;display:flex;height:36px}
 .ticker-label{background:#000;color:#fff;font-size:10px;font-weight:700;letter-spacing:2px;padding:0 16px;display:flex;align-items:center;white-space:nowrap;flex-shrink:0}
 .ticker-track{flex:1;overflow:hidden;display:flex;align-items:center}
@@ -56,7 +46,6 @@ img{max-width:100%;display:block}
 .ticker-inner span::before{content:"◆ ";font-size:8px;opacity:.7}
 @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-/* HEADER */
 header{background:var(--white);border-bottom:3px solid var(--ink);position:sticky;top:0;z-index:200;box-shadow:var(--shadow)}
 .masthead{max-width:1300px;margin:0 auto;padding:18px 24px 12px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .logo-wrap{cursor:pointer;user-select:none}
@@ -72,17 +61,13 @@ header{background:var(--white);border-bottom:3px solid var(--ink);position:stick
 .search-wrap button{background:var(--ink);border:none;color:#fff;padding:8px 13px;cursor:pointer;display:flex;align-items:center;transition:background var(--t)}
 .search-wrap button:hover{background:var(--red)}
 
-/* NAV */
 nav{background:var(--ink)}
 .nav-in{max-width:1300px;margin:0 auto;padding:0 24px;display:flex;overflow-x:auto;scrollbar-width:none}
 .nav-in::-webkit-scrollbar{display:none}
 .nav-in a{color:#ccc;font-size:11.5px;font-weight:500;letter-spacing:1.2px;text-transform:uppercase;padding:13px 17px;white-space:nowrap;border-bottom:3px solid transparent;transition:all var(--t);cursor:pointer}
 .nav-in a:hover,.nav-in a.act{color:#fff;border-bottom-color:var(--red)}
 
-/* CONTAINER */
 .wrap{max-width:1300px;margin:0 auto;padding:0 24px}
-
-/* SECTION LABEL */
 .sec-head{display:flex;align-items:center;gap:14px;padding-bottom:12px;margin-bottom:22px;border-bottom:1.5px solid var(--ink)}
 .sec-rule{width:32px;height:4px;background:var(--red)}
 .sec-title{font-family:var(--display);font-size:22px;font-weight:700}
@@ -103,7 +88,6 @@ nav{background:var(--ink)}
 .h-meta{font-size:12px;color:rgba(255,255,255,.6);display:flex;gap:12px;align-items:center}
 .h-sub{font-family:var(--serif);font-style:italic;font-size:15px;color:rgba(255,255,255,.78);margin-bottom:10px}
 
-/* MAIN GRID */
 .layout{display:grid;grid-template-columns:1fr 310px;gap:36px;padding:8px 0 40px}
 @media(max-width:920px){.layout{grid-template-columns:1fr}}
 
@@ -112,7 +96,7 @@ nav{background:var(--ink)}
 @media(max-width:720px){.cards-3{grid-template-columns:1fr}}
 .card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:all var(--t)}
 .card:hover{transform:translateY(-3px);box-shadow:var(--shadow2);border-color:var(--warm)}
-.card-img{aspect-ratio:16/9;overflow:hidden;position:relative}
+.card-img{aspect-ratio:16/9;overflow:hidden;position:relative;background:var(--warm)}
 .card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
 .card:hover .card-img img{transform:scale(1.07)}
 .card-badge{position:absolute;top:10px;left:10px;background:var(--red);color:#fff;font-size:9px;font-weight:700;padding:2px 8px;text-transform:uppercase;letter-spacing:1px;border-radius:2px}
@@ -122,7 +106,7 @@ nav{background:var(--ink)}
 .card-sub{font-size:13px;color:var(--muted);font-style:italic;margin-bottom:10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .card-meta{font-size:11px;color:#aaa;display:flex;justify-content:space-between}
 
-/* LIST ITEM */
+/* LIST */
 .art-list{border-top:1px solid var(--border)}
 .ali{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid var(--border);cursor:pointer;transition:all var(--t);border-radius:4px}
 .ali:hover{background:var(--paper);padding-left:8px}
@@ -133,9 +117,9 @@ nav{background:var(--ink)}
 .ali-title{font-family:var(--serif);font-size:15px;font-weight:600;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .ali-meta{font-size:11px;color:var(--muted);margin-top:4px}
 
-/* MAG GRID */
+/* MAG */
 .mag{display:grid;grid-template-columns:1.7fr 1fr;gap:3px;background:var(--ink);border-radius:var(--radius);overflow:hidden;margin-bottom:28px}
-.mag-item{position:relative;min-height:220px;cursor:pointer;overflow:hidden}
+.mag-item{position:relative;min-height:220px;cursor:pointer;overflow:hidden;background:var(--warm)}
 .mag-main{min-height:440px}
 .mag-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s ease}
 .mag-item:hover .mag-bg{transform:scale(1.05)}
@@ -146,10 +130,9 @@ nav{background:var(--ink)}
 .mag-main .mag-title{font-size:26px}
 .mag-stack{display:flex;flex-direction:column;gap:3px}
 
-/* DIVIDER */
 .section-gap{margin-bottom:40px}
 
-/* COLLAB STRIP */
+/* COLLAB */
 .collab{background:var(--ink);border-left:4px solid var(--red);padding:26px 28px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;border-radius:var(--radius);margin:32px 0}
 .collab-icon{font-size:36px;color:var(--red)}
 .collab-title{font-family:var(--display);font-size:20px;color:#fff;font-weight:700}
@@ -162,8 +145,6 @@ nav{background:var(--ink)}
 .widget{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
 .wh{background:var(--ink);color:#fff;font-size:11px;font-weight:600;letter-spacing:2px;padding:9px 15px;display:flex;align-items:center;gap:7px;text-transform:uppercase}
 .wbody{padding:16px}
-
-/* TRENDING */
 .trend-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);cursor:pointer;transition:all var(--t)}
 .trend-item:last-child{border-bottom:none}
 .trend-item:hover{padding-left:6px}
@@ -172,13 +153,13 @@ nav{background:var(--ink)}
 .trend-title{font-family:var(--serif);font-size:14px;font-weight:600;line-height:1.3;transition:color var(--t)}
 .trend-item:hover .trend-title{color:var(--red)}
 
-/* ARTICLE PAGE */
+/* ARTICLE */
 .art-page{background:var(--white);border-radius:var(--radius);padding:36px;box-shadow:var(--shadow);margin:28px 0;animation:fadeUp .4s ease}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 .art-page h1{font-family:var(--display);font-style:italic;font-size:44px;line-height:1.2;margin-bottom:14px}
 .art-sub{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--muted);margin-bottom:18px}
 .art-meta{font-size:13px;color:var(--muted);margin-bottom:24px;display:flex;gap:16px;flex-wrap:wrap}
-.art-hero-img{width:100%;max-height:520px;object-fit:cover;border-radius:6px;margin-bottom:28px}
+.art-hero-img{width:100%;max-height:520px;object-fit:cover;border-radius:6px;margin-bottom:28px;background:var(--warm)}
 .art-body p{font-family:var(--serif);font-size:19px;line-height:1.85;margin-bottom:1.4em;color:#1a1916}
 .art-body p:first-child::first-letter{font-size:72px;font-family:var(--display);float:left;line-height:.8;margin:6px 8px -4px 0;color:var(--red)}
 .art-share{display:flex;gap:10px;margin-top:28px;padding-top:20px;border-top:1px solid var(--border)}
@@ -195,8 +176,6 @@ nav{background:var(--ink)}
 .forum-count{background:var(--red);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px}
 .forum-layout{display:grid;grid-template-columns:1fr 380px;gap:32px}
 @media(max-width:860px){.forum-layout{grid-template-columns:1fr}}
-
-/* MESSAGES */
 .msgs-container{display:flex;flex-direction:column;gap:16px;max-height:600px;overflow-y:auto;padding-right:4px;scroll-behavior:smooth}
 .msgs-container::-webkit-scrollbar{width:4px}
 .msgs-container::-webkit-scrollbar-thumb{background:var(--warm);border-radius:2px}
@@ -215,16 +194,13 @@ nav{background:var(--ink)}
 .msg-text{font-family:var(--serif);font-size:16px;line-height:1.65;color:#2a2820}
 .msg-footer{display:flex;align-items:center;gap:8px;margin-top:10px;flex-wrap:wrap}
 .react-btn{background:none;border:1px solid var(--border);border-radius:20px;padding:3px 10px;font-size:12px;cursor:pointer;transition:all var(--t);display:flex;align-items:center;gap:4px}
-.react-btn:hover{border-color:var(--red);color:var(--red);background:#fff5f5}
-.react-btn.active{background:var(--red);color:#fff;border-color:var(--red)}
+.react-btn:hover{border-color:var(--red);color:var(--red)}
 .reply-btn{margin-left:auto;font-size:11px;color:var(--muted);cursor:pointer;transition:color var(--t);font-weight:500}
 .reply-btn:hover{color:var(--red)}
 .msg-replies{margin-top:12px;padding-top:12px;border-top:1px solid var(--paper);display:flex;flex-direction:column;gap:10px}
-.reply-card{background:var(--paper);border-radius:6px;padding:10px 12px;font-size:14px;display:flex;gap:10px}
+.reply-card{background:var(--paper);border-radius:6px;padding:10px 12px;display:flex;gap:10px}
 .reply-name{font-weight:700;color:var(--red);font-size:12px}
 .reply-text{font-family:var(--serif);font-size:14px;line-height:1.5}
-
-/* FORM */
 .forum-form{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:24px;position:sticky;top:80px}
 .ff-title{font-family:var(--display);font-size:20px;font-weight:700;margin-bottom:4px}
 .ff-sub{font-size:13px;color:var(--muted);margin-bottom:20px}
@@ -238,24 +214,17 @@ nav{background:var(--ink)}
 .ff-submit{width:100%;background:var(--ink);color:#fff;border:none;padding:12px;font-family:var(--sans);font-size:14px;font-weight:700;cursor:pointer;border-radius:4px;transition:all var(--t);display:flex;align-items:center;justify-content:center;gap:8px;margin-top:6px}
 .ff-submit:hover{background:var(--red)}
 .ff-privacy{font-size:11px;color:var(--muted);text-align:center;margin-top:10px}
-.forum-empty{text-align:center;padding:50px 20px;font-family:var(--serif);font-style:italic;color:var(--muted);font-size:18px}
-
-/* ONLINE */
 .online-strip{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);margin-bottom:20px}
 .online-dot{width:8px;height:8px;background:#2d8a2d;border-radius:50%;animation:blink 2s infinite}
 .online-pill{background:#e8f5e8;color:#2d8a2d;border-radius:20px;padding:2px 9px;font-size:11px;font-weight:600}
-
-/* TOPICS */
 .topic-list{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
 .topic-tag{background:var(--paper);border:1px solid var(--border);border-radius:20px;padding:4px 12px;font-size:11px;font-weight:600;cursor:pointer;transition:all var(--t)}
 .topic-tag:hover,.topic-tag.sel{background:var(--ink);color:#fff;border-color:var(--ink)}
-
-/* SEARCH FORUM */
 .forum-search{display:flex;border:1.5px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:18px}
 .forum-search input{flex:1;border:none;padding:8px 12px;font-size:13px;font-family:var(--sans);outline:none;background:var(--cream)}
 .forum-search button{background:var(--ink);border:none;color:#fff;padding:8px 12px;cursor:pointer}
+.forum-empty{text-align:center;padding:50px 20px;font-family:var(--serif);font-style:italic;color:var(--muted);font-size:18px}
 
-/* FOOTER */
 footer{background:var(--ink);color:#888;margin-top:0}
 .ft{max-width:1300px;margin:0 auto;padding:40px 24px;display:grid;grid-template-columns:2.5fr 1fr 1fr;gap:40px}
 @media(max-width:700px){.ft{grid-template-columns:1fr}}
@@ -268,19 +237,11 @@ footer{background:var(--ink);color:#888;margin-top:0}
 .ft-links a:hover{color:var(--red)}
 .ft-bottom{max-width:1300px;margin:0 auto;padding:18px 24px;border-top:1px solid #1f1f1f;display:flex;justify-content:space-between;flex-wrap:wrap;font-size:12px;gap:8px}
 
-/* SCROLL TOP */
 .scroll-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--ink);color:#fff;border:none;border-radius:50%;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:all var(--t);box-shadow:var(--shadow2);z-index:300}
 .scroll-top.show{opacity:1;pointer-events:auto}
 .scroll-top:hover{background:var(--red);transform:translateY(-3px)}
-
-/* NOTIFY */
 .notify{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:13px 22px;border-radius:8px;font-size:13px;font-weight:600;z-index:9999;opacity:0;transition:all .4s ease;pointer-events:none;white-space:nowrap;box-shadow:var(--shadow2)}
 .notify.show{opacity:1;transform:translateX(-50%) translateY(0)}
-
-/* MISC */
-.btn-load{width:100%;border:1.5px solid var(--ink);background:transparent;padding:11px;font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border-radius:var(--radius);transition:all var(--t);margin-top:18px;display:flex;align-items:center;justify-content:center;gap:7px}
-.btn-load:hover{background:var(--ink);color:#fff}
-.btn-load:disabled{opacity:.5;cursor:not-allowed}
 
 @media(max-width:600px){
   .hero-grid{grid-template-columns:1fr}
@@ -313,13 +274,13 @@ footer{background:var(--ink);color:#888;margin-top:0}
 <div class="ticker-bar">
   <div class="ticker-label">🔴 BREAKING</div>
   <div class="ticker-track">
-    <div class="ticker-inner" id="ticker">
+    <div class="ticker-inner">
       <span>Governo esamina nuove misure per l'economia italiana</span>
-      <span>Meteo: vague di calore nel weekend — temperature record attese</span>
+      <span>Meteo: ondata di calore nel weekend — temperature record attese</span>
       <span>Serie A: fissate le date della prossima stagione</span>
       <span>Unione Europea: summit straordinario a Bruxelles</span>
       <span>Governo esamina nuove misure per l'economia italiana</span>
-      <span>Meteo: vague di calore nel weekend — temperature record attese</span>
+      <span>Meteo: ondata di calore nel weekend — temperature record attese</span>
       <span>Serie A: fissate le date della prossima stagione</span>
       <span>Unione Europea: summit straordinario a Bruxelles</span>
     </div>
@@ -355,6 +316,7 @@ footer{background:var(--ink);color:#888;margin-top:0}
 
 <div id="page-root"></div>
 
+<!-- FORUM -->
 <div class="forum-section" id="forum-section">
   <div class="forum-wrap">
     <div class="forum-head">
@@ -362,20 +324,17 @@ footer{background:var(--ink);color:#888;margin-top:0}
       <div class="forum-title">Forum della Comunità</div>
       <div class="forum-count" id="forum-count">0 messaggi</div>
     </div>
-
     <div class="online-strip">
       <div class="online-dot"></div>
       <span id="online-n">Calcolando partecipanti…</span>
       <span class="online-pill" id="online-pill">Online</span>
     </div>
-
     <div class="forum-layout">
       <div>
         <div class="forum-search">
           <input type="text" id="forum-search" placeholder="Cerca nel forum…" aria-label="Cerca forum">
           <button onclick="searchForum()"><i class="ti ti-search"></i></button>
         </div>
-
         <div class="topic-list" id="topic-filters">
           <div class="topic-tag sel" onclick="filterTopic('Tutti')">Tutti</div>
           <div class="topic-tag" onclick="filterTopic('Politica')">Politica</div>
@@ -387,42 +346,39 @@ footer{background:var(--ink);color:#888;margin-top:0}
           <div class="topic-tag" onclick="filterTopic('Mondo')">Mondo</div>
           <div class="topic-tag" onclick="filterTopic('Ambiente')">Ambiente</div>
         </div>
-
         <div id="msgs-list"></div>
       </div>
 
       <div class="forum-form">
         <div class="ff-title">Partecipa alla discussione</div>
         <div class="ff-sub">Condividi la tua opinione — rispetto e civiltà per tutti.</div>
-
         <div class="ff-row">
           <label class="ff-label">Il tuo nome (facoltativo)</label>
-          <input class="ff-input" type="text" id="ff-name" placeholder="Anonimo" maxlength="30" aria-label="Nome">
+          <input class="ff-input" type="text" id="ff-name" placeholder="Anonimo" maxlength="30">
         </div>
         <div class="ff-row">
           <label class="ff-label">Argomento</label>
-          <select class="ff-select" id="ff-topic" aria-label="Argomento">
-              <a href="Politica.html">Politica</a>
-              <a href="Economia.html">Economia</a>
-              <a href="Mondo.html">Mondo</a>
-              <a href="Sport.html">Sport</a>
-              <a href="Tecnologia.html">Tecnologia</a>
-              <a href="opinioni.html">Opinione</a>
-              <a href="#forum-section">Forum</a>
+          <!-- ✅ CORRETTO: <option> invece di <a href> -->
+          <select class="ff-select" id="ff-topic">
+            <option value="Politica">Politica</option>
+            <option value="Economia">Economia</option>
+            <option value="Cronaca">Cronaca</option>
+            <option value="Sport">Sport</option>
+            <option value="Tecnologia">Tecnologia</option>
+            <option value="Cultura">Cultura</option>
+            <option value="Mondo">Mondo</option>
+            <option value="Ambiente">Ambiente</option>
           </select>
         </div>
         <div class="ff-row">
           <label class="ff-label">Il tuo messaggio</label>
-          <textarea class="ff-textarea" id="ff-msg" placeholder="Scrivi qui il tuo commento, domanda o opinione…" maxlength="1000" aria-label="Messaggio"></textarea>
+          <textarea class="ff-textarea" id="ff-msg" placeholder="Scrivi qui il tuo commento…" maxlength="1000"></textarea>
           <div style="font-size:11px;color:var(--muted);text-align:right;margin-top:3px"><span id="char-count">0</span>/1000</div>
         </div>
         <button class="ff-submit" onclick="submitMsg()">
           <i class="ti ti-send"></i> Pubblica messaggio
         </button>
-        <div class="ff-privacy">
-          <i class="ti ti-shield-check" style="font-size:12px"></i>
-          I messaggi sono pubblici e visibili a tutti i lettori.
-        </div>
+        <div class="ff-privacy"><i class="ti ti-shield-check" style="font-size:12px"></i> I messaggi sono pubblici e visibili a tutti i lettori.</div>
       </div>
     </div>
   </div>
@@ -432,18 +388,18 @@ footer{background:var(--ink);color:#888;margin-top:0}
   <div class="ft">
     <div>
       <div class="ft-logo"><span>A</span>NKOAUTCA</div>
-      <div class="ft-tagline">Testata indipendente. Notizie italiane in tempo reale, senza abbonamenti e senza tracciamento. Solo informazione di qualità.</div>
+      <div class="ft-tagline">Testata indipendente. Notizie italiane in tempo reale, senza abbonamenti e senza tracciamento.</div>
     </div>
     <div>
       <div class="ft-htitle">Sezioni</div>
       <div class="ft-links">
-          <a href="Politica.html">Politica</a>
-          <a href="Economia.html">Economia</a>
-          <a href="Mondo.html">Mondo</a>
-          <a href="Sport.html">Sport</a>
-          <a href="Tecnologia.html">Tecnologia</a>
-          <a href="opinioni.html">Opinione</a>
-          <a href="#forum-section">Forum</a>
+        <a href="Politica.html">Politica</a>
+        <a href="Economia.html">Economia</a>
+        <a href="Mondo.html">Mondo</a>
+        <a href="Sport.html">Sport</a>
+        <a href="Tecnologia.html">Tecnologia</a>
+        <a href="opinioni.html">Opinione</a>
+        <a href="Cronaca.html">Cronaca</a>
       </div>
     </div>
     <div>
@@ -470,95 +426,348 @@ footer{background:var(--ink);color:#888;margin-top:0}
 
 <script src="https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"></script>
 <script>
-// ═══════════════════════════════════════════════
-//  DATA — articoli pre-scritti, alta qualità
-// ═══════════════════════════════════════════════
+
+// ═══════════════════════════════════════════════════════════════════
+//  🖼️  GUIDE IMAGES — COMMENT AJOUTER VOS IMAGES
+//
+//  Chaque article a un champ "img" qui peut être :
+//
+//  1) UNE URL DIRECTE (recommandé pour vos vraies photos) :
+//     img: 'https://votre-site.com/photo.jpg'
+//     img: 'images/modena-incidente.jpg'   ← image locale dans votre dossier
+//
+//  2) UNE CLEF DE CATEGORIE (image générique par thème) :
+//     img: 'politica'  → image politique
+//     img: 'sport'     → image sport
+//     img: 'economia'  → image économique
+//     etc.
+//
+//  Pour chaque article ci-dessous, cherchez le champ img:
+//  et remplacez la valeur par l'URL de votre vraie photo.
+//
+//  EXEMPLE :
+//  Avant :  img: 'cronaca',
+//  Après :  img: 'https://example.com/ma-photo.jpg',
+// ═══════════════════════════════════════════════════════════════════
+
 const ARTICLES_DB = {
   attualita:[
-    {id:'a1',cat:'Attualità',title:'Modena, auto su folla: uomo accusato di strage. Mattarella e Meloni visitano feriti. ',sub:'Mattarella e Meloni visitano feriti. ',author:'ankoautca',read:6,img:'economia',body:`Ieri il centro città è stato teatro di un dramma quando un uomo, Salim El Koudri, 31 anni, italiano di origini straniere, ha lanciato la propria auto ad alta velocità, seminando il panico e causando sette feriti, di cui quattro in gravi condizioni. La Procura ha aperto un’inchiesta per strage e lesioni aggravate, escludendo al momento qualsiasi motivazione terroristica. L’uomo, che aveva precedenti cure psichiatriche, non ha risposto alle domande durante l’interrogatorio. In segno di solidarietà, il Presidente della Repubblica e la Presidente del Consiglio si sono recati negli ospedali di Modena e Bologna per visitare i feriti.`},
-    {id:'a2',cat:'Attualità',title:'Caldo record: temperature oltre i 40 gradi al Sud, allerta rossa in Sicilia e Sardegna',sub:'L\'anticiclone africano porta una nuova ondata di calore sull\'Italia. La Protezione Civile attiva i piani di emergenza.',author:'Laura Ferri',read:4,img:'cronaca',body:`Un'imponente massa d'aria calda proveniente dall'Africa subsahariana ha investito l'Italia meridionale e le isole maggiori, portando le temperature a toccare livelli eccezionali. In alcune località della Sicilia interna il termometro ha sfiorato i 44 gradi, mentre a Cagliari la colonnina di mercurio ha registrato valori superiori ai 41 gradi.\n\nLa Protezione Civile ha emesso allerta rossa per Sicilia, Sardegna, Calabria e Basilicata. Le autorità sanitarie raccomandano di evitare l'esposizione al sole nelle ore centrali della giornata, di idratarsi frequentemente e di prestare particolare attenzione agli anziani e ai soggetti fragili.\n\nI pronto soccorso di Palermo e Catania hanno registrato un sensibile aumento degli accessi per colpi di calore e disidratazione. Il sindaco di Palermo ha firmato un'ordinanza che dispone l'apertura straordinaria di centri climatizzati pubblici e biblioteche comunali come rifugi per i cittadini in difficoltà.\n\nIn campagna la situazione è critica: Coldiretti stima danni all'agricoltura per centinaia di milioni di euro, con perdite drammatiche per gli agrumi, i pomodori e il grano duro. I gestori dei bacini idrici segnalano un calo delle riserve idriche che non si vedeva da decenni.\n\nLe previsioni meteorologiche indicano che l'ondata di calore potrebbe durare almeno altri quattro giorni, prima che un fronte atlantico porti un parziale sollievo alle temperature.`},
-    {id:'a3',cat:'Attualità',title:'Boom del turismo estivo: arrivi internazionali in crescita del 18% rispetto all\'anno scorso',sub:'L\'Italia si conferma la prima destinazione culturale d\'Europa. Venezia e Roma ai vertici delle classifiche mondiali.',author:'Giulia Romano',read:5,img:'cultura',body:`L'estate italiana registra numeri da record per il turismo internazionale. Secondo i dati diffusi dall'Ente Nazionale del Turismo, nei primi sei mesi dell'anno gli arrivi dall'estero hanno segnato un incremento del 18% rispetto allo stesso periodo dell'anno precedente, superando i 48 milioni di visitatori.\n\nVenezia e Roma si confermano le mete preferite, ma emergono con forza destinazioni come Matera, le Langhe piemontesi e la Costiera Amalfitana, segnalate dalle principali guide internazionali come esperienze imperdibili. Il turismo culturale — musei, siti Unesco, festival — traina la crescita con un +24%.\n\nGli operatori del settore sono fiduciosi per l'intera stagione estiva: l'indice di prenotazione alberghiera per luglio e agosto indica un tasso di occupazione medio dell'87% nelle principali città d'arte, con picchi superiori al 95% per le strutture di lusso.\n\nIl presidente di Federturismo ha sottolineato come il «brand Italia» continui a esercitare una forza di attrazione senza eguali: «Siamo il Paese più amato al mondo, e i numeri lo confermano. Ora dobbiamo lavorare per distribuire meglio i flussi, alleggerendo le destinazioni più sature e valorizzando i borghi meno conosciuti».\n\nL'impatto economico è significativo: il settore turistico contribuisce al PIL nazionale con una quota stimata intorno al 13%, e l'anno corrente potrebbe portarlo a un nuovo massimo storico.`},
-    {id:'a4',cat:'Attualità',title:'Riforma della giustizia: la Camera vota a favore della separazione delle carriere',sub:'Storico passaggio parlamentare dopo anni di dibattiti. Il provvedimento ora passa al Senato per la seconda lettura.',author:'Paolo Esposito',read:7,img:'politica',body:`La Camera dei Deputati ha approvato ieri sera, con 278 voti a favore e 214 contrari, il disegno di legge costituzionale sulla separazione delle carriere tra magistratura requirente e giudicante. È un passaggio storico che riapre uno dei dibattiti più longevi della politica italiana.\n\nIl provvedimento, primo atto formale di una riforma della giustizia annunciata da anni, prevede che i magistrati debbano scegliere all'inizio della carriera se fare il pubblico ministero o il giudice, senza più possibilità di passare dall'una all'altra funzione. Vengono inoltre istituiti due organi di autogoverno separati per le due categorie.\n\nI sostenitori della riforma la presentano come un pilastro dello Stato di diritto e della parità tra accusa e difesa: «Finalmente i cittadini potranno contare su un giudice davvero terzo», ha detto il Ministro della Giustizia dopo il voto. Le associazioni dell'avvocatura hanno espresso un giudizio favorevole.\n\nL'Associazione Nazionale Magistrati ha invece reagito duramente, parlando di «attacco all'autonomia della magistratura» e annunciando iniziative di protesta. Anche diversi costituzionalisti hanno sollevato dubbi sulla tenuta del sistema nell'ipotesi di due CSM separati.\n\nTrattandosi di legge costituzionale, il percorso parlamentare richiede una doppia approvazione con intervallo di tre mesi. Il testo passa ora al Senato, dove la maggioranza conta su un margine più risicato.`},
-    {id:'a5',cat:'Attualità',title:'Intelligenza artificiale nelle scuole: parte il programma pilota in 500 istituti italiani',sub:'Il Ministero dell\'Istruzione lancia un ambizioso piano di formazione digitale. Coinvolti 120.000 studenti.',author:'Andrea Costa',read:5,img:'tecnologia',body:`Il Ministero dell'Istruzione e del Merito ha avviato ufficialmente il programma pilota «AI per tutti», che porterà l'educazione all'intelligenza artificiale in 500 istituti scolastici distribuiti su tutto il territorio nazionale. Coinvolti oltre 120.000 studenti dalla prima media alla quinta superiore.\n\nIl programma prevede un ciclo formativo di 40 ore annue, integrato nel curricolo ordinario, durante le quali gli studenti impareranno le basi del machine learning, l'uso critico degli strumenti di IA generativa e le implicazioni etiche e sociali di queste tecnologie. Alla formazione degli studenti si affiancherà un percorso obbligatorio per i docenti coinvolti.\n\nLa scelta dei 500 istituti è avvenuta attraverso una selezione che ha privilegiato la distribuzione geografica e la varietà degli indirizzi scolastici: licei classici, scientifici, tecnici e professionali sono tutti rappresentati. Quattro atenei italiani affiancheranno il progetto con consulenza scientifica e monitoraggio dei risultati.\n\nIl Ministro ha dichiarato: «Non possiamo formare i cittadini del futuro ignorando le tecnologie che già oggi stanno trasformando il mercato del lavoro e la società. Vogliamo dare agli studenti strumenti critici, non solo competenze tecniche». I sindacati della scuola hanno accolto positivamente l'iniziativa, chiedendo però maggiori risorse per la formazione dei docenti.\n\nIl programma, finanziato con fondi PNRR per un totale di 180 milioni di euro, sarà valutato a fine anno scolastico e potrà essere esteso a tutti gli istituti italiani a partire dal prossimo anno.`},
-    {id:'a6',cat:'Attualità',title:'Calcio: la Nazionale Under 21 conquista il bronzo agli Europei in Germania',sub:'Gli azzurrini battono la Francia 2-1 in una finale drammatica. Esultanza in tutta Italia.',author:'Pietro Greco',read:4,img:'sport',body:`La Nazionale italiana Under 21 ha conquistato la medaglia di bronzo agli Europei di categoria disputati in Germania, battendo la Francia 2-1 in una gara carica di emozione giocata allo stadio di Colonia.\n\nGli azzurrini, in vantaggio grazie alla rete di Miretti al 23° minuto, erano stati raggiunti dai francesi nella ripresa su calcio di rigore. Il gol vittoria è arrivato all'88° minuto, firmato dal bomber Ambrosino su assist di Baldanzi, scatenando la festa tra i 4.000 tifosi italiani presenti sugli spalti.\n\nIl commissario tecnico della Nazionale maggiore, presente in tribuna, ha fatto i complimenti alla squadra: «Questi ragazzi sono il futuro del calcio italiano. Ho visto personalità, tecnica e cuore. Alcuni di loro saranno presto in Nazionale A».\n\nIl risultato è accolto con grande soddisfazione dalla Federazione Italiana Giuoco Calcio, che negli ultimi anni ha investito molto nel settore giovanile. Il tecnico della Under 21 ha dedicato il terzo posto «a tutti i giovani calciatori italiani che sognano di vestire la maglia azzurra».\n\nLa sera della partita, nelle principali piazze italiane si sono radunati migliaia di tifosi. A Roma la festa è durata fino all'alba, con cortei spontanei lungo le vie del centro storico.`},
-    {id:'a7',cat:'Attualità',title:'Spazio: l\'agenzia spaziale italiana lancia il satellite per l\'osservazione dei ghiacciai alpini',sub:'Il progetto CRYO-IT monitorerà in tempo reale la fusione dei ghiacciai con una precisione senza precedenti.',author:'Francesca Neri',read:6,img:'tecnologia',body:`L'Agenzia Spaziale Italiana (ASI) ha completato con successo il lancio del satellite CRYO-IT, un avanzato sistema di osservazione dedicato al monitoraggio dei ghiacciai alpini e delle riserve di neve nelle Alpi e negli Appennini. Il vettore Vega-C è decollato dalla base di Kourou nella Guyana Francese alle 3:42 ora italiana.\n\nCRYO-IT, frutto di un'eccellenza tutta italiana con la partecipazione di tre università — Politecnico di Milano, La Sapienza e Università di Bologna — è dotato di un radar ad apertura sintetica di nuova generazione capace di rilevare variazioni di spessore glaciale dell'ordine del centimetro. I dati saranno trasmessi in quasi tempo reale e messi a disposizione della comunità scientifica internazionale.\n\nL'obiettivo primario è quantificare con precisione inedita il ritmo di fusione dei ghiacciai alpini, che negli ultimi trent'anni hanno perso il 35% del loro volume. Ma le applicazioni si estendono alla gestione delle risorse idriche, alla prevenzione delle alluvioni e alla pianificazione agricola nelle zone di montagna.\n\nIl presidente dell'ASI ha definito CRYO-IT «un salto di qualità nella nostra capacità di capire e documentare i cambiamenti climatici in atto». Il progetto ha un costo complessivo di 120 milioni di euro, finanziati in parte dall'ESA e in parte dal governo italiano attraverso il Piano Nazionale per la Ricerca.\n\nI primi dati scientifici sono attesi entro 90 giorni dal lancio, dopo una fase di messa in orbita e calibrazione degli strumenti.`},
-    {id:'a8',cat:'Attualità',title:'Vino italiano: record di esportazioni nel primo semestre, +22% verso gli Stati Uniti',sub:'Il Prosecco e il Barolo conquistano i mercati anglosassoni. Le cantine del Piemonte e del Veneto trainano la crescita.',author:'Valentina Rossi',read:5,img:'economia',body:`Il primo semestre dell'anno si chiude con dati straordinari per il vino italiano sui mercati internazionali. Secondo il report semestrale di Federvini, le esportazioni hanno raggiunto i 3,8 miliardi di euro, con un incremento del 22% verso gli Stati Uniti e del 17% verso il Canada e il Nord Europa.\n\nIl Prosecco DOC si conferma il vino italiano più venduto al mondo in termini di volume, mentre per valore il primato spetta al Barolo, il «re dei vini italiani», la cui bottiglia base ha superato per la prima volta in media i 40 euro al dettaglio nei mercati anglofoni. Il Brunello di Montalcino e il Primitivo di Manduria sono i più dinamici in termini di crescita percentuale.\n\nI produttori interpellati individuano nella crescente domanda di vini premium e nella riscoperta della dieta mediterranea i principali motori del boom. Anche il turismo enogastronomico gioca un ruolo: chi visita l'Italia e assaggia i vini sui luoghi di produzione diventa poi un ambasciatore spontaneo nei propri Paesi.\n\nTuttavia, il settore non è esente da preoccupazioni: i cambiamenti climatici stanno alterando la fenologia della vite, e le annate delle prossime stagioni sono incerte. Coldiretti stima che il 40% delle cantine stia già sperimentando nuovi vitigni o nuove altitudini di coltivazione per adattarsi al riscaldamento globale.\n\nNonostante le sfide, i consorzi di tutela dei principali DOC e DOCG italiani guardano con ottimismo al secondo semestre, tradizionalmente il più forte per le vendite.`},
-    {id:'a9',cat:'Attualità',title:'Milano: inaugurato il nuovo museo del design contemporaneo — 5.000 opere accessibili al pubblico',sub:'L\'ex fabbrica Pirelli si trasforma in un polo culturale di respiro internazionale. Biglietto gratuito per i primi tre mesi.',author:'Elena Martini',read:5,img:'cultura',body:`Milano ha inaugurato ieri il Museo Nazionale del Design Contemporaneo, ospitato nei suggestivi spazi dell'ex fabbrica Pirelli di Sesto San Giovanni, un edificio industriale degli anni Cinquanta trasformato in un gioiello architettonico dall'archistar danese Bjarke Ingels. Oltre 5.000 opere permanenti — dai mobili di Charles Eames alle installazioni digitali delle ultime generazioni — raccontano settant'anni di creatività progettuale italiana e internazionale.\n\nAll'inaugurazione erano presenti il Presidente della Repubblica, il sindaco di Milano e i rappresentanti delle principali case design del mondo. La cerimonia si è conclusa con una performance multimediale site-specific dell'artista digitale Alessandro Scali, proiettata sulle facciate dell'edificio.\n\nIl museo si estende su 22.000 metri quadrati di esposizione e comprende una sezione permanente dedicata al design industriale italiano del dopoguerra — fiore all'occhiello della collezione — oltre a spazi temporanei, un centro di ricerca, una biblioteca specializzata e un'area didattica per le scuole.\n\nPer i primi tre mesi, l'ingresso è gratuito per tutti i visitatori, grazie a un accordo con il Ministero della Cultura e con una serie di sponsor privati. Il direttore scientifico, la professoressa Caterina Morelli, ha annunciato che la prima mostra temporanea sarà dedicata al rapporto tra design italiano e industria automobilistica.\n\nL'assessora alla cultura del Comune ha sottolineato che il nuovo museo «consolida Milano come capitale mondiale del design, rafforzando la rete di eccellenze che ruota intorno al Salone del Mobile».`},
-    {id:'a10',cat:'Attualità',title:'Pensioni: il governo annuncia una finestra di uscita anticipata per i lavoratori con 41 anni di contributi',sub:'La misura, definita transitoria, potrebbe interessare fino a 180.000 lavoratori. Le trattative con i sindacati continuano.',author:'Roberto Silvestri',read:6,img:'economia',body:`Il Ministero dell'Economia ha presentato alle organizzazioni sindacali una proposta di misura previdenziale che consentirebbe l'uscita anticipata dal lavoro ai dipendenti in possesso di 41 anni di contributi indipendentemente dall'età anagrafica. Il provvedimento, qualificato come «transitorio» e «selettivo», potrebbe interessare una platea di circa 180.000 lavoratori.\n\nLa misura, al momento in discussione, prevede una penalizzazione ridotta rispetto alle precedenti versioni di «quota 41»: i lavoratori che scelgono di andare in pensione prima dei 62 anni subirebbero una decurtazione del 3% per ogni anno di anticipo rispetto alla soglia, anziché del 5% previsto dalla normativa vigente.\n\nI sindacati hanno reagito in modo divergente: CGIL e UIL chiedono una misura strutturale e senza penalizzazioni, mentre CISL si è mostrata più disponibile a trattare sui dettagli tecnici. Cgil ha annunciato un'assemblea nazionale per valutare l'eventualità di mobilitazioni.\n\nDal lato economico, la copertura della misura è il nodo più complesso: le prime stime dell'INPS indicano un costo annuo compreso tra 800 milioni e 1,2 miliardi di euro, che il governo intende reperire attraverso una revisione delle spese fiscali e parte delle risorse della riforma del catasto.\n\nLa proposta sarà formalmente inserita nella prossima legge di bilancio, il cui iter parlamentare comincerà in autunno. Nel frattempo, governo e parti sociali si rivedranno tra dieci giorni per un nuovo round di confronto.`},
-    {id:'a11',cat:'Attualità',title:'Rinnovabili: l\'Italia supera per la prima volta il 40% di energia elettrica da fonti verdi',sub:'Solare e eolico battono tutti i record. Ma l\'Italia resta lontana dagli obiettivi europei del 2030.',author:'Chiara Ferretti',read:6,img:'ambiente',body:`Per la prima volta nella sua storia energetica, l'Italia ha prodotto oltre il 40% della propria energia elettrica da fonti rinnovabili nel corso di un singolo mese. Il dato, certificato dal Gestore della Rete di Trasmissione Nazionale (TERNA), è relativo al mese di maggio, caratterizzato da forte irraggiamento solare e intense correnti eoliche.\n\nIl contributo maggiore è arrivato dal fotovoltaico — che ha coperto il 22% della domanda — seguito dall'idroelettrico (11%), dall'eolico (6%) e dalle bioenergie (2%). La giornata di punta ha visto le rinnovabili soddisfare il 68% del fabbisogno elettrico nazionale nelle ore centrali.\n\nIl risultato è accolto con soddisfazione dagli operatori del settore, ma gli esperti ricordano che l'obiettivo europeo fissa al 55% la quota rinnovabile al 2030. «Stiamo accelerando, ma non abbastanza», commenta il presidente di Elettricità Futura, l'associazione di categoria. Il principale collo di bottiglia rimane la lentezza delle autorizzazioni per i nuovi impianti: in Italia ci vogliono in media 7 anni dall'istanza alla messa in esercizio.\n\nIl governo ha annunciato un nuovo decreto semplificazioni che dovrebbe tagliare i tempi a 18 mesi per gli impianti di piccola e media taglia. Gli ambientalisti chiedono però che la corsa alle rinnovabili avvenga nel rispetto dei paesaggi e della biodiversità, evitando la cementificazione di terreni agricoli pregiati.\n\nL'industria energivora guarda con favore alla transizione, poiché prezzi dell'energia più stabili e competitivi sono una leva di competitività fondamentale per la manifattura italiana.`},
-    {id:'a12',cat:'Attualità',title:'La Banca d\'Italia: «L\'economia crescerà dell\'1,2% quest\'anno, ma i rischi restano elevati»',sub:'Il Governatore presenta la relazione annuale. Preoccupano il debito pubblico e la produttività stagnante.',author:'Marco Bianchi',read:7,img:'economia',body:`Il Governatore della Banca d'Italia ha presentato ieri in Assemblea Ordinaria la Relazione Annuale sull'economia italiana, fotografando un Paese in crescita moderata ma con fragilità strutturali che richiedono interventi urgenti. Le previsioni per l'anno in corso indicano un aumento del PIL dell'1,2%, leggermente al di sopra delle stime di consensus, grazie al buon andamento delle esportazioni e alla tenuta dei consumi interni.\n\nTuttavia, il Governatore ha sottolineato con forza che «i rischi restano elevati e le incertezze significative». La geopolitica internazionale — tensioni commerciali tra USA e Cina, crisi energetica potenziale, instabilità in alcune aree dell'area euro — potrebbe penalizzare le esportazioni italiane, che negli ultimi anni hanno trainato la ripresa.\n\nSul debito pubblico, il Governatore ha ribadito la necessità di un «impegno credibile e costante alla riduzione del rapporto debito/PIL», sottolineando che l'Italia resta vulnerabile agli shock dei mercati finanziari. Il costo del servizio del debito ha raggiunto i 90 miliardi di euro annui, con un trend in aumento che pesa sulla capacità di investimento dello Stato.\n\nIl nodo della produttività è giudicato «il vero tallone d'Achille dell'economia italiana»: la crescita della produttività totale dei fattori è sostanzialmente ferma da vent'anni, un dato che non ha paragoni nell'Europa avanzata. La soluzione, secondo Via Nazionale, passa per investimenti massicci in ricerca, formazione e digitalizzazione.\n\nAl termine della relazione, il Ministro dell'Economia ha ribadito la solidità del percorso di finanza pubblica del governo, pur riconoscendo la necessità di intensificare le riforme strutturali.`}
+    {
+      id:'a1', cat:'Attualità', read:6,
+      title:'Modena, auto su folla: uomo accusato di strage. Mattarella e Meloni visitano i feriti.',
+      sub:'Il presidente e la premier si recano negli ospedali di Modena e Bologna.',
+      author:'Redazione ANKOAUTCA',
+      // 🖼️ IMMAGINE ARTICOLO 1 — Modena incidente
+      // Inserisci qui l'URL della tua foto dell'incidente di Modena
+      img: 'https://statics.cedscdn.it/photos/MED/2026/05/14/9532488_14225030_italiani_morti_maldive_13_.jpg',
+      body:`Ieri il centro città è stato teatro di un dramma quando un uomo, Salim El Koudri, 31 anni, ha lanciato la propria auto ad alta velocità, causando sette feriti. La Procura ha aperto un'inchiesta per strage e lesioni aggravate. Il Presidente della Repubblica e la Presidente del Consiglio si sono recati negli ospedali per visitare i feriti.`
+    },
+    {
+      id:'a2', cat:'Attualità', read:4,
+      title:'Caldo record: temperature oltre i 40 gradi al Sud, allerta rossa in Sicilia e Sardegna',
+      sub:'L\'anticiclone africano porta una nuova ondata di calore sull\'Italia.',
+      author:'Laura Ferri',
+      // 🖼️ IMMAGINE ARTICOLO 2 — Caldo / estate
+      // Inserisci qui l'URL di una foto del caldo estivo in Italia
+      img: 'https://images.unsplash.com/photo-1504700610630-ac6aba3536d3?w=900&h=560&fit=crop&q=80',
+      body:`Un'imponente massa d'aria calda proveniente dall'Africa ha investito l'Italia meridionale. In Sicilia il termometro ha sfiorato i 44 gradi. La Protezione Civile ha emesso allerta rossa per Sicilia, Sardegna, Calabria e Basilicata. Le previsioni indicano che l'ondata potrebbe durare altri quattro giorni.`
+    },
+    {
+      id:'a3', cat:'Attualità', read:5,
+      title:'Boom del turismo estivo: arrivi internazionali in crescita del 18%',
+      sub:'L\'Italia si conferma la prima destinazione culturale d\'Europa.',
+      author:'Giulia Romano',
+      // 🖼️ IMMAGINE ARTICOLO 3 — Turismo / Roma / Venezia
+      img: 'https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=900&h=560&fit=crop&q=80',
+      body:`L'estate italiana registra numeri da record: +18% di arrivi internazionali nel primo semestre. Venezia e Roma in testa, ma emergono anche Matera e la Costiera Amalfitana. Il settore turistico contribuisce al PIL nazionale con una quota stimata del 13%.`
+    },
+    {
+      id:'a4', cat:'Politica', read:7,
+      title:'Riforma della giustizia: la Camera vota a favore della separazione delle carriere',
+      sub:'Storico passaggio parlamentare dopo anni di dibattiti.',
+      author:'Paolo Esposito',
+      // 🖼️ IMMAGINE ARTICOLO 4 — Parlamento / giustizia
+      img: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=900&h=560&fit=crop&q=80',
+      body:`La Camera dei Deputati ha approvato con 278 voti il disegno di legge sulla separazione delle carriere tra magistratura requirente e giudicante. Il provvedimento prevede che i magistrati scelgano all'inizio della carriera se fare il pubblico ministero o il giudice. Il testo passa ora al Senato.`
+    },
+    {
+      id:'a5', cat:'Tecnologia', read:5,
+      title:'Intelligenza artificiale nelle scuole: parte il programma pilota in 500 istituti',
+      sub:'Il Ministero dell\'Istruzione lancia un ambizioso piano di formazione digitale.',
+      author:'Andrea Costa',
+      // 🖼️ IMMAGINE ARTICOLO 5 — Scuola / tecnologia / ragazzi
+      img: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=900&h=560&fit=crop&q=80',
+      body:`Il Ministero dell'Istruzione ha avviato il programma pilota «AI per tutti» in 500 istituti scolastici, con 120.000 studenti coinvolti. Il programma prevede 40 ore annue su machine learning, uso critico dell'IA e implicazioni etiche. Finanziato con 180 milioni di euro del PNRR.`
+    },
+    {
+      id:'a6', cat:'Sport', read:4,
+      title:'La Nazionale Under 21 conquista il bronzo agli Europei in Germania',
+      sub:'Gli azzurrini battono la Francia 2-1 in una finale drammatica.',
+      author:'Pietro Greco',
+      // 🖼️ IMMAGINE ARTICOLO 6 — Calcio / azzurri / esultanza
+      img: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=900&h=560&fit=crop&q=80',
+      body:`La Nazionale Under 21 ha conquistato la medaglia di bronzo agli Europei, battendo la Francia 2-1. Il gol vittoria è arrivato all'88° minuto. Il ct della Nazionale maggiore ha dichiarato: «Questi ragazzi sono il futuro del calcio italiano».`
+    },
+    {
+      id:'a7', cat:'Tecnologia', read:6,
+      title:'Spazio: l\'ASI lancia il satellite per l\'osservazione dei ghiacciai alpini',
+      sub:'Il progetto CRYO-IT monitorerà la fusione dei ghiacciai in tempo reale.',
+      author:'Francesca Neri',
+      // 🖼️ IMMAGINE ARTICOLO 7 — Spazio / satellite / ghiacciai
+      img: 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=900&h=560&fit=crop&q=80',
+      body:`L'Agenzia Spaziale Italiana ha completato con successo il lancio del satellite CRYO-IT, dedicato al monitoraggio dei ghiacciai alpini. Il satellite è dotato di un radar capace di rilevare variazioni di spessore glaciale dell'ordine del centimetro. I dati saranno accessibili alla comunità scientifica internazionale.`
+    },
+    {
+      id:'a8', cat:'Economia', read:5,
+      title:'Vino italiano: record di esportazioni nel primo semestre, +22% verso gli USA',
+      sub:'Il Prosecco e il Barolo conquistano i mercati anglosassoni.',
+      author:'Valentina Rossi',
+      // 🖼️ IMMAGINE ARTICOLO 8 — Vino / cantina / bottiglia
+      img: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=900&h=560&fit=crop&q=80',
+      body:`Il primo semestre si chiude con 3,8 miliardi di euro di esportazioni vinicole, +22% verso gli USA. Il Prosecco è il vino più venduto per volume, il Barolo per valore. I cambiamenti climatici spingono le cantine a sperimentare nuovi vitigni e nuove altitudini.`
+    },
+    {
+      id:'a9', cat:'Cultura', read:5,
+      title:'Milano: inaugurato il nuovo museo del design contemporaneo — 5.000 opere',
+      sub:'L\'ex fabbrica Pirelli diventa polo culturale internazionale.',
+      author:'Elena Martini',
+      // 🖼️ IMMAGINE ARTICOLO 9 — Milano / design / museo
+      img: 'https://images.unsplash.com/photo-1533130061792-64b345e4a833?w=900&h=560&fit=crop&q=80',
+      body:`Milano ha inaugurato il Museo Nazionale del Design Contemporaneo nell'ex fabbrica Pirelli di Sesto San Giovanni. 22.000 m² di esposizione, 5.000 opere permanenti. Ingresso gratuito per i primi tre mesi grazie a un accordo con il Ministero della Cultura.`
+    },
+    {
+      id:'a10', cat:'Economia', read:6,
+      title:'Pensioni: governo annuncia finestra di uscita anticipata con 41 anni di contributi',
+      sub:'La misura potrebbe interessare fino a 180.000 lavoratori.',
+      author:'Roberto Silvestri',
+      // 🖼️ IMMAGINE ARTICOLO 10 — Pensioni / anziani / lavoro
+      img: 'https://images.unsplash.com/photo-1559526323-cb2f2fe2591b?w=900&h=560&fit=crop&q=80',
+      body:`Il Ministero dell'Economia ha proposto una misura previdenziale per l'uscita anticipata con 41 anni di contributi, indipendentemente dall'età. Costo stimato: 800 milioni–1,2 miliardi l'anno. La proposta sarà inserita nella legge di bilancio autunnale.`
+    },
+    {
+      id:'a11', cat:'Ambiente', read:6,
+      title:'Rinnovabili: l\'Italia supera per la prima volta il 40% di energia da fonti verdi',
+      sub:'Solare e eolico battono tutti i record.',
+      author:'Chiara Ferretti',
+      // 🖼️ IMMAGINE ARTICOLO 11 — Energia solare / pannelli / vento
+      img: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=900&h=560&fit=crop&q=80',
+      body:`Per la prima volta l'Italia ha prodotto oltre il 40% dell'energia elettrica da rinnovabili in un singolo mese di maggio. Il fotovoltaico ha coperto il 22% della domanda. L'obiettivo europeo fissa al 55% la quota rinnovabile al 2030.`
+    },
+    {
+      id:'a12', cat:'Economia', read:7,
+      title:'La Banca d\'Italia: «L\'economia crescerà dell\'1,2% quest\'anno, ma i rischi restano elevati»',
+      sub:'Il Governatore presenta la relazione annuale.',
+      author:'Marco Bianchi',
+      // 🖼️ IMMAGINE ARTICOLO 12 — Economia / finanza / Banca d'Italia
+      img: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&h=560&fit=crop&q=80',
+      body:`Il Governatore della Banca d'Italia ha presentato la Relazione Annuale: PIL previsto a +1,2%, ma il debito pubblico costa 90 miliardi l'anno in interessi. La produttività italiana è «ferma da vent'anni». La soluzione passa per investimenti in ricerca, formazione e digitalizzazione.`
+    }
   ],
   politica:[
-    {id:'p1',cat:'Politica',title:'Il Governo vara il nuovo codice degli appalti: trasparenza e velocità al centro',sub:'La riforma punta a ridurre i tempi medi di aggiudicazione da 3 anni a 14 mesi.',author:'Silvia Fabbri',read:7,img:'politica',body:`Il Consiglio dei Ministri ha approvato in via definitiva il nuovo codice degli appalti, un testo di 266 articoli che riscrive le regole per le commesse pubbliche con l'obiettivo di coniugare velocità e trasparenza. La riforma era attesa da anni ed è stata accelerata dagli obblighi del PNRR.\n\nIl nuovo codice introduce l'obbligo di digitalizzazione integrale delle gare d'appalto, la creazione di un albo nazionale degli arbitri, la semplificazione delle soglie per l'affidamento diretto — portata a 140.000 euro per i lavori — e meccanismi di revisione prezzi più automatici per tutelare le imprese dalle oscillazioni dei costi dei materiali.\n\nI costruttori hanno accolto con favore la norma, mentre Transparency International ha espresso riserve sulla soglia elevata per gli affidamenti diretti, che «espone a rischi di favoritismi e corruzione». Il Governo replica che i controlli ex post sono stati rafforzati e che la velocità è essa stessa una garanzia contro la corruzione.\n\nLa novità più attesa è il progetto «Appalti trasparenti»: tutte le procedure saranno pubblicate su una piattaforma digitale unica, con indicatori di performance per ogni stazione appaltante. La Corte dei Conti avrà accesso diretto ai dati in tempo reale.\n\nIl nuovo codice entra in vigore il primo del mese prossimo, con un periodo transitorio di sei mesi per l'adeguamento delle stazioni appaltanti.`},
-    {id:'p2',cat:'Politica',title:'Opposizioni unite contro il taglio al Reddito di Cittadinanza: «Si abbandona chi è in difficoltà»',sub:'Manifestazione nazionale sabato a Roma. Attesi 50.000 partecipanti. Il Governo difende la riforma.',author:'Luca Marino',read:5,img:'politica',body:`Le principali forze di opposizione hanno convocato per sabato una manifestazione nazionale a Roma contro il progressivo smantellamento del Reddito di Cittadinanza e le modifiche apportate alle misure di sostegno al reddito. Gli organizzatori stimano una partecipazione di almeno 50.000 persone.\n\nLa piattaforma unitaria chiede il ripristino della misura nella sua forma originaria, un aumento degli importi che «tengano conto della crescita dell'inflazione» e maggiori risorse per le politiche attive del lavoro. Alla manifestazione hanno aderito anche diverse organizzazioni sindacali di base e associazioni del terzo settore.\n\nIl Governo ha risposto per voce del Ministro del Lavoro: «La misura precedente era difettosa e creava una trappola della povertà. Il nuovo sistema è più efficace perché distingue tra chi può lavorare e chi no, e investe davvero nell'inserimento lavorativo». Le prime statistiche sull'occupazione dei beneficiari mostrano risultati contrastanti.\n\nGli economisti si dividono: alcuni studi recenti mostrano che la percentuale di beneficiari che ha trovato lavoro è ancora bassa, ma altri ricercatori attribuiscono questo dato a carenze strutturali del mercato del lavoro piuttosto che a difetti della misura di welfare.\n\nIntanto i dati ISTAT segnalano che la povertà assoluta resta a livelli storicamente elevati, con oltre 5,6 milioni di persone che non riescono a soddisfare i bisogni essenziali.`},
-    {id:'p3',cat:'Politica',title:'Elezioni regionali: il centrodestra si conferma in Veneto, sorpresa al centro-sud',sub:'Affluenza record in Campania con il 71%. L\'analisi del voto ridisegna la mappa politica italiana.',author:'Marina Conti',read:6,img:'politica',body:`Le elezioni regionali di domenica hanno confermato le tendenze già emerse nelle ultime consultazioni nazionali, con il centrodestra che si aggiudica il Veneto con una percentuale superiore al 55% e mantiene la Liguria. Ma le vere sorprese arrivano dal centro-sud.\n\nIn Campania l'affluenza ha raggiunto il 71%, un dato eccezionale per le regionali meridionali, e l'esito del voto è ancora in bilico con lo spoglio in corso. In Calabria un candidato civico espressione di liste civiche ha sfiorato il ballottaggio con i candidati dei principali partiti.\n\nI politologi leggono nel voto campano un segnale di cambiamento nell'atteggiamento degli elettori meridionali: «C'è una voglia di partecipazione che non vedevamo da anni, probabilmente legata ai fondi PNRR e alla percezione che questa tornata possa influenzare la distribuzione delle risorse», commenta un'analista politica dell'Università Federico II di Napoli.\n\nI partiti di opposizione lamentano irregolarità nelle liste in alcuni collegi veneti, con esposti già presentati al TAR. La commissione elettorale regionale ha aperto istruttorie.\n\nIl prossimo appuntamento elettorale è previsto in autunno, con le regionali di Toscana ed Emilia-Romagna, che si preannunciano come test importanti per misurare i rapporti di forza nazionali.`}
+    {
+      id:'p1', cat:'Politica', read:7,
+      title:'Il Governo vara il nuovo codice degli appalti: trasparenza e velocità al centro',
+      sub:'La riforma punta a ridurre i tempi di aggiudicazione da 3 anni a 14 mesi.',
+      author:'Silvia Fabbri',
+      // 🖼️ IMMAGINE — Politica / Parlamento / appalti
+      img: 'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=900&h=560&fit=crop&q=80',
+      body:`Il Consiglio dei Ministri ha approvato il nuovo codice degli appalti, che introduce la digitalizzazione integrale delle gare, la piattaforma «Appalti trasparenti» e meccanismi di revisione prezzi automatici. Il codice entra in vigore il mese prossimo con sei mesi di transizione.`
+    },
+    {
+      id:'p2', cat:'Politica', read:5,
+      title:'Opposizioni unite contro il taglio al Reddito di Cittadinanza',
+      sub:'Manifestazione nazionale sabato a Roma. Attesi 50.000 partecipanti.',
+      author:'Luca Marino',
+      // 🖼️ IMMAGINE — Manifestazione / piazza / Roma
+      img: 'https://images.unsplash.com/photo-1508921234172-b68ab664f2f9?w=900&h=560&fit=crop&q=80',
+      body:`Le forze di opposizione hanno convocato una manifestazione nazionale a Roma contro le modifiche al Reddito di Cittadinanza. La piattaforma unitaria chiede il ripristino della misura e più risorse per le politiche attive del lavoro. I dati ISTAT segnalano 5,6 milioni di persone in povertà assoluta.`
+    },
+    {
+      id:'p3', cat:'Politica', read:6,
+      title:'Elezioni regionali: centrodestra confermato in Veneto, sorpresa al centro-sud',
+      sub:'Affluenza record in Campania con il 71%.',
+      author:'Marina Conti',
+      // 🖼️ IMMAGINE — Elezioni / urne / politica
+      img: 'https://images.unsplash.com/photo-1500051638674-ff996a0ec29e?w=900&h=560&fit=crop&q=80',
+      body:`Il centrodestra si aggiudica il Veneto con oltre il 55%. In Campania l'affluenza ha raggiunto il 71%. In Calabria un candidato civico ha sfiorato il ballottaggio. Il prossimo appuntamento: regionali di Toscana ed Emilia-Romagna in autunno.`
+    }
   ],
   economia:[
-    {id:'e1',cat:'Economia',title:'Il PNRR accelera: l\'Italia ha speso il 68% dei fondi assegnati, in linea con i target europei',sub:'Infrastrutture, scuola digitale e transizione verde i settori dove si è corso di più.',author:'Davide Serra',read:7,img:'economia',body:`L'Italia ha raggiunto il 68% di utilizzo dei fondi PNRR assegnati, posizionandosi tra i Paesi europei più virtuosi nel rispetto dei target intermedi. Il dato, comunicato dalla Ragioneria Generale dello Stato, si riferisce alle risorse effettivamente erogate al 30 aprile.\n\nI settori che hanno mostrato la maggiore capacità di spesa sono le infrastrutture digitali — con il piano banda ultralarga ormai coperto all'85% del territorio — la digitalizzazione della pubblica amministrazione e gli interventi di efficientamento energetico degli edifici scolastici.\n\nRimangono in ritardo i settori dell'edilizia sanitaria, della transizione verde nell'industria e del trasporto pubblico locale. I commissari straordinari nominati per accelerare gli interventi più in arretrato hanno presentato piani di recupero che il Governo ha definito «credibili».\n\nI riflettori sono puntati sulla prossima tranche di 18 miliardi, il cui sblocco da parte della Commissione Europea è subordinato al raggiungimento di 57 milestone e target. Il Ministero dell'Economia è «cautamente ottimista» sul rispetto delle scadenze, ma ammette che alcuni obiettivi saranno «sfidanti».\n\nGli economisti ricordano che la vera sfida del PNRR non è spendere i soldi, ma spenderli bene: «Il rischio è che si costruiscano opere non prioritarie pur di rispettare i target formali. La qualità degli investimenti determinerà l'impatto sulla crescita nel lungo periodo», avverte un ricercatore della Fondazione Bruegel.`},
-    {id:'e2',cat:'Economia',title:'Inflazione in calo al 2,1%: la Banca Centrale Europea taglia i tassi per la terza volta',sub:'Buone notizie per i mutui variabili. Ma la ripresa dei consumi resta fragile in Italia.',author:'Giulia Conti',read:5,img:'economia',body:`La Banca Centrale Europea ha annunciato un nuovo taglio dei tassi di interesse di 25 punti base, portando il tasso sui depositi al 3,25%. È la terza riduzione consecutiva, in risposta al calo dell'inflazione nell'area euro, scesa al 2,1% — vicinissima all'obiettivo del 2% fissato dallo statuto della BCE.\n\nPer i titolari di mutui a tasso variabile italiani — circa 2,8 milioni di famiglie — la notizia si tradurrà in un alleggerimento della rata mensile stimato tra i 40 e i 70 euro, a seconda dell'importo residuo del mutuo. Le banche sono tenute ad aggiornare i contratti entro 30 giorni dalla variazione dell'Euribor.\n\nTuttavia, gli economisti avvertono che il beneficio per i consumi potrebbe essere limitato: «Le famiglie italiane sono ancora in una fase di ricostituzione del risparmio dopo lo shock inflattivo del 2022-2023. Ci vorrà tempo prima che il calo dei tassi si traduca in un aumento della spesa», spiega un ricercatore di Confindustria.\n\nSul fronte delle imprese, le PMI del manifatturiero — che avevano sofferto molto il caro-credito — accolgono con sollievo il taglio, anche se i tempi di trasmissione ai tassi sui prestiti bancari alle aziende sono mediamente più lunghi rispetto ai mutui.\n\nLa BCE ha lasciato aperta la porta a ulteriori tagli nel secondo semestre, «condizionati ai dati sull'inflazione e sulla crescita». I mercati scontano altre due riduzioni entro dicembre.`}
+    {
+      id:'e1', cat:'Economia', read:7,
+      title:'Il PNRR accelera: l\'Italia ha speso il 68% dei fondi assegnati',
+      sub:'Infrastrutture, scuola digitale e transizione verde i settori più veloci.',
+      author:'Davide Serra',
+      // 🖼️ IMMAGINE — PNRR / costruzioni / fondi europei
+      img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&h=560&fit=crop&q=80',
+      body:`L'Italia ha raggiunto il 68% di utilizzo dei fondi PNRR. I settori più avanzati: infrastrutture digitali, digitalizzazione PA, efficientamento energetico scolastico. In ritardo: edilizia sanitaria e trasporto locale. La prossima tranche da 18 miliardi dipende da 57 milestone europee.`
+    },
+    {
+      id:'e2', cat:'Economia', read:5,
+      title:'Inflazione in calo al 2,1%: la BCE taglia i tassi per la terza volta',
+      sub:'Buone notizie per i mutui variabili. Ma la ripresa dei consumi resta fragile.',
+      author:'Giulia Conti',
+      // 🖼️ IMMAGINE — BCE / euro / tassi / finanza
+      img: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&h=560&fit=crop&q=80',
+      body:`La BCE ha tagliato i tassi di 25 punti base, portandoli al 3,25%. Per i 2,8 milioni di famiglie con mutuo variabile: risparmio di 40–70 euro al mese. I mercati scontano altre due riduzioni entro dicembre.`
+    }
   ],
   mondo:[
-    {id:'m1',cat:'Mondo',title:'G7: i leader concordano su un nuovo meccanismo per contrastare la disinformazione globale',sub:'Il documento finale del vertice include impegni vincolanti sui social media e sulla trasparenza degli algoritmi.',author:'Anna Pellegrini',read:6,img:'mondo',body:`I leader del G7, riuniti in Italia per il vertice annuale, hanno raggiunto un accordo su un documento finale che include, per la prima volta, impegni concreti e verificabili per contrastare la disinformazione online a scala globale. Il documento, denominato «Dichiarazione di Borgo Egnazia sull'Integrità dell'Informazione», è stato firmato da tutti e sette i Paesi partecipanti.\n\nIl nucleo dell'accordo prevede: l'obbligo per le piattaforme digitali di etichettare i contenuti generati dall'intelligenza artificiale; la trasparenza sugli algoritmi di raccomandazione; la creazione di un fondo comune da 500 milioni di dollari per sostenere il giornalismo di qualità indipendente; e un meccanismo di monitoraggio multilaterale sulle operazioni di influenza straniera.\n\nLa presidenza italiana del G7 ha incassato un successo politico, riuscendo a tenere uniti Paesi con sensibilità diverse sul tema della libertà d'espressione — in particolare Stati Uniti e Europa — attorno a un testo bilanciato. Le ONG per la libertà di stampa hanno accolto positivamente l'accordo, ma chiedono garanzie sull'implementazione.\n\nLa Russia e la Cina, escluse dal G7, hanno reagito con dichiarazioni che denunciano un «tentativo di controllo occidentale dell'informazione». Russia Today ha già annunciato che ignorerà qualsiasi misura derivante dall'accordo.\n\nIl dossier passerà ora alle agenzie di regolamentazione dei Paesi partecipanti. In Europa, l'accordo si innesta nel quadro del Digital Services Act già in vigore, rafforzandone gli strumenti sanzionatori.`},
-    {id:'m2',cat:'Mondo',title:'Medio Oriente: riprendono i colloqui di pace sotto l\'egida dell\'ONU. Fragile tregua in vigore',sub:'Per la prima volta da mesi, le delegazioni si siedono allo stesso tavolo. L\'ottimismo è cauto.',author:'Stefano Amari',read:8,img:'mondo',body:`Per la prima volta in sei mesi, le delegazioni delle parti in conflitto nel Medio Oriente si sono sedute allo stesso tavolo di negoziato, nella sede dell'ONU a Ginevra, sotto l'egida del Segretario Generale. Una fragile tregua, mediata dal Qatar e dall'Egitto, è entrata in vigore all'alba di lunedì, con violazioni sporadiche ma nessun episodio tale da far saltare il processo.\n\nIl Segretario Generale dell'ONU ha dichiarato che i colloqui rappresentano «un raggio di luce in una situazione che sembrava senza via d'uscita». La prima sessione, durata quattro ore, si è concentrata sulla questione degli ostaggi e dei prigionieri, ritenuta la più urgente e anche quella con maggiori possibilità di accordo a breve termine.\n\nFonti diplomatiche descrivono l'atmosfera come «tesa ma professionale». Entrambe le delegazioni hanno evitato di rilasciare dichiarazioni pubbliche al termine della giornata, segno che il processo è ancora nel suo stadio più delicato. Gli intermediari lavorano su un piano in tre fasi che prevede, nella seconda fase, la discussione dell'accesso umanitario alle zone di conflitto.\n\nLa comunità internazionale segue con grande attenzione: l'Unione Europea ha offerto ulteriori garanzie economiche a chi si impegna in modo verificabile al rispetto delle norme umanitarie internazionali. Gli Stati Uniti partecipano come osservatori non ufficiali.\n\nGli analisti sono prudenti: «I colloqui sono un passo necessario ma non sufficiente. La storia ci insegna che in questa regione la strada dalla tregua alla pace è lunga e piena di ostacoli», ha commentato un esperto di geopolitica mediorientale dell'Università di Bologna.`}
+    {
+      id:'m1', cat:'Mondo', read:6,
+      title:'G7: i leader concordano su un meccanismo per contrastare la disinformazione globale',
+      sub:'La Dichiarazione di Borgo Egnazia include impegni vincolanti sui social media.',
+      author:'Anna Pellegrini',
+      // 🖼️ IMMAGINE — G7 / diplomazia / vertice
+      img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&h=560&fit=crop&q=80',
+      body:`Il G7 ha firmato la «Dichiarazione di Borgo Egnazia sull'Integrità dell'Informazione». Prevede: etichettatura dei contenuti generati da IA, trasparenza degli algoritmi, fondo da 500 milioni per il giornalismo indipendente. L'Italia ha incassato un successo diplomatico importante.`
+    },
+    {
+      id:'m2', cat:'Mondo', read:8,
+      title:'Medio Oriente: riprendono i colloqui di pace sotto l\'egida dell\'ONU',
+      sub:'Per la prima volta da mesi, le delegazioni si siedono allo stesso tavolo.',
+      author:'Stefano Amari',
+      // 🖼️ IMMAGINE — ONU / pace / diplomazia
+      img: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=900&h=560&fit=crop&q=80',
+      body:`Per la prima volta in sei mesi, le delegazioni si sono sedute allo stesso tavolo a Ginevra. Una fragile tregua mediata da Qatar ed Egitto è entrata in vigore. La prima sessione si è concentrata su ostaggi e prigionieri. L'UE ha offerto garanzie economiche a chi rispetta le norme umanitarie.`
+    }
   ],
   sport:[
-    {id:'s1',cat:'Sport',title:'Tour de France: l\'italiano Ganna in fuga solitaria, a rischio la maglia gialla',sub:'La tappa di ieri ha ribaltato la classifica generale. Tre corridori in 12 secondi al vertice.',author:'Carlo Venturi',read:5,img:'sport',body:`Il Tour de France regala una tappa da antologia: Filippo Ganna, il cronoman di Verbania campione del mondo a crono, ha attaccato in salita con 40 chilometri all'arrivo, staccando tutti i big e tagliando il traguardo con 2'14" di vantaggio sul primo inseguitore. Un'impresa che ha lasciato sbigottiti gli esperti e suscitato l'ovazione del pubblico sulle strade della Bretagna.\n\nLa classifica generale ne è uscita stravolta: Remco Evenepoel in maglia gialla ha ceduto 48 secondi e si trova ora a soli 12 secondi di vantaggio su Pogacar. Ganna, partito lontano dai piani alti della graduatoria, è balzato in terza posizione a 38 secondi. Nessuno si aspettava una simile performance in salita da un atleta noto soprattutto per le prove cronometrate.\n\nIl ct azzurro ha commentato: «Filippo ha delle qualità motorie uniche. Avevamo visto in allenamento che stava crescendo molto in salita, ma non ci aspettavamo un'esplosione così clamorosa. È il nostro atleta più completo». Ganna, raggiunto ai microfoni subito dopo l'arrivo, ha detto di volersi «godersi il momento» senza pensare alla classifica.\n\nMancano otto tappe alla conclusione sugli Champs-Élysées. Il percorso delle prossime giornate comprende due arrivi in quota nelle Alpi francesi, dove si deciderà la corsa. I bookmakers hanno già aggiornato le quote: Ganna è salito fino al secondo posto nelle scommesse.\n\nL'Italia non ha mai vinto il Tour de France. Se Ganna dovesse mantenere la posizione nelle Alpi, sarebbe la storia più clamorosa del ciclismo degli ultimi decenni.`},
-    {id:'s2',cat:'Sport',title:'Formula 1: la Ferrari conquista la pole a Monaco, Leclerc sogna il successo di casa',sub:'Il monegasco ha fermato il cronometro a 1\'10\"294. Hamilton quinto, Verstappen terzo.',author:'Pietro Greco',read:4,img:'sport',body:`La Ferrari torna a casa — almeno in senso metaforico — e lo fa nel modo migliore: Charles Leclerc ha conquistato la pole position per il Gran Premio di Monaco con un giro straordinario, il terzo più veloce nella storia del Principato. Il cronometro si è fermato su 1'10"294, con un vantaggio di 234 millesimi sul compagno di squadra Carlos Sainz.\n\nPer Leclerc, cresciuto a pochi chilometri dall'asfalto del circuito monegasco, Monaco è il sogno incompiuto per eccellenza: quattro pole negli ultimi cinque anni, zero vittorie. «Ogni volta è diverso, ogni volta si impara qualcosa», ha detto il pilota della Ferrari con un sorriso che tradisce la tensione. «Domani darò tutto».\n\nMax Verstappen partirà dalla terza casella: il campione del mondo in carica ha denunciato un problema di bilanciamento della Red Bull che lo ha limitato nell'ultimo settore. Lewis Hamilton, all'ultima stagione con la Mercedes, ha faticato nel terzo settore e scatterà quinto.\n\nLa gara di domenica si preannuncia tatticamente complicata: il circuito di Monaco rende quasi impossibile il sorpasso e la strategia ai box è spesso decisiva. Ferrari ha dimostrato in questa stagione di essere cresciuta anche sotto questo aspetto.\n\nLa tifoseria italiana è in fermento: se Leclerc vincesse a Monaco con la Ferrari, sarebbe uno di quei momenti destinati a restare nella storia dello sport.`}
+    {
+      id:'s1', cat:'Sport', read:5,
+      title:'Tour de France: l\'italiano Ganna in fuga solitaria, a rischio la maglia gialla',
+      sub:'La tappa ha ribaltato la classifica generale. Tre corridori in 12 secondi.',
+      author:'Carlo Venturi',
+      // 🖼️ IMMAGINE — Ciclismo / Tour de France / Ganna
+      img: 'https://images.unsplash.com/photo-1517649763962-0c623066013b?w=900&h=560&fit=crop&q=80',
+      body:`Filippo Ganna ha attaccato in salita con 40 km all'arrivo, tagliando il traguardo con 2'14" di vantaggio. La classifica è sconvolta: Evenepoel a 12 secondi su Pogacar, Ganna terzo a 38". Mancano otto tappe alla conclusione sugli Champs-Élysées.`
+    },
+    {
+      id:'s2', cat:'Sport', read:4,
+      title:'Formula 1: la Ferrari conquista la pole a Monaco, Leclerc sogna il successo di casa',
+      sub:'Il monegasco in 1\'10\"294. Hamilton quinto, Verstappen terzo.',
+      author:'Pietro Greco',
+      // 🖼️ IMMAGINE — Formula 1 / Ferrari / Monaco
+      img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&h=560&fit=crop&q=80',
+      body:`Charles Leclerc ha conquistato la pole a Monaco con il terzo tempo più veloce nella storia del circuito. Verstappen terzo con problemi di bilanciamento. La gara si preannuncia tattica: a Monaco il sorpasso è quasi impossibile e la strategia ai box è spesso decisiva.`
+    }
   ],
   tecnologia:[
-    {id:'t1',cat:'Tecnologia',title:'L\'Italia lancia il Piano Nazionale per la Sovranità Digitale: cloud italiano per la PA',sub:'Entro il 2026 tutti i dati sensibili della pubblica amministrazione saranno ospitati su infrastrutture nazionali.',author:'Andrea Costa',read:6,img:'tecnologia',body:`Il governo ha presentato il Piano Nazionale per la Sovranità Digitale, un documento strategico che ridisegna l'infrastruttura tecnologica della pubblica amministrazione italiana con l'obiettivo di renderla indipendente dai grandi fornitori tecnologici extraeuropei entro il 2026. Il piano vale 3,2 miliardi di euro, di cui 1,8 miliardi provenienti dal PNRR.\n\nIl nucleo del piano è il «Polo Strategico Nazionale», un'infrastruttura cloud di proprietà pubblica che ospiterà tutti i dati «strategici e critici» della PA italiana: dati fiscali, sanitari, giudiziari, delle forze dell'ordine e della difesa. I dati «ordinari» potranno invece continuare a essere ospitati su cloud commerciali certificati secondo standard europei.\n\nIl piano prevede anche incentivi per le imprese italiane e europee che sviluppano software per la PA, con l'obiettivo di ridurre la dipendenza da software americano in settori sensibili. L'Agenzia per l'Italia Digitale sarà rafforzata con nuove competenze e 400 assunzioni di tecnici specializzati.\n\nLe associazioni delle imprese tech italiane hanno accolto con entusiasmo il piano, che potrebbe creare migliaia di posti di lavoro. Qualche perplessità arriva invece dagli esperti di cybersicurezza: «La concentrazione in un'unica infrastruttura nazionale crea anche rischi: se il Polo Strategico Nazionale viene attaccato, l'impatto è enorme», avverte un ricercatore dell'Università di Pisa.\n\nIl piano sarà implementato in tre fasi: la prima, entro fine anno, riguarderà la migrazione dei sistemi fiscali dell'Agenzia delle Entrate.`},
-    {id:'t2',cat:'Tecnologia',title:'Startup italiane: raccolta di venture capital in crescita del 34% nel primo semestre',sub:'Fintech, medtech e AI guidano gli investimenti. Milano si conferma hub europeo dell\'innovazione.',author:'Francesca Neri',read:5,img:'tecnologia',body:`Il primo semestre dell'anno si chiude con dati incoraggianti per l'ecosistema startup italiano: la raccolta di venture capital ha raggiunto i 890 milioni di euro, con un incremento del 34% rispetto allo stesso periodo dell'anno precedente. Il dato segna un nuovo record storico per l'Italia e colloca il Paese tra i mercati europei in più rapida crescita.\n\nI settori trainanti sono il fintech — con alcune realtà italiane che stanno espandendosi in Germania e Francia — il medtech, dove l'Italia vanta punte di eccellenza nella diagnostica per immagini e nella chirurgia robotica, e l'intelligenza artificiale applicata al manifatturiero, un segmento dove la tradizione industriale italiana offre vantaggi competitivi unici.\n\nMilano si conferma l'hub di riferimento, concentrando il 67% degli investimenti. Ma emergono poli interessanti anche a Bologna, con una vivace comunità di startup nel settore della robotica e dell'automazione, e a Napoli, dove alcune iniziative pubblico-private hanno creato un ecosistema innovativo nel campo del software.\n\nGli investitori internazionali guardano con crescente interesse all'Italia: tre dei round più significativi del semestre hanno visto la partecipazione di fondi americani e tedeschi. «L'Italia ha talenti eccellenti e costi competitivi. Quello che manca ancora è una cultura del rischio più matura e migliori meccanismi di uscita per gli investitori», commenta un partner di un fondo pan-europeo.\n\nIl governo ha annunciato nuove misure fiscali per attrarre investitori esteri e trattenere i talenti, inclusa una revisione del regime delle stock option per i dipendenti delle startup.`}
+    {
+      id:'t1', cat:'Tecnologia', read:6,
+      title:'L\'Italia lancia il Piano Nazionale per la Sovranità Digitale: cloud italiano per la PA',
+      sub:'Entro il 2026 tutti i dati sensibili della PA su infrastrutture nazionali.',
+      author:'Andrea Costa',
+      // 🖼️ IMMAGINE — Cloud / server / digitale
+      img: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&h=560&fit=crop&q=80',
+      body:`Il governo ha presentato il Piano Nazionale per la Sovranità Digitale da 3,2 miliardi. Nucleo: il «Polo Strategico Nazionale», cloud pubblico per dati fiscali, sanitari e giudiziari. Previste 400 assunzioni di tecnici specializzati all'Agenzia per l'Italia Digitale.`
+    },
+    {
+      id:'t2', cat:'Tecnologia', read:5,
+      title:'Startup italiane: raccolta di venture capital in crescita del 34% nel primo semestre',
+      sub:'Fintech, medtech e AI guidano gli investimenti. Milano hub europeo.',
+      author:'Francesca Neri',
+      // 🖼️ IMMAGINE — Startup / innovazione / Milano
+      img: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&h=560&fit=crop&q=80',
+      body:`Record storico per il venture capital italiano: 890 milioni nel primo semestre, +34%. Milano concentra il 67% degli investimenti. Emergono poli a Bologna (robotica) e Napoli (software). Il governo annuncia nuove misure fiscali per attrarre investitori esteri.`
+    }
   ],
   cultura:[
-    {id:'c1',cat:'Cultura',title:'La Biennale di Venezia apre i battenti: «Stranieri Ovunque» è il tema di questa edizione',sub:'Artisti da 88 Paesi. Il Padiglione Italia esplora il concetto di identità nell\'era della migrazione.',author:'Elena Martini',read:7,img:'cultura',body:`La 61ª edizione della Biennale di Arte di Venezia ha aperto ufficialmente i battenti tra il fascino dei giardini e l'architettura industriale dell'Arsenale. Il tema scelto dal curatore brasiliano Adriano Pedrosa — «Stranieri Ovunque» — traccia un filo rosso attraverso i lavori di 331 artisti provenienti da 88 Paesi, con una netta prevalenza di voci dal Sud globale.\n\nLa Biennale di quest'anno è la più inclusiva di sempre per quanto riguarda la rappresentanza geografica e la varietà delle pratiche artistiche. Installazioni monumentali convivono con opere fragili e personali, performance con video sperimentali, tessiture tradizionali con arte digitale.\n\nIl Padiglione Italia, curato da Luca Cerizza, si intitola «Tutto il mondo guarda» e ospita le opere di tre artisti italiani di origini diverse — una fotografa di origini eritree, uno scultore di origine marocchina e una videoartista nata a Milano da genitori cinesi — che raccontano la complessità dell'identità italiana contemporanea.\n\nIl Leone d'Oro alla Carriera è stato assegnato alla pittrice americana Harmony Hammond, 79 anni, pioniera dell'arte femminista e queer. Il Padiglione più premiato finora dalla critica internazionale è quello australiano, con un'installazione site-specific che ha richiesto due anni di preparazione.\n\nLa Biennale resterà aperta fino al 24 novembre. In questi sei mesi Venezia diventa il centro mondiale dell'arte contemporanea, con un afflusso stimato di 700.000 visitatori.`}
+    {
+      id:'c1', cat:'Cultura', read:7,
+      title:'La Biennale di Venezia apre: «Stranieri Ovunque» è il tema di questa edizione',
+      sub:'Artisti da 88 Paesi. Il Padiglione Italia esplora l\'identità nell\'era della migrazione.',
+      author:'Elena Martini',
+      // 🖼️ IMMAGINE — Venezia / Biennale / arte
+      img: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=900&h=560&fit=crop&q=80',
+      body:`La 61ª Biennale di Venezia ha aperto con 331 artisti da 88 Paesi. Il Padiglione Italia si intitola «Tutto il mondo guarda» e ospita tre artisti di origini diverse. Il Leone d'Oro alla Carriera a Harmony Hammond. Attesi 700.000 visitatori fino al 24 novembre.`
+    }
   ],
   ambiente:[
-    {id:'am1',cat:'Ambiente',title:'Cop30 in Belém: accordo globale sulla deforestazione zero entro il 2030',sub:'Storico impegno di 134 Paesi. Rimane il nodo dei finanziamenti per i Paesi in via di sviluppo.',author:'Chiara Ferretti',read:7,img:'ambiente',body:`La conferenza sul clima COP30, svoltasi a Belém in Brasile, ha prodotto un accordo storico sulla deforestazione: 134 Paesi — tra cui per la prima volta Indonesia e Congo, i Paesi con le più vaste foreste tropicali dopo il Brasile — si sono impegnati a raggiungere la «deforestazione netta zero» entro il 2030.\n\nL'accordo, formalmente denominato «Patto di Belém per le Foreste», prevede meccanismi di verifica satellitare in tempo reale e sanzioni commerciali per i Paesi che non rispettano gli impegni. È la prima volta che il regime dei negoziati climatici include misure così esplicite di enforcement.\n\nIl nodo più spinoso è rimasto quello dei finanziamenti: i Paesi in via di sviluppo chiedono ai Paesi ricchi di pagare per la conservazione delle foreste, come «carbonio naturale» fondamentale per la stabilizzazione del clima. Il fondo finale concordato ammonta a 20 miliardi di dollari all'anno fino al 2030 — metà di quanto richiesto dai Paesi tropicali.\n\nL'Unione Europea, tra i protagonisti dell'accordo, ha annunciato che recepirà gli impegni nel Regolamento sulla deforestazione già in vigore, inasprendo i controlli sulle importazioni di soia, olio di palma, cacao e altri prodotti a rischio. Il ministro dell'Ambiente italiano ha parlato di «passo epocale».\n\nGreenpeace e le principali ONG ambientaliste hanno accolto l'accordo con cautela: «I numeri sono importanti, ma il diavolo è nei dettagli. Abbiamo visto troppi impegni sulla carta che non si sono mai tradotti in fatti». Sarà decisiva la fase di implementazione, monitorata da un panel scientifico indipendente.`}
+    {
+      id:'am1', cat:'Ambiente', read:7,
+      title:'Cop30 in Belém: accordo globale sulla deforestazione zero entro il 2030',
+      sub:'Storico impegno di 134 Paesi. Rimane il nodo dei finanziamenti.',
+      author:'Chiara Ferretti',
+      // 🖼️ IMMAGINE — Foresta / Amazzonia / clima
+      img: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=900&h=560&fit=crop&q=80',
+      body:`134 Paesi si sono impegnati alla «deforestazione netta zero» entro il 2030 con il «Patto di Belém per le Foreste». Previste verifiche satellitari e sanzioni commerciali. Il fondo concordato ammonta a 20 miliardi di dollari l'anno. GreenPeace chiede garanzie sull'implementazione.`
+    }
   ]
 };
 
-// Immagini per categoria
+// ═══════════════════════════════════════════════════════════════════
+//  🖼️  IMAGES PAR CATÉGORIE — fallback si l'article n'a pas d'URL
+//  Chaque clef correspond à une valeur img: 'nomecategoria'
+//  dans les articles ci-dessus.
+//
+//  POUR CHANGER UNE IMAGE PAR CATÉGORIE :
+//  Remplacez l'URL dans le tableau correspondant.
+//  Le premier élément [0] est l'image principale,
+//  les suivants sont des variantes.
+// ═══════════════════════════════════════════════════════════════════
 const IMGS = {
-  politica:['https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=900&h=560&fit=crop&q=80','https://immagini.unionesarda.it/version/c:OGJkYzY4N2UtMGYwZC00:MmU1MTRkNTctODM2OC00/image.webp?f=16:9','https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=900&h=560&fit=crop&q=80'],
-  mondo:['https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&h=560&fit=crop&q=80','https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=900&h=560&fit=crop&q=80'],
-  cultura:['https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=900&h=560&fit=crop&q=80','https://images.unsplash.com/photo-1533130061792-64b345e4a833?w=900&h=560&fit=crop&q=80'],
-  tecnologia:['https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&h=560&fit=crop&q=80','https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&h=560&fit=crop&q=80'],
-  sport:['https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=900&h=560&fit=crop&q=80','https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=900&h=560&fit=crop&q=80'],
-  cronaca:['https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=900&h=560&fit=crop&q=80','https://images.unsplash.com/photo-1585829365295-ab7cd400c167?w=900&h=560&fit=crop&q=80'],
-  ambiente:['https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=900&h=560&fit=crop&q=80','https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=900&h=560&fit=crop&q=80'],
-  default:['https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=900&h=560&fit=crop&q=80']
+  politica: [
+    'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=900&h=560&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=900&h=560&fit=crop&q=80'
+  ],
+  mondo: [
+    'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&h=560&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=900&h=560&fit=crop&q=80'
+  ],
+  cultura: [
+    'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=900&h=560&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1533130061792-64b345e4a833?w=900&h=560&fit=crop&q=80'
+  ],
+  tecnologia: [
+    'https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&h=560&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&h=560&fit=crop&q=80'
+  ],
+  sport: [
+    'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=900&h=560&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=900&h=560&fit=crop&q=80'
+  ],
+  cronaca: [
+    'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=900&h=560&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1585829365295-ab7cd400c167?w=900&h=560&fit=crop&q=80'
+  ],
+  economia: [
+    'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&h=560&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1559526323-cb2f2fe2591b?w=900&h=560&fit=crop&q=80'
+  ],
+  ambiente: [
+    'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=900&h=560&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=900&h=560&fit=crop&q=80'
+  ],
+  default: ['https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=900&h=560&fit=crop&q=80']
 };
 
-function img(catOrUrl, i=0){
-  if (typeof catOrUrl === 'string' && (catOrUrl.startsWith('http://') || catOrUrl.startsWith('https://'))) {
-    return catOrUrl;
+// Résout l'image : URL directe ou clef de catégorie
+function img(artImg, i=0) {
+  if (typeof artImg === 'string' && (artImg.startsWith('http') || artImg.startsWith('/')||artImg.startsWith('.'))) {
+    return artImg; // URL directe → on l'utilise telle quelle
   }
-  const arr = IMGS[catOrUrl] || IMGS.default;
+  const arr = IMGS[artImg] || IMGS.default;
   return arr[i % arr.length];
 }
 
 function esc(s){if(!s)return'';return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 
-// ═══════════════════════════════════════════════
-//  FORUM STORAGE (localStorage)
-// ═══════════════════════════════════════════════
+// ── FORUM ──────────────────────────────────────────────────────────
 const FORUM_KEY='ankoautca_forum_v2';
 function loadMsgs(){try{return JSON.parse(localStorage.getItem(FORUM_KEY)||'[]');}catch{return[];}}
 function saveMsgs(m){localStorage.setItem(FORUM_KEY,JSON.stringify(m.slice(-300)));}
-
-let currentTopic='Tutti';
-let currentSearch='';
+let currentTopic='Tutti', currentSearch='';
 
 const SEED_MSGS=[
-  {id:'s1',name:'Redazione Ankoautca',avatar:'RA',badge:'editor',topic:'Politica',text:'Benvenuti nel Forum di Ankoautca! Questo è uno spazio di discussione aperto a tutti i lettori. Commentate le notizie, condividete le vostre opinioni, fate domande. L\'unica regola: rispetto reciproco.',time:Date.now()-3600000*5,reactions:{like:12,cuore:8,bravo:4},replies:[]},
-  {id:'s2',name:'Carlo da Torino',avatar:'CT',badge:'guest',topic:'Economia',text:'Ottima notizia quella sul PNRR. Finalmente l\'Italia sta usando i fondi europei in modo efficace. Speriamo che questa tendenza continui anche nei prossimi trimestri.',time:Date.now()-3600000*3,reactions:{like:7,cuore:2,bravo:1},replies:[{name:'Marco B.',text:'Concordo, ma bisogna vedere la qualità degli investimenti, non solo la quantità di spesa.',time:Date.now()-3600000*2}]},
-  {id:'s3',name:'Maria Grazia',avatar:'MG',badge:'guest',topic:'Sport',text:'Forza Ganna! Un campione assoluto. Sarebbe bellissimo vedere un italiano vincere il Tour de France. Questo ragazzo ha qualcosa di speciale.',time:Date.now()-3600000*1.5,reactions:{like:15,cuore:11,bravo:6},replies:[]},
-  {id:'s4',name:'Moderatore',avatar:'MO',badge:'mod',topic:'Politica',text:'Ricordiamo a tutti i partecipanti che il forum è uno spazio di discussione civile. Commenti offensivi o di natura personale saranno rimossi. Grazie per la collaborazione.',time:Date.now()-3600000*1,reactions:{like:5,cuore:0,bravo:3},replies:[]}
+  {id:'s1',name:'Redazione Ankoautca',avatar:'RA',badge:'editor',topic:'Politica',text:'Benvenuti nel Forum di Ankoautca! Commentate le notizie, condividete le vostre opinioni. L\'unica regola: rispetto reciproco.',time:Date.now()-3600000*5,reactions:{like:12,cuore:8,bravo:4},replies:[]},
+  {id:'s2',name:'Carlo da Torino',avatar:'CT',badge:'guest',topic:'Economia',text:'Ottima notizia quella sul PNRR. Finalmente l\'Italia sta usando i fondi europei in modo efficace.',time:Date.now()-3600000*3,reactions:{like:7,cuore:2,bravo:1},replies:[{name:'Marco B.',text:'Concordo, ma bisogna vedere la qualità degli investimenti, non solo la quantità di spesa.',time:Date.now()-3600000*2}]},
+  {id:'s3',name:'Maria Grazia',avatar:'MG',badge:'guest',topic:'Sport',text:'Forza Ganna! Un campione assoluto. Sarebbe bellissimo vedere un italiano vincere il Tour de France.',time:Date.now()-3600000*1.5,reactions:{like:15,cuore:11,bravo:6},replies:[]},
+  {id:'s4',name:'Moderatore',avatar:'MO',badge:'mod',topic:'Politica',text:'Ricordiamo che il forum è uno spazio di discussione civile. Commenti offensivi saranno rimossi.',time:Date.now()-3600000*1,reactions:{like:5,cuore:0,bravo:3},replies:[]}
 ];
 
 function initForum(){
-  const existing=loadMsgs();
-  if(existing.length===0){saveMsgs(SEED_MSGS);}
+  if(loadMsgs().length===0) saveMsgs(SEED_MSGS);
   renderForum();
 }
 
@@ -566,40 +775,22 @@ function renderForum(){
   let msgs=loadMsgs();
   const q=currentSearch.toLowerCase();
   if(currentTopic!=='Tutti') msgs=msgs.filter(m=>m.topic===currentTopic);
-  if(q) msgs=msgs.filter(m=>m.text.toLowerCase().includes(q)||m.name.toLowerCase().includes(q)||m.topic.toLowerCase().includes(q));
-  
+  if(q) msgs=msgs.filter(m=>m.text.toLowerCase().includes(q)||m.name.toLowerCase().includes(q));
   document.getElementById('forum-count').textContent=loadMsgs().length+' messaggi';
-  
   if(msgs.length===0){
-    document.getElementById('msgs-list').innerHTML='<div class="forum-empty"><i class="ti ti-message-x" style="font-size:36px;display:block;margin-bottom:10px"></i>Nessun messaggio trovato.</div>';
+    document.getElementById('msgs-list').innerHTML='<div class="forum-empty">Nessun messaggio trovato.</div>';
     return;
   }
-  
   document.getElementById('msgs-list').innerHTML=msgs.slice().reverse().map(m=>msgHtml(m)).join('');
 }
 
 function msgHtml(m){
   const ago=timeAgo(m.time);
-  const badgeHtml={
-    editor:'<span class="msg-badge badge-editor">Redazione</span>',
-    mod:'<span class="msg-badge badge-mod">Moderatore</span>',
-    guest:'<span class="msg-badge badge-guest">Lettore</span>'
-  }[m.badge]||'<span class="msg-badge badge-guest">Lettore</span>';
-  
-  const replies=(m.replies||[]).map(r=>`
-    <div class="reply-card">
-      <div style="flex-shrink:0"><div class="msg-avatar" style="width:28px;height:28px;font-size:11px;background:var(--paper);color:var(--ink);border:1px solid var(--border)">${esc(r.name.substring(0,2).toUpperCase())}</div></div>
-      <div><div class="reply-name">${esc(r.name)}</div><div class="reply-text">${esc(r.text)}</div></div>
-    </div>`).join('');
-  
+  const badgeHtml={editor:'<span class="msg-badge badge-editor">Redazione</span>',mod:'<span class="msg-badge badge-mod">Moderatore</span>',guest:'<span class="msg-badge badge-guest">Lettore</span>'}[m.badge]||'<span class="msg-badge badge-guest">Lettore</span>';
+  const replies=(m.replies||[]).map(r=>`<div class="reply-card"><div style="flex-shrink:0"><div class="msg-avatar" style="width:28px;height:28px;font-size:11px;background:var(--paper);color:var(--ink);border:1px solid var(--border)">${esc(r.name.substring(0,2).toUpperCase())}</div></div><div><div class="reply-name">${esc(r.name)}</div><div class="reply-text">${esc(r.text)}</div></div></div>`).join('');
   return`<div class="msg-card" id="msg-${esc(m.id)}">
-    <div class="msg-header">
-      <div class="msg-avatar">${esc(m.avatar||m.name.substring(0,2).toUpperCase())}</div>
-      <div class="msg-info">
-        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><span class="msg-author">${esc(m.name)}</span>${badgeHtml}</div>
-        <div class="msg-time">${ago} · ${esc(m.topic)}</div>
-      </div>
-    </div>
+    <div class="msg-header"><div class="msg-avatar">${esc(m.avatar||m.name.substring(0,2).toUpperCase())}</div>
+    <div class="msg-info"><div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><span class="msg-author">${esc(m.name)}</span>${badgeHtml}</div><div class="msg-time">${ago} · ${esc(m.topic)}</div></div></div>
     <div class="msg-topic">${esc(m.topic)}</div>
     <div class="msg-text">${esc(m.text)}</div>
     <div class="msg-footer">
@@ -619,35 +810,9 @@ function msgHtml(m){
   </div>`;
 }
 
-window.react=function(id,type){
-  const msgs=loadMsgs();
-  const m=msgs.find(x=>x.id===id);
-  if(!m)return;
-  if(!m.reactions)m.reactions={};
-  m.reactions[type]=(m.reactions[type]||0)+1;
-  saveMsgs(msgs);
-  renderForum();
-};
-
-window.toggleReply=function(id){
-  const el=document.getElementById('reply-form-'+id);
-  if(el)el.style.display=el.style.display==='none'?'block':'none';
-};
-
-window.submitReply=function(id){
-  const msgs=loadMsgs();
-  const m=msgs.find(x=>x.id===id);
-  if(!m)return;
-  const nameEl=document.getElementById('rf-name-'+id);
-  const textEl=document.getElementById('rf-text-'+id);
-  const text=(textEl?.value||'').trim();
-  if(!text)return;
-  if(!m.replies)m.replies=[];
-  m.replies.push({name:(nameEl?.value||'Anonimo').substring(0,30),text:text.substring(0,400),time:Date.now()});
-  saveMsgs(msgs);
-  renderForum();
-  notify('✅ Risposta pubblicata!');
-};
+window.react=function(id,type){const msgs=loadMsgs();const m=msgs.find(x=>x.id===id);if(!m)return;if(!m.reactions)m.reactions={};m.reactions[type]=(m.reactions[type]||0)+1;saveMsgs(msgs);renderForum();};
+window.toggleReply=function(id){const el=document.getElementById('reply-form-'+id);if(el)el.style.display=el.style.display==='none'?'block':'none';};
+window.submitReply=function(id){const msgs=loadMsgs();const m=msgs.find(x=>x.id===id);if(!m)return;const textEl=document.getElementById('rf-text-'+id);const nameEl=document.getElementById('rf-name-'+id);const text=(textEl?.value||'').trim();if(!text)return;if(!m.replies)m.replies=[];m.replies.push({name:(nameEl?.value||'Anonimo').substring(0,30),text:text.substring(0,400),time:Date.now()});saveMsgs(msgs);renderForum();notify('✅ Risposta pubblicata!');};
 
 function submitMsg(){
   const name=(document.getElementById('ff-name').value||'').trim();
@@ -655,174 +820,86 @@ function submitMsg(){
   const text=(document.getElementById('ff-msg').value||'').trim();
   if(!text||text.length<5){notify('❌ Scrivi almeno 5 caratteri.');return;}
   const msgs=loadMsgs();
-  const newMsg={
-    id:'m'+Date.now(),
-    name:name||'Anonimo',
-    avatar:(name||'AN').substring(0,2).toUpperCase(),
-    badge:'guest',
-    topic,
-    text:text.substring(0,1000),
-    time:Date.now(),
-    reactions:{like:0,cuore:0,bravo:0},
-    replies:[]
-  };
-  msgs.push(newMsg);
+  msgs.push({id:'m'+Date.now(),name:name||'Anonimo',avatar:(name||'AN').substring(0,2).toUpperCase(),badge:'guest',topic,text:text.substring(0,1000),time:Date.now(),reactions:{like:0,cuore:0,bravo:0},replies:[]});
   saveMsgs(msgs);
   document.getElementById('ff-msg').value='';
   document.getElementById('char-count').textContent='0';
   renderForum();
-  notify('✅ Messaggio pubblicato! È visibile a tutti i lettori.');
-  document.getElementById('msgs-list').scrollIntoView({behavior:'smooth',block:'start'});
+  notify('✅ Messaggio pubblicato!');
 }
 
-function filterTopic(t){
-  currentTopic=t;
-  document.querySelectorAll('.topic-tag').forEach(el=>{
-    el.classList.toggle('sel',el.textContent===t);
-  });
-  renderForum();
-}
-
-function searchForum(){
-  currentSearch=document.getElementById('forum-search').value.trim();
-  renderForum();
-}
-
+function filterTopic(t){currentTopic=t;document.querySelectorAll('.topic-tag').forEach(el=>el.classList.toggle('sel',el.textContent===t));renderForum();}
+function searchForum(){currentSearch=document.getElementById('forum-search').value.trim();renderForum();}
 document.getElementById('forum-search').addEventListener('keydown',e=>{if(e.key==='Enter')searchForum();});
-document.getElementById('ff-msg').addEventListener('input',function(){
-  document.getElementById('char-count').textContent=this.value.length;
-});
+document.getElementById('ff-msg').addEventListener('input',function(){document.getElementById('char-count').textContent=this.value.length;});
+function timeAgo(ts){const d=Date.now()-ts;if(d<60000)return'Adesso';if(d<3600000)return Math.floor(d/60000)+' min fa';if(d<86400000)return Math.floor(d/3600000)+' ore fa';return Math.floor(d/86400000)+' giorni fa';}
 
-function timeAgo(ts){
-  const d=Date.now()-ts;
-  if(d<60000)return'Adesso';
-  if(d<3600000)return Math.floor(d/60000)+' min fa';
-  if(d<86400000)return Math.floor(d/3600000)+' ore fa';
-  return Math.floor(d/86400000)+' giorni fa';
-}
+// ── ADMIN ──────────────────────────────────────────────────────────
+const ADMIN_HASH='$2a$12$ASJhqiO.BxApGhaKGJ6hCe4J1Qbq1Z1hf06gC2C5vTQbeNp0Eb0Ue';
+let isAdmin=false;
 
-// ═══════════════════════════════════════════════
-//  ADMIN AUTHENTICATION (bcrypt)
-// ═══════════════════════════════════════════════
-const ADMIN_HASH = '$2a$12$ASJhqiO.BxApGhaKGJ6hCe4J1Qbq1Z1hf06gC2C5vTQbeNp0Eb0Ue';
-let isAdmin = false;
-
-function showAdminLogin() {
-  const password = prompt('Inserisci la password di amministrazione:');
-  if (!password) return;
-  
-  if (typeof dcodeIO === 'undefined' || !dcodeIO.bcrypt) {
-    alert('Errore: libreria bcrypt non caricata. Ricarica la pagina.');
-    return;
-  }
-  dcodeIO.bcrypt.compare(password, ADMIN_HASH, function(err, res) {
-    if (res) {
-      isAdmin = true;
-      notify('✅ Accesso amministratore riuscito');
-      showAdminPanel();
-    } else {
-      alert('Password errata!');
-      isAdmin = false;
-    }
+function showAdminLogin(){
+  const password=prompt('Inserisci la password di amministrazione:');
+  if(!password)return;
+  if(typeof dcodeIO==='undefined'||!dcodeIO.bcrypt){alert('Errore: libreria bcrypt non caricata.');return;}
+  dcodeIO.bcrypt.compare(password,ADMIN_HASH,function(err,res){
+    if(res){isAdmin=true;notify('✅ Accesso amministratore riuscito');showAdminPanel();}
+    else{alert('Password errata!');}
   });
 }
 
-function showAdminPanel() {
-  const old = document.getElementById('admin-overlay');
-  if (old) old.remove();
-
-  const catMap = {
-    attualita:'Attualità', politica:'Politica', economia:'Economia', mondo:'Mondo',
-    cronaca:'Cronaca', sport:'Sport', tecnologia:'Tecnologia', cultura:'Cultura', ambiente:'Ambiente'
-  };
-
-  const adminHTML = `
+function showAdminPanel(){
+  const old=document.getElementById('admin-overlay');if(old)old.remove();
+  const catMap={attualita:'Attualità',politica:'Politica',economia:'Economia',mondo:'Mondo',cronaca:'Cronaca',sport:'Sport',tecnologia:'Tecnologia',cultura:'Cultura',ambiente:'Ambiente'};
+  document.body.insertAdjacentHTML('beforeend',`
     <div id="admin-overlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:9998;display:flex;align-items:center;justify-content:center;">
       <div style="background:white;max-width:700px;width:90%;max-height:90vh;overflow-y:auto;border-radius:12px;padding:24px;position:relative;">
         <button onclick="closeAdmin()" style="position:absolute;top:12px;right:16px;background:none;border:none;font-size:24px;cursor:pointer;">&times;</button>
-        <h2 style="font-family:var(--display);margin-bottom:16px;">🛠️ Pannello Admin — Pubblica Articolo</h2>
+        <h2 style="font-family:var(--display);margin-bottom:6px;">🛠️ Pubblica Articolo</h2>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:16px;">Per l'immagine: inserisci un URL diretto (https://...) o lascia vuoto per immagine automatica per categoria.</p>
         <div style="display:flex;flex-direction:column;gap:12px;">
-          <label>Titolo</label>
-          <input id="admin-title" class="ff-input" placeholder="Titolo dell'articolo">
+          <label>Titolo</label><input id="admin-title" class="ff-input" placeholder="Titolo dell'articolo">
           <label>Categoria</label>
           <select id="admin-cat" class="ff-select">
             ${Object.entries(catMap).map(([k,v])=>`<option value="${k}">${v}</option>`).join('')}
           </select>
-          <label>Sottotitolo</label>
-          <input id="admin-sub" class="ff-input" placeholder="Sottotitolo">
-          <label>Autore</label>
-          <input id="admin-author" class="ff-input" placeholder="Nome autore">
-          <label>URL immagine (opzionale)</label>
-          <input id="admin-img" class="ff-input" placeholder="https://... (lascia vuoto per immagine predefinita)">
-          <label>Tempo di lettura (min)</label>
-          <input id="admin-read" class="ff-input" type="number" value="5" min="1">
-          <label>Testo dell'articolo (paragrafi separati da doppio invio)</label>
-          <textarea id="admin-body" class="ff-textarea" placeholder="Scrivi qui il testo..."></textarea>
+          <label>Sottotitolo</label><input id="admin-sub" class="ff-input" placeholder="Sottotitolo">
+          <label>Autore</label><input id="admin-author" class="ff-input" placeholder="Nome autore">
+          <label>🖼️ URL immagine (es: https://miosito.com/foto.jpg)</label>
+          <input id="admin-img" class="ff-input" placeholder="https://... oppure lascia vuoto per immagine automatica">
+          <label>Tempo di lettura (minuti)</label><input id="admin-read" class="ff-input" type="number" value="5" min="1">
+          <label>Testo dell'articolo</label>
+          <textarea id="admin-body" class="ff-textarea" placeholder="Scrivi qui il testo dell'articolo…"></textarea>
           <button onclick="submitAdminArticle()" class="ff-submit">Pubblica Articolo</button>
         </div>
       </div>
-    </div>
-  `;
-  document.body.insertAdjacentHTML('beforeend', adminHTML);
+    </div>`);
 }
 
-function closeAdmin() {
-  const overlay = document.getElementById('admin-overlay');
-  if (overlay) overlay.remove();
-  isAdmin = false;
+function closeAdmin(){const o=document.getElementById('admin-overlay');if(o)o.remove();isAdmin=false;}
+function submitAdminArticle(){
+  const title=document.getElementById('admin-title').value.trim();
+  const catKey=document.getElementById('admin-cat').value;
+  const sub=document.getElementById('admin-sub').value.trim();
+  const author=document.getElementById('admin-author').value.trim()||'Redazione';
+  const imgUrl=document.getElementById('admin-img').value.trim();
+  const read=parseInt(document.getElementById('admin-read').value)||5;
+  const body=document.getElementById('admin-body').value.trim();
+  if(!title||!body){alert('Titolo e testo sono obbligatori');return;}
+  const catLabel={attualita:'Attualità',politica:'Politica',economia:'Economia',mondo:'Mondo',cronaca:'Cronaca',sport:'Sport',tecnologia:'Tecnologia',cultura:'Cultura',ambiente:'Ambiente'}[catKey]||catKey;
+  const newArt={id:'custom_'+Date.now(),cat:catLabel,title,sub,author,read,img:imgUrl||catKey,body};
+  let c=[];try{c=JSON.parse(localStorage.getItem('ankoautca_custom_arts')||'[]');}catch(e){}
+  c.push(newArt);
+  localStorage.setItem('ankoautca_custom_arts',JSON.stringify(c));
+  closeAdmin();notify('✅ Articolo pubblicato!');goHome();
 }
 
-function submitAdminArticle() {
-  const title = document.getElementById('admin-title').value.trim();
-  const catKey = document.getElementById('admin-cat').value;
-  const sub = document.getElementById('admin-sub').value.trim();
-  const author = document.getElementById('admin-author').value.trim() || 'Redazione';
-  const imgUrl = document.getElementById('admin-img').value.trim();
-  const read = parseInt(document.getElementById('admin-read').value) || 5;
-  const body = document.getElementById('admin-body').value.trim();
-
-  if (!title || !body) {
-    alert('Titolo e testo sono obbligatori');
-    return;
-  }
-
-  const catLabel = {
-    attualita:'Attualità', politica:'Politica', economia:'Economia', mondo:'Mondo',
-    cronaca:'Cronaca', sport:'Sport', tecnologia:'Tecnologia', cultura:'Cultura', ambiente:'Ambiente'
-  }[catKey] || catKey;
-
-  const finalImg = imgUrl || catKey;
-
-  const newArticle = {
-    id: 'custom_' + Date.now(),
-    cat: catLabel,
-    title,
-    sub,
-    author,
-    read,
-    img: finalImg,
-    body,
-  };
-
-  let customArts = JSON.parse(localStorage.getItem('ankoautca_custom_arts') || '[]');
-  customArts.push(newArticle);
-  localStorage.setItem('ankoautca_custom_arts', JSON.stringify(customArts));
-
-  closeAdmin();
-  notify('✅ Articolo pubblicato con successo!');
-  goHome();
-}
-
-// ═══════════════════════════════════════════════
-//  RENDER ARTICOLI
-// ═══════════════════════════════════════════════
+// ── ARTICLES ───────────────────────────────────────────────────────
 function allArticles(){
-  const base = Object.values(ARTICLES_DB).flat();
-  let custom = [];
-  try {
-    custom = JSON.parse(localStorage.getItem('ankoautca_custom_arts') || '[]');
-  } catch(e) {}
-  return [...custom, ...base];
+  const base=Object.values(ARTICLES_DB).flat();
+  let custom=[];
+  try{custom=JSON.parse(localStorage.getItem('ankoautca_custom_arts')||'[]');}catch(e){}
+  return[...custom,...base];
 }
 
 function heroHtml(arts){
@@ -830,9 +907,10 @@ function heroHtml(arts){
   const sides=rest.slice(0,2);
   return`<div class="hero-grid">
   <div class="hero-main" onclick="openArt('${esc(h.id)}')">
-    <div class="h-bg" style="background-image:url('https://statics.cedscdn.it/photos/MED_HIGH/2026/05/16/9536570_17102310_immagine_con_cerchio_20_.jpg')"></div>
+    <div class="h-bg" style="background-image:url('${img(h.img,0)}')"></div>
+    <div class="h-grad"></div>
     <div class="h-content">
-      <div class="h-cat">Prima Pagina</div>
+      <div class="h-cat">${esc(h.cat)}</div>
       <div class="h-title">${esc(h.title)}</div>
       <div class="h-sub">${esc(h.sub)}</div>
       <div class="h-meta"><i class="ti ti-user" style="font-size:12px"></i>${esc(h.author)}<i class="ti ti-clock" style="font-size:12px"></i>${h.read} min</div>
@@ -841,31 +919,27 @@ function heroHtml(arts){
   ${sides.map((a,i)=>`<div class="hero-side" onclick="openArt('${esc(a.id)}')">
     <div class="h-bg" style="background-image:url('${img(a.img,i+1)}')"></div>
     <div class="h-grad"></div>
-    <div class="h-content">
-      <div class="h-cat">${esc(a.cat)}</div>
-      <div class="h-title">${esc(a.title)}</div>
-    </div>
+    <div class="h-content"><div class="h-cat">${esc(a.cat)}</div><div class="h-title">${esc(a.title)}</div></div>
   </div>`).join('')}
   </div>`;
 }
 
 function cardHtml(a,i){
-  return`<div class="card" onclick="openArt('${esc(a.id)}')" style="animation-delay:${i*.07}s">
+  return`<div class="card" onclick="openArt('${esc(a.id)}')">
   <div class="card-img">
-    <img src="${img(a.img,i)}" alt="${esc(a.title)}" loading="lazy">
+    <img src="${img(a.img,i)}" alt="${esc(a.title)}" loading="lazy" onerror="this.style.display='none'">
     <span class="card-badge">${esc(a.cat)}</span>
   </div>
   <div class="card-body">
     <div class="card-title">${esc(a.title)}</div>
     <div class="card-sub">${esc(a.sub)}</div>
     <div class="card-meta"><span>${esc(a.author)}</span><span><i class="ti ti-clock"></i> ${a.read} min</span></div>
-  </div>
-  </div>`;
+  </div></div>`;
 }
 
 function aliHtml(a,i){
   return`<div class="ali" onclick="openArt('${esc(a.id)}')">
-  <div class="ali-img"><img src="${img(a.img,i)}" alt="${esc(a.title)}" loading="lazy"></div>
+  <div class="ali-img"><img src="${img(a.img,i)}" alt="${esc(a.title)}" loading="lazy" onerror="this.style.display='none'"></div>
   <div><div class="ali-cat">${esc(a.cat)}</div><div class="ali-title">${esc(a.title)}</div><div class="ali-meta">${esc(a.author)} · ${a.read} min</div></div>
   </div>`;
 }
@@ -895,25 +969,21 @@ function trendHtml(arts){
   </div>`).join('');
 }
 
-// ═══════════════════════════════════════════════
-//  PAGES
-// ═══════════════════════════════════════════════
+// ── PAGES ──────────────────────────────────────────────────────────
 function goHome(){
   setNav(0);
-  const all = allArticles();
-  const pol = ARTICLES_DB.politica;
-  const sport = ARTICLES_DB.sport;
-  const ec = ARTICLES_DB.economia;
-  const mondo = ARTICLES_DB.mondo;
-  const trend = all;
-
+  const all=allArticles();
+  const pol=ARTICLES_DB.politica;
+  const sport=ARTICLES_DB.sport;
+  const ec=ARTICLES_DB.economia;
+  const mondo=ARTICLES_DB.mondo;
   document.getElementById('page-root').innerHTML=`
   <div class="wrap">
     ${heroHtml(all.slice(0,3))}
     <div class="layout">
       <main>
         <div class="section-gap">
-          <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Ultime Notizie</div><span class="sec-more" onclick="location.href='Attualita.html'">Tutte →</span></div>
+          <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Ultime Notizie</div><span class="sec-more">Tutte →</span></div>
           <div class="cards-3">${all.slice(3,6).map((a,i)=>cardHtml(a,i)).join('')}</div>
           <div class="art-list">${all.slice(6,10).map((a,i)=>aliHtml(a,i)).join('')}</div>
         </div>
@@ -942,7 +1012,7 @@ function goHome(){
       <aside class="sidebar">
         <div class="widget">
           <div class="wh"><i class="ti ti-trending-up"></i> In evidenza</div>
-          <div class="wbody">${trendHtml(trend)}</div>
+          <div class="wbody">${trendHtml(all)}</div>
         </div>
         <div class="widget">
           <div class="wh"><i class="ti ti-lock"></i> Informazione libera</div>
@@ -962,6 +1032,7 @@ function openArt(id){
   const a=allArticles().find(x=>x.id===id);
   if(!a)return;
   const paras=(a.body||'').split('\n\n').filter(p=>p.trim());
+  const artImg=img(a.img,0);
   document.getElementById('page-root').innerHTML=`
   <div class="wrap">
     <div class="layout" style="padding-top:28px">
@@ -976,7 +1047,7 @@ function openArt(id){
             <span><i class="ti ti-clock"></i> ${a.read} min di lettura</span>
             <span><i class="ti ti-calendar"></i> ${new Date().toLocaleDateString('it-IT',{day:'numeric',month:'long',year:'numeric'})}</span>
           </div>
-          <img class="art-hero-img" src="https://statics.cedscdn.it/photos/MED_HIGH/2026/05/16/9536570_17102310_immagine_con_cerchio_20_.jpg" alt="${esc(a.title)}">
+          <img class="art-hero-img" src="${artImg}" alt="${esc(a.title)}" onerror="this.style.display='none'">
           <div class="art-body">${paras.map(p=>`<p>${esc(p)}</p>`).join('')}</div>
           <div class="art-share">
             <button class="share-btn" onclick="copyLink()"><i class="ti ti-link"></i> Copia link</button>
@@ -1001,53 +1072,28 @@ function setNav(active){
   if(active===0&&links[0])links[0].classList.add('act');
 }
 
-// ═══════════════════════════════════════════════
-//  RICERCA
-// ═══════════════════════════════════════════════
+// ── SEARCH ─────────────────────────────────────────────────────────
 function doSearch(){
   const q=document.getElementById('search-input').value.trim().toLowerCase();
   if(!q)return;
-  const results=allArticles().filter(a=>a.title.toLowerCase().includes(q)||a.sub.toLowerCase().includes(q)||a.body.toLowerCase().includes(q));
+  const results=allArticles().filter(a=>a.title.toLowerCase().includes(q)||a.sub.toLowerCase().includes(q)||(a.body||'').toLowerCase().includes(q));
   document.getElementById('page-root').innerHTML=`
   <div class="wrap" style="padding-top:28px">
     <div class="back-btn" onclick="goHome()" style="display:inline-flex;margin-bottom:16px"><i class="ti ti-arrow-left"></i> Home</div>
     <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Risultati per: «${esc(q)}»</div></div>
-    ${results.length?`<div class="cards-3">${results.map((a,i)=>cardHtml(a,i)).join('')}</div>`:'<div style="padding:50px;text-align:center;font-family:var(--serif);font-style:italic;color:var(--muted);font-size:18px">Nessun articolo trovato per questa ricerca.</div>'}
+    ${results.length?`<div class="cards-3">${results.map((a,i)=>cardHtml(a,i)).join('')}</div>`:'<div style="padding:50px;text-align:center;font-family:var(--serif);font-style:italic;color:var(--muted);font-size:18px">Nessun articolo trovato.</div>'}
   </div>`;
   window.scrollTo({top:0,behavior:'smooth'});
 }
 document.getElementById('search-btn').onclick=doSearch;
 document.getElementById('search-input').addEventListener('keydown',e=>{if(e.key==='Enter')doSearch();});
 
-// ═══════════════════════════════════════════════
-//  UTILS
-// ═══════════════════════════════════════════════
-function notify(msg){
-  const el=document.getElementById('notify');
-  el.textContent=msg;
-  el.classList.add('show');
-  setTimeout(()=>el.classList.remove('show'),3000);
-}
+// ── UTILS ──────────────────────────────────────────────────────────
+function notify(msg){const el=document.getElementById('notify');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),3000);}
+function copyLink(){navigator.clipboard.writeText(window.location.href).catch(()=>{});notify('🔗 Link copiato!');}
+function scrollToForum(){document.getElementById('forum-section').scrollIntoView({behavior:'smooth'});}
+window.addEventListener('scroll',()=>{document.getElementById('scrollTop').classList.toggle('show',window.scrollY>400);});
 
-function copyLink(){
-  navigator.clipboard.writeText(window.location.href).catch(()=>{});
-  notify('🔗 Link copiato negli appunti!');
-}
-
-function scrollToForum(){
-  document.getElementById('forum-section').scrollIntoView({behavior:'smooth'});
-}
-
-// ═══════════════════════════════════════════════
-//  SCROLL
-// ═══════════════════════════════════════════════
-window.addEventListener('scroll',()=>{
-  document.getElementById('scrollTop').classList.toggle('show',window.scrollY>400);
-});
-
-// ═══════════════════════════════════════════════
-//  ONLINE COUNTER
-// ═══════════════════════════════════════════════
 function updateOnline(){
   const n=Math.floor(Math.random()*18+3);
   const el=document.getElementById('online-n');
@@ -1057,15 +1103,8 @@ function updateOnline(){
 }
 updateOnline();
 setInterval(updateOnline,15000);
-
-// ═══════════════════════════════════════════════
-//  DATE
-// ═══════════════════════════════════════════════
 document.getElementById('ts-date').textContent=new Date().toLocaleDateString('it-IT',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
 
-// ═══════════════════════════════════════════════
-//  INIT
-// ═══════════════════════════════════════════════
 goHome();
 initForum();
 </script>
