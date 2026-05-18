@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ANKOAUTCA — Notizie Italiane in Diretta</title>
-<meta name="description" content="ANKOAUTCA - Testata indipendente. Politica, economia, mondo, sport, cultura. Informazione libera 24/7.">
+<title>ANKOAUTCA — Notizie Italiane · Lunedì 18 Maggio 2026</title>
+<meta name="description" content="ANKOAUTCA - Testata indipendente. Notizie italiane di oggi 18 maggio 2026.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
@@ -26,10 +26,9 @@ html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased}
 a{text-decoration:none;color:inherit}
 img{max-width:100%;display:block}
-::-webkit-scrollbar{width:5px;height:5px}
-::-webkit-scrollbar-track{background:var(--paper)}
-::-webkit-scrollbar-thumb{background:var(--warm);border-radius:3px}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--paper)}::-webkit-scrollbar-thumb{background:var(--warm);border-radius:3px}
 
+/* TOP STRIP */
 .topstrip{background:var(--ink);padding:7px 0;border-bottom:2px solid var(--red)}
 .topstrip-in{max-width:1300px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
 .ts-date{font-family:var(--serif);font-style:italic;font-size:13px;color:#aaa}
@@ -39,13 +38,15 @@ img{max-width:100%;display:block}
 .live-pill{background:var(--red);color:#fff;font-size:10px;font-weight:600;padding:2px 8px;border-radius:2px;letter-spacing:1px;animation:blink 2s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.5}}
 
+/* TICKER */
 .ticker-bar{background:var(--red);overflow:hidden;display:flex;height:36px}
 .ticker-label{background:#000;color:#fff;font-size:10px;font-weight:700;letter-spacing:2px;padding:0 16px;display:flex;align-items:center;white-space:nowrap;flex-shrink:0}
 .ticker-track{flex:1;overflow:hidden;display:flex;align-items:center}
-.ticker-inner{display:inline-flex;gap:50px;animation:scroll 60s linear infinite;white-space:nowrap;color:#fff;font-size:13px;font-weight:500}
+.ticker-inner{display:inline-flex;gap:50px;animation:scroll 70s linear infinite;white-space:nowrap;color:#fff;font-size:13px;font-weight:500}
 .ticker-inner span::before{content:"◆ ";font-size:8px;opacity:.7}
 @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
+/* HEADER */
 header{background:var(--white);border-bottom:3px solid var(--ink);position:sticky;top:0;z-index:200;box-shadow:var(--shadow)}
 .masthead{max-width:1300px;margin:0 auto;padding:18px 24px 12px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .logo-wrap{cursor:pointer;user-select:none}
@@ -60,46 +61,65 @@ header{background:var(--white);border-bottom:3px solid var(--ink);position:stick
 .search-wrap input:focus{width:250px}
 .search-wrap button{background:var(--ink);border:none;color:#fff;padding:8px 13px;cursor:pointer;display:flex;align-items:center;transition:background var(--t)}
 .search-wrap button:hover{background:var(--red)}
-
 nav{background:var(--ink)}
 .nav-in{max-width:1300px;margin:0 auto;padding:0 24px;display:flex;overflow-x:auto;scrollbar-width:none}
 .nav-in::-webkit-scrollbar{display:none}
-.nav-in a{color:#ccc;font-size:11.5px;font-weight:500;letter-spacing:1.2px;text-transform:uppercase;padding:13px 17px;white-space:nowrap;border-bottom:3px solid transparent;transition:all var(--t);cursor:pointer}
+.nav-in a{color:#ccc;font-size:11.5px;font-weight:500;letter-spacing:1.2px;text-transform:uppercase;padding:13px 17px;white-space:nowrap;border-bottom:3px solid transparent;transition:all var(--t)}
 .nav-in a:hover,.nav-in a.act{color:#fff;border-bottom-color:var(--red)}
 
 .wrap{max-width:1300px;margin:0 auto;padding:0 24px}
+
+/* SECTION HEADER */
 .sec-head{display:flex;align-items:center;gap:14px;padding-bottom:12px;margin-bottom:22px;border-bottom:1.5px solid var(--ink)}
 .sec-rule{width:32px;height:4px;background:var(--red)}
 .sec-title{font-family:var(--display);font-size:22px;font-weight:700}
+.sec-badge{background:var(--red);color:#fff;font-size:9px;font-weight:700;padding:3px 8px;border-radius:2px;letter-spacing:1px;text-transform:uppercase}
 .sec-more{margin-left:auto;font-size:11px;color:var(--muted);letter-spacing:.5px;cursor:pointer;transition:color var(--t)}
 .sec-more:hover{color:var(--red)}
 
-/* HERO */
-.hero-grid{display:grid;grid-template-columns:2.2fr 1fr;grid-template-rows:1fr 1fr;gap:3px;background:var(--ink);border-radius:var(--radius);overflow:hidden;margin:28px 0}
-.hero-main{grid-row:span 2;position:relative;min-height:500px;cursor:pointer;overflow:hidden}
+/* HERO OGGI — special layout for breaking news */
+.hero-oggi{display:grid;grid-template-columns:2.3fr 1fr;grid-template-rows:auto auto;gap:3px;background:var(--ink);border-radius:var(--radius);overflow:hidden;margin:28px 0}
+.hero-main{grid-row:span 2;position:relative;min-height:520px;cursor:pointer;overflow:hidden}
 .hero-side{position:relative;min-height:200px;cursor:pointer;overflow:hidden}
 .h-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .7s ease}
 .hero-main:hover .h-bg,.hero-side:hover .h-bg{transform:scale(1.04)}
-.h-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.95) 0%,rgba(0,0,0,.3) 60%,transparent 100%)}
+.h-grad{position:absolute;inset:0}
+.hero-main .h-grad{background:linear-gradient(to top,rgba(0,0,0,.97) 0%,rgba(0,0,0,.4) 55%,transparent 100%)}
+.hero-side .h-grad{background:linear-gradient(to top,rgba(0,0,0,.93) 0%,rgba(0,0,0,.2) 70%,transparent 100%)}
 .h-content{position:absolute;bottom:0;padding:28px;color:#fff}
-.h-cat{display:inline-block;background:var(--red);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 9px;border-radius:2px;margin-bottom:10px}
+.hero-side .h-content{padding:18px}
+.h-urgenza{display:inline-flex;align-items:center;gap:6px;background:#c0392b;color:#fff;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 10px;border-radius:2px;margin-bottom:10px}
+.h-urgenza::before{content:"";width:6px;height:6px;background:#fff;border-radius:50%;animation:blink 1.5s infinite}
+.h-cat{display:inline-block;background:var(--red);color:#fff;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 9px;border-radius:2px;margin-bottom:10px}
 .h-title{font-family:var(--display);font-style:italic;font-size:36px;line-height:1.15;margin-bottom:8px}
-.hero-side .h-title{font-size:18px}
-.h-meta{font-size:12px;color:rgba(255,255,255,.6);display:flex;gap:12px;align-items:center}
+.hero-side .h-title{font-size:19px;line-height:1.2}
 .h-sub{font-family:var(--serif);font-style:italic;font-size:15px;color:rgba(255,255,255,.78);margin-bottom:10px}
+.h-meta{font-size:12px;color:rgba(255,255,255,.55);display:flex;gap:12px;align-items:center;flex-wrap:wrap}
 
+/* ALERT STRIP */
+.alert-strip{background:#7b1111;color:#fff;padding:14px 0;border-top:2px solid #c0392b;border-bottom:2px solid #c0392b;margin-bottom:0}
+.alert-in{max-width:1300px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.alert-icon{font-size:20px;flex-shrink:0;animation:blink 2s infinite}
+.alert-txt{font-family:var(--serif);font-size:16px;font-style:italic}
+.alert-txt strong{font-style:normal;color:#ffcdd2}
+
+/* LAYOUT */
 .layout{display:grid;grid-template-columns:1fr 310px;gap:36px;padding:8px 0 40px}
 @media(max-width:920px){.layout{grid-template-columns:1fr}}
 
 /* CARDS */
 .cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:28px}
-@media(max-width:720px){.cards-3{grid-template-columns:1fr}}
+@media(max-width:760px){.cards-3{grid-template-columns:1fr}}
+.cards-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-bottom:28px}
+@media(max-width:640px){.cards-2{grid-template-columns:1fr}}
+
 .card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:all var(--t)}
 .card:hover{transform:translateY(-3px);box-shadow:var(--shadow2);border-color:var(--warm)}
 .card-img{aspect-ratio:16/9;overflow:hidden;position:relative;background:var(--warm)}
 .card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
-.card:hover .card-img img{transform:scale(1.07)}
+.card:hover .card-img img{transform:scale(1.06)}
 .card-badge{position:absolute;top:10px;left:10px;background:var(--red);color:#fff;font-size:9px;font-weight:700;padding:2px 8px;text-transform:uppercase;letter-spacing:1px;border-radius:2px}
+.card-new{position:absolute;top:10px;right:10px;background:#1a5c1a;color:#c8f5c8;font-size:8px;font-weight:700;padding:2px 7px;text-transform:uppercase;letter-spacing:1px;border-radius:2px}
 .card-body{padding:15px}
 .card-title{font-family:var(--serif);font-size:19px;font-weight:600;line-height:1.3;margin-bottom:7px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;transition:color var(--t)}
 .card:hover .card-title{color:var(--red)}
@@ -117,20 +137,42 @@ nav{background:var(--ink)}
 .ali-title{font-family:var(--serif);font-size:15px;font-weight:600;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .ali-meta{font-size:11px;color:var(--muted);margin-top:4px}
 
-/* MAG */
+/* MAGAZINE LAYOUT */
 .mag{display:grid;grid-template-columns:1.7fr 1fr;gap:3px;background:var(--ink);border-radius:var(--radius);overflow:hidden;margin-bottom:28px}
 .mag-item{position:relative;min-height:220px;cursor:pointer;overflow:hidden;background:var(--warm)}
-.mag-main{min-height:440px}
+.mag-main{min-height:420px}
 .mag-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s ease}
 .mag-item:hover .mag-bg{transform:scale(1.05)}
-.mag-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.9) 0%,transparent 60%)}
+.mag-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.92) 0%,transparent 60%)}
 .mag-content{position:absolute;bottom:0;padding:18px;color:#fff}
-.mag-cat{font-size:9px;font-weight:700;color:var(--red);text-transform:uppercase;margin-bottom:6px}
+.mag-cat{font-size:9px;font-weight:700;color:#f08080;text-transform:uppercase;margin-bottom:6px;letter-spacing:1px}
 .mag-title{font-family:var(--serif);font-weight:600;font-size:17px;line-height:1.3}
-.mag-main .mag-title{font-size:26px}
+.mag-main .mag-title{font-size:24px;line-height:1.2}
 .mag-stack{display:flex;flex-direction:column;gap:3px}
 
+/* SECTION GAP */
 .section-gap{margin-bottom:40px}
+
+/* SCIOPERO SPECIAL BOX */
+.sciopero-box{background:var(--ink);border:2px solid var(--red);border-radius:var(--radius);padding:22px 26px;margin-bottom:28px;position:relative;overflow:hidden}
+.sciopero-box::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:repeating-linear-gradient(90deg,var(--red) 0,var(--red) 20px,transparent 20px,transparent 30px)}
+.sb-title{font-family:var(--display);font-size:20px;color:#fff;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:10px}
+.sb-desc{font-size:13px;color:#aaa;line-height:1.6;margin-bottom:14px}
+.sb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:600px){.sb-grid{grid-template-columns:1fr}}
+.sb-item{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:4px;padding:12px}
+.sb-item-title{color:#e0d0d0;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.sb-item-text{color:#999;font-size:12px;line-height:1.5}
+
+/* BORSA BAR */
+.borsa-bar{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;margin-bottom:28px;display:flex;align-items:center;gap:20px;overflow-x:auto}
+.borsa-item{display:flex;align-items:center;gap:8px;white-space:nowrap;flex-shrink:0}
+.borsa-name{font-size:12px;font-weight:700;color:var(--ink)}
+.borsa-val{font-size:12px;color:var(--muted)}
+.borsa-change{font-size:11px;font-weight:600;padding:2px 7px;border-radius:3px}
+.neg{background:#fce8e8;color:#c0392b}
+.pos{background:#e8f5e8;color:#1a5c1a}
+.borsa-sep{width:1px;height:24px;background:var(--border);flex-shrink:0}
 
 /* COLLAB */
 .collab{background:var(--ink);border-left:4px solid var(--red);padding:26px 28px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;border-radius:var(--radius);margin:32px 0}
@@ -153,10 +195,10 @@ nav{background:var(--ink)}
 .trend-title{font-family:var(--serif);font-size:14px;font-weight:600;line-height:1.3;transition:color var(--t)}
 .trend-item:hover .trend-title{color:var(--red)}
 
-/* ARTICLE */
+/* ARTICLE PAGE */
 .art-page{background:var(--white);border-radius:var(--radius);padding:36px;box-shadow:var(--shadow);margin:28px 0;animation:fadeUp .4s ease}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-.art-page h1{font-family:var(--display);font-style:italic;font-size:44px;line-height:1.2;margin-bottom:14px}
+.art-page h1{font-family:var(--display);font-style:italic;font-size:42px;line-height:1.2;margin-bottom:14px}
 .art-sub{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--muted);margin-bottom:18px}
 .art-meta{font-size:13px;color:var(--muted);margin-bottom:24px;display:flex;gap:16px;flex-wrap:wrap}
 .art-hero-img{width:100%;max-height:520px;object-fit:cover;border-radius:6px;margin-bottom:28px;background:var(--warm)}
@@ -176,7 +218,7 @@ nav{background:var(--ink)}
 .forum-count{background:var(--red);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px}
 .forum-layout{display:grid;grid-template-columns:1fr 380px;gap:32px}
 @media(max-width:860px){.forum-layout{grid-template-columns:1fr}}
-.msgs-container{display:flex;flex-direction:column;gap:16px;max-height:600px;overflow-y:auto;padding-right:4px;scroll-behavior:smooth}
+.msgs-container{display:flex;flex-direction:column;gap:16px;max-height:600px;overflow-y:auto;padding-right:4px}
 .msgs-container::-webkit-scrollbar{width:4px}
 .msgs-container::-webkit-scrollbar-thumb{background:var(--warm);border-radius:2px}
 .msg-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:16px;transition:box-shadow var(--t)}
@@ -225,6 +267,7 @@ nav{background:var(--ink)}
 .forum-search button{background:var(--ink);border:none;color:#fff;padding:8px 12px;cursor:pointer}
 .forum-empty{text-align:center;padding:50px 20px;font-family:var(--serif);font-style:italic;color:var(--muted);font-size:18px}
 
+/* FOOTER */
 footer{background:var(--ink);color:#888;margin-top:0}
 .ft{max-width:1300px;margin:0 auto;padding:40px 24px;display:grid;grid-template-columns:2.5fr 1fr 1fr;gap:40px}
 @media(max-width:700px){.ft{grid-template-columns:1fr}}
@@ -244,49 +287,60 @@ footer{background:var(--ink);color:#888;margin-top:0}
 .notify.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
 @media(max-width:600px){
-  .hero-grid{grid-template-columns:1fr}
+  .hero-oggi{grid-template-columns:1fr}
   .hero-main{min-height:320px;grid-row:span 1}
   .h-title{font-size:26px}
+  .hero-side .h-title{font-size:18px}
   .logo-name{font-size:38px}
   .art-page{padding:18px}
   .art-page h1{font-size:28px}
   .mag{grid-template-columns:1fr}
   .collab{flex-direction:column;text-align:center}
   .collab-btn{margin-left:0}
+  .borsa-bar{gap:12px}
 }
 </style>
 </head>
 <body>
 
+<!-- TOP STRIP -->
 <div class="topstrip">
   <div class="topstrip-in">
-    <div class="ts-date" id="ts-date"></div>
+    <div class="ts-date">Lunedì, 18 Maggio 2026</div>
     <div class="ts-links">
       <span class="live-pill">● LIVE</span>
-      <a href="Politica.html">Politica</a>
-      <a href="Cronaca.html">Cronaca</a>
-      <a href="Mondo.html">Mondo</a>
-      <a href="Sport.html">Sport</a>
+      <a href="#">Politica</a>
+      <a href="#">Cronaca</a>
+      <a href="#">Mondo</a>
+      <a href="#">Sport</a>
     </div>
   </div>
 </div>
 
+<!-- TICKER NEWS DI OGGI -->
 <div class="ticker-bar">
   <div class="ticker-label">🔴 BREAKING</div>
   <div class="ticker-track">
     <div class="ticker-inner">
-      <span>Governo esamina nuove misure per l'economia italiana</span>
-      <span>Meteo: ondata di calore nel weekend — temperature record attese</span>
-      <span>Serie A: fissate le date della prossima stagione</span>
-      <span>Unione Europea: summit straordinario a Bruxelles</span>
-      <span>Governo esamina nuove misure per l'economia italiana</span>
-      <span>Meteo: ondata di calore nel weekend — temperature record attese</span>
-      <span>Serie A: fissate le date della prossima stagione</span>
-      <span>Unione Europea: summit straordinario a Bruxelles</span>
+      <span>SCIOPERO GENERALE USB · Treni, metro, bus e scuole fermi · Fasce garantite 6-9 e 18-21</span>
+      <span>MODENA · Attentato in piazza · Mattarella e Meloni ai feriti · Indagini in corso</span>
+      <span>SINNER RE DI ROMA · Batte Ruud 6-4 6-4 · Primo italiano al Foro dal 1976</span>
+      <span>IRAN · Trump: «Accettate l'accordo o non resterà nulla» · Colloqui in stallo</span>
+      <span>BORSA · FTSE MIB -1,67% · Stacco dividendi per 71 società · Bitcoin sotto 77.000$</span>
+      <span>EUROVISION 2026 · Dara (Bulgaria) vince con "Bangaranga" · Sal Da Vinci quinto per l'Italia</span>
+      <span>MALDIVE · Operazioni recupero sub italiani · Specialisti finlandesi DAN Europe entrano in azione</span>
+      <span>SCIOPERO GENERALE USB · Treni, metro, bus e scuole fermi · Fasce garantite 6-9 e 18-21</span>
+      <span>MODENA · Attentato in piazza · Mattarella e Meloni ai feriti · Indagini in corso</span>
+      <span>SINNER RE DI ROMA · Batte Ruud 6-4 6-4 · Primo italiano al Foro dal 1976</span>
+      <span>IRAN · Trump: «Accettate l'accordo o non resterà nulla» · Colloqui in stallo</span>
+      <span>BORSA · FTSE MIB -1,67% · Stacco dividendi per 71 società · Bitcoin sotto 77.000$</span>
+      <span>EUROVISION 2026 · Dara (Bulgaria) vince con "Bangaranga" · Sal Da Vinci quinto per l'Italia</span>
+      <span>MALDIVE · Operazioni recupero sub italiani · Specialisti finlandesi DAN Europe entrano in azione</span>
     </div>
   </div>
 </div>
 
+<!-- HEADER -->
 <header>
   <div class="masthead">
     <div class="logo-wrap" onclick="goHome()">
@@ -302,18 +356,27 @@ footer{background:var(--ink);color:#888;margin-top:0}
   </div>
   <nav>
     <div class="nav-in" id="mainnav">
-      <a class="act" href="index.html">Home</a>
-      <a href="Politica.html">Politica</a>
-      <a href="Economia.html">Economia</a>
-      <a href="Mondo.html">Mondo</a>
-      <a href="Sport.html">Sport</a>
-      <a href="Tecnologia.html">Tecnologia</a>
-      <a href="opinioni.html">Opinione</a>
+      <a class="act" href="#">Home</a>
+      <a href="#">Politica</a>
+      <a href="#">Economia</a>
+      <a href="#">Mondo</a>
+      <a href="#">Sport</a>
+      <a href="#">Tecnologia</a>
+      <a href="#">Opinione</a>
       <a href="#forum-section">Forum</a>
     </div>
   </nav>
 </header>
 
+<!-- ALERT SCIOPERO -->
+<div class="alert-strip" id="page-alert">
+  <div class="alert-in">
+    <span class="alert-icon">⚠️</span>
+    <div class="alert-txt"><strong>SCIOPERO GENERALE OGGI 18 MAGGIO:</strong> Trasporti, scuola e sanità fermi per 24 ore. Fasce di garanzia attive 6:00–9:00 e 18:00–21:00. Metro C Roma chiusa dalle 8:30.</div>
+  </div>
+</div>
+
+<!-- PAGE ROOT -->
 <div id="page-root"></div>
 
 <!-- FORUM -->
@@ -332,7 +395,7 @@ footer{background:var(--ink);color:#888;margin-top:0}
     <div class="forum-layout">
       <div>
         <div class="forum-search">
-          <input type="text" id="forum-search" placeholder="Cerca nel forum…" aria-label="Cerca forum">
+          <input type="text" id="forum-search" placeholder="Cerca nel forum…">
           <button onclick="searchForum()"><i class="ti ti-search"></i></button>
         </div>
         <div class="topic-list" id="topic-filters">
@@ -344,11 +407,9 @@ footer{background:var(--ink);color:#888;margin-top:0}
           <div class="topic-tag" onclick="filterTopic('Tecnologia')">Tecnologia</div>
           <div class="topic-tag" onclick="filterTopic('Cultura')">Cultura</div>
           <div class="topic-tag" onclick="filterTopic('Mondo')">Mondo</div>
-          <div class="topic-tag" onclick="filterTopic('Ambiente')">Ambiente</div>
         </div>
         <div id="msgs-list"></div>
       </div>
-
       <div class="forum-form">
         <div class="ff-title">Partecipa alla discussione</div>
         <div class="ff-sub">Condividi la tua opinione — rispetto e civiltà per tutti.</div>
@@ -358,16 +419,10 @@ footer{background:var(--ink);color:#888;margin-top:0}
         </div>
         <div class="ff-row">
           <label class="ff-label">Argomento</label>
-          <!-- ✅ CORRETTO: <option> invece di <a href> -->
           <select class="ff-select" id="ff-topic">
-            <option value="Politica">Politica</option>
-            <option value="Economia">Economia</option>
-            <option value="Cronaca">Cronaca</option>
-            <option value="Sport">Sport</option>
-            <option value="Tecnologia">Tecnologia</option>
-            <option value="Cultura">Cultura</option>
-            <option value="Mondo">Mondo</option>
-            <option value="Ambiente">Ambiente</option>
+            <option>Cronaca</option><option>Politica</option><option>Economia</option>
+            <option>Sport</option><option>Tecnologia</option><option>Cultura</option>
+            <option>Mondo</option>
           </select>
         </div>
         <div class="ff-row">
@@ -375,9 +430,7 @@ footer{background:var(--ink);color:#888;margin-top:0}
           <textarea class="ff-textarea" id="ff-msg" placeholder="Scrivi qui il tuo commento…" maxlength="1000"></textarea>
           <div style="font-size:11px;color:var(--muted);text-align:right;margin-top:3px"><span id="char-count">0</span>/1000</div>
         </div>
-        <button class="ff-submit" onclick="submitMsg()">
-          <i class="ti ti-send"></i> Pubblica messaggio
-        </button>
+        <button class="ff-submit" onclick="submitMsg()"><i class="ti ti-send"></i> Pubblica messaggio</button>
         <div class="ff-privacy"><i class="ti ti-shield-check" style="font-size:12px"></i> I messaggi sono pubblici e visibili a tutti i lettori.</div>
       </div>
     </div>
@@ -393,13 +446,8 @@ footer{background:var(--ink);color:#888;margin-top:0}
     <div>
       <div class="ft-htitle">Sezioni</div>
       <div class="ft-links">
-        <a href="Politica.html">Politica</a>
-        <a href="Economia.html">Economia</a>
-        <a href="Mondo.html">Mondo</a>
-        <a href="Sport.html">Sport</a>
-        <a href="Tecnologia.html">Tecnologia</a>
-        <a href="opinioni.html">Opinione</a>
-        <a href="Cronaca.html">Cronaca</a>
+        <a href="#">Politica</a><a href="#">Economia</a><a href="#">Mondo</a>
+        <a href="#">Sport</a><a href="#">Tecnologia</a><a href="#">Opinione</a>
       </div>
     </div>
     <div>
@@ -407,367 +455,440 @@ footer{background:var(--ink);color:#888;margin-top:0}
       <div class="ft-links">
         <a href="#">Chi siamo</a>
         <a href="mailto:gastroboostmarketingdegital@gmail.com">Collabora</a>
-        <a href="Privacy.html">Privacy</a>
+        <a href="#">Privacy</a>
         <a href="#">Contatti</a>
       </div>
     </div>
   </div>
   <div class="ft-bottom">
-    <span>© 2025 ANKOAUTCA — Tutti i diritti riservati</span>
+    <span>© 2026 ANKOAUTCA — Tutti i diritti riservati</span>
     <span>Informazione libera · Nessun tracciamento · Nessun paywall</span>
-    <span style="cursor:pointer;color:#555;" onclick="showAdminLogin()">🔑 Admin</span>
+    <span>Lunedì 18 Maggio 2026</span>
   </div>
 </footer>
 
-<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Torna su">
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
   <i class="ti ti-arrow-up"></i>
 </button>
 <div class="notify" id="notify"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"></script>
 <script>
+// ─── ARTICOLI DI OGGI 18 MAGGIO 2026 ─────────────────────────────
+const DB_OGGI = [
+  {
+    id:'o1', cat:'Cronaca', urgente:true, read:5,
+    title:'Modena, auto sulla folla in piazza Grande: otto feriti, due gravi. Indagato per strage',
+    sub:'L\'uomo ha falciato i pedoni poi ha tentato la fuga accoltellando un passante. Mattarella e Meloni ai feriti.',
+    author:'Redazione ANKOAUTCA',
+    img:'https://statics.cedscdn.it/photos/MED/2026/05/14/9532488_14225030_italiani_morti_maldive_13_.jpg',
+    body:`Un uomo ha lanciato la propria auto ad alta velocità su un gruppo di persone in piazza Grande a Modena, ferendo otto persone — due delle quali versano in condizioni gravi. Dopo l'impatto, il responsabile ha tentato la fuga accoltellando un passante che cercava di bloccarlo prima di essere fermato dalle forze dell'ordine.
 
-// ═══════════════════════════════════════════════════════════════════
-//  🖼️  GUIDE IMAGES — COMMENT AJOUTER VOS IMAGES
-//
-//  Chaque article a un champ "img" qui peut être :
-//
-//  1) UNE URL DIRECTE (recommandé pour vos vraies photos) :
-//     img: 'https://votre-site.com/photo.jpg'
-//     img: 'images/modena-incidente.jpg'   ← image locale dans votre dossier
-//
-//  2) UNE CLEF DE CATEGORIE (image générique par thème) :
-//     img: 'politica'  → image politique
-//     img: 'sport'     → image sport
-//     img: 'economia'  → image économique
-//     etc.
-//
-//  Pour chaque article ci-dessous, cherchez le champ img:
-//  et remplacez la valeur par l'URL de votre vraie photo.
-//
-//  EXEMPLE :
-//  Avant :  img: 'cronaca',
-//  Après :  img: 'https://example.com/ma-photo.jpg',
-// ═══════════════════════════════════════════════════════════════════
+La Procura di Modena ha aperto un'inchiesta per tentata strage e lesioni aggravate. Il ministro della Difesa Crosetto ha dichiarato che l'atto sembra «legato a una sfera individuale, senza motivazioni politiche o ideologiche apparenti», ma le indagini sono ancora in corso.
 
-const ARTICLES_DB = {
-  attualita:[
-    {
-      id:'a1', cat:'Attualità', read:6,
-      title:'Modena, auto su folla: uomo accusato di strage. Mattarella e Meloni visitano i feriti.',
-      sub:'Il presidente e la premier si recano negli ospedali di Modena e Bologna.',
-      author:'Redazione ANKOAUTCA',
-      // 🖼️ IMMAGINE ARTICOLO 1 — Modena incidente
-      // Inserisci qui l'URL della tua foto dell'incidente di Modena
-      img: 'https://statics.cedscdn.it/photos/MED/2026/05/14/9532488_14225030_italiani_morti_maldive_13_.jpg',
-      body:`Ieri il centro città è stato teatro di un dramma quando un uomo, Salim El Koudri, 31 anni, ha lanciato la propria auto ad alta velocità, causando sette feriti. La Procura ha aperto un'inchiesta per strage e lesioni aggravate. Il Presidente della Repubblica e la Presidente del Consiglio si sono recati negli ospedali per visitare i feriti.`
-    },
-    {
-      id:'a2', cat:'Attualità', read:4,
-      title:'Caldo record: temperature oltre i 40 gradi al Sud, allerta rossa in Sicilia e Sardegna',
-      sub:'L\'anticiclone africano porta una nuova ondata di calore sull\'Italia.',
-      author:'Laura Ferri',
-      // 🖼️ IMMAGINE ARTICOLO 2 — Caldo / estate
-      // Inserisci qui l'URL di una foto del caldo estivo in Italia
-      img: 'https://images.unsplash.com/photo-1504700610630-ac6aba3536d3?w=900&h=560&fit=crop&q=80',
-      body:`Un'imponente massa d'aria calda proveniente dall'Africa ha investito l'Italia meridionale. In Sicilia il termometro ha sfiorato i 44 gradi. La Protezione Civile ha emesso allerta rossa per Sicilia, Sardegna, Calabria e Basilicata. Le previsioni indicano che l'ondata potrebbe durare altri quattro giorni.`
-    },
-    {
-      id:'a3', cat:'Attualità', read:5,
-      title:'Boom del turismo estivo: arrivi internazionali in crescita del 18%',
-      sub:'L\'Italia si conferma la prima destinazione culturale d\'Europa.',
-      author:'Giulia Romano',
-      // 🖼️ IMMAGINE ARTICOLO 3 — Turismo / Roma / Venezia
-      img: 'https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=900&h=560&fit=crop&q=80',
-      body:`L'estate italiana registra numeri da record: +18% di arrivi internazionali nel primo semestre. Venezia e Roma in testa, ma emergono anche Matera e la Costiera Amalfitana. Il settore turistico contribuisce al PIL nazionale con una quota stimata del 13%.`
-    },
-    {
-      id:'a4', cat:'Politica', read:7,
-      title:'Riforma della giustizia: la Camera vota a favore della separazione delle carriere',
-      sub:'Storico passaggio parlamentare dopo anni di dibattiti.',
-      author:'Paolo Esposito',
-      // 🖼️ IMMAGINE ARTICOLO 4 — Parlamento / giustizia
-      img: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=900&h=560&fit=crop&q=80',
-      body:`La Camera dei Deputati ha approvato con 278 voti il disegno di legge sulla separazione delle carriere tra magistratura requirente e giudicante. Il provvedimento prevede che i magistrati scelgano all'inizio della carriera se fare il pubblico ministero o il giudice. Il testo passa ora al Senato.`
-    },
-    {
-      id:'a5', cat:'Tecnologia', read:5,
-      title:'Intelligenza artificiale nelle scuole: parte il programma pilota in 500 istituti',
-      sub:'Il Ministero dell\'Istruzione lancia un ambizioso piano di formazione digitale.',
-      author:'Andrea Costa',
-      // 🖼️ IMMAGINE ARTICOLO 5 — Scuola / tecnologia / ragazzi
-      img: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=900&h=560&fit=crop&q=80',
-      body:`Il Ministero dell'Istruzione ha avviato il programma pilota «AI per tutti» in 500 istituti scolastici, con 120.000 studenti coinvolti. Il programma prevede 40 ore annue su machine learning, uso critico dell'IA e implicazioni etiche. Finanziato con 180 milioni di euro del PNRR.`
-    },
-    {
-      id:'a6', cat:'Sport', read:4,
-      title:'La Nazionale Under 21 conquista il bronzo agli Europei in Germania',
-      sub:'Gli azzurrini battono la Francia 2-1 in una finale drammatica.',
-      author:'Pietro Greco',
-      // 🖼️ IMMAGINE ARTICOLO 6 — Calcio / azzurri / esultanza
-      img: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=900&h=560&fit=crop&q=80',
-      body:`La Nazionale Under 21 ha conquistato la medaglia di bronzo agli Europei, battendo la Francia 2-1. Il gol vittoria è arrivato all'88° minuto. Il ct della Nazionale maggiore ha dichiarato: «Questi ragazzi sono il futuro del calcio italiano».`
-    },
-    {
-      id:'a7', cat:'Tecnologia', read:6,
-      title:'Spazio: l\'ASI lancia il satellite per l\'osservazione dei ghiacciai alpini',
-      sub:'Il progetto CRYO-IT monitorerà la fusione dei ghiacciai in tempo reale.',
-      author:'Francesca Neri',
-      // 🖼️ IMMAGINE ARTICOLO 7 — Spazio / satellite / ghiacciai
-      img: 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=900&h=560&fit=crop&q=80',
-      body:`L'Agenzia Spaziale Italiana ha completato con successo il lancio del satellite CRYO-IT, dedicato al monitoraggio dei ghiacciai alpini. Il satellite è dotato di un radar capace di rilevare variazioni di spessore glaciale dell'ordine del centimetro. I dati saranno accessibili alla comunità scientifica internazionale.`
-    },
-    {
-      id:'a8', cat:'Economia', read:5,
-      title:'Vino italiano: record di esportazioni nel primo semestre, +22% verso gli USA',
-      sub:'Il Prosecco e il Barolo conquistano i mercati anglosassoni.',
-      author:'Valentina Rossi',
-      // 🖼️ IMMAGINE ARTICOLO 8 — Vino / cantina / bottiglia
-      img: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=900&h=560&fit=crop&q=80',
-      body:`Il primo semestre si chiude con 3,8 miliardi di euro di esportazioni vinicole, +22% verso gli USA. Il Prosecco è il vino più venduto per volume, il Barolo per valore. I cambiamenti climatici spingono le cantine a sperimentare nuovi vitigni e nuove altitudini.`
-    },
-    {
-      id:'a9', cat:'Cultura', read:5,
-      title:'Milano: inaugurato il nuovo museo del design contemporaneo — 5.000 opere',
-      sub:'L\'ex fabbrica Pirelli diventa polo culturale internazionale.',
-      author:'Elena Martini',
-      // 🖼️ IMMAGINE ARTICOLO 9 — Milano / design / museo
-      img: 'https://images.unsplash.com/photo-1533130061792-64b345e4a833?w=900&h=560&fit=crop&q=80',
-      body:`Milano ha inaugurato il Museo Nazionale del Design Contemporaneo nell'ex fabbrica Pirelli di Sesto San Giovanni. 22.000 m² di esposizione, 5.000 opere permanenti. Ingresso gratuito per i primi tre mesi grazie a un accordo con il Ministero della Cultura.`
-    },
-    {
-      id:'a10', cat:'Economia', read:6,
-      title:'Pensioni: governo annuncia finestra di uscita anticipata con 41 anni di contributi',
-      sub:'La misura potrebbe interessare fino a 180.000 lavoratori.',
-      author:'Roberto Silvestri',
-      // 🖼️ IMMAGINE ARTICOLO 10 — Pensioni / anziani / lavoro
-      img: 'https://images.unsplash.com/photo-1559526323-cb2f2fe2591b?w=900&h=560&fit=crop&q=80',
-      body:`Il Ministero dell'Economia ha proposto una misura previdenziale per l'uscita anticipata con 41 anni di contributi, indipendentemente dall'età. Costo stimato: 800 milioni–1,2 miliardi l'anno. La proposta sarà inserita nella legge di bilancio autunnale.`
-    },
-    {
-      id:'a11', cat:'Ambiente', read:6,
-      title:'Rinnovabili: l\'Italia supera per la prima volta il 40% di energia da fonti verdi',
-      sub:'Solare e eolico battono tutti i record.',
-      author:'Chiara Ferretti',
-      // 🖼️ IMMAGINE ARTICOLO 11 — Energia solare / pannelli / vento
-      img: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=900&h=560&fit=crop&q=80',
-      body:`Per la prima volta l'Italia ha prodotto oltre il 40% dell'energia elettrica da rinnovabili in un singolo mese di maggio. Il fotovoltaico ha coperto il 22% della domanda. L'obiettivo europeo fissa al 55% la quota rinnovabile al 2030.`
-    },
-    {
-      id:'a12', cat:'Economia', read:7,
-      title:'La Banca d\'Italia: «L\'economia crescerà dell\'1,2% quest\'anno, ma i rischi restano elevati»',
-      sub:'Il Governatore presenta la relazione annuale.',
-      author:'Marco Bianchi',
-      // 🖼️ IMMAGINE ARTICOLO 12 — Economia / finanza / Banca d'Italia
-      img: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&h=560&fit=crop&q=80',
-      body:`Il Governatore della Banca d'Italia ha presentato la Relazione Annuale: PIL previsto a +1,2%, ma il debito pubblico costa 90 miliardi l'anno in interessi. La produttività italiana è «ferma da vent'anni». La soluzione passa per investimenti in ricerca, formazione e digitalizzazione.`
-    }
-  ],
-  politica:[
-    {
-      id:'p1', cat:'Politica', read:7,
-      title:'Il Governo vara il nuovo codice degli appalti: trasparenza e velocità al centro',
-      sub:'La riforma punta a ridurre i tempi di aggiudicazione da 3 anni a 14 mesi.',
-      author:'Silvia Fabbri',
-      // 🖼️ IMMAGINE — Politica / Parlamento / appalti
-      img: 'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=900&h=560&fit=crop&q=80',
-      body:`Il Consiglio dei Ministri ha approvato il nuovo codice degli appalti, che introduce la digitalizzazione integrale delle gare, la piattaforma «Appalti trasparenti» e meccanismi di revisione prezzi automatici. Il codice entra in vigore il mese prossimo con sei mesi di transizione.`
-    },
-    {
-      id:'p2', cat:'Politica', read:5,
-      title:'Opposizioni unite contro il taglio al Reddito di Cittadinanza',
-      sub:'Manifestazione nazionale sabato a Roma. Attesi 50.000 partecipanti.',
-      author:'Luca Marino',
-      // 🖼️ IMMAGINE — Manifestazione / piazza / Roma
-      img: 'https://images.unsplash.com/photo-1508921234172-b68ab664f2f9?w=900&h=560&fit=crop&q=80',
-      body:`Le forze di opposizione hanno convocato una manifestazione nazionale a Roma contro le modifiche al Reddito di Cittadinanza. La piattaforma unitaria chiede il ripristino della misura e più risorse per le politiche attive del lavoro. I dati ISTAT segnalano 5,6 milioni di persone in povertà assoluta.`
-    },
-    {
-      id:'p3', cat:'Politica', read:6,
-      title:'Elezioni regionali: centrodestra confermato in Veneto, sorpresa al centro-sud',
-      sub:'Affluenza record in Campania con il 71%.',
-      author:'Marina Conti',
-      // 🖼️ IMMAGINE — Elezioni / urne / politica
-      img: 'https://images.unsplash.com/photo-1500051638674-ff996a0ec29e?w=900&h=560&fit=crop&q=80',
-      body:`Il centrodestra si aggiudica il Veneto con oltre il 55%. In Campania l'affluenza ha raggiunto il 71%. In Calabria un candidato civico ha sfiorato il ballottaggio. Il prossimo appuntamento: regionali di Toscana ed Emilia-Romagna in autunno.`
-    }
-  ],
-  economia:[
-    {
-      id:'e1', cat:'Economia', read:7,
-      title:'Il PNRR accelera: l\'Italia ha speso il 68% dei fondi assegnati',
-      sub:'Infrastrutture, scuola digitale e transizione verde i settori più veloci.',
-      author:'Davide Serra',
-      // 🖼️ IMMAGINE — PNRR / costruzioni / fondi europei
-      img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&h=560&fit=crop&q=80',
-      body:`L'Italia ha raggiunto il 68% di utilizzo dei fondi PNRR. I settori più avanzati: infrastrutture digitali, digitalizzazione PA, efficientamento energetico scolastico. In ritardo: edilizia sanitaria e trasporto locale. La prossima tranche da 18 miliardi dipende da 57 milestone europee.`
-    },
-    {
-      id:'e2', cat:'Economia', read:5,
-      title:'Inflazione in calo al 2,1%: la BCE taglia i tassi per la terza volta',
-      sub:'Buone notizie per i mutui variabili. Ma la ripresa dei consumi resta fragile.',
-      author:'Giulia Conti',
-      // 🖼️ IMMAGINE — BCE / euro / tassi / finanza
-      img: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&h=560&fit=crop&q=80',
-      body:`La BCE ha tagliato i tassi di 25 punti base, portandoli al 3,25%. Per i 2,8 milioni di famiglie con mutuo variabile: risparmio di 40–70 euro al mese. I mercati scontano altre due riduzioni entro dicembre.`
-    }
-  ],
-  mondo:[
-    {
-      id:'m1', cat:'Mondo', read:6,
-      title:'G7: i leader concordano su un meccanismo per contrastare la disinformazione globale',
-      sub:'La Dichiarazione di Borgo Egnazia include impegni vincolanti sui social media.',
-      author:'Anna Pellegrini',
-      // 🖼️ IMMAGINE — G7 / diplomazia / vertice
-      img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&h=560&fit=crop&q=80',
-      body:`Il G7 ha firmato la «Dichiarazione di Borgo Egnazia sull'Integrità dell'Informazione». Prevede: etichettatura dei contenuti generati da IA, trasparenza degli algoritmi, fondo da 500 milioni per il giornalismo indipendente. L'Italia ha incassato un successo diplomatico importante.`
-    },
-    {
-      id:'m2', cat:'Mondo', read:8,
-      title:'Medio Oriente: riprendono i colloqui di pace sotto l\'egida dell\'ONU',
-      sub:'Per la prima volta da mesi, le delegazioni si siedono allo stesso tavolo.',
-      author:'Stefano Amari',
-      // 🖼️ IMMAGINE — ONU / pace / diplomazia
-      img: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=900&h=560&fit=crop&q=80',
-      body:`Per la prima volta in sei mesi, le delegazioni si sono sedute allo stesso tavolo a Ginevra. Una fragile tregua mediata da Qatar ed Egitto è entrata in vigore. La prima sessione si è concentrata su ostaggi e prigionieri. L'UE ha offerto garanzie economiche a chi rispetta le norme umanitarie.`
-    }
-  ],
-  sport:[
-    {
-      id:'s1', cat:'Sport', read:5,
-      title:'Tour de France: l\'italiano Ganna in fuga solitaria, a rischio la maglia gialla',
-      sub:'La tappa ha ribaltato la classifica generale. Tre corridori in 12 secondi.',
-      author:'Carlo Venturi',
-      // 🖼️ IMMAGINE — Ciclismo / Tour de France / Ganna
-      img: 'https://images.unsplash.com/photo-1517649763962-0c623066013b?w=900&h=560&fit=crop&q=80',
-      body:`Filippo Ganna ha attaccato in salita con 40 km all'arrivo, tagliando il traguardo con 2'14" di vantaggio. La classifica è sconvolta: Evenepoel a 12 secondi su Pogacar, Ganna terzo a 38". Mancano otto tappe alla conclusione sugli Champs-Élysées.`
-    },
-    {
-      id:'s2', cat:'Sport', read:4,
-      title:'Formula 1: la Ferrari conquista la pole a Monaco, Leclerc sogna il successo di casa',
-      sub:'Il monegasco in 1\'10\"294. Hamilton quinto, Verstappen terzo.',
-      author:'Pietro Greco',
-      // 🖼️ IMMAGINE — Formula 1 / Ferrari / Monaco
-      img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&h=560&fit=crop&q=80',
-      body:`Charles Leclerc ha conquistato la pole a Monaco con il terzo tempo più veloce nella storia del circuito. Verstappen terzo con problemi di bilanciamento. La gara si preannuncia tattica: a Monaco il sorpasso è quasi impossibile e la strategia ai box è spesso decisiva.`
-    }
-  ],
-  tecnologia:[
-    {
-      id:'t1', cat:'Tecnologia', read:6,
-      title:'L\'Italia lancia il Piano Nazionale per la Sovranità Digitale: cloud italiano per la PA',
-      sub:'Entro il 2026 tutti i dati sensibili della PA su infrastrutture nazionali.',
-      author:'Andrea Costa',
-      // 🖼️ IMMAGINE — Cloud / server / digitale
-      img: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&h=560&fit=crop&q=80',
-      body:`Il governo ha presentato il Piano Nazionale per la Sovranità Digitale da 3,2 miliardi. Nucleo: il «Polo Strategico Nazionale», cloud pubblico per dati fiscali, sanitari e giudiziari. Previste 400 assunzioni di tecnici specializzati all'Agenzia per l'Italia Digitale.`
-    },
-    {
-      id:'t2', cat:'Tecnologia', read:5,
-      title:'Startup italiane: raccolta di venture capital in crescita del 34% nel primo semestre',
-      sub:'Fintech, medtech e AI guidano gli investimenti. Milano hub europeo.',
-      author:'Francesca Neri',
-      // 🖼️ IMMAGINE — Startup / innovazione / Milano
-      img: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&h=560&fit=crop&q=80',
-      body:`Record storico per il venture capital italiano: 890 milioni nel primo semestre, +34%. Milano concentra il 67% degli investimenti. Emergono poli a Bologna (robotica) e Napoli (software). Il governo annuncia nuove misure fiscali per attrarre investitori esteri.`
-    }
-  ],
-  cultura:[
-    {
-      id:'c1', cat:'Cultura', read:7,
-      title:'La Biennale di Venezia apre: «Stranieri Ovunque» è il tema di questa edizione',
-      sub:'Artisti da 88 Paesi. Il Padiglione Italia esplora l\'identità nell\'era della migrazione.',
-      author:'Elena Martini',
-      // 🖼️ IMMAGINE — Venezia / Biennale / arte
-      img: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=900&h=560&fit=crop&q=80',
-      body:`La 61ª Biennale di Venezia ha aperto con 331 artisti da 88 Paesi. Il Padiglione Italia si intitola «Tutto il mondo guarda» e ospita tre artisti di origini diverse. Il Leone d'Oro alla Carriera a Harmony Hammond. Attesi 700.000 visitatori fino al 24 novembre.`
-    }
-  ],
-  ambiente:[
-    {
-      id:'am1', cat:'Ambiente', read:7,
-      title:'Cop30 in Belém: accordo globale sulla deforestazione zero entro il 2030',
-      sub:'Storico impegno di 134 Paesi. Rimane il nodo dei finanziamenti.',
-      author:'Chiara Ferretti',
-      // 🖼️ IMMAGINE — Foresta / Amazzonia / clima
-      img: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=900&h=560&fit=crop&q=80',
-      body:`134 Paesi si sono impegnati alla «deforestazione netta zero» entro il 2030 con il «Patto di Belém per le Foreste». Previste verifiche satellitari e sanzioni commerciali. Il fondo concordato ammonta a 20 miliardi di dollari l'anno. GreenPeace chiede garanzie sull'implementazione.`
-    }
-  ]
-};
+Il Presidente della Repubblica Sergio Mattarella e la Presidente del Consiglio Giorgia Meloni si sono recati ieri sera negli ospedali di Modena per far visita ai feriti. La premier ha abbracciato alcune delle vittime. La città è sotto shock.`
+  },
+  {
+    id:'o2', cat:'Cronaca', urgente:true, read:4,
+    title:'Sciopero generale USB: Italia paralizzata. Metro C Roma chiusa, treni a rischio tutto il giorno',
+    sub:'Trasporti, scuola, sanità e pubblica amministrazione fermi per 24 ore. Le fasce garantite.',
+    author:'Luca De Rosa',
+    img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&h=560&fit=crop&q=80',
+    body:`L'Unione Sindacale di Base ha proclamato uno sciopero generale di 24 ore che oggi coinvolge trasporti, scuola, sanità e tutta la pubblica amministrazione. L'agitazione nei treni è partita ieri sera alle ore 21 e durerà fino alle 21 di questa sera.
 
-// ═══════════════════════════════════════════════════════════════════
-//  🖼️  IMAGES PAR CATÉGORIE — fallback si l'article n'a pas d'URL
-//  Chaque clef correspond à une valeur img: 'nomecategoria'
-//  dans les articles ci-dessus.
-//
-//  POUR CHANGER UNE IMAGE PAR CATÉGORIE :
-//  Remplacez l'URL dans le tableau correspondant.
-//  Le premier élément [0] est l'image principale,
-//  les suivants sont des variantes.
-// ═══════════════════════════════════════════════════════════════════
-const IMGS = {
-  politica: [
-    'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=900&h=560&fit=crop&q=80',
-    'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=900&h=560&fit=crop&q=80'
-  ],
-  mondo: [
-    'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&h=560&fit=crop&q=80',
-    'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=900&h=560&fit=crop&q=80'
-  ],
-  cultura: [
-    'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=900&h=560&fit=crop&q=80',
-    'https://images.unsplash.com/photo-1533130061792-64b345e4a833?w=900&h=560&fit=crop&q=80'
-  ],
-  tecnologia: [
-    'https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&h=560&fit=crop&q=80',
-    'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&h=560&fit=crop&q=80'
-  ],
-  sport: [
-    'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=900&h=560&fit=crop&q=80',
-    'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=900&h=560&fit=crop&q=80'
-  ],
-  cronaca: [
-    'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=900&h=560&fit=crop&q=80',
-    'https://images.unsplash.com/photo-1585829365295-ab7cd400c167?w=900&h=560&fit=crop&q=80'
-  ],
-  economia: [
-    'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&h=560&fit=crop&q=80',
-    'https://images.unsplash.com/photo-1559526323-cb2f2fe2591b?w=900&h=560&fit=crop&q=80'
-  ],
-  ambiente: [
-    'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=900&h=560&fit=crop&q=80',
-    'https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=900&h=560&fit=crop&q=80'
-  ],
-  default: ['https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=900&h=560&fit=crop&q=80']
-};
+A Roma la metropolitana C è stata chiusa alle 8:30. Le linee A e B proseguono con possibili riduzioni di corse. La ferrovia Roma Nord è stata chiusa intorno alle 12. A Milano la situazione è risultata più regolare, ma sono segnalati disagi sulla linea bergamasca a causa di un guasto a Greco Pirelli.
 
-// Résout l'image : URL directe ou clef de catégorie
-function img(artImg, i=0) {
-  if (typeof artImg === 'string' && (artImg.startsWith('http') || artImg.startsWith('/')||artImg.startsWith('.'))) {
-    return artImg; // URL directe → on l'utilise telle quelle
+Le motivazioni dello sciopero sono sia politiche che economiche: il sindacato chiede lo stop ai piani di riarmo europei, l'introduzione del salario minimo, tutele sul lavoro e più risorse per la sanità pubblica. Il vicepremier Salvini ha criticato lo sciopero, chiedendosi «quanto aiuto porti ai bambini di Gaza lasciare un pendolare a piedi».
+
+Fasce di garanzia: treni dalle 6 alle 9 e dalle 18 alle 21. Autobus e metro: inizio servizio fino alle 8:29 e dalle 17 alle 19:59.`
+  },
+  {
+    id:'o3', cat:'Sport', urgente:false, read:6,
+    title:'Sinner re di Roma: primo italiano al Foro Italico in 50 anni. Ruud battuto 6-4 6-4',
+    sub:'L\'altoatesino conquista il Career Golden Masters. Record di 34 vittorie consecutive nei Masters 1000.',
+    author:'Pietro Greco',
+    img:'https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=900&h=560&fit=crop&q=80',
+    body:`Jannik Sinner ha scritto una pagina storica del tennis italiano: domenica 17 maggio ha battuto Casper Ruud 6-4, 6-4 nella finale degli Internazionali BNL d'Italia, diventando il primo tennista azzurro a vincere al Foro Italico esattamente 50 anni dopo il trionfo di Adriano Panatta nel 1976.
+
+Con questa vittoria, il 24enne altoatesino diventa il più giovane giocatore nella storia a vincere tutti i nove Masters 1000 del circuito ATP — impresa che prima di lui era riuscita solo a Novak Djokovic, a 31 anni. La striscia di vittorie consecutive nei Masters sale a 34, record assoluto.
+
+Panatta era presente al Foro Italico e ha consegnato il trofeo a Sinner insieme al Presidente della Repubblica Sergio Mattarella. «Vedere Jannik vincere qui ha qualcosa di speciale — ha detto il campione del '76 — contro un avversario solido ha mostrato maturità, calma e coraggio nei momenti importanti».
+
+Nel doppio maschile, un'altra pagina storica: Simone Bolelli e Andrea Vavassori sono i primi italiani di sempre a vincere sulla terra rossa del Foro Italico.`
+  },
+  {
+    id:'o4', cat:'Mondo', urgente:true, read:5,
+    title:'Iran, Trump lancia l\'ultimatum: «Accetti l\'accordo o non resterà nulla». Tensione massima',
+    sub:'Il presidente USA convoca i consiglieri di sicurezza. L\'opzione militare torna sul tavolo.',
+    author:'Anna Pellegrini',
+    img:'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&h=560&fit=crop&q=80',
+    body:`La crisi tra Stati Uniti e Iran si avvicina a un punto di svolta. Questa mattina Donald Trump ha rinnovato le minacce a Teheran, dichiarando in un post su Truth che «non resterà nulla» dell'Iran se non accetterà un accordo sul programma nucleare. Il presidente ha convocato i suoi consiglieri di sicurezza per discutere le opzioni disponibili, incluse quelle militari.
+
+I negoziati sono in una fase di stallo: Washington chiede all'Iran la sospensione di ogni attività nei siti nucleari bombardati e la consegna dello stock di uranio arricchito. Teheran ha presentato una nuova proposta tramite i mediatori pakistani, ma gli USA l'hanno trovata insufficiente.
+
+Trump ha anche polemizzato con l'Europa: «Non sono contento dell'Italia e non sono contento della Spagna», ha detto, accusando i due Paesi di ritenere accettabile che l'Iran possegga un'arma nucleare. Secondo fonti di Axios, il presidente avrebbe anche discusso con Netanyahu della possibilità di riprendere le operazioni militari.`
+  },
+  {
+    id:'o5', cat:'Economia', urgente:false, read:4,
+    title:'Piazza Affari in rosso: FTSEMib -1,67%, pesano 71 stacchi cedola. Bitcoin sotto 77.000 dollari',
+    sub:'Giornata di dividendi record per la Borsa italiana. ENI positiva, crolla Juventus FC.',
+    author:'Marco Bianchi',
+    img:'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&h=560&fit=crop&q=80',
+    body:`La Borsa italiana ha aperto la settimana in rosso con il FTSEMib in calo dell'1,67% a 48.297 punti, risentendo del massiccio stacco cedola: oggi 71 società italiane hanno distribuito dividendi, di cui 22 appartenenti al principale indice di riferimento.
+
+Tra i titoli in evidenza, ENI ha registrato un progresso del 2,49% a 23,83 euro al netto dello stacco del dividendo da 0,27 euro. Bene anche Saipem (+1,67%). Sul fronte negativo, spicca il crollo di Juventus FC (-4,42% a 1,923 euro) dopo la sconfitta casalinga per 2-0 contro la Fiorentina, risultato che compromette le ambizioni di qualificazione alla prossima Champions League.
+
+Sullo sfondo, il Bitcoin è scivolato sotto i 77.000 dollari, mentre l'oro rimane intorno ai 4.550 dollari l'oncia. Lo spread BTP-Bund si consolida oltre i 75 punti base, con il rendimento del decennale italiano tornato al 3,95%.`
+  },
+  {
+    id:'o6', cat:'Cultura', urgente:false, read:3,
+    title:'Eurovision 2026: la Bulgaria vince con Bangaranga di Dara. Sal Da Vinci quinto per l\'Italia',
+    sub:'La finale di Vienna ha incoronato un\'artista a sorpresa. Proteste per Israele fuori dall\'arena.',
+    author:'Elena Martini',
+    img:'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=900&h=560&fit=crop&q=80',
+    body:`Dara, artista bulgara, ha trionfato all'Eurovision Song Contest 2026 a Vienna con il brano "Bangaranga", un'esplosione di pop balcanico che ha conquistato le giurie e il televoto. La vittoria è stata una sorpresa per molti esperti del settore.
+
+L'Italia era rappresentata da Sal Da Vinci, che ha concluso al quinto posto — un ottimo risultato considerando il clima di tensione che ha circondato la manifestazione. Centinaia di manifestanti si erano radunati fuori dalla Wiener Stadthalle per protestare contro la partecipazione di Israele, con la polizia costretta a rafforzare i servizi di sicurezza.
+
+La serata era già stata segnata dalla prestazione di Sal Da Vinci, che nella vigilia era stato definito «inarrestabile» dalle pagelle dei giornali italiani per la sua esibizione al programma Che tempo che fa.`
+  },
+  {
+    id:'o7', cat:'Cronaca', urgente:false, read:4,
+    title:'Maldive: entrano in azione gli specialisti finlandesi per recuperare i sub italiani morti',
+    sub:'Operazione ad alto rischio a 30 metri di profondità. Rientrati in Italia i 20 superstiti del Duke of York.',
+    author:'Francesca Neri',
+    img:'https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=900&h=560&fit=crop&q=80',
+    body:`Sono entrati in azione oggi gli specialisti finlandesi del DAN Europe (Divers Alert Network Europe) per il recupero dei corpi dei sub italiani deceduti durante un'immersione alle Maldive. Le operazioni erano state sospese nei giorni scorsi dopo la morte di uno dei sommozzatori più esperti delle forze maldiviane, a causa delle condizioni estremamente difficili a oltre 30 metri di profondità.
+
+L'operazione richiede una pianificazione medica meticolosa data la profondità e la complessità del fondale. I 20 italiani che si trovavano a bordo dell'imbarcazione Duke of York insieme alle vittime sono rientrati in Italia. Le loro testimonianze saranno determinanti per fare chiarezza sulla dinamica dell'incidente, su cui è stata aperta un'indagine.`
+  },
+  {
+    id:'o8', cat:'Politica', urgente:false, read:5,
+    title:'Decreto «Salva Casa»: ex solai e ripostigli diventano appartamenti. Allarme degli architetti',
+    sub:'Un buco normativo del 1975 trasforma il mercato immobiliare. Case invivibili a prezzi folli.',
+    author:'Silvia Fabbri',
+    img:'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=900&h=560&fit=crop&q=80',
+    body:`Il decreto "Salva Casa" e una lacuna nella normativa edilizia del 1975 stanno producendo effetti inattesi sul mercato immobiliare italiano: ex solai, ripostigli e soppalchi vengono regolarizzati come abitazioni e messi in vendita o in affitto a prezzi di mercato, nonostante altezze e metrature spesso incompatibili con un utilizzo abitativo dignitoso.
+
+Architetti e urbanisti lanciano l'allarme: in alcune città, soprattutto Milano e Roma, si moltiplicano gli annunci di «monolocali» ricavati da spazi originariamente destinati a depositi o locali tecnici, spacciati per appartamenti regolari grazie alle nuove possibilità di sanatoria.
+
+Il fenomeno solleva interrogativi sulla tenuta del sistema normativo edilizio e sulla capacità dei Comuni di vigilare sul rispetto degli standard minimi di abitabilità.`
+  },
+  {
+    id:'o9', cat:'Sport', urgente:false, read:3,
+    title:'Inter campione d\'Italia e vincitrice della Coppa Italia: doppietta storica per i nerazzurri',
+    sub:'Pioggia di champagne e festeggiamenti nello spogliatoio. Una stagione da record.',
+    author:'Carlo Venturi',
+    img:'https://images.unsplash.com/photo-1459865264687-595d652de67e?w=900&h=560&fit=crop&q=80',
+    body:`L'Inter ha completato una stagione storica aggiudicandosi anche la Coppa Italia, oltre allo Scudetto già conquistato nelle scorse settimane. La doppietta — Campionato e Coppa nazionale nella stessa stagione — è uno dei traguardi più ambiti nel calcio italiano.
+
+Le scene di festeggiamenti nello spogliatoio nerazzurro, con pioggia di champagne e balletti diventati virali sui social, testimoniano l'euforia di una squadra che ha dominato il calcio italiano da cima a fondo. I tifosi si sono riversati per le strade di Milano per celebrare la vittoria.`
+  },
+  {
+    id:'o10', cat:'Mondo', urgente:false, read:4,
+    title:'Cannes 2026: Adam Driver, Javier Bardem e Kristen Stewart. La Croisette si riempie di stelle',
+    sub:'Apertura del festival con un cast hollywoodiano d\'eccezione. I film più attesi.',
+    author:'Elena Martini',
+    img:'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=900&h=560&fit=crop&q=80',
+    body:`Il Festival di Cannes 2026 ha aperto i battenti sulla Croisette con un parterre di star internazionali: Adam Driver, Javier Bardem e Kristen Stewart sono tra i protagonisti più attesi di questa edizione. La giuria internazionale deve ancora essere resa nota nella sua composizione definitiva.
+
+Tra i film italiani in concorso, le aspettative sono alte per il nuovo lungometraggio di Paolo Sorrentino, che torna sulla Croisette dopo il successo di È stata la mano di Dio. La kermesse si svolge in un clima di dibattito culturale intenso, con alcuni registi che hanno scelto di ritirare i propri film in segno di solidarietà con le popolazioni civili coinvolte nei conflitti in corso.`
+  },
+  {
+    id:'o11', cat:'Politica', urgente:false, read:4,
+    title:'Trump attacca Italia e Spagna: «Non sono contento, credono che l\'Iran possa avere il nucleare»',
+    sub:'Il presidente USA minaccia di ritirare le truppe americane dai due Paesi europei.',
+    author:'Paolo Esposito',
+    img:'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=900&h=560&fit=crop&q=80',
+    body:`Il presidente degli Stati Uniti Donald Trump ha lanciato un nuovo attacco all'Europa, prendendo di mira in particolare Italia e Spagna. «Non sono contento dell'Italia e non sono contento della Spagna», ha dichiarato, accusando i due Paesi di non essere sufficientemente fermi nel rifiutare la possibilità che l'Iran sviluppi un'arma nucleare.
+
+Trump ha anche minacciato il possibile ritiro delle truppe americane presenti in Europa, comprese quelle stazionate in Germania, Italia e Spagna, qualora i governi europei non assumessero posizioni più nette. La dichiarazione è arrivata in un momento particolarmente delicato, con i negoziati USA-Iran in una fase critica e la pressione americana sui partner europei per un fronte comune.
+
+Il governo italiano non ha ancora rilasciato commenti ufficiali. La dichiarazione di Trump aggrava un rapporto transatlantico già teso sulla questione delle spese per la difesa.`
+  },
+  {
+    id:'o12', cat:'Tecnologia', urgente:false, read:4,
+    title:'Papa Leone XIV: «Le voci umane vanno salvaguardate nell\'era dell\'intelligenza artificiale»',
+    sub:'Il pontefice alla Sapienza di Roma tra applausi. Appello ai giovani per la sanità pubblica.',
+    author:'Andrea Costa',
+    img:'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&h=560&fit=crop&q=80',
+    body:`Papa Leone XIV ha pronunciato un discorso significativo sull'intelligenza artificiale, invitando la comunità internazionale a salvaguardare le voci e i volti umani nell'era della digitalizzazione crescente. Il pontefice ha lanciato un appello contro la marginalizzazione della creatività umana in favore di sistemi automatizzati.
+
+In una visita all'Università La Sapienza di Roma, il Papa è stato accolto con caldi applausi dagli studenti. Nel discorso, ha evidenziato quello che ha definito un «sistema distorto» che penalizza i giovani, e ha sottolineato il ruolo fondamentale della ricerca scientifica e della sanità pubblica per il futuro del Paese. «Troppi giovani stanno male», ha dichiarato, ricevendo una standing ovation.`
   }
-  const arr = IMGS[artImg] || IMGS.default;
-  return arr[i % arr.length];
-}
+];
 
+// ─── IMMAGINI FALLBACK ────────────────────────────────────────────
+const IMGS_FB = {
+  cronaca: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=900&h=560&fit=crop&q=80',
+  politica: 'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=900&h=560&fit=crop&q=80',
+  economia: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&h=560&fit=crop&q=80',
+  sport: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=900&h=560&fit=crop&q=80',
+  mondo: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&h=560&fit=crop&q=80',
+  cultura: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=900&h=560&fit=crop&q=80',
+  tecnologia: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&h=560&fit=crop&q=80',
+};
+function getImg(a){
+  if(a.img && (a.img.startsWith('http')||a.img.startsWith('/'))) return a.img;
+  return IMGS_FB[a.cat.toLowerCase()] || IMGS_FB.cronaca;
+}
 function esc(s){if(!s)return'';return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 
-// ── FORUM ──────────────────────────────────────────────────────────
-const FORUM_KEY='ankoautca_forum_v2';
+// ─── RENDER HOMEPAGE ──────────────────────────────────────────────
+function goHome(){
+  const arts = DB_OGGI;
+  const hero  = arts[0];
+  const side1 = arts[1];
+  const side2 = arts[2];
+
+  document.getElementById('page-root').innerHTML = `
+  <div class="wrap">
+    <!-- HERO GRID -->
+    <div class="hero-oggi">
+      <div class="hero-main" onclick="openArt('${esc(hero.id)}')">
+        <div class="h-bg" style="background-image:url('${getImg(hero)}')"></div>
+        <div class="h-grad"></div>
+        <div class="h-content">
+          <div class="h-urgenza">NOTIZIA URGENTE</div>
+          <div class="h-title">${esc(hero.title)}</div>
+          <div class="h-sub">${esc(hero.sub)}</div>
+          <div class="h-meta"><i class="ti ti-user" style="font-size:12px"></i>${esc(hero.author)}&nbsp;&nbsp;<i class="ti ti-clock" style="font-size:12px"></i>${hero.read} min</div>
+        </div>
+      </div>
+      <div class="hero-side" onclick="openArt('${esc(side1.id)}')">
+        <div class="h-bg" style="background-image:url('${getImg(side1)}')"></div>
+        <div class="h-grad"></div>
+        <div class="h-content">
+          <div class="h-urgenza">DIRETTA</div>
+          <div class="h-title">${esc(side1.title)}</div>
+        </div>
+      </div>
+      <div class="hero-side" onclick="openArt('${esc(side2.id)}')">
+        <div class="h-bg" style="background-image:url('${getImg(side2)}')"></div>
+        <div class="h-grad"></div>
+        <div class="h-content">
+          <div class="h-cat">${esc(side2.cat)}</div>
+          <div class="h-title">${esc(side2.title)}</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BORSA BAR -->
+    <div class="borsa-bar">
+      <div class="borsa-item"><div class="borsa-name">FTSEMib</div><div class="borsa-val">48.297</div><div class="borsa-change neg">-1,67%</div></div>
+      <div class="borsa-sep"></div>
+      <div class="borsa-item"><div class="borsa-name">ENI</div><div class="borsa-val">23,83€</div><div class="borsa-change pos">+2,49%</div></div>
+      <div class="borsa-sep"></div>
+      <div class="borsa-item"><div class="borsa-name">Juventus</div><div class="borsa-val">1,923€</div><div class="borsa-change neg">-4,42%</div></div>
+      <div class="borsa-sep"></div>
+      <div class="borsa-item"><div class="borsa-name">BTP-Bund spread</div><div class="borsa-val">75 bp</div><div class="borsa-change neg">▲</div></div>
+      <div class="borsa-sep"></div>
+      <div class="borsa-item"><div class="borsa-name">Bitcoin</div><div class="borsa-val">$76.800</div><div class="borsa-change neg">-1,2%</div></div>
+      <div class="borsa-sep"></div>
+      <div class="borsa-item"><div class="borsa-name">Oro</div><div class="borsa-val">$4.550</div><div class="borsa-change pos">+0,3%</div></div>
+    </div>
+
+    <!-- SCIOPERO BOX -->
+    <div class="sciopero-box">
+      <div class="sb-title"><i class="ti ti-alert-triangle" style="color:var(--red)"></i> SCIOPERO GENERALE · LUNEDÌ 18 MAGGIO 2026</div>
+      <div class="sb-desc">Indetto dall'USB (Unione Sindacale di Base), lo sciopero di 24 ore interessa trasporti, scuola, sanità e PA. Ecco la situazione in tempo reale.</div>
+      <div class="sb-grid">
+        <div class="sb-item"><div class="sb-item-title">🚆 Treni</div><div class="sb-item-text">Trenitalia e Italo: sciopero fino alle 21. Garantiti 6-9 e 18-21. Disagi su FL1 Roma-Fiumicino.</div></div>
+        <div class="sb-item"><div class="sb-item-title">🚌 Bus & Metro Roma</div><div class="sb-item-text">Metro C chiusa dalle 8:30. A e B con riduzioni. Corse garantite fino alle 8:29 e dalle 17 alle 20.</div></div>
+        <div class="sb-item"><div class="sb-item-title">🏫 Scuola & PA</div><div class="sb-item-text">Scuole a rischio in tutta Italia. Molti uffici pubblici con servizi ridotti. Sanità in fascia di garanzia.</div></div>
+      </div>
+    </div>
+
+    <div class="layout">
+      <main>
+        <!-- ULTIME NOTIZIE -->
+        <div class="section-gap">
+          <div class="sec-head">
+            <div class="sec-rule"></div>
+            <div class="sec-title">Notizie di Oggi</div>
+            <span class="sec-badge">18 MAGGIO</span>
+          </div>
+          <div class="cards-3">${arts.slice(3,6).map(a=>cardHtml(a)).join('')}</div>
+          <div class="art-list">${arts.slice(6,10).map(a=>aliHtml(a)).join('')}</div>
+        </div>
+
+        <!-- SPORT -->
+        <div class="section-gap">
+          <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Sport</div></div>
+          <div class="mag">
+            <div class="mag-item mag-main" onclick="openArt('o3')">
+              <div class="mag-bg" style="background-image:url('${getImg(arts[2])}')"></div>
+              <div class="mag-grad"></div>
+              <div class="mag-content"><div class="mag-cat">Tennis · Roma</div><div class="mag-title">${esc(arts[2].title)}</div></div>
+            </div>
+            <div class="mag-stack">
+              <div class="mag-item" onclick="openArt('o9')">
+                <div class="mag-bg" style="background-image:url('${getImg(arts[8])}')"></div>
+                <div class="mag-grad"></div>
+                <div class="mag-content"><div class="mag-cat">Calcio</div><div class="mag-title">${esc(arts[8].title)}</div></div>
+              </div>
+              <div class="mag-item" onclick="openArt('o1')">
+                <div class="mag-bg" style="background-image:url('https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=600&h=300&fit=crop')"></div>
+                <div class="mag-grad"></div>
+                <div class="mag-content"><div class="mag-cat">Risultati del giorno</div><div class="mag-title">Bolelli e Vavassori primi nel doppio: tris storico per il tennis italiano</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MONDO -->
+        <div class="section-gap">
+          <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Mondo</div></div>
+          <div class="cards-2">
+            ${cardHtml(arts[3])}
+            ${cardHtml(arts[10])}
+          </div>
+        </div>
+
+        <div class="collab">
+          <i class="ti ti-rocket collab-icon"></i>
+          <div><div class="collab-title">Collabora con Ankoautca</div><div class="collab-desc">Hai una notizia? Invia a <strong style="color:#aaa">gastroboostmarketingdegital@gmail.com</strong></div></div>
+          <a href="mailto:gastroboostmarketingdegital@gmail.com" class="collab-btn">Proponi collaborazione</a>
+        </div>
+      </main>
+
+      <aside class="sidebar">
+        <div class="widget">
+          <div class="wh"><i class="ti ti-flame"></i> Più lette oggi</div>
+          <div class="wbody">
+            ${arts.slice(0,5).map((a,i)=>`<div class="trend-item" onclick="openArt('${esc(a.id)}')">
+              <div class="trend-num">0${i+1}</div>
+              <div><div class="trend-cat">${esc(a.cat)}</div><div class="trend-title">${esc(a.title)}</div></div>
+            </div>`).join('')}
+          </div>
+        </div>
+        <div class="widget">
+          <div class="wh"><i class="ti ti-calendar"></i> Agenda del giorno</div>
+          <div class="wbody" style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;gap:10px;align-items:flex-start;padding-bottom:10px;border-bottom:1px solid var(--border)">
+              <div style="background:var(--red);color:#fff;font-size:9px;font-weight:700;padding:3px 7px;border-radius:3px;white-space:nowrap">TUTTO IL GIORNO</div>
+              <div style="font-family:var(--serif);font-size:13px">Sciopero generale USB — trasporti e PA fermi</div>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start;padding-bottom:10px;border-bottom:1px solid var(--border)">
+              <div style="background:var(--paper);color:var(--muted);font-size:9px;font-weight:700;padding:3px 7px;border-radius:3px;white-space:nowrap;border:1px solid var(--border)">SERA</div>
+              <div style="font-family:var(--serif);font-size:13px">Ripresa negoziati USA-Iran tramite mediatori</div>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start">
+              <div style="background:var(--paper);color:var(--muted);font-size:9px;font-weight:700;padding:3px 7px;border-radius:3px;white-space:nowrap;border:1px solid var(--border)">IN CORSO</div>
+              <div style="font-family:var(--serif);font-size:13px">Cannes 2026 — proiezioni in concorso</div>
+            </div>
+          </div>
+        </div>
+        <div class="widget">
+          <div class="wh"><i class="ti ti-lock"></i> Informazione libera</div>
+          <div class="wbody" style="text-align:center;padding:20px">
+            <i class="ti ti-shield-check" style="font-size:32px;color:var(--red)"></i>
+            <div style="font-family:var(--display);font-size:20px;margin:8px 0;font-weight:700">100% Gratuito</div>
+            <div style="font-size:13px;color:var(--muted)">Nessun abbonamento · Nessun dato personale · Nessun tracciamento</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>`;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function cardHtml(a){
+  return `<div class="card" onclick="openArt('${esc(a.id)}')">
+    <div class="card-img">
+      <img src="${getImg(a)}" alt="${esc(a.title)}" loading="lazy" onerror="this.style.display='none'">
+      <span class="card-badge">${esc(a.cat)}</span>
+      ${a.urgente ? '<span class="card-new">URGENTE</span>' : ''}
+    </div>
+    <div class="card-body">
+      <div class="card-title">${esc(a.title)}</div>
+      <div class="card-sub">${esc(a.sub)}</div>
+      <div class="card-meta"><span>${esc(a.author)}</span><span><i class="ti ti-clock"></i> ${a.read} min</span></div>
+    </div>
+  </div>`;
+}
+
+function aliHtml(a){
+  return `<div class="ali" onclick="openArt('${esc(a.id)}')">
+    <div class="ali-img"><img src="${getImg(a)}" alt="${esc(a.title)}" loading="lazy" onerror="this.style.display='none'"></div>
+    <div>
+      <div class="ali-cat">${esc(a.cat)}${a.urgente?' · 🔴 URGENTE':''}</div>
+      <div class="ali-title">${esc(a.title)}</div>
+      <div class="ali-meta">${esc(a.author)} · ${a.read} min di lettura</div>
+    </div>
+  </div>`;
+}
+
+function openArt(id){
+  const a = DB_OGGI.find(x=>x.id===id);
+  if(!a) return;
+  const paras = (a.body||'').split('\n\n').filter(p=>p.trim());
+  document.getElementById('page-root').innerHTML = `
+  <div class="wrap">
+    <div class="layout" style="padding-top:28px">
+      <main>
+        <div class="art-page">
+          <div class="back-btn" onclick="goHome()"><i class="ti ti-arrow-left"></i> Torna alla home</div>
+          <div style="margin-bottom:10px;display:flex;gap:8px;align-items:center">
+            <span style="background:var(--red);color:#fff;font-size:10px;font-weight:700;padding:3px 9px;border-radius:2px;letter-spacing:1.5px;text-transform:uppercase">${esc(a.cat)}</span>
+            ${a.urgente?'<span style="background:#7b1111;color:#ffcdd2;font-size:10px;font-weight:700;padding:3px 9px;border-radius:2px;letter-spacing:1.5px;text-transform:uppercase;animation:blink 2s infinite">● URGENTE</span>':''}
+          </div>
+          <h1>${esc(a.title)}</h1>
+          <div class="art-sub">${esc(a.sub)}</div>
+          <div class="art-meta">
+            <span><i class="ti ti-user"></i> ${esc(a.author)}</span>
+            <span><i class="ti ti-clock"></i> ${a.read} min di lettura</span>
+            <span><i class="ti ti-calendar"></i> Lunedì 18 Maggio 2026</span>
+          </div>
+          <img class="art-hero-img" src="${getImg(a)}" alt="${esc(a.title)}" onerror="this.style.display='none'">
+          <div class="art-body">${paras.map(p=>`<p>${esc(p)}</p>`).join('')}</div>
+          <div class="art-share">
+            <button class="share-btn" onclick="copyLink()"><i class="ti ti-link"></i> Copia link</button>
+            <button class="share-btn" onclick="scrollToForum()"><i class="ti ti-messages"></i> Commenta nel Forum</button>
+          </div>
+        </div>
+      </main>
+      <aside class="sidebar">
+        <div class="widget">
+          <div class="wh"><i class="ti ti-book"></i> Altre notizie di oggi</div>
+          <div class="wbody">${DB_OGGI.filter(x=>x.id!==id).slice(0,5).map(x=>aliHtml(x)).join('')}</div>
+        </div>
+      </aside>
+    </div>
+  </div>`;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ─── SEARCH ──────────────────────────────────────────────────────
+function doSearch(){
+  const q = document.getElementById('search-input').value.trim().toLowerCase();
+  if(!q) return;
+  const res = DB_OGGI.filter(a=>a.title.toLowerCase().includes(q)||a.sub.toLowerCase().includes(q)||(a.body||'').toLowerCase().includes(q));
+  document.getElementById('page-root').innerHTML = `
+  <div class="wrap" style="padding-top:28px">
+    <div class="back-btn" onclick="goHome()" style="display:inline-flex;margin-bottom:16px"><i class="ti ti-arrow-left"></i> Home</div>
+    <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Risultati per: «${esc(q)}»</div></div>
+    ${res.length?`<div class="cards-3">${res.map(a=>cardHtml(a)).join('')}</div>`:'<div style="padding:50px;text-align:center;font-family:var(--serif);font-style:italic;color:var(--muted);font-size:18px">Nessun articolo trovato.</div>'}
+  </div>`;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+document.getElementById('search-btn').onclick = doSearch;
+document.getElementById('search-input').addEventListener('keydown',e=>{if(e.key==='Enter')doSearch();});
+
+// ─── FORUM ───────────────────────────────────────────────────────
+const FORUM_KEY='ankoautca_forum_oggi_v1';
 function loadMsgs(){try{return JSON.parse(localStorage.getItem(FORUM_KEY)||'[]');}catch{return[];}}
 function saveMsgs(m){localStorage.setItem(FORUM_KEY,JSON.stringify(m.slice(-300)));}
 let currentTopic='Tutti', currentSearch='';
 
-const SEED_MSGS=[
-  {id:'s1',name:'Redazione Ankoautca',avatar:'RA',badge:'editor',topic:'Politica',text:'Benvenuti nel Forum di Ankoautca! Commentate le notizie, condividete le vostre opinioni. L\'unica regola: rispetto reciproco.',time:Date.now()-3600000*5,reactions:{like:12,cuore:8,bravo:4},replies:[]},
-  {id:'s2',name:'Carlo da Torino',avatar:'CT',badge:'guest',topic:'Economia',text:'Ottima notizia quella sul PNRR. Finalmente l\'Italia sta usando i fondi europei in modo efficace.',time:Date.now()-3600000*3,reactions:{like:7,cuore:2,bravo:1},replies:[{name:'Marco B.',text:'Concordo, ma bisogna vedere la qualità degli investimenti, non solo la quantità di spesa.',time:Date.now()-3600000*2}]},
-  {id:'s3',name:'Maria Grazia',avatar:'MG',badge:'guest',topic:'Sport',text:'Forza Ganna! Un campione assoluto. Sarebbe bellissimo vedere un italiano vincere il Tour de France.',time:Date.now()-3600000*1.5,reactions:{like:15,cuore:11,bravo:6},replies:[]},
-  {id:'s4',name:'Moderatore',avatar:'MO',badge:'mod',topic:'Politica',text:'Ricordiamo che il forum è uno spazio di discussione civile. Commenti offensivi saranno rimossi.',time:Date.now()-3600000*1,reactions:{like:5,cuore:0,bravo:3},replies:[]}
+const SEED = [
+  {id:'s1',name:'Redazione ANKOAUTCA',avatar:'RA',badge:'editor',topic:'Cronaca',text:'Benvenuti nel Forum di oggi. Commentiamo insieme le notizie di lunedì 18 maggio. Rispetto e civiltà per tutti.',time:Date.now()-3600000*4,reactions:{like:14,cuore:9,bravo:5},replies:[]},
+  {id:'s2',name:'Giovanni da Milano',avatar:'GR',badge:'guest',topic:'Sport',text:'Sinner è semplicemente straordinario. Vedere un italiano vincere al Foro dopo 50 anni è qualcosa di emozionante. Forza Jannik!',time:Date.now()-3600000*2,reactions:{like:22,cuore:18,bravo:7},replies:[{name:'Paola R.',text:'Concordo! E anche Bolelli e Vavassori nel doppio... giornata storica per il tennis italiano.',time:Date.now()-3600000*1.5}]},
+  {id:'s3',name:'Marco da Roma',avatar:'MR',badge:'guest',topic:'Cronaca',text:'Lo sciopero sta creando disagi enormi. Metro C chiusa dalle 8:30, ho dovuto fare un\'ora di cammino per arrivare in ufficio. Non sono contro il diritto di sciopero, ma ci vorrebbe più preavviso.',time:Date.now()-3600000*1,reactions:{like:8,cuore:3,bravo:2},replies:[]},
+  {id:'s4',name:'Federica B.',avatar:'FB',badge:'guest',topic:'Mondo',text:'La situazione Iran-USA mi preoccupa molto. Speriamo che prevalga la diplomazia. Le sanzioni e le minacce non fanno che aumentare l\'instabilità.',time:Date.now()-1800000,reactions:{like:11,cuore:6,bravo:4},replies:[]},
 ];
 
 function initForum(){
-  if(loadMsgs().length===0) saveMsgs(SEED_MSGS);
+  if(loadMsgs().length===0) saveMsgs(SEED);
   renderForum();
 }
 
@@ -781,16 +902,16 @@ function renderForum(){
     document.getElementById('msgs-list').innerHTML='<div class="forum-empty">Nessun messaggio trovato.</div>';
     return;
   }
-  document.getElementById('msgs-list').innerHTML=msgs.slice().reverse().map(m=>msgHtml(m)).join('');
+  document.getElementById('msgs-list').innerHTML=`<div class="msgs-container">${msgs.slice().reverse().map(m=>msgHtml(m)).join('')}</div>`;
 }
 
 function msgHtml(m){
-  const ago=timeAgo(m.time);
-  const badgeHtml={editor:'<span class="msg-badge badge-editor">Redazione</span>',mod:'<span class="msg-badge badge-mod">Moderatore</span>',guest:'<span class="msg-badge badge-guest">Lettore</span>'}[m.badge]||'<span class="msg-badge badge-guest">Lettore</span>';
+  const badges={editor:'<span class="msg-badge badge-editor">Redazione</span>',mod:'<span class="msg-badge badge-mod">Moderatore</span>',guest:'<span class="msg-badge badge-guest">Lettore</span>'};
   const replies=(m.replies||[]).map(r=>`<div class="reply-card"><div style="flex-shrink:0"><div class="msg-avatar" style="width:28px;height:28px;font-size:11px;background:var(--paper);color:var(--ink);border:1px solid var(--border)">${esc(r.name.substring(0,2).toUpperCase())}</div></div><div><div class="reply-name">${esc(r.name)}</div><div class="reply-text">${esc(r.text)}</div></div></div>`).join('');
+  const ago=timeAgo(m.time);
   return`<div class="msg-card" id="msg-${esc(m.id)}">
-    <div class="msg-header"><div class="msg-avatar">${esc(m.avatar||m.name.substring(0,2).toUpperCase())}</div>
-    <div class="msg-info"><div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><span class="msg-author">${esc(m.name)}</span>${badgeHtml}</div><div class="msg-time">${ago} · ${esc(m.topic)}</div></div></div>
+    <div class="msg-header"><div class="msg-avatar">${esc((m.avatar||m.name).substring(0,2).toUpperCase())}</div>
+    <div class="msg-info"><div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><span class="msg-author">${esc(m.name)}</span>${badges[m.badge]||badges.guest}</div><div class="msg-time">${ago} · ${esc(m.topic)}</div></div></div>
     <div class="msg-topic">${esc(m.topic)}</div>
     <div class="msg-text">${esc(m.text)}</div>
     <div class="msg-footer">
@@ -812,7 +933,7 @@ function msgHtml(m){
 
 window.react=function(id,type){const msgs=loadMsgs();const m=msgs.find(x=>x.id===id);if(!m)return;if(!m.reactions)m.reactions={};m.reactions[type]=(m.reactions[type]||0)+1;saveMsgs(msgs);renderForum();};
 window.toggleReply=function(id){const el=document.getElementById('reply-form-'+id);if(el)el.style.display=el.style.display==='none'?'block':'none';};
-window.submitReply=function(id){const msgs=loadMsgs();const m=msgs.find(x=>x.id===id);if(!m)return;const textEl=document.getElementById('rf-text-'+id);const nameEl=document.getElementById('rf-name-'+id);const text=(textEl?.value||'').trim();if(!text)return;if(!m.replies)m.replies=[];m.replies.push({name:(nameEl?.value||'Anonimo').substring(0,30),text:text.substring(0,400),time:Date.now()});saveMsgs(msgs);renderForum();notify('✅ Risposta pubblicata!');};
+window.submitReply=function(id){const msgs=loadMsgs();const m=msgs.find(x=>x.id===id);if(!m)return;const t=document.getElementById('rf-text-'+id);const n=document.getElementById('rf-name-'+id);const text=(t?.value||'').trim();if(!text)return;if(!m.replies)m.replies=[];m.replies.push({name:(n?.value||'Anonimo').substring(0,30),text:text.substring(0,400),time:Date.now()});saveMsgs(msgs);renderForum();notify('✅ Risposta pubblicata!');};
 
 function submitMsg(){
   const name=(document.getElementById('ff-name').value||'').trim();
@@ -834,277 +955,24 @@ document.getElementById('forum-search').addEventListener('keydown',e=>{if(e.key=
 document.getElementById('ff-msg').addEventListener('input',function(){document.getElementById('char-count').textContent=this.value.length;});
 function timeAgo(ts){const d=Date.now()-ts;if(d<60000)return'Adesso';if(d<3600000)return Math.floor(d/60000)+' min fa';if(d<86400000)return Math.floor(d/3600000)+' ore fa';return Math.floor(d/86400000)+' giorni fa';}
 
-// ── ADMIN ──────────────────────────────────────────────────────────
-const ADMIN_HASH='$2a$12$ASJhqiO.BxApGhaKGJ6hCe4J1Qbq1Z1hf06gC2C5vTQbeNp0Eb0Ue';
-let isAdmin=false;
-
-function showAdminLogin(){
-  const password=prompt('Inserisci la password di amministrazione:');
-  if(!password)return;
-  if(typeof dcodeIO==='undefined'||!dcodeIO.bcrypt){alert('Errore: libreria bcrypt non caricata.');return;}
-  dcodeIO.bcrypt.compare(password,ADMIN_HASH,function(err,res){
-    if(res){isAdmin=true;notify('✅ Accesso amministratore riuscito');showAdminPanel();}
-    else{alert('Password errata!');}
-  });
-}
-
-function showAdminPanel(){
-  const old=document.getElementById('admin-overlay');if(old)old.remove();
-  const catMap={attualita:'Attualità',politica:'Politica',economia:'Economia',mondo:'Mondo',cronaca:'Cronaca',sport:'Sport',tecnologia:'Tecnologia',cultura:'Cultura',ambiente:'Ambiente'};
-  document.body.insertAdjacentHTML('beforeend',`
-    <div id="admin-overlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:9998;display:flex;align-items:center;justify-content:center;">
-      <div style="background:white;max-width:700px;width:90%;max-height:90vh;overflow-y:auto;border-radius:12px;padding:24px;position:relative;">
-        <button onclick="closeAdmin()" style="position:absolute;top:12px;right:16px;background:none;border:none;font-size:24px;cursor:pointer;">&times;</button>
-        <h2 style="font-family:var(--display);margin-bottom:6px;">🛠️ Pubblica Articolo</h2>
-        <p style="font-size:13px;color:var(--muted);margin-bottom:16px;">Per l'immagine: inserisci un URL diretto (https://...) o lascia vuoto per immagine automatica per categoria.</p>
-        <div style="display:flex;flex-direction:column;gap:12px;">
-          <label>Titolo</label><input id="admin-title" class="ff-input" placeholder="Titolo dell'articolo">
-          <label>Categoria</label>
-          <select id="admin-cat" class="ff-select">
-            ${Object.entries(catMap).map(([k,v])=>`<option value="${k}">${v}</option>`).join('')}
-          </select>
-          <label>Sottotitolo</label><input id="admin-sub" class="ff-input" placeholder="Sottotitolo">
-          <label>Autore</label><input id="admin-author" class="ff-input" placeholder="Nome autore">
-          <label>🖼️ URL immagine (es: https://miosito.com/foto.jpg)</label>
-          <input id="admin-img" class="ff-input" placeholder="https://... oppure lascia vuoto per immagine automatica">
-          <label>Tempo di lettura (minuti)</label><input id="admin-read" class="ff-input" type="number" value="5" min="1">
-          <label>Testo dell'articolo</label>
-          <textarea id="admin-body" class="ff-textarea" placeholder="Scrivi qui il testo dell'articolo…"></textarea>
-          <button onclick="submitAdminArticle()" class="ff-submit">Pubblica Articolo</button>
-        </div>
-      </div>
-    </div>`);
-}
-
-function closeAdmin(){const o=document.getElementById('admin-overlay');if(o)o.remove();isAdmin=false;}
-function submitAdminArticle(){
-  const title=document.getElementById('admin-title').value.trim();
-  const catKey=document.getElementById('admin-cat').value;
-  const sub=document.getElementById('admin-sub').value.trim();
-  const author=document.getElementById('admin-author').value.trim()||'Redazione';
-  const imgUrl=document.getElementById('admin-img').value.trim();
-  const read=parseInt(document.getElementById('admin-read').value)||5;
-  const body=document.getElementById('admin-body').value.trim();
-  if(!title||!body){alert('Titolo e testo sono obbligatori');return;}
-  const catLabel={attualita:'Attualità',politica:'Politica',economia:'Economia',mondo:'Mondo',cronaca:'Cronaca',sport:'Sport',tecnologia:'Tecnologia',cultura:'Cultura',ambiente:'Ambiente'}[catKey]||catKey;
-  const newArt={id:'custom_'+Date.now(),cat:catLabel,title,sub,author,read,img:imgUrl||catKey,body};
-  let c=[];try{c=JSON.parse(localStorage.getItem('ankoautca_custom_arts')||'[]');}catch(e){}
-  c.push(newArt);
-  localStorage.setItem('ankoautca_custom_arts',JSON.stringify(c));
-  closeAdmin();notify('✅ Articolo pubblicato!');goHome();
-}
-
-// ── ARTICLES ───────────────────────────────────────────────────────
-function allArticles(){
-  const base=Object.values(ARTICLES_DB).flat();
-  let custom=[];
-  try{custom=JSON.parse(localStorage.getItem('ankoautca_custom_arts')||'[]');}catch(e){}
-  return[...custom,...base];
-}
-
-function heroHtml(arts){
-  const [h,...rest]=arts;
-  const sides=rest.slice(0,2);
-  return`<div class="hero-grid">
-  <div class="hero-main" onclick="openArt('${esc(h.id)}')">
-    <div class="h-bg" style="background-image:url('${img(h.img,0)}')"></div>
-    <div class="h-grad"></div>
-    <div class="h-content">
-      <div class="h-cat">${esc(h.cat)}</div>
-      <div class="h-title">${esc(h.title)}</div>
-      <div class="h-sub">${esc(h.sub)}</div>
-      <div class="h-meta"><i class="ti ti-user" style="font-size:12px"></i>${esc(h.author)}<i class="ti ti-clock" style="font-size:12px"></i>${h.read} min</div>
-    </div>
-  </div>
-  ${sides.map((a,i)=>`<div class="hero-side" onclick="openArt('${esc(a.id)}')">
-    <div class="h-bg" style="background-image:url('${img(a.img,i+1)}')"></div>
-    <div class="h-grad"></div>
-    <div class="h-content"><div class="h-cat">${esc(a.cat)}</div><div class="h-title">${esc(a.title)}</div></div>
-  </div>`).join('')}
-  </div>`;
-}
-
-function cardHtml(a,i){
-  return`<div class="card" onclick="openArt('${esc(a.id)}')">
-  <div class="card-img">
-    <img src="${img(a.img,i)}" alt="${esc(a.title)}" loading="lazy" onerror="this.style.display='none'">
-    <span class="card-badge">${esc(a.cat)}</span>
-  </div>
-  <div class="card-body">
-    <div class="card-title">${esc(a.title)}</div>
-    <div class="card-sub">${esc(a.sub)}</div>
-    <div class="card-meta"><span>${esc(a.author)}</span><span><i class="ti ti-clock"></i> ${a.read} min</span></div>
-  </div></div>`;
-}
-
-function aliHtml(a,i){
-  return`<div class="ali" onclick="openArt('${esc(a.id)}')">
-  <div class="ali-img"><img src="${img(a.img,i)}" alt="${esc(a.title)}" loading="lazy" onerror="this.style.display='none'"></div>
-  <div><div class="ali-cat">${esc(a.cat)}</div><div class="ali-title">${esc(a.title)}</div><div class="ali-meta">${esc(a.author)} · ${a.read} min</div></div>
-  </div>`;
-}
-
-function magHtml(arts){
-  const [main,...rest]=arts.slice(0,3);
-  const stack=rest.slice(0,2);
-  return`<div class="mag">
-  <div class="mag-item mag-main" onclick="openArt('${esc(main.id)}')">
-    <div class="mag-bg" style="background-image:url('${img(main.img,0)}')"></div>
-    <div class="mag-grad"></div>
-    <div class="mag-content"><div class="mag-cat">${esc(main.cat)}</div><div class="mag-title">${esc(main.title)}</div></div>
-  </div>
-  <div class="mag-stack">
-  ${stack.map((a,i)=>`<div class="mag-item" onclick="openArt('${esc(a.id)}')">
-    <div class="mag-bg" style="background-image:url('${img(a.img,i+1)}')"></div>
-    <div class="mag-grad"></div>
-    <div class="mag-content"><div class="mag-cat">${esc(a.cat)}</div><div class="mag-title">${esc(a.title)}</div></div>
-  </div>`).join('')}
-  </div></div>`;
-}
-
-function trendHtml(arts){
-  return arts.slice(0,5).map((a,i)=>`<div class="trend-item" onclick="openArt('${esc(a.id)}')">
-    <div class="trend-num">0${i+1}</div>
-    <div><div class="trend-cat">${esc(a.cat)}</div><div class="trend-title">${esc(a.title)}</div></div>
-  </div>`).join('');
-}
-
-// ── PAGES ──────────────────────────────────────────────────────────
-function goHome(){
-  setNav(0);
-  const all=allArticles();
-  const pol=ARTICLES_DB.politica;
-  const sport=ARTICLES_DB.sport;
-  const ec=ARTICLES_DB.economia;
-  const mondo=ARTICLES_DB.mondo;
-  document.getElementById('page-root').innerHTML=`
-  <div class="wrap">
-    ${heroHtml(all.slice(0,3))}
-    <div class="layout">
-      <main>
-        <div class="section-gap">
-          <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Ultime Notizie</div><span class="sec-more">Tutte →</span></div>
-          <div class="cards-3">${all.slice(3,6).map((a,i)=>cardHtml(a,i)).join('')}</div>
-          <div class="art-list">${all.slice(6,10).map((a,i)=>aliHtml(a,i)).join('')}</div>
-        </div>
-        <div class="section-gap">
-          <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Politica</div><span class="sec-more" onclick="location.href='Politica.html'">Tutte →</span></div>
-          ${magHtml(pol)}
-        </div>
-        <div class="section-gap">
-          <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Economia</div><span class="sec-more" onclick="location.href='Economia.html'">Tutte →</span></div>
-          <div class="cards-3">${ec.slice(0,2).map((a,i)=>cardHtml(a,i)).join('')}${all.slice(10,11).map((a,i)=>cardHtml(a,i+2)).join('')}</div>
-        </div>
-        <div class="section-gap">
-          <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Sport</div><span class="sec-more" onclick="location.href='Sport.html'">Tutte →</span></div>
-          ${magHtml(sport)}
-        </div>
-        <div class="section-gap">
-          <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Mondo</div><span class="sec-more" onclick="location.href='Mondo.html'">Tutte →</span></div>
-          <div class="cards-3">${mondo.slice(0,2).map((a,i)=>cardHtml(a,i)).join('')}${ARTICLES_DB.ambiente.slice(0,1).map((a,i)=>cardHtml(a,i+2)).join('')}</div>
-        </div>
-        <div class="collab">
-          <i class="ti ti-rocket collab-icon"></i>
-          <div><div class="collab-title">Collabora con Ankoautca</div><div class="collab-desc">Hai una notizia? Invia a <strong style="color:#aaa">gastroboostmarketingdegital@gmail.com</strong></div></div>
-          <a href="mailto:gastroboostmarketingdegital@gmail.com" class="collab-btn">Proponi collaborazione</a>
-        </div>
-      </main>
-      <aside class="sidebar">
-        <div class="widget">
-          <div class="wh"><i class="ti ti-trending-up"></i> In evidenza</div>
-          <div class="wbody">${trendHtml(all)}</div>
-        </div>
-        <div class="widget">
-          <div class="wh"><i class="ti ti-lock"></i> Informazione libera</div>
-          <div class="wbody" style="text-align:center;padding:20px">
-            <i class="ti ti-shield-check" style="font-size:32px;color:var(--red)"></i>
-            <div style="font-family:var(--display);font-size:20px;margin:8px 0;font-weight:700">100% Gratuito</div>
-            <div style="font-size:13px;color:var(--muted)">Nessun abbonamento · Nessun dato personale · Nessun tracciamento</div>
-          </div>
-        </div>
-      </aside>
-    </div>
-  </div>`;
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-
-function openArt(id){
-  const a=allArticles().find(x=>x.id===id);
-  if(!a)return;
-  const paras=(a.body||'').split('\n\n').filter(p=>p.trim());
-  const artImg=img(a.img,0);
-  document.getElementById('page-root').innerHTML=`
-  <div class="wrap">
-    <div class="layout" style="padding-top:28px">
-      <main>
-        <div class="art-page">
-          <div class="back-btn" onclick="goHome()"><i class="ti ti-arrow-left"></i> Torna alla home</div>
-          <div style="margin-bottom:10px"><span style="background:var(--red);color:#fff;font-size:10px;font-weight:700;padding:3px 9px;border-radius:2px;letter-spacing:1.5px;text-transform:uppercase">${esc(a.cat)}</span></div>
-          <h1>${esc(a.title)}</h1>
-          <div class="art-sub">${esc(a.sub)}</div>
-          <div class="art-meta">
-            <span><i class="ti ti-user"></i> ${esc(a.author)}</span>
-            <span><i class="ti ti-clock"></i> ${a.read} min di lettura</span>
-            <span><i class="ti ti-calendar"></i> ${new Date().toLocaleDateString('it-IT',{day:'numeric',month:'long',year:'numeric'})}</span>
-          </div>
-          <img class="art-hero-img" src="${artImg}" alt="${esc(a.title)}" onerror="this.style.display='none'">
-          <div class="art-body">${paras.map(p=>`<p>${esc(p)}</p>`).join('')}</div>
-          <div class="art-share">
-            <button class="share-btn" onclick="copyLink()"><i class="ti ti-link"></i> Copia link</button>
-            <button class="share-btn" onclick="scrollToForum()"><i class="ti ti-messages"></i> Commenta nel Forum</button>
-          </div>
-        </div>
-      </main>
-      <aside class="sidebar">
-        <div class="widget">
-          <div class="wh"><i class="ti ti-book"></i> Altri articoli</div>
-          <div class="wbody">${allArticles().filter(x=>x.id!==id).slice(0,5).map((x,i)=>aliHtml(x,i)).join('')}</div>
-        </div>
-      </aside>
-    </div>
-  </div>`;
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-
-function setNav(active){
-  document.querySelectorAll('.nav-in a').forEach(el=>el.classList.remove('act'));
-  const links=document.querySelectorAll('.nav-in a');
-  if(active===0&&links[0])links[0].classList.add('act');
-}
-
-// ── SEARCH ─────────────────────────────────────────────────────────
-function doSearch(){
-  const q=document.getElementById('search-input').value.trim().toLowerCase();
-  if(!q)return;
-  const results=allArticles().filter(a=>a.title.toLowerCase().includes(q)||a.sub.toLowerCase().includes(q)||(a.body||'').toLowerCase().includes(q));
-  document.getElementById('page-root').innerHTML=`
-  <div class="wrap" style="padding-top:28px">
-    <div class="back-btn" onclick="goHome()" style="display:inline-flex;margin-bottom:16px"><i class="ti ti-arrow-left"></i> Home</div>
-    <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Risultati per: «${esc(q)}»</div></div>
-    ${results.length?`<div class="cards-3">${results.map((a,i)=>cardHtml(a,i)).join('')}</div>`:'<div style="padding:50px;text-align:center;font-family:var(--serif);font-style:italic;color:var(--muted);font-size:18px">Nessun articolo trovato.</div>'}
-  </div>`;
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-document.getElementById('search-btn').onclick=doSearch;
-document.getElementById('search-input').addEventListener('keydown',e=>{if(e.key==='Enter')doSearch();});
-
-// ── UTILS ──────────────────────────────────────────────────────────
+// ─── UTILS ────────────────────────────────────────────────────────
 function notify(msg){const el=document.getElementById('notify');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),3000);}
-function copyLink(){navigator.clipboard.writeText(window.location.href).catch(()=>{});notify('🔗 Link copiato!');}
+function copyLink(){navigator.clipboard?.writeText(window.location.href).catch(()=>{});notify('🔗 Link copiato!');}
 function scrollToForum(){document.getElementById('forum-section').scrollIntoView({behavior:'smooth'});}
 window.addEventListener('scroll',()=>{document.getElementById('scrollTop').classList.toggle('show',window.scrollY>400);});
 
+// Online counter
 function updateOnline(){
-  const n=Math.floor(Math.random()*18+3);
+  const n=Math.floor(Math.random()*24+8);
   const el=document.getElementById('online-n');
   const pill=document.getElementById('online-pill');
-  if(el)el.textContent=n+' persone stanno leggendo in questo momento';
-  if(pill)pill.textContent=n+' online';
+  if(el) el.textContent=n+' persone stanno leggendo in questo momento';
+  if(pill) pill.textContent=n+' online';
 }
 updateOnline();
 setInterval(updateOnline,15000);
-document.getElementById('ts-date').textContent=new Date().toLocaleDateString('it-IT',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
 
+// INIT
 goHome();
 initForum();
 </script>
