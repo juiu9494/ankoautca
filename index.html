@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ANKOAUTCA — Notizie Italiane · Martedì 19 Maggio 2026</title>
-<meta name="description" content="ANKOAUTCA - Testata indipendente. Notizie italiane di oggi 19 maggio 2026.">
+<title>ANKOAUTCA — Notizie Italiane · Sabato 23 Maggio 2026</title>
+<meta name="description" content="ANKOAUTCA - Testata indipendente. Notizie italiane di oggi 23 maggio 2026.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
@@ -28,7 +28,6 @@ a{text-decoration:none;color:inherit}
 img{max-width:100%;display:block}
 ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--paper)}::-webkit-scrollbar-thumb{background:var(--warm);border-radius:3px}
 
-/* TOP STRIP */
 .topstrip{background:var(--ink);padding:7px 0;border-bottom:2px solid var(--red)}
 .topstrip-in{max-width:1300px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
 .ts-date{font-family:var(--serif);font-style:italic;font-size:13px;color:#aaa}
@@ -38,15 +37,13 @@ img{max-width:100%;display:block}
 .live-pill{background:var(--red);color:#fff;font-size:10px;font-weight:600;padding:2px 8px;border-radius:2px;letter-spacing:1px;animation:blink 2s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.5}}
 
-/* TICKER */
 .ticker-bar{background:var(--red);overflow:hidden;display:flex;height:36px}
 .ticker-label{background:#000;color:#fff;font-size:10px;font-weight:700;letter-spacing:2px;padding:0 16px;display:flex;align-items:center;white-space:nowrap;flex-shrink:0}
 .ticker-track{flex:1;overflow:hidden;display:flex;align-items:center}
-.ticker-inner{display:inline-flex;gap:50px;animation:scroll 75s linear infinite;white-space:nowrap;color:#fff;font-size:13px;font-weight:500}
+.ticker-inner{display:inline-flex;gap:50px;animation:scroll 85s linear infinite;white-space:nowrap;color:#fff;font-size:13px;font-weight:500}
 .ticker-inner span::before{content:"◆ ";font-size:8px;opacity:.7}
 @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-/* HEADER */
 header{background:var(--white);border-bottom:3px solid var(--ink);position:sticky;top:0;z-index:200;box-shadow:var(--shadow)}
 .masthead{max-width:1300px;margin:0 auto;padding:18px 24px 12px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .logo-wrap{cursor:pointer;user-select:none}
@@ -69,7 +66,6 @@ nav{background:var(--ink)}
 
 .wrap{max-width:1300px;margin:0 auto;padding:0 24px}
 
-/* SECTION HEADER */
 .sec-head{display:flex;align-items:center;gap:14px;padding-bottom:12px;margin-bottom:22px;border-bottom:1.5px solid var(--ink)}
 .sec-rule{width:32px;height:4px;background:var(--red)}
 .sec-title{font-family:var(--display);font-size:22px;font-weight:700}
@@ -77,7 +73,6 @@ nav{background:var(--ink)}
 .sec-more{margin-left:auto;font-size:11px;color:var(--muted);letter-spacing:.5px;cursor:pointer;transition:color var(--t)}
 .sec-more:hover{color:var(--red)}
 
-/* HERO OGGI */
 .hero-oggi{display:grid;grid-template-columns:2.3fr 1fr;grid-template-rows:auto auto;gap:3px;background:var(--ink);border-radius:var(--radius);overflow:hidden;margin:28px 0}
 .hero-main{grid-row:span 2;position:relative;min-height:520px;cursor:pointer;overflow:hidden}
 .hero-side{position:relative;min-height:200px;cursor:pointer;overflow:hidden}
@@ -96,18 +91,15 @@ nav{background:var(--ink)}
 .h-sub{font-family:var(--serif);font-style:italic;font-size:15px;color:rgba(255,255,255,.78);margin-bottom:10px}
 .h-meta{font-size:12px;color:rgba(255,255,255,.55);display:flex;gap:12px;align-items:center;flex-wrap:wrap}
 
-/* ALERT STRIP */
-.alert-strip{background:#7b1111;color:#fff;padding:14px 0;border-top:2px solid #c0392b;border-bottom:2px solid #c0392b;margin-bottom:0}
+.alert-strip{background:#7b1111;color:#fff;padding:14px 0;border-top:2px solid #c0392b;border-bottom:2px solid #c0392b}
 .alert-in{max-width:1300px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .alert-icon{font-size:20px;flex-shrink:0;animation:blink 2s infinite}
 .alert-txt{font-family:var(--serif);font-size:16px;font-style:italic}
 .alert-txt strong{font-style:normal;color:#ffcdd2}
 
-/* LAYOUT */
 .layout{display:grid;grid-template-columns:1fr 310px;gap:36px;padding:8px 0 40px}
 @media(max-width:920px){.layout{grid-template-columns:1fr}}
 
-/* CARDS */
 .cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:28px}
 @media(max-width:760px){.cards-3{grid-template-columns:1fr}}
 .cards-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-bottom:28px}
@@ -126,7 +118,6 @@ nav{background:var(--ink)}
 .card-sub{font-size:13px;color:var(--muted);font-style:italic;margin-bottom:10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .card-meta{font-size:11px;color:#aaa;display:flex;justify-content:space-between}
 
-/* LIST */
 .art-list{border-top:1px solid var(--border)}
 .ali{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid var(--border);cursor:pointer;transition:all var(--t);border-radius:4px}
 .ali:hover{background:var(--paper);padding-left:8px}
@@ -137,7 +128,6 @@ nav{background:var(--ink)}
 .ali-title{font-family:var(--serif);font-size:15px;font-weight:600;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .ali-meta{font-size:11px;color:var(--muted);margin-top:4px}
 
-/* MAGAZINE LAYOUT */
 .mag{display:grid;grid-template-columns:1.7fr 1fr;gap:3px;background:var(--ink);border-radius:var(--radius);overflow:hidden;margin-bottom:28px}
 .mag-item{position:relative;min-height:220px;cursor:pointer;overflow:hidden;background:var(--warm)}
 .mag-main{min-height:420px}
@@ -150,10 +140,8 @@ nav{background:var(--ink)}
 .mag-main .mag-title{font-size:24px;line-height:1.2}
 .mag-stack{display:flex;flex-direction:column;gap:3px}
 
-/* SECTION GAP */
 .section-gap{margin-bottom:40px}
 
-/* FLOTILLA SPECIAL BOX */
 .alert-box{background:var(--ink);border:2px solid var(--red);border-radius:var(--radius);padding:22px 26px;margin-bottom:28px;position:relative;overflow:hidden}
 .alert-box::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:repeating-linear-gradient(90deg,var(--red) 0,var(--red) 20px,transparent 20px,transparent 30px)}
 .ab-title{font-family:var(--display);font-size:20px;color:#fff;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:10px}
@@ -164,7 +152,6 @@ nav{background:var(--ink)}
 .ab-item-title{color:#e0d0d0;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
 .ab-item-text{color:#999;font-size:12px;line-height:1.5}
 
-/* BORSA BAR */
 .borsa-bar{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;margin-bottom:28px;display:flex;align-items:center;gap:20px;overflow-x:auto}
 .borsa-item{display:flex;align-items:center;gap:8px;white-space:nowrap;flex-shrink:0}
 .borsa-name{font-size:12px;font-weight:700;color:var(--ink)}
@@ -174,7 +161,6 @@ nav{background:var(--ink)}
 .pos{background:#e8f5e8;color:#1a5c1a}
 .borsa-sep{width:1px;height:24px;background:var(--border);flex-shrink:0}
 
-/* COLLAB */
 .collab{background:var(--ink);border-left:4px solid var(--red);padding:26px 28px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;border-radius:var(--radius);margin:32px 0}
 .collab-icon{font-size:36px;color:var(--red)}
 .collab-title{font-family:var(--display);font-size:20px;color:#fff;font-weight:700}
@@ -182,7 +168,6 @@ nav{background:var(--ink)}
 .collab-btn{margin-left:auto;background:var(--red);color:#fff;padding:11px 22px;font-size:12px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;border-radius:3px;transition:all var(--t);white-space:nowrap}
 .collab-btn:hover{background:var(--red2);transform:scale(1.03)}
 
-/* SIDEBAR */
 .sidebar{display:flex;flex-direction:column;gap:24px}
 .widget{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
 .wh{background:var(--ink);color:#fff;font-size:11px;font-weight:600;letter-spacing:2px;padding:9px 15px;display:flex;align-items:center;gap:7px;text-transform:uppercase}
@@ -195,7 +180,6 @@ nav{background:var(--ink)}
 .trend-title{font-family:var(--serif);font-size:14px;font-weight:600;line-height:1.3;transition:color var(--t)}
 .trend-item:hover .trend-title{color:var(--red)}
 
-/* ARTICLE PAGE */
 .art-page{background:var(--white);border-radius:var(--radius);padding:36px;box-shadow:var(--shadow);margin:28px 0;animation:fadeUp .4s ease}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 .art-page h1{font-family:var(--display);font-style:italic;font-size:42px;line-height:1.2;margin-bottom:14px}
@@ -210,7 +194,6 @@ nav{background:var(--ink)}
 .back-btn{display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:#fff;padding:7px 14px;border-radius:4px;font-size:13px;font-weight:600;cursor:pointer;margin-bottom:22px;transition:all var(--t)}
 .back-btn:hover{background:var(--red)}
 
-/* FORUM */
 .forum-section{background:var(--paper);border-top:3px solid var(--ink);margin-top:40px}
 .forum-wrap{max-width:1300px;margin:0 auto;padding:40px 24px}
 .forum-head{display:flex;align-items:center;gap:16px;margin-bottom:30px}
@@ -267,7 +250,6 @@ nav{background:var(--ink)}
 .forum-search button{background:var(--ink);border:none;color:#fff;padding:8px 12px;cursor:pointer}
 .forum-empty{text-align:center;padding:50px 20px;font-family:var(--serif);font-style:italic;color:var(--muted);font-size:18px}
 
-/* FOOTER */
 footer{background:var(--ink);color:#888;margin-top:0}
 .ft{max-width:1300px;margin:0 auto;padding:40px 24px;display:grid;grid-template-columns:2.5fr 1fr 1fr;gap:40px}
 @media(max-width:700px){.ft{grid-template-columns:1fr}}
@@ -297,50 +279,45 @@ footer{background:var(--ink);color:#888;margin-top:0}
   .mag{grid-template-columns:1fr}
   .collab{flex-direction:column;text-align:center}
   .collab-btn{margin-left:0}
-  .borsa-bar{gap:12px}
 }
 </style>
 </head>
 <body>
 
-<!-- TOP STRIP -->
 <div class="topstrip">
   <div class="topstrip-in">
-    <div class="ts-date">Martedì, 19 Maggio 2026</div>
+    <div class="ts-date">Sabato, 23 Maggio 2026</div>
     <div class="ts-links">
       <span class="live-pill">● LIVE</span>
-      <a href="Politica.html">Politica</a>
-      <a href="Economia.html">Economia </a>
-      <a href ="Mondo.html">Mondo</a>
-      <a href="Sport.html">Sport</a>
+      <a href="#">Politica</a>
+      <a href="#">Economia</a>
+      <a href="#">Mondo</a>
+      <a href="#">Sport</a>
     </div>
   </div>
 </div>
 
-<!-- TICKER -->
 <div class="ticker-bar">
   <div class="ticker-label">🔴 BREAKING</div>
   <div class="ticker-track">
     <div class="ticker-inner">
-      <span>IRAN · Trump sospende attacco: «In corso negoziati seri» · Esercito USA resta in allerta massima</span>
-      <span>FLOTILLA · Israeliani abbordano navi umanitarie al largo di Cipro · 12 italiani fermati · Tajani: «Rilasciateli subito»</span>
-      <span>MALDIVE · Individuati i 4 corpi degli italiani nella grotta · Recupero oggi e domani</span>
-      <span>GIRO D'ITALIA · Tappa 10 cronometro Viareggio–Massa · Ganna grande favorito · Diretta su Rai 2</span>
-      <span>MODENA · Udienza di convalida per Salim El Koudri · 4 feriti ancora gravi in rianimazione</span>
-      <span>ALLERTA METEO · Gialla per piogge e temporali su Abruzzo, Calabria e Sicilia</span>
-      <span>SERIE B PLAYOFF · Monza–Juve Stabia ore 20:00 · Si decide la prima finalista</span>
-      <span>ELON MUSK · Tribunale federale di Oakland: perde la causa contro OpenAI · Accuse prescritte</span>
-      <span>IRAN · Trump sospende attacco: «In corso negoziati seri» · Esercito USA resta in allerta massima</span>
-      <span>FLOTILLA · Israeliani abbordano navi umanitarie al largo di Cipro · 12 italiani fermati · Tajani: «Rilasciateli subito»</span>
-      <span>MALDIVE · Individuati i 4 corpi degli italiani nella grotta · Recupero oggi e domani</span>
-      <span>GIRO D'ITALIA · Tappa 10 cronometro Viareggio–Massa · Ganna grande favorito · Diretta su Rai 2</span>
-      <span>MODENA · Udienza di convalida per Salim El Koudri · 4 feriti ancora gravi in rianimazione</span>
-      <span>ALLERTA METEO · Gialla per piogge e temporali su Abruzzo, Calabria e Sicilia</span>
+      <span>IRAN · Trump studia attacco finale mentre mediatori Pakistan e Qatar sono a Teheran · accordo in bilico</span>
+      <span>GIRO D'ITALIA · Tappa 14 Aosta–Pila oggi: 5 stelle, 4.400 m di dislivello · diretta Rai 2</span>
+      <span>ISRAELE · Europa apre a sanzioni contro Ben-Gvir · Italia, UK, Francia, Germania contro gli insediamenti</span>
+      <span>FLOTILLA · Attivisti italiani ancora fermati dopo abbordaggio di martedì · trattative consolari in corso</span>
+      <span>NOTTE DEI MUSEI · Stasera musei aperti in tutta Italia a 1 euro fino all'1:00</span>
+      <span>FESTA DELL'ECONOMIA · Trento: oggi interviene Prodi e il ministro Ciriani</span>
+      <span>PAPA LEONE XIV · Visita ad Acerra: testimonianza sul disastro ambientale del «Triangolo della morte»</span>
+      <span>STRETTO DI HORMUZ · Rubio: «Dobbiamo pensare a un piano B se l'Iran non riapre» · petrolio in tensione</span>
+      <span>IRAN · Trump studia attacco finale mentre mediatori Pakistan e Qatar sono a Teheran · accordo in bilico</span>
+      <span>GIRO D'ITALIA · Tappa 14 Aosta–Pila oggi: 5 stelle, 4.400 m di dislivello · diretta Rai 2</span>
+      <span>ISRAELE · Europa apre a sanzioni contro Ben-Gvir · Italia, UK, Francia, Germania contro gli insediamenti</span>
+      <span>FLOTILLA · Attivisti italiani ancora fermati dopo abbordaggio di martedì · trattative consolari in corso</span>
+      <span>NOTTE DEI MUSEI · Stasera musei aperti in tutta Italia a 1 euro fino all'1:00</span>
     </div>
   </div>
 </div>
 
-<!-- HEADER -->
 <header>
   <div class="masthead">
     <div class="logo-wrap" onclick="goHome()">
@@ -356,29 +333,26 @@ footer{background:var(--ink);color:#888;margin-top:0}
   </div>
   <nav>
     <div class="nav-in" id="mainnav">
-      <a href="Politica.html">Politica</a>
-      <a href="Economia.html">Economia </a>
-      <a href ="Mondo.html">Mondo</a>
-      <a href="Sport.html">Sport</a>
-      <a href="Tecnologia.html">Tecnologia</a>
-      <a href="opinioni.html">Opinione</a>
+      <a href="#">Politica</a>
+      <a href="#">Economia</a>
+      <a href="#">Mondo</a>
+      <a href="#">Sport</a>
+      <a href="#">Tecnologia</a>
+      <a href="#">Opinione</a>
       <a href="#forum-section">Forum</a>
     </div>
   </nav>
 </header>
 
-<!-- ALERT FLOTILLA -->
-<div class="alert-strip" id="page-alert">
+<div class="alert-strip">
   <div class="alert-in">
-    <span class="alert-icon">🚨</span>
-    <div class="alert-txt"><strong>BREAKING · FLOTILLA INTERCETTATA:</strong> La marina israeliana abborda le navi della Global Sumud al largo di Cipro. Fermati tra 9 e 12 italiani. Tajani chiede il rilascio immediato. Segui gli aggiornamenti in diretta.</div>
+    <span class="alert-icon">⚠️</span>
+    <div class="alert-txt"><strong>CRISI IRAN · SABATO 23 MAGGIO:</strong> Trump «frustrato» dai negoziati studia un maxi attacco. Al Arabiya: bozza di accordo in 9 punti quasi pronta, ma il nodo nucleare è escluso. Mediatori Pakistan e Qatar a Teheran. Aggiornamenti in diretta.</div>
   </div>
 </div>
 
-<!-- PAGE ROOT -->
 <div id="page-root"></div>
 
-<!-- FORUM -->
 <div class="forum-section" id="forum-section">
   <div class="forum-wrap">
     <div class="forum-head">
@@ -445,15 +419,13 @@ footer{background:var(--ink);color:#888;margin-top:0}
     <div>
       <div class="ft-htitle">Sezioni</div>
       <div class="ft-links">
-        <a href="https://ankoautca.it/politica.html">Politica</a>
-        <a href="https://ankoautca.it/economia.html">Economia</a>
-        <a href="https://ankoautca.it/mondo.html">Mondo</a>
-        <a href="https://ankoautca.it/sport.html">Sport</a>
-        <a href="https://ankoautca.it/tecnologia.html">Tecnologia</a>
-        <a href="https://ankTecnologiapinione.html">Opinione</a>
-        
+        <a href="#">Politica</a>
+        <a href="#">Economia</a>
+        <a href="#">Mondo</a>
+        <a href="#">Sport</a>
+        <a href="#">Tecnologia</a>
+        <a href="#">Opinione</a>
       </div>
-
     </div>
     <div>
       <div class="ft-htitle">Redazione</div>
@@ -468,7 +440,7 @@ footer{background:var(--ink);color:#888;margin-top:0}
   <div class="ft-bottom">
     <span>© 2026 ANKOAUTCA — Tutti i diritti riservati</span>
     <span>Informazione libera · Nessun tracciamento · Nessun paywall</span>
-    <span>Martedì 19 Maggio 2026</span>
+    <span>Sabato 23 Maggio 2026</span>
   </div>
 </footer>
 
@@ -478,192 +450,178 @@ footer{background:var(--ink);color:#888;margin-top:0}
 <div class="notify" id="notify"></div>
 
 <script>
-// ─── ARTICOLI DI OGGI 19 MAGGIO 2026 ─────────────────────────────
 const DB_OGGI = [
   {
     id:'o1', cat:'Mondo', urgente:true, read:5,
-    title:'Iran, Trump sospende l\'attacco su richiesta del Golfo: «Negoziati seri in corso, ma l\'esercito è pronto»',
-    sub:'Il presidente USA ha annullato l\'operazione militare prevista per oggi. Arabia Saudita, Qatar e UAE determinanti. Teheran si prepara a un\'eventuale escalation.',
+    title:'Iran, Trump studia il «maxi attacco finale» mentre i mediatori volano a Teheran: bozza d\'accordo in 9 punti — nucleare escluso',
+    sub:'Il presidente USA è frustrato dai negoziati «strazianti». Aerei cisterna americani su Tel Aviv. Rubio: «Dobbiamo pensare a un piano B». Al Arabiya rivela la bozza: cessate il fuoco e Hormuz libero, ma nessun vincolo nucleare.',
     author:'Anna Pellegrini',
     img:'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&h=560&fit=crop&q=80',
-    page:'https://ankoautca.it/mondo.html',
-    body:`Donald Trump ha annunciato ieri sera sul suo social Truth di aver sospeso l'attacco militare pianificato contro l'Iran, previsto per oggi martedì 19 maggio. La decisione è arrivata su richiesta esplicita dell'emiro del Qatar Tamim bin Hamad Al Thani, del principe ereditario saudita Mohammed bin Salman e del presidente degli Emirati Arabi Uniti Mohamed bin Zayed.
+    body:`Donald Trump si trova sabato 23 maggio di fronte a un bivio: assecondare i mediatori che lo esortano ad aspettare, oppure ordinare quello che i suoi consiglieri chiamano il «maxi attacco finale» contro l'Iran. Secondo Axios, il presidente è «sempre più frustrato» dai negoziati «strazianti» con Teheran e ha già riunito il suo gabinetto di sicurezza per esaminare opzioni militari, con il segretario alla Difesa Pete Hegseth presente. Diversi alti ufficiali delle forze armate e dell'intelligence avrebbero cancellato i loro piani per il fine settimana.
 
-«Sono in corso negoziati seri», ha scritto Trump, precisando che qualsiasi accordo dovrà includere «nessuna arma nucleare per l'Iran». Il presidente ha tuttavia ordinato al Pentagono e al capo degli stati maggiori di «tenersi pronti a procedere con un assalto completo su larga scala contro l'Iran, con preavviso minimo», qualora non si raggiunga un'intesa.
+Eppure la diplomazia non si è fermata: il capo dello stato maggiore dell'esercito pakistano Asim Munir è partito per Teheran, mentre i mediatori del Qatar sono già nella capitale iraniana con l'obiettivo di finalizzare un'intesa. L'emittente saudita Al Hadath afferma di aver ottenuto la bozza finale in nove punti dell'accordo: prevede un cessate il fuoco totale, la riapertura dello Stretto di Hormuz e la revoca graduale delle sanzioni americane, ma non include alcuna clausola sul programma nucleare o sui missili balistici iraniani. I negoziati su questi temi dovrebbero invece avviarsi entro sette giorni dalla firma.
 
-Secondo fonti regionali citate dall'agenzia Haaretz, il Pakistan sta assumendo un ruolo guida nelle mediazioni, mentre Qatar, Egitto, Turchia e Arabia Saudita svolgono un ruolo di supporto. Teheran avrebbe proposto una moratoria di 10 anni sull'arricchimento dell'uranio, mentre Washington insiste per 20. A Teheran intanto si moltiplicano le manifestazioni filo-governative e corsi improvvisati di addestramento civile.`
+Il segretario di Stato Marco Rubio, a margine del vertice dei ministri degli Esteri della NATO in Svezia, ha riconosciuto «lievi progressi» ma ha avvertito che Washington deve «elaborare un piano B» se l'Iran si rifiutasse di riaprire Hormuz o imponesse un pedaggio: «Dobbiamo cominciare a pensare a cosa faremo se, tra qualche settimana, l'Iran decidesse di tenerlo chiuso». L'ambasciatore Ettore Sequi, commentando la bozza, ha escluso una soluzione rapida: «Sul fronte del nucleare le posizioni di Washington e Teheran sono ancora molto lontane. Mi aspetto la definizione di una roadmap, non la bacchetta magica».
+
+In parallelo si muove la scacchiera geopolitica: Xi Jinping ha incontrato questa settimana prima Trump, poi Putin, e accoglie oggi il presidente pakistano Shehbaz Sharif, sottolineando l'interesse di Pechino a chiudere la crisi prima che il blocco navale di Hormuz paralizzi ulteriormente il commercio mondiale. Il prezzo del Brent rimane in territorio volatile intorno ai 72 dollari al barile.`
   },
   {
-    id:'o2', cat:'Cronaca', urgente:true, read:4,
-    title:'Flotilla intercettata al largo di Cipro: la marina israeliana abborda le navi umanitarie. Fermati 12 italiani',
-    sub:'Tajani chiede il rilascio immediato dei connazionali. Netanyahu plaude ai soldati: «Lavoro eccezionale». Schlein: «Ennesima pirateria».',
-    author:'Redazione ANKOAUTCA',
-    img:'https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=900&h=560&fit=crop&q=80',
-    page:'https://ankoautca.it/cronaca.html',
-    body:`La Global Sumud Flotilla, l'iniziativa umanitaria partita dalla Turchia per tentare di forzare il blocco navale israeliano su Gaza, è stata nuovamente intercettata: questa volta al largo delle acque di Cipro, a circa 250 miglia da Gaza. I commando israeliani hanno abbordato le imbarcazioni in pieno giorno, disturbando via radio le richieste di soccorso degli attivisti con le note di «Oops, I Did It Again» di Britney Spears.
+    id:'o2', cat:'Mondo', urgente:true, read:4,
+    title:'Europa contro Israele: GB, Francia, Italia e Germania chiedono stop agli insediamenti in Cisgiordania. Aperta la strada alle sanzioni su Ben-Gvir',
+    sub:'La Repubblica riferisce di una mossa coordinata dei quattro grandi europei. Aziende europee chiamate a non prendere appalti nelle colonie. La vicenda della Flotilla rimane sullo sfondo.',
+    author:'Marco Bianchi',
+    img:'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=900&h=560&fit=crop&q=80',
+    body:`Italia, Gran Bretagna, Francia e Germania si sono coordinate in una mossa diplomatica senza precedenti, chiedendo a Israele lo stop definitivo agli insediamenti dei coloni in Cisgiordania e sollecitando le proprie aziende a non partecipare ad appalti nelle colonie. Secondo quanto riportato da La Repubblica nelle sue edizioni di oggi, i quattro governi europei starebbero valutando sanzioni personali nei confronti del ministro della Sicurezza Nazionale israeliano Itamar Ben-Gvir, considerato tra i principali fautori dell'espansione degli insediamenti.
 
-Tra i fermati ci sono cittadini italiani: secondo il ministro degli Esteri Antonio Tajani sarebbero 9, secondo i portavoce della Global Sumud sarebbero 12, tra attivisti del Bolognese e delle Marche. Il deputato M5S Dario Carotenuto, presente a bordo, ha filmato l'irruzione chiedendo «alle autorità italiane e internazionali di intervenire per liberare subito tutti gli equipaggi».
+La mossa si inserisce in un momento di forte tensione tra l'Europa e Israele, acuita dalla vicenda della Flotilla umanitaria intercettata martedì scorso al largo di Cipro. Diversi attivisti italiani, secondo fonti consolari, risultano ancora in stato di fermo. Le trattative diplomatiche tramite l'ambasciata italiana a Tel Aviv e il consolato di Cipro proseguono.
 
-Tajani ha convocato l'ambasciatore israeliano e dichiarato: «Abbiamo chiesto che i nostri concittadini vengano immediatamente rilasciati». La premier Elly Schlein ha parlato di «ennesimo atto di pirateria in acque internazionali». Netanyahu ha invece telefonato ai marinai elogiandoli per il «lavoro eccezionale». Alcuni degli attivisti fermati potrebbero essere trasferiti al porto israeliano di Ashdod.`
+Il governo di Giorgia Meloni si trova in una posizione delicata: da un lato la pressione delle opposizioni, guidate da Elly Schlein, che chiedono misure più dure; dall'altro la tradizionale cautela dell'esecutivo nei confronti di Gerusalemme. Il ministro degli Esteri Tajani ha finora privilegiato i canali diplomatici riservati, evitando dichiarazioni pubblicamente ostili a Israele.`
   },
   {
-    id:'o3', cat:'Cronaca', urgente:true, read:3,
-    title:'Maldive: individuati nella grotta i corpi dei 4 italiani. Recupero previsto oggi e domani',
-    sub:'Il team di esperti ha localizzato i resti nel terzo segmento di Dhekunu Kandu. Sul nodo delle autorizzazioni, due sub erano sprovvisti.',
-    author:'Francesca Neri',
-    img:'https://images.unsplash.com/photo-1516690561799-46d8f74f9abf?w=900&h=560&fit=crop&q=80',
-    page:'https://ankoautca.it/cronaca.html',
-    body:`Un team di esperti subacquei ha individuato nel terzo segmento della grotta di Dhekunu Kandu, alle Maldive, i corpi della professoressa Monica Montefalcone, di sua figlia Giorgia Sommacal, del neo laureato Federico Gualtieri e della ricercatrice Muriel Oddenino — quattro degli italiani deceduti durante un'immersione nei giorni scorsi.
-
-Il governo delle Maldive ha comunicato di prevedere il recupero di due salme oggi e altre due domani. L'operazione si svolge in condizioni tecnicamente molto complesse, a oltre 30 metri di profondità, con i rischi già evidenziati dalla morte di un sommozzatore maldiviano durante i precedenti tentativi.
-
-Sul fronte delle autorizzazioni, secondo le autorità locali solo la professoressa Montefalcone e i due ricercatori erano in possesso dei permessi necessari. L'operatore dello yacht ha precisato che il dive master Gianluca Benedetti, il cui corpo era già stato recuperato, non aveva bisogno di autorizzazione specifica. Le testimonianze dei 20 superstiti che si trovavano a bordo del Duke of York saranno determinanti per ricostruire la dinamica dell'incidente.`
-  },
-  {
-    id:'o4', cat:'Cronaca', urgente:true, read:3,
-    title:'Modena: udienza di convalida per El Koudri. Quattro vittime ancora gravi, il movente resta un mistero',
-    sub:'L\'uomo che sabato ha investito i pedoni in piazza Grande chiede di incontrare un sacerdote e di avere una Bibbia. Ipotesi disagio mentale.',
-    author:'Luca De Rosa',
-    img:'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=900&h=560&fit=crop&q=80',
-    page:'https://ankoautca.it/cronaca.html',
-    body:`Si svolge oggi l'udienza di convalida del fermo per Salim El Koudri, l'uomo che sabato ha lanciato la propria auto contro i pedoni in piazza Grande a Modena, ferendo sette persone — quattro delle quali versano ancora in condizioni gravi in Rianimazione.
-
-L'uomo è tenuto in isolamento nel carcere di Modena. Secondo quanto riportato dalla Procura, El Koudri ha chiesto di poter fumare, di avere alcuni libri tra cui una Bibbia e di incontrare un sacerdote cattolico. Il movente del gesto resta avvolto nel mistero: gli inquirenti escludono al momento motivazioni di natura politica o ideologica, e l'ipotesi più accreditata resta quella del disagio mentale.
-
-La Presidente del Consiglio Giorgia Meloni e il Presidente della Repubblica Sergio Mattarella avevano già fatto visita ai feriti negli ospedali di Modena nella serata di domenica. Le indagini, coordinate dalla Procura modenese, sono ancora nelle fasi preliminari.`
-  },
-  {
-    id:'o5', cat:'Sport', urgente:false, read:4,
-    title:'Giro d\'Italia, Tappa 10: la cronometro Viareggio–Massa. Ganna favorito, Vingegaard punta la Maglia Rosa',
-    sub:'42 km completamente pianeggianti sul litorale versiliese. Prima partenza alle 13:15, diretta su Rai 2 dalle 14:05.',
+    id:'o3', cat:'Sport', urgente:false, read:3,
+    title:'Giro d\'Italia, Tappa 14: Aosta–Pila, cinque stelle e 4.400 metri di dislivello. La battaglia per la Maglia Rosa',
+    sub:'La tappa più dura di questa edizione: cinque scalate consecutive tra cui Saint-Barthélémy e Lin Noir. Vingegaard punta a conquistare la corsa. Diretta Rai 2 dalle 13:00.',
     author:'Pietro Greco',
     img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&h=560&fit=crop&q=80',
-    page:'https://ankoautca.it/sport.html',
-    body:`Il Giro d'Italia 2026 torna in gara dopo il giorno di riposo con la tappa 10, l'unica cronometro individuale di questa edizione: 42 chilometri quasi completamente pianeggianti da Viareggio a Massa lungo il litorale della Versilia, con solo 50 metri di dislivello complessivo.
+    body:`Sabato 23 maggio è il giorno del grande esame del Giro d'Italia 2026: la tappa 14 da Aosta a Pila è valutata cinque stelle, la massima difficoltà, con 4.400 metri di dislivello complessivo concentrati in 133 chilometri. Una sequenza ininterrotta di salite e discese sulle balconate della Valle d'Aosta.
 
-Il grande favorito per la vittoria di tappa è Filippo Ganna (Netcompany INEOS), uno dei migliori specialisti delle prove a cronometro al mondo. Ma attenzione a Jonas Vingegaard (Visma–Lease a Bike), che dopo aver vinto la tappa 9 sul Corno alle Scale è determinato a fare la differenza anche contro il tempo, puntando a strappare la Maglia Rosa al portoghese Afonso Eulalio (Bahrain Victorious), attualmente leader con 2'24" di vantaggio sul danese.
+Il percorso prevede la scalata di cinque montagne consecutive: Saint-Barthélémy (15,8 km al 6,1%, punte al 13%), Douas (843 metri), Lin Noir (7,4 km al 7,9%), Verrogne (5,6 km al 6,9%) e infine Pila da Gressan (16,5 km, 1.173 metri di dislivello, media 7,1%). Quest'ultima sarà affrontata per la prima volta dal versante insolito di Gressan, solitamente percorso in discesa quando non è arrivo di tappa.
 
-In classifica generale, Giulio Pellizzari (Red Bull–BORA–hansgrohe) è in crisi e dovrà limitare al massimo i danni in una giornata ostica per i puri scalatori. Il primo corridore partirà alle 13:15, l'ultimo (la Maglia Rosa) alle 16:31. Diretta in chiaro su RaiSport fino alle 14:05, poi su Rai 2 fino alle 17:15.`
+Jonas Vingegaard (Visma–Lease a Bike), che nella tappa 9 al Corno alle Scale aveva già dimostrato la propria superiorità sulle ascese, si presenta come il grande favorito. Il leader della classifica Afonso Eulalio (Bahrain Victorious) dovrà difendere il vantaggio su un terreno ostico. Giulio Ciccone (Lidl-Trek), che aveva indossato la Maglia Rosa nelle prime tappe italiane, è atteso tra gli attaccanti. La diretta Rai inizia alle 13:00, il gruppo dovrebbe tagliare il traguardo di Pila tra le 17:00 e le 18:00.`
   },
   {
-    id:'o6', cat:'Tecnologia', urgente:false, read:3,
-    title:'Elon Musk perde la causa contro OpenAI: il tribunale di Oakland stabilisce che le accuse sono prescritte',
-    sub:'Il miliardario sosteneva che la svolta commerciale di OpenAI tradisse il mandato originario no-profit. Ora potrebbe presentare appello.',
-    author:'Andrea Costa',
-    img:'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&h=560&fit=crop&q=80',
-    page:'https://ankoautca.it/tecnologia.html',
-    body:`Il tribunale federale di Oakland ha stabilito che le accuse mosse da Elon Musk contro OpenAI erano prescritte, chiudendo di fatto il principale filone della causa che il miliardario aveva intentato contro la società che aveva contribuito a fondare nel 2015.
+    id:'o4', cat:'Cultura', urgente:false, read:3,
+    title:'Notte Europea dei Musei: stasera aperture straordinarie in tutta Italia a 1 euro fino all\'una di notte',
+    sub:'Centinaia di musei statali, fondazioni e siti archeologici aderiscono all\'iniziativa UNESCO. A Napoli apre il Museo Ferroviario di Pietrarsa con musica dal vivo.',
+    author:'Elena Martini',
+    img:'https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=900&h=560&fit=crop&q=80',
+    body:`Questa sera, sabato 23 maggio, torna la Notte Europea dei Musei, l'iniziativa internazionale promossa dal Ministero della Cultura francese e patrocinata dall'UNESCO, dal Consiglio d'Europa e dall'ICOM. In tutta Italia, centinaia di istituzioni museali statali, fondazioni, università e spazi culturali di ogni natura apriranno le porte in orario serale al costo simbolico di un euro, salvo le gratuità previste dalla normativa vigente.
 
-Musk sosteneva che la trasformazione di OpenAI da organizzazione non-profit in azienda a scopo di lucro costituisse un tradimento degli accordi originari e del mandato fondativo. Il tribunale ha tuttavia ritenuto che le azioni legali avrebbero dovuto essere presentate entro un termine che è ormai scaduto.
+In Campania, una delle protagoniste della serata è il Museo Nazionale Ferroviario di Pietrarsa, che propone un'apertura straordinaria notturna organizzata dalla Fondazione FS Italiane. Il museo sarà visitabile fino alle 19:00 con le consuete modalità, mentre dalle 19:30 all'1:00 il pubblico potrà entrare con il biglietto a 1 euro. La serata includerà momenti musicali distribuiti nelle varie aree espositive, con installazioni sonore e performance, in un contesto unico affacciato sul Golfo di Napoli.
 
-La decisione è una vittoria significativa per OpenAI e per il suo attuale CEO Sam Altman. Musk, che nel frattempo ha fondato la propria società di intelligenza artificiale xAI, non ha ancora commentato il verdetto. I suoi legali potrebbero valutare un appello nei prossimi giorni.`
+La Notte dei Musei 2026 si svolge in un momento di intensa discussione sul ruolo della cultura nella società digitale, acuita dal discorso di Papa Leone XIV alla Sapienza di Roma sulla necessità di «salvaguardare le voci e i volti umani» nell'era dell'intelligenza artificiale. Molte delle istituzioni aderenti hanno quest'anno affiancato alle visite tradizionali esperienze interattive che mettono a confronto creazione umana e strumenti digitali.`
   },
   {
-    id:'o7', cat:'Politica', urgente:false, read:4,
-    title:'Flotilla, Schlein contro il governo: «Israele rispetti il diritto internazionale». Tajani si attiva con Tel Aviv',
-    sub:'Il Pd attacca l\'esecutivo per la risposta ritenuta troppo morbida. Fratoianni: «Azione illegale in acque europee».',
+    id:'o5', cat:'Politica', urgente:false, read:4,
+    title:'Festa dell\'Economia di Trento: Prodi, Ciriani e Renzi sul palco. Al centro il futuro dell\'eurozona e il costo dell\'energia',
+    sub:'Oggi a Trento la seconda giornata del summit promosso dal Sole 24 Ore. Previsto anche un summit europeo dell\'Ecofin a Nicosia.',
     author:'Silvia Fabbri',
-    img:'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=900&h=560&fit=crop&q=80',
-    page:'https://ankoautca.it/politica.html',
-    body:`L'intercettazione della Global Sumud Flotilla ha scatenato un nuovo scontro politico in Italia. La segretaria del Pd Elly Schlein ha definito l'azione israeliana «l'ennesimo atto di pirateria in acque internazionali», chiedendo al governo di «lavorare con ogni canale per la liberazione immediata di tutti gli attivisti sequestrati» e di garantire l'accesso degli aiuti umanitari a Gaza.
+    img:'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&h=560&fit=crop&q=80',
+    body:`La seconda giornata del Festival dell'Economia di Trento, organizzato dal Sole 24 Ore, si apre questa mattina alle 9:00 al Teatro Sociale con un incontro con Romano Prodi. Alle 9:30 è prevista un'intervista al presidente dell'Abi Antonio Patuelli a Palazzo Geremia, mentre alle 14:00 sarà la volta del ministro per i Rapporti con il Parlamento Luca Ciriani. A Brescia, al Auditorium San Barnaba, il presidente di Italia Viva Matteo Renzi parteciperà alle 10:00 al summit europeo «FPS26 – FutureProofSociety».
 
-Il ministro degli Esteri Antonio Tajani ha convocato l'ambasciatore israeliano e dichiarato di seguire la vicenda «da questa notte con la nostra ambasciata a Tel Aviv e il consolato a Cipro». Tajani ha inviato un «messaggio chiaro a Israele»: i cittadini italiani devono essere «trattati nel massimo rispetto della dignità della persona» e rilasciati immediatamente.
+In parallelo, a Nicosia si riunisce oggi l'Ecofin, il consiglio dei ministri dell'Economia dell'Unione Europea. Tra i temi centrali della riunione cipriota figurano la crisi energetica provocata dalla chiusura dello Stretto di Hormuz e i riflessi sul bilancio degli stati membri, i dazi USA e le misure di reazione europea, nonché la proposta della Commissione di tagliare le accise sui carburanti per mitigare l'impatto sui cittadini.
 
-Nicola Fratoianni di Sinistra Italiana ha parlato di «azione illegale nel disprezzo del diritto internazionale, in prossimità delle acque di un Paese europeo». Il deputato M5S Dario Carotenuto, che si trovava a bordo di una delle navi, ha diffuso video dell'abbordaggio chiedendo un intervento urgente delle autorità italiane e internazionali.`
+Il governo Meloni si presenta all'appuntamento in una posizione di equilibrio: secondo Il Corriere della Sera, il consiglio dei ministri di questa settimana ha approvato solo un dimezzamento del taglio alle accise sul diesel, una misura considerata insufficiente da Pd e M5S ma sostenuta dalla maggioranza come prudente gestione dei conti pubblici in un momento di incertezza geopolitica.`
   },
   {
-    id:'o8', cat:'Mondo', urgente:false, read:4,
-    title:'Putin a Pechino da Xi: «L\'alleanza Russia-Cina non è diretta contro nessuno»',
-    sub:'Il leader russo in visita ufficiale in Cina. Sullo sfondo la guerra in Ucraina e la crisi Iran-USA.',
-    author:'Marco Bianchi',
-    img:'https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=900&h=560&fit=crop&q=80',
-    page:'https://ankoautca.it/mondo.html',
-    body:`Il presidente russo Vladimir Putin è in visita ufficiale a Pechino, dove ha incontrato il presidente cinese Xi Jinping. In una conferenza stampa congiunta, Putin ha ribadito che il partenariato strategico tra Russia e Cina «non è diretto contro nessuno», cercando di rassicurare le potenze occidentali preoccupate da un rafforzamento dell'asse Mosca-Pechino.
+    id:'o6', cat:'Cronaca', urgente:false, read:3,
+    title:'Papa Leone XIV ad Acerra: visita al cuore del «Triangolo della morte» campano per denunciare il disastro ambientale',
+    sub:'Il pontefice sceglie il simbolo dell\'inquinamento industriale italiano per il suo primo viaggio pastorale extraurbano. Attesi migliaia di fedeli.',
+    author:'Francesca Neri',
+    img:'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=900&h=560&fit=crop&q=80',
+    body:`Papa Leone XIV si reca oggi ad Acerra, nella provincia di Napoli, in visita pastorale. La scelta non è casuale: Acerra è al centro di quello che le associazioni ambientaliste definiscono da anni il «Triangolo della morte», l'area tra Napoli, Caserta e Salerno devastata dallo smaltimento illegale di rifiuti industriali tossici da parte della camorra, con conseguenze gravi sulla salute della popolazione locale.
 
-La visita si svolge in un contesto geopolitico particolarmente teso, con la guerra in Ucraina ancora in corso e la crisi nucleare con l'Iran al centro dell'agenda internazionale. Secondo fonti di intelligence citate da diversi media, Trump avrebbe ottenuto un impegno da Pechino a non fornire armi a Teheran — un elemento che avrebbe contribuito alla sua decisione di sospendere l'attacco all'Iran.
+La visita del pontefice assume un carattere di testimonianza: Leone XIV, che aveva già alzato la voce all'Università La Sapienza di Roma sull'intelligenza artificiale e sulla dignità dell'uomo, intende oggi fare altrettanto sul tema della giustizia ambientale. Secondo il Vaticano, il papa incontrerà le famiglie delle vittime di tumori legati all'inquinamento, i sindaci dell'area e i rappresentanti delle associazioni che da anni denunciano la situazione.
 
-L'incontro Putin-Xi si concentra anche sul commercio bilaterale, che ha raggiunto livelli record dopo le sanzioni occidentali seguite all'invasione dell'Ucraina.`
+La visita si inserisce in un percorso che il papa americano aveva annunciato fin dall'inizio del suo pontificato: portare la voce della Chiesa nelle periferie geografiche e sociali, non solo nelle grandi capitali europee.`
   },
   {
-    id:'o9', cat:'Sport', urgente:false, read:3,
-    title:'Serie B, playoff: Monza–Juve Stabia stasera alle 20. Chi va in finale contro Palermo o Catanzaro?',
-    sub:'Si decide la prima finalista dei play off di promozione. 90 minuti allo U-Power Stadium: niente supplementari.',
+    id:'o7', cat:'Mondo', urgente:false, read:3,
+    title:'Stretto di Hormuz: Rubio prepara il «piano B». Il blocco navale dell\'Iran agita i mercati globali',
+    sub:'Il segretario di Stato USA alla ministeriale NATO in Svezia avverte: se l\'Iran non riapre lo stretto nelle prossime settimane, Washington agirà. Petrolio in fibrillazione.',
+    author:'Anna Pellegrini',
+    img:'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=900&h=560&fit=crop&q=80',
+    body:`Il blocco dello Stretto di Hormuz da parte dell'Iran, instaurato dopo i raid americani di inizio mese, continua a fare sentire i suoi effetti sull'economia globale. Il prezzo del petrolio Brent resta ostinatamente intorno ai 72 dollari al barile, con picchi nelle ultime sessioni che hanno allarmato i mercati europei e asiatici.
+
+Il segretario di Stato americano Marco Rubio, a Helsingborg per la ministeriale NATO, ha avvertito che Washington deve «cominciare a pensare a cosa fare» se l'Iran dovesse mantenere chiuso Hormuz ancora «per qualche settimana». Le opzioni sul tavolo, riferiscono fonti dell'amministrazione, includerebbero sia ulteriori operazioni militari sia il ricorso a percorsi alternativi per il transito del petrolio del Golfo.
+
+L'Iran, da parte sua, sta tentando di internazionalizzare il blocco: secondo fonti citate dal Wall Street Journal, Teheran starebbe cercando di convincere l'Oman ad aderire a un sistema di «pedaggio» nello stretto. Una mossa che, se concretizzata, complicherebbe ulteriormente la posizione americana.`
+  },
+  {
+    id:'o8', cat:'Sport', urgente:false, read:3,
+    title:'Serie B playoff: chi vince tra le finaliste? Palermo e Catanzaro o Monza e Juve Stabia si affrontano per la promozione',
+    sub:'Dopo le semifinali di questa settimana, si delinea il quadro delle finali per la promozione in Serie A. I calendari e le scommesse degli addetti ai lavori.',
     author:'Carlo Venturi',
     img:'https://images.unsplash.com/photo-1459865264687-595d652de67e?w=900&h=560&fit=crop&q=80',
-    page:'https://ankoautca.it/sport.html',
-    body:`Stasera alle 20:00 allo U-Power Stadium di Monza si gioca la semifinale di ritorno dei playoff di Serie B: i brianzoli di casa affrontano la Juve Stabia per stabilire chi accederà alla finale di promozione in Serie A. Niente supplementari né calci di rigore: solo 90 minuti per decidere la prima finalista.
+    body:`I playoff di Serie B entrano nella fase decisiva. Le semifinali di questa settimana hanno delineato il quadro delle finali per la promozione in Serie A: Monza ha superato la Juve Stabia allo U-Power Stadium in una gara decisa negli ultimi minuti, mentre Palermo ha avuto la meglio sul Catanzaro in una sfida che ha tenuto i tifosi siciliani con il fiato sospeso fino al novantesimo.
 
-La vincente di questa sera affronterà la vincente dell'altra semifinale tra Palermo e Catanzaro, nella finale che assegnerà il terzo posto nella griglia di promozione verso la massima serie. Il Monza, retrocesso dalla Serie A la scorsa stagione, punta a riscattarsi immediatamente, mentre la Juve Stabia cerca la storica promozione.
+La finale, che assegnerà il terzo posto nella griglia di promozione verso la massima serie, si disputerà nei prossimi giorni. Il Monza, retrocesso dalla Serie A la scorsa stagione, vuole riscattarsi immediatamente. Il Palermo si affida all'entusiasmo dei suoi tifosi e a un organico profondo.
 
-Sullo sfondo del calcio italiano, resta l'eco della vittoria dell'Inter nel double Scudetto-Coppa Italia, completato con i festeggiamenti della settimana scorsa.`
+Sullo sfondo del calcio italiano, i tifosi dell'Inter continuano a festeggiare il double Scudetto-Coppa Italia conquistato la settimana scorsa, mentre la Juventus è impegnata nella riflessione su chi sarà il prossimo allenatore dopo l'addio di Thiago Motta, con il nome di Luciano Spalletti che circola con insistenza nelle ultime ore.`
   },
   {
-    id:'o10', cat:'Economia', urgente:false, read:3,
-    title:'Allerta meteo gialla su Abruzzo, Calabria e Sicilia: piogge e temporali in arrivo da oggi',
-    sub:'La Protezione Civile ha diramato il bollettino per rischio idrogeologico. Da mercoledì torna l\'alta pressione.',
-    author:'Elena Martini',
-    img:'https://images.unsplash.com/photo-1504608524841-42584120d693?w=900&h=560&fit=crop&q=80',
-    page:'https://ankoautca.it/economia.html',
-    body:`Il Dipartimento della Protezione Civile ha diramato per martedì 19 maggio 2026 un bollettino di allerta meteo gialla di ordinaria criticità per rischio piogge, temporali e idrogeologico in diverse regioni del Centro-Sud. Le zone più interessate sono l'Abruzzo (bacino dell'Aterno e Marsica), la Calabria (versanti jonico e tirrenico) e la Sicilia nord-orientale.
-
-Il maltempo è causato da un residuo di instabilità atmosferica che continua a interessare il Paese dopo la perturbazione numero 9 del mese. Le precipitazioni potrebbero rendere difficoltose le operazioni di soccorso in alcune aree. Per chi segue il Giro d'Italia, le previsioni meteo lungo il litorale versiliese indicano una possibilità di pioggia nel pomeriggio, che potrebbe rendere più insidiosa la cronometro Viareggio-Massa.
-
-A partire da mercoledì 20 maggio si prevede una progressiva rimonta dell'alta pressione con temperature in aumento verso valori estivi su tutta la penisola.`
-  },
-  {
-    id:'o11', cat:'Cronaca', urgente:false, read:4,
-    title:'Cannes 2026: la seconda giornata sulla Croisette. Sorrentino e i film italiani in attesa del verdetto',
-    sub:'La kermesse entra nel vivo tra proiezioni in concorso e dibattiti culturali. Clima di attesa per i giudizi della giuria.',
-    author:'Elena Martini',
-    img:'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=900&h=560&fit=crop&q=80',
-    page:'https://ankoautca.it/cronaca.html',
-    body:`Il Festival di Cannes 2026 entra nella sua seconda giornata, con la Croisette che si anima di proiezioni in concorso e fuori concorso. Tra i film più attesi c'è il nuovo lungometraggio di Paolo Sorrentino, presente con grandi aspettative dopo i riconoscimenti internazionali del suo cinema degli ultimi anni.
-
-Adam Driver, Javier Bardem e Kristen Stewart figurano tra i nomi più presenti nei titoli in gara. La composizione definitiva della giuria internazionale è ancora oggetto di attesa da parte degli addetti ai lavori.
-
-La kermesse si svolge in un clima culturale complesso: alcuni registi hanno scelto di ritirare i propri film in segno di solidarietà con le popolazioni civili coinvolte nei conflitti in corso. Fuori dalla sala, le manifestazioni legate alla guerra a Gaza continuano a fare rumore, pur senza turbare l'ordinato svolgimento delle proiezioni.`
-  },
-  {
-    id:'o12', cat:'Tecnologia', urgente:false, read:3,
-    title:'Intelligenza artificiale e voci umane: il dibattito acceso dopo le parole di Papa Leone XIV alla Sapienza',
-    sub:'Il pontefice aveva chiesto di «salvaguardare le voci e i volti umani». Il mondo tech risponde con posizioni divise.',
+    id:'o9', cat:'Tecnologia', urgente:false, read:3,
+    title:'AI e creatività umana: dopo le parole del Papa, il settore tech si spacca tra chi teme la sostituzione e chi celebra il progresso',
+    sub:'Il discorso di Leone XIV alla Sapienza risuona nel dibattito sull\'intelligenza artificiale generativa. I casi OpenAI–Musk e la sentenza di Oakland rilanciano le domande etiche.',
     author:'Andrea Costa',
     img:'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&h=560&fit=crop&q=80',
-    page:'https://ankoautca.it/tecnologia.html',
-    body:`Il discorso pronunciato da Papa Leone XIV all'Università La Sapienza di Roma nei giorni scorsi continua a far discutere il mondo della tecnologia e della cultura digitale. Il pontefice aveva invitato la comunità internazionale a «salvaguardare le voci e i volti umani nell'era della digitalizzazione crescente», lanciando un appello contro la sostituzione della creatività umana con sistemi automatizzati.
+    body:`Il discorso pronunciato da Papa Leone XIV all'Università La Sapienza di Roma qualche giorno fa continua ad alimentare il dibattito internazionale sull'intelligenza artificiale. Le parole del pontefice — un invito a «salvaguardare le voci e i volti umani» nell'era della digitalizzazione crescente — hanno trovato risonanza in settori inaspettati, dai musicisti ai doppiatori, dagli scrittori agli illustratori.
 
-Nel settore dell'intelligenza artificiale, le sue parole hanno aperto un dibattito tra chi vede nell'AI un pericolo per le professioni creative — musicisti, doppiatori, scrittori, illustratori — e chi sostiene che gli strumenti di AI siano semplicemente i nuovi mezzi di produzione culturale.
+Il settore tech, com'era prevedibile, si è spaccato. Da un lato chi, come molti ricercatori e founder di startup, vede negli strumenti di AI generativa i nuovi mezzi di produzione culturale, destinati ad abbassare le barriere di accesso alla creatività. Dall'altro chi, come i sindacati delle professioni creative, teme che l'automazione massiva del lavoro intellettuale stia erodendo le basi economiche di intere categorie professionali.
 
-Il tema si intreccia con la vicenda giudiziaria di Elon Musk contro OpenAI, decisa proprio oggi: anche al centro di quel caso c'era la questione di cosa significhi sviluppare l'intelligenza artificiale «per il bene dell'umanità» quando i modelli economici spingono in direzione opposta.`
+Questo dibattito si intreccia con la vicenda giudiziaria di Elon Musk contro OpenAI, chiusa questa settimana dal tribunale federale di Oakland con un verdetto di prescrizione delle accuse: anche al centro di quel caso c'era la domanda su cosa significhi sviluppare l'intelligenza artificiale «per il bene dell'umanità» quando i modelli economici spingono in tutt'altra direzione.`
+  },
+  {
+    id:'o10', cat:'Cronaca', urgente:false, read:4,
+    title:'Cannes 2026: Sorrentino nella selezione ufficiale, Driver e Bardem tra le star della Croisette. La kermesse entra nel vivo',
+    sub:'Il festival francese alla sua terza giornata. Clima complesso tra arte e proteste per Gaza. La giuria ancora senza comunicazione ufficiale sulle decisioni.',
+    author:'Elena Martini',
+    img:'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=900&h=560&fit=crop&q=80',
+    body:`Il Festival di Cannes 2026 entra nel pieno del suo svolgimento, con la Croisette animata di proiezioni in concorso, fuori concorso e sezione Un Certain Regard. Paolo Sorrentino è presente con il suo nuovo film, accolto dalla stampa internazionale con un'attenzione che conferma la statura del regista napoletano nel panorama mondiale del cinema d'autore.
+
+Tra i nomi più fotografati sul red carpet ci sono Adam Driver, Javier Bardem e Kristen Stewart, tutti legati a pellicole in gara. La composizione definitiva della giuria internazionale — e le sue prime inclinazioni — restano oggetto di speculazione da parte degli addetti ai lavori, in attesa delle prime decisioni ufficiali.
+
+Il festival si svolge in un'atmosfera culturalmente complessa: alcune delegazioni hanno scelto di ritirarsi in segno di solidarietà con le popolazioni civili coinvolte nei conflitti in corso in Medio Oriente, mentre fuori dalle sale la presenza di manifestanti legati alla causa di Gaza è costante, pur senza turbare l'ordinato svolgimento delle proiezioni. La kermesse si concluderà con la cerimonia di premiazione il 24 maggio.`
+  },
+  {
+    id:'o11', cat:'Economia', urgente:false, read:3,
+    title:'Accise diesel: il governo dimezza il taglio previsto. M5S e Pd insorgono: «Scelta incomprensibile mentre l\'energia aumenta»',
+    sub:'Il Consiglio dei ministri approva una misura più ridotta rispetto alle attese. L\'opposizione attacca, Meloni difende la prudenza nei conti pubblici.',
+    author:'Luca De Rosa',
+    img:'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&h=560&fit=crop&q=80',
+    body:`Il Consiglio dei ministri ha approvato questa settimana il decreto che interviene sulle accise sui carburanti, ma con un taglio al diesel dimezzato rispetto alle anticipazioni delle settimane precedenti. Una scelta che il governo ha giustificato con la necessità di mantenere il rigore nei conti pubblici in una fase di incertezza geopolitica legata alla crisi iraniana e al blocco dello Stretto di Hormuz.
+
+Le opposizioni hanno reagito con durezza. Il M5S ha definito la misura «insufficiente e incomprensibile» in un momento in cui il prezzo dei carburanti pesa soprattutto sui trasportatori e sulle famiglie con redditi medi e bassi. Anche il Pd ha attaccato, con la capogruppo alla Camera Chiara Braga che ha parlato di «scelta che scarica il costo della crisi internazionale sui cittadini più deboli».
+
+La premier Giorgia Meloni ha risposto che il governo sta «guardando ai conti con responsabilità», ricordando che l'Italia ha già ridotto il debito pubblico in rapporto al PIL negli ultimi due anni. Intanto il prezzo alla pompa del gasolio sfiora i 2 euro al litro in molte stazioni italiane, ai livelli più alti da tre anni.`
+  },
+  {
+    id:'o12', cat:'Cronaca', urgente:false, read:3,
+    title:'Palermo: manifestazione delle Agende Rosse al tribunale. Conte ricorda Falcone a 34 anni dalla strage di Capaci',
+    sub:'Il 23 maggio 1992 Giovanni Falcone veniva assassinato dalla mafia. Quest\'anno la commemorazione si tinge di polemica politica.',
+    author:'Redazione ANKOAUTCA',
+    img:'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=900&h=560&fit=crop&q=80',
+    body:`Oggi, 23 maggio 2026, ricorre il 34° anniversario della strage di Capaci, in cui la mafia uccise il giudice Giovanni Falcone, la moglie Francesca Morvillo e i tre agenti della scorta Vito Schifani, Rocco Dicillo e Antonio Montinaro. A Palermo, al Tribunale, è prevista per le 15:00 la manifestazione annuale delle «Agende Rosse», promossa dal presidente del M5S Giuseppe Conte.
+
+La cerimonia di quest'anno si svolge in un clima di rinnovata tensione politica sul tema della lotta alla criminalità organizzata. Le associazioni antimafia hanno criticato alcune misure dell'attuale governo in materia di intercettazioni e di regime carcerario per i mafiosi condannati. Il governo ha respinto le accuse, con il ministro della Giustizia che ha sottolineato l'aumento dei sequestri di beni alla criminalità organizzata negli ultimi 18 mesi.
+
+L'anniversario della strage di Capaci rappresenta ogni anno un momento di riflessione collettiva sull'Italia che fu e su quella che vorrebbe essere. Falcone rimane il simbolo di un'istituzione che ha cercato di combattere la mafia con le armi della legge, pagando con la vita.`
   }
 ];
 
-// ─── IMMAGINI FALLBACK ────────────────────────────────────────────
 const IMGS_FB = {
-  cronaca: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=900&h=560&fit=crop&q=80',
-  politica: 'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=900&h=560&fit=crop&q=80',
-  economia: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&h=560&fit=crop&q=80',
-  sport: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=900&h=560&fit=crop&q=80',
-  mondo: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&h=560&fit=crop&q=80',
-  cultura: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=900&h=560&fit=crop&q=80',
-  tecnologia: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&h=560&fit=crop&q=80',
+  cronaca:'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=900&h=560&fit=crop&q=80',
+  politica:'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=900&h=560&fit=crop&q=80',
+  economia:'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&h=560&fit=crop&q=80',
+  sport:'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=900&h=560&fit=crop&q=80',
+  mondo:'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&h=560&fit=crop&q=80',
+  cultura:'https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=900&h=560&fit=crop&q=80',
+  tecnologia:'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&h=560&fit=crop&q=80',
 };
 function getImg(a){
-  if(a.img && (a.img.startsWith('http')||a.img.startsWith('/'))) return a.img;
-  return IMGS_FB[a.cat.toLowerCase()] || IMGS_FB.cronaca;
+  if(a.img&&(a.img.startsWith('http')||a.img.startsWith('/')))return a.img;
+  return IMGS_FB[a.cat.toLowerCase()]||IMGS_FB.cronaca;
 }
 function esc(s){if(!s)return'';return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 
-// ─── RENDER HOMEPAGE ──────────────────────────────────────────────
 function goHome(){
-  const arts = DB_OGGI;
-  const hero  = arts[0];
-  const side1 = arts[1];
-  const side2 = arts[2];
+  const arts=DB_OGGI;
+  const hero=arts[0];
+  const side1=arts[1];
+  const side2=arts[2];
 
-  document.getElementById('page-root').innerHTML = `
+  document.getElementById('page-root').innerHTML=`
   <div class="wrap">
-    <!-- HERO GRID -->
     <div class="hero-oggi">
       <div class="hero-main" onclick="openArt('${esc(hero.id)}')">
         <div class="h-bg" style="background-image:url('${getImg(hero)}')"></div>
@@ -679,7 +637,7 @@ function goHome(){
         <div class="h-bg" style="background-image:url('${getImg(side1)}')"></div>
         <div class="h-grad"></div>
         <div class="h-content">
-          <div class="h-urgenza">DIRETTA</div>
+          <div class="h-urgenza">EUROPA</div>
           <div class="h-title">${esc(side1.title)}</div>
         </div>
       </div>
@@ -693,84 +651,78 @@ function goHome(){
       </div>
     </div>
 
-    <!-- BORSA BAR -->
     <div class="borsa-bar">
-      <div class="borsa-item"><div class="borsa-name">FTSEMib</div><div class="borsa-val">~48.500</div><div class="borsa-change pos">▲</div></div>
+      <div class="borsa-item"><div class="borsa-name">FTSEMib</div><div class="borsa-val">~48.220</div><div class="borsa-change neg">▼ -0,4%</div></div>
       <div class="borsa-sep"></div>
-      <div class="borsa-item"><div class="borsa-name">EUR/USD</div><div class="borsa-val">1,128</div><div class="borsa-change neg">▼</div></div>
+      <div class="borsa-item"><div class="borsa-name">EUR/USD</div><div class="borsa-val">1,131</div><div class="borsa-change pos">▲ +0,2%</div></div>
       <div class="borsa-sep"></div>
-      <div class="borsa-item"><div class="borsa-name">BTP-Bund spread</div><div class="borsa-val">~77 bp</div><div class="borsa-change neg">▲</div></div>
+      <div class="borsa-item"><div class="borsa-name">BTP-Bund</div><div class="borsa-val">~79 bp</div><div class="borsa-change neg">▲</div></div>
       <div class="borsa-sep"></div>
-      <div class="borsa-item"><div class="borsa-name">Bitcoin</div><div class="borsa-val">~$77.000</div><div class="borsa-change pos">▲</div></div>
+      <div class="borsa-item"><div class="borsa-name">Bitcoin</div><div class="borsa-val">~$106.000</div><div class="borsa-change pos">▲ +1,1%</div></div>
       <div class="borsa-sep"></div>
-      <div class="borsa-item"><div class="borsa-name">Oro</div><div class="borsa-val">~$4.550</div><div class="borsa-change pos">+0,2%</div></div>
+      <div class="borsa-item"><div class="borsa-name">Oro</div><div class="borsa-val">~$3.290</div><div class="borsa-change pos">▲ +0,3%</div></div>
       <div class="borsa-sep"></div>
-      <div class="borsa-item"><div class="borsa-name">Petrolio Brent</div><div class="borsa-val">~$72</div><div class="borsa-change neg">▼</div></div>
+      <div class="borsa-item"><div class="borsa-name">Petrolio Brent</div><div class="borsa-val">~$72</div><div class="borsa-change neg">▼ Hormuz</div></div>
     </div>
 
-    <!-- FLOTILLA ALERT BOX -->
     <div class="alert-box">
-      <div class="ab-title"><i class="ti ti-alert-triangle" style="color:var(--red)"></i> FLOTILLA INTERCETTATA · 19 MAGGIO 2026</div>
-      <div class="ab-desc">La marina israeliana ha abbordato le navi della Global Sumud al largo di Cipro. Italiani fermati: tra 9 e 12 secondo le fonti. Tajani convoca l'ambasciatore israeliano e chiede il rilascio immediato.</div>
+      <div class="ab-title"><i class="ti ti-alert-triangle" style="color:var(--red)"></i> IRAN: ACCORDO O GUERRA? · 23 MAGGIO 2026</div>
+      <div class="ab-desc">Trump studia il «maxi attacco finale» mentre mediatori di Pakistan e Qatar sono a Teheran con una bozza in 9 punti. Il nodo: cessate il fuoco sì, vincoli sul nucleare no. Rubio prepara un piano B per Hormuz.</div>
       <div class="ab-grid">
-        <div class="ab-item"><div class="ab-item-title">🛳 Operazione</div><div class="ab-item-text">31 imbarcazioni intercettate, 20 continuano verso Gaza. Commando israeliani a bordo in pieno giorno a 250 miglia da Gaza.</div></div>
-        <div class="ab-item"><div class="ab-item-title">🇮🇹 Italiani coinvolti</div><div class="ab-item-text">9-12 italiani fermati tra attivisti del Bolognese e delle Marche. Deputato M5S Carotenuto presente a bordo.</div></div>
-        <div class="ab-item"><div class="ab-item-title">🏛 Risposta italiana</div><div class="ab-item-text">Tajani: «Tutelati i connazionali, rilascio immediato». Schlein: «Ennesima pirateria». Fratoianni: «Azione illegale».</div></div>
+        <div class="ab-item"><div class="ab-item-title">🛫 Sul campo</div><div class="ab-item-text">50 aerei cisterna USA sulle piste di Tel Aviv. Hegseth al vertice di sicurezza con Trump. Ufficiali delle forze armate cancellano i piani per il weekend.</div></div>
+        <div class="ab-item"><div class="ab-item-title">🤝 Diplomazia</div><div class="ab-item-text">Capo esercito Pakistan Munir a Teheran. Qatar invia mediatori. Bozza in 9 punti: cessate il fuoco + Hormuz aperto + revoca sanzioni. Nucleare: rinviato.</div></div>
+        <div class="ab-item"><div class="ab-item-title">⚡ Mercati</div><div class="ab-item-text">Petrolio Brent ~$72, volatile. Rubio: «Piano B se Hormuz chiuso ancora». Iran valuta un «pedaggio» per i transiti nello stretto.</div></div>
       </div>
     </div>
 
     <div class="layout">
       <main>
-        <!-- ULTIME NOTIZIE -->
         <div class="section-gap">
           <div class="sec-head">
             <div class="sec-rule"></div>
             <div class="sec-title">Notizie di Oggi</div>
-            <span class="sec-badge">19 MAGGIO</span>
+            <span class="sec-badge">23 MAGGIO</span>
           </div>
           <div class="cards-3">${arts.slice(3,6).map(a=>cardHtml(a)).join('')}</div>
           <div class="art-list">${arts.slice(6,10).map(a=>aliHtml(a)).join('')}</div>
         </div>
 
-        <!-- SPORT -->
         <div class="section-gap">
-          <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Sport</div><a class="sec-more" href="https://ankoautca.it/sport.html">Tutte le notizie sport →</a></div>
+          <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Sport</div></div>
           <div class="mag">
-            <div class="mag-item mag-main" onclick="openArt('o5')">
-              <div class="mag-bg" style="background-image:url('${getImg(arts[4])}')"></div>
+            <div class="mag-item mag-main" onclick="openArt('o3')">
+              <div class="mag-bg" style="background-image:url('${getImg(arts[2])}')"></div>
               <div class="mag-grad"></div>
-              <div class="mag-content"><div class="mag-cat">Giro d'Italia · Tappa 10</div><div class="mag-title">${esc(arts[4].title)}</div></div>
+              <div class="mag-content"><div class="mag-cat">Giro d'Italia · Tappa 14 — 5 stelle</div><div class="mag-title">${esc(arts[2].title)}</div></div>
             </div>
             <div class="mag-stack">
-              <div class="mag-item" onclick="openArt('o9')">
-                <div class="mag-bg" style="background-image:url('${getImg(arts[8])}')"></div>
+              <div class="mag-item" onclick="openArt('o8')">
+                <div class="mag-bg" style="background-image:url('${getImg(arts[7])}')"></div>
                 <div class="mag-grad"></div>
-                <div class="mag-content"><div class="mag-cat">Serie B · Playoff</div><div class="mag-title">${esc(arts[8].title)}</div></div>
+                <div class="mag-content"><div class="mag-cat">Serie B · Playoff</div><div class="mag-title">${esc(arts[7].title)}</div></div>
               </div>
               <div class="mag-item" onclick="openArt('o3')">
                 <div class="mag-bg" style="background-image:url('https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=600&h=300&fit=crop')"></div>
                 <div class="mag-grad"></div>
-                <div class="mag-content"><div class="mag-cat">Tennis</div><div class="mag-title">Sinner campione di Roma: l'onda lunga continua — in diretta al Foro Italico</div></div>
+                <div class="mag-content"><div class="mag-cat">Tennis</div><div class="mag-title">Roland Garros 2026 in corso — Sinner e Musetti in tabellone, prime sorprese</div></div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- MONDO -->
         <div class="section-gap">
-          <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Mondo</div><a class="sec-more" href="https://ankoautca.it/mondo.html">Tutte le notizie mondo →</a></div>
+          <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Mondo</div></div>
           <div class="cards-2">
             ${cardHtml(arts[0])}
-            ${cardHtml(arts[7])}
+            ${cardHtml(arts[6])}
           </div>
         </div>
 
-        <!-- TECNOLOGIA -->
         <div class="section-gap">
-          <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Tecnologia</div><a class="sec-more" href="https://ankoautca.it/tecnologia.html">Tutte le notizie tech →</a></div>
+          <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Tecnologia & Cultura</div></div>
           <div class="cards-2">
-            ${cardHtml(arts[5])}
-            ${cardHtml(arts[11])}
+            ${cardHtml(arts[8])}
+            ${cardHtml(arts[3])}
           </div>
         </div>
 
@@ -795,32 +747,31 @@ function goHome(){
           <div class="wh"><i class="ti ti-calendar"></i> Agenda del giorno</div>
           <div class="wbody" style="display:flex;flex-direction:column;gap:10px">
             <div style="display:flex;gap:10px;align-items:flex-start;padding-bottom:10px;border-bottom:1px solid var(--border)">
-              <div style="background:var(--red);color:#fff;font-size:9px;font-weight:700;padding:3px 7px;border-radius:3px;white-space:nowrap">13:15</div>
-              <div style="font-family:var(--serif);font-size:13px">Giro d'Italia Tappa 10 — cronometro Viareggio–Massa (Rai 2)</div>
+              <div style="background:var(--red);color:#fff;font-size:9px;font-weight:700;padding:3px 7px;border-radius:3px;white-space:nowrap">13:00</div>
+              <div style="font-family:var(--serif);font-size:13px">Giro d'Italia Tappa 14 — Aosta–Pila, 5 stelle (Rai 2)</div>
             </div>
             <div style="display:flex;gap:10px;align-items:flex-start;padding-bottom:10px;border-bottom:1px solid var(--border)">
-              <div style="background:var(--red);color:#fff;font-size:9px;font-weight:700;padding:3px 7px;border-radius:3px;white-space:nowrap">MATTINA</div>
-              <div style="font-family:var(--serif);font-size:13px">Udienza convalida fermo Salim El Koudri — Modena</div>
+              <div style="background:var(--red);color:#fff;font-size:9px;font-weight:700;padding:3px 7px;border-radius:3px;white-space:nowrap">09:00</div>
+              <div style="font-family:var(--serif);font-size:13px">Trento: Festival Economia — Prodi, Ciriani, Patuelli</div>
             </div>
             <div style="display:flex;gap:10px;align-items:flex-start;padding-bottom:10px;border-bottom:1px solid var(--border)">
-              <div style="background:var(--paper);color:var(--muted);font-size:9px;font-weight:700;padding:3px 7px;border-radius:3px;white-space:nowrap;border:1px solid var(--border)">IN CORSO</div>
-              <div style="font-family:var(--serif);font-size:13px">Recupero corpi italiani nelle Maldive</div>
+              <div style="background:var(--paper);color:var(--muted);font-size:9px;font-weight:700;padding:3px 7px;border-radius:3px;white-space:nowrap;border:1px solid var(--border)">15:00</div>
+              <div style="font-family:var(--serif);font-size:13px">Palermo: Manifestazione Agende Rosse — 34° Capaci</div>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start;padding-bottom:10px;border-bottom:1px solid var(--border)">
+              <div style="background:var(--paper);color:var(--muted);font-size:9px;font-weight:700;padding:3px 7px;border-radius:3px;white-space:nowrap;border:1px solid var(--border)">19:30</div>
+              <div style="font-family:var(--serif);font-size:13px">Notte Europea dei Musei — aperture fino all'1:00</div>
             </div>
             <div style="display:flex;gap:10px;align-items:flex-start">
-              <div style="background:var(--paper);color:var(--muted);font-size:9px;font-weight:700;padding:3px 7px;border-radius:3px;white-space:nowrap;border:1px solid var(--border)">20:00</div>
-              <div style="font-family:var(--serif);font-size:13px">Serie B playoff — Monza vs Juve Stabia</div>
+              <div style="background:var(--paper);color:var(--muted);font-size:9px;font-weight:700;padding:3px 7px;border-radius:3px;white-space:nowrap;border:1px solid var(--border)">Nicosia</div>
+              <div style="font-family:var(--serif);font-size:13px">Riunione Ecofin — energia, dazi, bilancio UE</div>
             </div>
           </div>
         </div>
         <div class="widget">
           <div class="wh"><i class="ti ti-layout-navbar"></i> Le sezioni</div>
           <div class="wbody" style="display:flex;flex-direction:column;gap:8px">
-            <a href="https://ankoautca.it/politica.html" style="display:flex;align-items:center;gap:10px;padding:8px;border-radius:4px;background:var(--paper);font-size:13px;font-weight:600;transition:all .2s" onmouseover="this.style.background='var(--ink)';this.style.color='#fff'" onmouseout="this.style.background='var(--paper)';this.style.color='inherit'"><i class="ti ti-building-bank" style="color:var(--red)"></i> Politica</a>
-            <a href="https://ankoautca.it/economia.html" style="display:flex;align-items:center;gap:10px;padding:8px;border-radius:4px;background:var(--paper);font-size:13px;font-weight:600;transition:all .2s" onmouseover="this.style.background='var(--ink)';this.style.color='#fff'" onmouseout="this.style.background='var(--paper)';this.style.color='inherit'"><i class="ti ti-chart-bar" style="color:var(--red)"></i> Economia</a>
-            <a href="https://ankoautca.it/mondo.html" style="display:flex;align-items:center;gap:10px;padding:8px;border-radius:4px;background:var(--paper);font-size:13px;font-weight:600;transition:all .2s" onmouseover="this.style.background='var(--ink)';this.style.color='#fff'" onmouseout="this.style.background='var(--paper)';this.style.color='inherit'"><i class="ti ti-world" style="color:var(--red)"></i> Mondo</a>
-            <a href="https://ankoautca.it/sport.html" style="display:flex;align-items:center;gap:10px;padding:8px;border-radius:4px;background:var(--paper);font-size:13px;font-weight:600;transition:all .2s" onmouseover="this.style.background='var(--ink)';this.style.color='#fff'" onmouseout="this.style.background='var(--paper)';this.style.color='inherit'"><i class="ti ti-ball-football" style="color:var(--red)"></i> Sport</a>
-            <a href="https://ankoautca.it/tecnologia.html" style="display:flex;align-items:center;gap:10px;padding:8px;border-radius:4px;background:var(--paper);font-size:13px;font-weight:600;transition:all .2s" onmouseover="this.style.background='var(--ink)';this.style.color='#fff'" onmouseout="this.style.background='var(--paper)';this.style.color='inherit'"><i class="ti ti-cpu" style="color:var(--red)"></i> Tecnologia</a>
-            <a href="https://ankoautca.it/opinione.html" style="display:flex;align-items:center;gap:10px;padding:8px;border-radius:4px;background:var(--paper);font-size:13px;font-weight:600;transition:all .2s" onmouseover="this.style.background='var(--ink)';this.style.color='#fff'" onmouseout="this.style.background='var(--paper)';this.style.color='inherit'"><i class="ti ti-pencil" style="color:var(--red)"></i> Opinione</a>
+            ${['Politica','Economia','Mondo','Sport','Tecnologia','Opinione'].map(s=>`<a href="#" style="display:flex;align-items:center;gap:10px;padding:8px;border-radius:4px;background:var(--paper);font-size:13px;font-weight:600;transition:all .2s" onmouseover="this.style.background='var(--ink)';this.style.color='#fff'" onmouseout="this.style.background='var(--paper)';this.style.color='inherit'">${s}</a>`).join('')}
           </div>
         </div>
       </aside>
@@ -830,11 +781,11 @@ function goHome(){
 }
 
 function cardHtml(a){
-  return `<div class="card" onclick="openArt('${esc(a.id)}')">
+  return`<div class="card" onclick="openArt('${esc(a.id)}')">
     <div class="card-img">
       <img src="${getImg(a)}" alt="${esc(a.title)}" loading="lazy" onerror="this.style.display='none'">
       <span class="card-badge">${esc(a.cat)}</span>
-      ${a.urgente ? '<span class="card-new">URGENTE</span>' : ''}
+      ${a.urgente?'<span class="card-new">URGENTE</span>':''}
     </div>
     <div class="card-body">
       <div class="card-title">${esc(a.title)}</div>
@@ -845,7 +796,7 @@ function cardHtml(a){
 }
 
 function aliHtml(a){
-  return `<div class="ali" onclick="openArt('${esc(a.id)}')">
+  return`<div class="ali" onclick="openArt('${esc(a.id)}')">
     <div class="ali-img"><img src="${getImg(a)}" alt="${esc(a.title)}" loading="lazy" onerror="this.style.display='none'"></div>
     <div>
       <div class="ali-cat">${esc(a.cat)}${a.urgente?' · 🔴 URGENTE':''}</div>
@@ -856,17 +807,17 @@ function aliHtml(a){
 }
 
 function openArt(id){
-  const a = DB_OGGI.find(x=>x.id===id);
-  if(!a) return;
-  const paras = (a.body||'').split('\n\n').filter(p=>p.trim());
-  document.getElementById('page-root').innerHTML = `
+  const a=DB_OGGI.find(x=>x.id===id);
+  if(!a)return;
+  const paras=(a.body||'').split('\n\n').filter(p=>p.trim());
+  document.getElementById('page-root').innerHTML=`
   <div class="wrap">
     <div class="layout" style="padding-top:28px">
       <main>
         <div class="art-page">
           <div class="back-btn" onclick="goHome()"><i class="ti ti-arrow-left"></i> Torna alla home</div>
           <div style="margin-bottom:10px;display:flex;gap:8px;align-items:center">
-            <a href="${esc(a.page||'#')}" style="background:var(--red);color:#fff;font-size:10px;font-weight:700;padding:3px 9px;border-radius:2px;letter-spacing:1.5px;text-transform:uppercase">${esc(a.cat)}</a>
+            <span style="background:var(--red);color:#fff;font-size:10px;font-weight:700;padding:3px 9px;border-radius:2px;letter-spacing:1.5px;text-transform:uppercase">${esc(a.cat)}</span>
             ${a.urgente?'<span style="background:#7b1111;color:#ffcdd2;font-size:10px;font-weight:700;padding:3px 9px;border-radius:2px;letter-spacing:1.5px;text-transform:uppercase;animation:blink 2s infinite">● URGENTE</span>':''}
           </div>
           <h1>${esc(a.title)}</h1>
@@ -874,14 +825,13 @@ function openArt(id){
           <div class="art-meta">
             <span><i class="ti ti-user"></i> ${esc(a.author)}</span>
             <span><i class="ti ti-clock"></i> ${a.read} min di lettura</span>
-            <span><i class="ti ti-calendar"></i> Martedì 19 Maggio 2026</span>
+            <span><i class="ti ti-calendar"></i> Sabato 23 Maggio 2026</span>
           </div>
           <img class="art-hero-img" src="${getImg(a)}" alt="${esc(a.title)}" onerror="this.style.display='none'">
           <div class="art-body">${paras.map(p=>`<p>${esc(p)}</p>`).join('')}</div>
           <div class="art-share">
             <button class="share-btn" onclick="copyLink()"><i class="ti ti-link"></i> Copia link</button>
             <button class="share-btn" onclick="scrollToForum()"><i class="ti ti-messages"></i> Commenta nel Forum</button>
-            <a href="${esc(a.page||'#')}" class="share-btn"><i class="ti ti-layout-navbar"></i> Vai alla sezione ${esc(a.cat)}</a>
           </div>
         </div>
       </main>
@@ -890,29 +840,17 @@ function openArt(id){
           <div class="wh"><i class="ti ti-book"></i> Altre notizie di oggi</div>
           <div class="wbody">${DB_OGGI.filter(x=>x.id!==id).slice(0,5).map(x=>aliHtml(x)).join('')}</div>
         </div>
-        <div class="widget">
-          <div class="wh"><i class="ti ti-layout-navbar"></i> Sezioni</div>
-          <div class="wbody" style="display:flex;flex-direction:column;gap:6px">
-            <a href="https://ankoautca.it/politica.html" style="font-size:13px;color:var(--muted);padding:6px 0;border-bottom:1px solid var(--border);display:block;transition:color .2s" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--muted)'">→ Politica</a>
-            <a href="https://ankoautca.it/economia.html" style="font-size:13px;color:var(--muted);padding:6px 0;border-bottom:1px solid var(--border);display:block;transition:color .2s" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--muted)'">→ Economia</a>
-            <a href="https://ankoautca.it/mondo.html" style="font-size:13px;color:var(--muted);padding:6px 0;border-bottom:1px solid var(--border);display:block;transition:color .2s" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--muted)'">→ Mondo</a>
-            <a href="https://ankoautca.it/sport.html" style="font-size:13px;color:var(--muted);padding:6px 0;border-bottom:1px solid var(--border);display:block;transition:color .2s" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--muted)'">→ Sport</a>
-            <a href="https://ankoautca.it/tecnologia.html" style="font-size:13px;color:var(--muted);padding:6px 0;border-bottom:1px solid var(--border);display:block;transition:color .2s" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--muted)'">→ Tecnologia</a>
-            <a href="https://ankoautca.it/opinione.html" style="font-size:13px;color:var(--muted);padding:6px 0;display:block;transition:color .2s" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--muted)'">→ Opinione</a>
-          </div>
-        </div>
       </aside>
     </div>
   </div>`;
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
-// ─── SEARCH ──────────────────────────────────────────────────────
 function doSearch(){
-  const q = document.getElementById('search-input').value.trim().toLowerCase();
-  if(!q) return;
-  const res = DB_OGGI.filter(a=>a.title.toLowerCase().includes(q)||a.sub.toLowerCase().includes(q)||(a.body||'').toLowerCase().includes(q));
-  document.getElementById('page-root').innerHTML = `
+  const q=document.getElementById('search-input').value.trim().toLowerCase();
+  if(!q)return;
+  const res=DB_OGGI.filter(a=>a.title.toLowerCase().includes(q)||a.sub.toLowerCase().includes(q)||(a.body||'').toLowerCase().includes(q));
+  document.getElementById('page-root').innerHTML=`
   <div class="wrap" style="padding-top:28px">
     <div class="back-btn" onclick="goHome()" style="display:inline-flex;margin-bottom:16px"><i class="ti ti-arrow-left"></i> Home</div>
     <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Risultati per: «${esc(q)}»</div></div>
@@ -920,47 +858,42 @@ function doSearch(){
   </div>`;
   window.scrollTo({top:0,behavior:'smooth'});
 }
-document.getElementById('search-btn').onclick = doSearch;
+document.getElementById('search-btn').onclick=doSearch;
 document.getElementById('search-input').addEventListener('keydown',e=>{if(e.key==='Enter')doSearch();});
 
-// ─── FORUM ───────────────────────────────────────────────────────
-const FORUM_KEY='ankoautca_forum_19maggio_v1';
+const FORUM_KEY='ankoautca_forum_23maggio_v1';
 function loadMsgs(){try{return JSON.parse(localStorage.getItem(FORUM_KEY)||'[]');}catch{return[];}}
 function saveMsgs(m){localStorage.setItem(FORUM_KEY,JSON.stringify(m.slice(-300)));}
-let currentTopic='Tutti', currentSearch='';
+let currentTopic='Tutti',currentSearch='';
 
-const SEED = [
-  {id:'s1',name:'Redazione ANKOAUTCA',avatar:'RA',badge:'editor',topic:'Cronaca',text:'Benvenuti nel Forum di martedì 19 maggio. Giornata densa: Flotilla, Iran, Maldive, Giro d\'Italia. Commentate con rispetto e civiltà.',time:Date.now()-3600000*3,reactions:{like:11,cuore:7,bravo:4},replies:[]},
-  {id:'s2',name:'Marco da Roma',avatar:'MR',badge:'guest',topic:'Mondo',text:'La sospensione dell\'attacco all\'Iran è una buona notizia, ma Trump ha comunque lasciato la minaccia sul tavolo. Non è pace, è solo una pausa. Speriamo che i negoziati portino a qualcosa di concreto.',time:Date.now()-3600000*2,reactions:{like:17,cuore:9,bravo:6},replies:[{name:'Federica B.',text:'Concordo. E nel frattempo a Teheran insegnano ai civili a usare le armi. La situazione è tutt\'altro che tranquilla.',time:Date.now()-3600000*1.5}]},
-  {id:'s3',name:'Giulia da Torino',avatar:'GT',badge:'guest',topic:'Cronaca',text:'La vicenda della Flotilla è vergognosa. Attivisti in acque internazionali abbordati con la musica di Britney Spears. Il governo italiano deve fare di più, non bastano le dichiarazioni di Tajani.',time:Date.now()-3600000,reactions:{like:22,cuore:14,bravo:8},replies:[]},
-  {id:'s4',name:'Andrea C.',avatar:'AC',badge:'guest',topic:'Sport',text:'Forza Ganna alla cronometro! È il momento suo. E un pensiero ai familiari degli italiani deceduti alle Maldive — una tragedia assurda.',time:Date.now()-1800000,reactions:{like:9,cuore:12,bravo:3},replies:[]},
+const SEED=[
+  {id:'s1',name:'Redazione ANKOAUTCA',avatar:'RA',badge:'editor',topic:'Mondo',text:'Benvenuti nel Forum di sabato 23 maggio. Giornata densa tra la crisi Iran-USA, la tappa regina del Giro e la Notte dei Musei. Commentate con rispetto.',time:Date.now()-3600000*3,reactions:{like:8,cuore:5,bravo:3},replies:[]},
+  {id:'s2',name:'Giorgio da Milano',avatar:'GM',badge:'guest',topic:'Mondo',text:'La bozza in 9 punti senza clausola nucleare è una presa in giro. Significa che tra qualche mese si ricomincia da capo. Trump lo sa e per questo non firma. È come il gioco del gatto col topo ma con le bombe.',time:Date.now()-3600000*2,reactions:{like:21,cuore:8,bravo:7},replies:[{name:'Miriam T.',text:'Concordo. L\'accordo vero sull\'atomica è ancora lontanissimo. Questa è solo una tregua per salvare la faccia.',time:Date.now()-3600000*1.5}]},
+  {id:'s3',name:'Benedetta da Torino',avatar:'BT',badge:'guest',topic:'Sport',text:'Oggi è la tappa più bella del Giro! Aosta-Pila con quelle 5 salite è una cosa meravigliosa. Forza Vingegaard, ma tifo anche per Ciccone che è il nostro.',time:Date.now()-3600000,reactions:{like:14,cuore:19,bravo:5},replies:[]},
+  {id:'s4',name:'Antonio P.',avatar:'AP',badge:'guest',topic:'Cronaca',text:'34 anni dalla strage di Capaci. Falcone non si dimentica. Triste che ancora oggi il suo sacrificio venga strumentalizzato politicamente invece di essere un momento di unità nazionale.',time:Date.now()-1800000,reactions:{like:31,cuore:25,bravo:12},replies:[]},
 ];
 
 function initForum(){
-  if(loadMsgs().length===0) saveMsgs(SEED);
+  if(loadMsgs().length===0)saveMsgs(SEED);
   renderForum();
 }
 
 function renderForum(){
   let msgs=loadMsgs();
   const q=currentSearch.toLowerCase();
-  if(currentTopic!=='Tutti') msgs=msgs.filter(m=>m.topic===currentTopic);
-  if(q) msgs=msgs.filter(m=>m.text.toLowerCase().includes(q)||m.name.toLowerCase().includes(q));
+  if(currentTopic!=='Tutti')msgs=msgs.filter(m=>m.topic===currentTopic);
+  if(q)msgs=msgs.filter(m=>m.text.toLowerCase().includes(q)||m.name.toLowerCase().includes(q));
   document.getElementById('forum-count').textContent=loadMsgs().length+' messaggi';
-  if(msgs.length===0){
-    document.getElementById('msgs-list').innerHTML='<div class="forum-empty">Nessun messaggio trovato.</div>';
-    return;
-  }
+  if(msgs.length===0){document.getElementById('msgs-list').innerHTML='<div class="forum-empty">Nessun messaggio trovato.</div>';return;}
   document.getElementById('msgs-list').innerHTML=`<div class="msgs-container">${msgs.slice().reverse().map(m=>msgHtml(m)).join('')}</div>`;
 }
 
 function msgHtml(m){
   const badges={editor:'<span class="msg-badge badge-editor">Redazione</span>',mod:'<span class="msg-badge badge-mod">Moderatore</span>',guest:'<span class="msg-badge badge-guest">Lettore</span>'};
   const replies=(m.replies||[]).map(r=>`<div class="reply-card"><div style="flex-shrink:0"><div class="msg-avatar" style="width:28px;height:28px;font-size:11px;background:var(--paper);color:var(--ink);border:1px solid var(--border)">${esc(r.name.substring(0,2).toUpperCase())}</div></div><div><div class="reply-name">${esc(r.name)}</div><div class="reply-text">${esc(r.text)}</div></div></div>`).join('');
-  const ago=timeAgo(m.time);
   return`<div class="msg-card" id="msg-${esc(m.id)}">
     <div class="msg-header"><div class="msg-avatar">${esc((m.avatar||m.name).substring(0,2).toUpperCase())}</div>
-    <div class="msg-info"><div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><span class="msg-author">${esc(m.name)}</span>${badges[m.badge]||badges.guest}</div><div class="msg-time">${ago} · ${esc(m.topic)}</div></div></div>
+    <div class="msg-info"><div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><span class="msg-author">${esc(m.name)}</span>${badges[m.badge]||badges.guest}</div><div class="msg-time">${timeAgo(m.time)} · ${esc(m.topic)}</div></div></div>
     <div class="msg-topic">${esc(m.topic)}</div>
     <div class="msg-text">${esc(m.text)}</div>
     <div class="msg-footer">
@@ -1004,35 +937,23 @@ document.getElementById('forum-search').addEventListener('keydown',e=>{if(e.key=
 document.getElementById('ff-msg').addEventListener('input',function(){document.getElementById('char-count').textContent=this.value.length;});
 function timeAgo(ts){const d=Date.now()-ts;if(d<60000)return'Adesso';if(d<3600000)return Math.floor(d/60000)+' min fa';if(d<86400000)return Math.floor(d/3600000)+' ore fa';return Math.floor(d/86400000)+' giorni fa';}
 
-// ─── UTILS ────────────────────────────────────────────────────────
 function notify(msg){const el=document.getElementById('notify');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),3000);}
 function copyLink(){navigator.clipboard?.writeText(window.location.href).catch(()=>{});notify('🔗 Link copiato!');}
 function scrollToForum(){document.getElementById('forum-section').scrollIntoView({behavior:'smooth'});}
 window.addEventListener('scroll',()=>{document.getElementById('scrollTop').classList.toggle('show',window.scrollY>400);});
 
-// Online counter
 function updateOnline(){
-  const n=Math.floor(Math.random()*24+8);
+  const n=Math.floor(Math.random()*28+9);
   const el=document.getElementById('online-n');
   const pill=document.getElementById('online-pill');
-  if(el) el.textContent=n+' persone stanno leggendo in questo momento';
-  if(pill) pill.textContent=n+' online';
+  if(el)el.textContent=n+' persone stanno leggendo in questo momento';
+  if(pill)pill.textContent=n+' online';
 }
 updateOnline();
 setInterval(updateOnline,15000);
 
-// INIT
 goHome();
 initForum();
-</script>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GB5VWDMCE1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-GB5VWDMCE1');
 </script>
 </body>
 </html>
