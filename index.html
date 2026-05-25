@@ -2,958 +2,1751 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ANKOAUTCA — Notizie Italiane · Sabato 23 Maggio 2026</title>
-<meta name="description" content="ANKOAUTCA - Testata indipendente. Notizie italiane di oggi 23 maggio 2026.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="theme-color" content="#0a0a0a">
+<title>Ankoauto CA | Agenzia Digitale | Siti Web, Software, App Mobile</title>
+<meta name="description" content="Ankoauto CA: la tua agenzia digitale in Italia. Creiamo siti web, software su misura, applicazioni mobile e strategie di marketing digitale. Contattaci oggi!">
+<meta name="keywords" content="agenzia digitale italia, creazione siti web, sviluppo software, app mobile, marketing digitale, web design, sviluppo applicazioni, SEO italia, e-commerce, ankoauto ca">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.ankoautoca.it/">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Organization",
+  "name":"Ankoauto CA",
+  "description":"Agenzia digitale specializzata in creazione siti web, sviluppo software, applicazioni mobile e marketing digitale.",
+  "url":"https://www.ankoautoca.it",
+  "email":"gastroboostmarketiingdegital@gmail.com",
+  "sameAs":[]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 <style>
+/* ═══════════════════════════════════════
+   RESET & ROOT
+═══════════════════════════════════════ */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+
 :root{
-  --ink:#0f0e0c; --red:#bf1b1b; --red2:#991515;
-  --cream:#faf8f3; --paper:#f3f0e8; --warm:#e8e2d4;
-  --muted:#8a8072; --border:#d4cfc5; --white:#ffffff;
-  --sans:'DM Sans',sans-serif;
-  --serif:'Cormorant Garamond',Georgia,serif;
-  --display:'DM Serif Display',Georgia,serif;
-  --radius:6px;
-  --shadow:0 2px 12px rgba(0,0,0,.08);
-  --shadow2:0 8px 32px rgba(0,0,0,.13);
-  --t:.22s ease;
+  --bg:#040404;
+  --bg2:#0c0c0c;
+  --bg3:#141414;
+  --card:#111111;
+  --border:rgba(255,255,255,0.07);
+  --text:#f0f0f0;
+  --muted:#888;
+  --muted2:#555;
+  --accent:#e8ff00;
+  --accent2:#00e5ff;
+  --accent3:#ff3d71;
+  --grad:linear-gradient(135deg,#e8ff00,#00e5ff);
+  --grad2:linear-gradient(135deg,#00e5ff,#ff3d71);
+  --font-display:'Syne',sans-serif;
+  --font-body:'Inter',sans-serif;
+  --r:16px;
+  --r-sm:10px;
+  --max:1280px;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased}
-a{text-decoration:none;color:inherit}
-img{max-width:100%;display:block}
-::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--paper)}::-webkit-scrollbar-thumb{background:var(--warm);border-radius:3px}
 
-.topstrip{background:var(--ink);padding:7px 0;border-bottom:2px solid var(--red)}
-.topstrip-in{max-width:1300px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
-.ts-date{font-family:var(--serif);font-style:italic;font-size:13px;color:#aaa}
-.ts-links{display:flex;gap:18px;align-items:center}
-.ts-links a{font-size:11px;color:#999;letter-spacing:.8px;text-transform:uppercase;transition:color var(--t)}
-.ts-links a:hover{color:var(--red)}
-.live-pill{background:var(--red);color:#fff;font-size:10px;font-weight:600;padding:2px 8px;border-radius:2px;letter-spacing:1px;animation:blink 2s infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.5}}
-
-.ticker-bar{background:var(--red);overflow:hidden;display:flex;height:36px}
-.ticker-label{background:#000;color:#fff;font-size:10px;font-weight:700;letter-spacing:2px;padding:0 16px;display:flex;align-items:center;white-space:nowrap;flex-shrink:0}
-.ticker-track{flex:1;overflow:hidden;display:flex;align-items:center}
-.ticker-inner{display:inline-flex;gap:50px;animation:scroll 85s linear infinite;white-space:nowrap;color:#fff;font-size:13px;font-weight:500}
-.ticker-inner span::before{content:"◆ ";font-size:8px;opacity:.7}
-@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-
-header{background:var(--white);border-bottom:3px solid var(--ink);position:sticky;top:0;z-index:200;box-shadow:var(--shadow)}
-.masthead{max-width:1300px;margin:0 auto;padding:18px 24px 12px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.logo-wrap{cursor:pointer;user-select:none}
-.logo-name{font-family:var(--display);font-size:54px;font-weight:700;letter-spacing:-2px;line-height:1;transition:opacity var(--t)}
-.logo-name:hover{opacity:.85}
-.logo-name span{color:var(--red)}
-.logo-sub{font-family:var(--serif);font-style:italic;font-size:12px;color:var(--muted);letter-spacing:2.5px;text-transform:uppercase;margin-top:2px}
-.header-right{display:flex;align-items:center;gap:12px}
-.search-wrap{display:flex;border:1.5px solid var(--border);border-radius:4px;overflow:hidden;transition:border-color var(--t)}
-.search-wrap:focus-within{border-color:var(--ink)}
-.search-wrap input{border:none;padding:8px 14px;font-family:var(--sans);font-size:13px;width:200px;outline:none;background:transparent;transition:width var(--t)}
-.search-wrap input:focus{width:250px}
-.search-wrap button{background:var(--ink);border:none;color:#fff;padding:8px 13px;cursor:pointer;display:flex;align-items:center;transition:background var(--t)}
-.search-wrap button:hover{background:var(--red)}
-nav{background:var(--ink)}
-.nav-in{max-width:1300px;margin:0 auto;padding:0 24px;display:flex;overflow-x:auto;scrollbar-width:none}
-.nav-in::-webkit-scrollbar{display:none}
-.nav-in a{color:#ccc;font-size:11.5px;font-weight:500;letter-spacing:1.2px;text-transform:uppercase;padding:13px 17px;white-space:nowrap;border-bottom:3px solid transparent;transition:all var(--t)}
-.nav-in a:hover,.nav-in a.act{color:#fff;border-bottom-color:var(--red)}
-
-.wrap{max-width:1300px;margin:0 auto;padding:0 24px}
-
-.sec-head{display:flex;align-items:center;gap:14px;padding-bottom:12px;margin-bottom:22px;border-bottom:1.5px solid var(--ink)}
-.sec-rule{width:32px;height:4px;background:var(--red)}
-.sec-title{font-family:var(--display);font-size:22px;font-weight:700}
-.sec-badge{background:var(--red);color:#fff;font-size:9px;font-weight:700;padding:3px 8px;border-radius:2px;letter-spacing:1px;text-transform:uppercase}
-.sec-more{margin-left:auto;font-size:11px;color:var(--muted);letter-spacing:.5px;cursor:pointer;transition:color var(--t)}
-.sec-more:hover{color:var(--red)}
-
-.hero-oggi{display:grid;grid-template-columns:2.3fr 1fr;grid-template-rows:auto auto;gap:3px;background:var(--ink);border-radius:var(--radius);overflow:hidden;margin:28px 0}
-.hero-main{grid-row:span 2;position:relative;min-height:520px;cursor:pointer;overflow:hidden}
-.hero-side{position:relative;min-height:200px;cursor:pointer;overflow:hidden}
-.h-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .7s ease}
-.hero-main:hover .h-bg,.hero-side:hover .h-bg{transform:scale(1.04)}
-.h-grad{position:absolute;inset:0}
-.hero-main .h-grad{background:linear-gradient(to top,rgba(0,0,0,.97) 0%,rgba(0,0,0,.4) 55%,transparent 100%)}
-.hero-side .h-grad{background:linear-gradient(to top,rgba(0,0,0,.93) 0%,rgba(0,0,0,.2) 70%,transparent 100%)}
-.h-content{position:absolute;bottom:0;padding:28px;color:#fff}
-.hero-side .h-content{padding:18px}
-.h-urgenza{display:inline-flex;align-items:center;gap:6px;background:#c0392b;color:#fff;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 10px;border-radius:2px;margin-bottom:10px}
-.h-urgenza::before{content:"";width:6px;height:6px;background:#fff;border-radius:50%;animation:blink 1.5s infinite}
-.h-cat{display:inline-block;background:var(--red);color:#fff;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 9px;border-radius:2px;margin-bottom:10px}
-.h-title{font-family:var(--display);font-style:italic;font-size:36px;line-height:1.15;margin-bottom:8px}
-.hero-side .h-title{font-size:19px;line-height:1.2}
-.h-sub{font-family:var(--serif);font-style:italic;font-size:15px;color:rgba(255,255,255,.78);margin-bottom:10px}
-.h-meta{font-size:12px;color:rgba(255,255,255,.55);display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-
-.alert-strip{background:#7b1111;color:#fff;padding:14px 0;border-top:2px solid #c0392b;border-bottom:2px solid #c0392b}
-.alert-in{max-width:1300px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-.alert-icon{font-size:20px;flex-shrink:0;animation:blink 2s infinite}
-.alert-txt{font-family:var(--serif);font-size:16px;font-style:italic}
-.alert-txt strong{font-style:normal;color:#ffcdd2}
-
-.layout{display:grid;grid-template-columns:1fr 310px;gap:36px;padding:8px 0 40px}
-@media(max-width:920px){.layout{grid-template-columns:1fr}}
-
-.cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:28px}
-@media(max-width:760px){.cards-3{grid-template-columns:1fr}}
-.cards-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-bottom:28px}
-@media(max-width:640px){.cards-2{grid-template-columns:1fr}}
-
-.card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:all var(--t)}
-.card:hover{transform:translateY(-3px);box-shadow:var(--shadow2);border-color:var(--warm)}
-.card-img{aspect-ratio:16/9;overflow:hidden;position:relative;background:var(--warm)}
-.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
-.card:hover .card-img img{transform:scale(1.06)}
-.card-badge{position:absolute;top:10px;left:10px;background:var(--red);color:#fff;font-size:9px;font-weight:700;padding:2px 8px;text-transform:uppercase;letter-spacing:1px;border-radius:2px}
-.card-new{position:absolute;top:10px;right:10px;background:#1a5c1a;color:#c8f5c8;font-size:8px;font-weight:700;padding:2px 7px;text-transform:uppercase;letter-spacing:1px;border-radius:2px}
-.card-body{padding:15px}
-.card-title{font-family:var(--serif);font-size:19px;font-weight:600;line-height:1.3;margin-bottom:7px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;transition:color var(--t)}
-.card:hover .card-title{color:var(--red)}
-.card-sub{font-size:13px;color:var(--muted);font-style:italic;margin-bottom:10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.card-meta{font-size:11px;color:#aaa;display:flex;justify-content:space-between}
-
-.art-list{border-top:1px solid var(--border)}
-.ali{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid var(--border);cursor:pointer;transition:all var(--t);border-radius:4px}
-.ali:hover{background:var(--paper);padding-left:8px}
-.ali-img{width:88px;height:64px;flex-shrink:0;border-radius:4px;overflow:hidden;background:var(--warm)}
-.ali-img img{width:100%;height:100%;object-fit:cover;transition:transform var(--t)}
-.ali:hover .ali-img img{transform:scale(1.05)}
-.ali-cat{font-size:9px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:1px}
-.ali-title{font-family:var(--serif);font-size:15px;font-weight:600;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.ali-meta{font-size:11px;color:var(--muted);margin-top:4px}
-
-.mag{display:grid;grid-template-columns:1.7fr 1fr;gap:3px;background:var(--ink);border-radius:var(--radius);overflow:hidden;margin-bottom:28px}
-.mag-item{position:relative;min-height:220px;cursor:pointer;overflow:hidden;background:var(--warm)}
-.mag-main{min-height:420px}
-.mag-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s ease}
-.mag-item:hover .mag-bg{transform:scale(1.05)}
-.mag-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.92) 0%,transparent 60%)}
-.mag-content{position:absolute;bottom:0;padding:18px;color:#fff}
-.mag-cat{font-size:9px;font-weight:700;color:#f08080;text-transform:uppercase;margin-bottom:6px;letter-spacing:1px}
-.mag-title{font-family:var(--serif);font-weight:600;font-size:17px;line-height:1.3}
-.mag-main .mag-title{font-size:24px;line-height:1.2}
-.mag-stack{display:flex;flex-direction:column;gap:3px}
-
-.section-gap{margin-bottom:40px}
-
-.alert-box{background:var(--ink);border:2px solid var(--red);border-radius:var(--radius);padding:22px 26px;margin-bottom:28px;position:relative;overflow:hidden}
-.alert-box::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:repeating-linear-gradient(90deg,var(--red) 0,var(--red) 20px,transparent 20px,transparent 30px)}
-.ab-title{font-family:var(--display);font-size:20px;color:#fff;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:10px}
-.ab-desc{font-size:13px;color:#aaa;line-height:1.6;margin-bottom:14px}
-.ab-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-@media(max-width:600px){.ab-grid{grid-template-columns:1fr}}
-.ab-item{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:4px;padding:12px}
-.ab-item-title{color:#e0d0d0;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
-.ab-item-text{color:#999;font-size:12px;line-height:1.5}
-
-.borsa-bar{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;margin-bottom:28px;display:flex;align-items:center;gap:20px;overflow-x:auto}
-.borsa-item{display:flex;align-items:center;gap:8px;white-space:nowrap;flex-shrink:0}
-.borsa-name{font-size:12px;font-weight:700;color:var(--ink)}
-.borsa-val{font-size:12px;color:var(--muted)}
-.borsa-change{font-size:11px;font-weight:600;padding:2px 7px;border-radius:3px}
-.neg{background:#fce8e8;color:#c0392b}
-.pos{background:#e8f5e8;color:#1a5c1a}
-.borsa-sep{width:1px;height:24px;background:var(--border);flex-shrink:0}
-
-.collab{background:var(--ink);border-left:4px solid var(--red);padding:26px 28px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;border-radius:var(--radius);margin:32px 0}
-.collab-icon{font-size:36px;color:var(--red)}
-.collab-title{font-family:var(--display);font-size:20px;color:#fff;font-weight:700}
-.collab-desc{font-size:13px;color:#888;margin-top:2px}
-.collab-btn{margin-left:auto;background:var(--red);color:#fff;padding:11px 22px;font-size:12px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;border-radius:3px;transition:all var(--t);white-space:nowrap}
-.collab-btn:hover{background:var(--red2);transform:scale(1.03)}
-
-.sidebar{display:flex;flex-direction:column;gap:24px}
-.widget{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
-.wh{background:var(--ink);color:#fff;font-size:11px;font-weight:600;letter-spacing:2px;padding:9px 15px;display:flex;align-items:center;gap:7px;text-transform:uppercase}
-.wbody{padding:16px}
-.trend-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);cursor:pointer;transition:all var(--t)}
-.trend-item:last-child{border-bottom:none}
-.trend-item:hover{padding-left:6px}
-.trend-num{font-family:var(--display);font-size:28px;color:var(--warm);font-weight:700;flex-shrink:0;line-height:1}
-.trend-cat{font-size:9px;color:var(--red);text-transform:uppercase;font-weight:700;letter-spacing:1px}
-.trend-title{font-family:var(--serif);font-size:14px;font-weight:600;line-height:1.3;transition:color var(--t)}
-.trend-item:hover .trend-title{color:var(--red)}
-
-.art-page{background:var(--white);border-radius:var(--radius);padding:36px;box-shadow:var(--shadow);margin:28px 0;animation:fadeUp .4s ease}
-@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-.art-page h1{font-family:var(--display);font-style:italic;font-size:42px;line-height:1.2;margin-bottom:14px}
-.art-sub{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--muted);margin-bottom:18px}
-.art-meta{font-size:13px;color:var(--muted);margin-bottom:24px;display:flex;gap:16px;flex-wrap:wrap}
-.art-hero-img{width:100%;max-height:520px;object-fit:cover;border-radius:6px;margin-bottom:28px;background:var(--warm)}
-.art-body p{font-family:var(--serif);font-size:19px;line-height:1.85;margin-bottom:1.4em;color:#1a1916}
-.art-body p:first-child::first-letter{font-size:72px;font-family:var(--display);float:left;line-height:.8;margin:6px 8px -4px 0;color:var(--red)}
-.art-share{display:flex;gap:10px;margin-top:28px;padding-top:20px;border-top:1px solid var(--border)}
-.share-btn{background:var(--paper);border:1px solid var(--border);padding:8px 16px;border-radius:4px;font-size:12px;font-weight:600;cursor:pointer;transition:all var(--t);display:flex;align-items:center;gap:6px}
-.share-btn:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
-.back-btn{display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:#fff;padding:7px 14px;border-radius:4px;font-size:13px;font-weight:600;cursor:pointer;margin-bottom:22px;transition:all var(--t)}
-.back-btn:hover{background:var(--red)}
-
-.forum-section{background:var(--paper);border-top:3px solid var(--ink);margin-top:40px}
-.forum-wrap{max-width:1300px;margin:0 auto;padding:40px 24px}
-.forum-head{display:flex;align-items:center;gap:16px;margin-bottom:30px}
-.forum-title{font-family:var(--display);font-size:32px;font-weight:700}
-.forum-count{background:var(--red);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px}
-.forum-layout{display:grid;grid-template-columns:1fr 380px;gap:32px}
-@media(max-width:860px){.forum-layout{grid-template-columns:1fr}}
-.msgs-container{display:flex;flex-direction:column;gap:16px;max-height:600px;overflow-y:auto;padding-right:4px}
-.msgs-container::-webkit-scrollbar{width:4px}
-.msgs-container::-webkit-scrollbar-thumb{background:var(--warm);border-radius:2px}
-.msg-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:16px;transition:box-shadow var(--t)}
-.msg-card:hover{box-shadow:var(--shadow)}
-.msg-header{display:flex;align-items:center;gap:10px;margin-bottom:8px}
-.msg-avatar{width:38px;height:38px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:16px;font-weight:700;flex-shrink:0}
-.msg-info{flex:1}
-.msg-author{font-weight:600;font-size:14px}
-.msg-time{font-size:11px;color:var(--muted)}
-.msg-badge{font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px;text-transform:uppercase;letter-spacing:.8px}
-.badge-guest{background:var(--paper);color:var(--muted);border:1px solid var(--border)}
-.badge-editor{background:#1a4d2e;color:#a8e6bc}
-.badge-mod{background:#1a2d4d;color:#a8c6e6}
-.msg-topic{font-size:10px;color:var(--red);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:5px}
-.msg-text{font-family:var(--serif);font-size:16px;line-height:1.65;color:#2a2820}
-.msg-footer{display:flex;align-items:center;gap:8px;margin-top:10px;flex-wrap:wrap}
-.react-btn{background:none;border:1px solid var(--border);border-radius:20px;padding:3px 10px;font-size:12px;cursor:pointer;transition:all var(--t);display:flex;align-items:center;gap:4px}
-.react-btn:hover{border-color:var(--red);color:var(--red)}
-.reply-btn{margin-left:auto;font-size:11px;color:var(--muted);cursor:pointer;transition:color var(--t);font-weight:500}
-.reply-btn:hover{color:var(--red)}
-.msg-replies{margin-top:12px;padding-top:12px;border-top:1px solid var(--paper);display:flex;flex-direction:column;gap:10px}
-.reply-card{background:var(--paper);border-radius:6px;padding:10px 12px;display:flex;gap:10px}
-.reply-name{font-weight:700;color:var(--red);font-size:12px}
-.reply-text{font-family:var(--serif);font-size:14px;line-height:1.5}
-.forum-form{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:24px;position:sticky;top:80px}
-.ff-title{font-family:var(--display);font-size:20px;font-weight:700;margin-bottom:4px}
-.ff-sub{font-size:13px;color:var(--muted);margin-bottom:20px}
-.ff-label{font-size:12px;font-weight:600;letter-spacing:.5px;margin-bottom:5px;display:block;text-transform:uppercase;color:var(--muted)}
-.ff-input{width:100%;border:1.5px solid var(--border);border-radius:4px;padding:9px 12px;font-family:var(--sans);font-size:14px;outline:none;transition:border-color var(--t);background:var(--cream)}
-.ff-input:focus{border-color:var(--ink)}
-.ff-select{width:100%;border:1.5px solid var(--border);border-radius:4px;padding:9px 12px;font-family:var(--sans);font-size:14px;outline:none;background:var(--cream);cursor:pointer}
-.ff-textarea{width:100%;border:1.5px solid var(--border);border-radius:4px;padding:9px 12px;font-family:var(--serif);font-size:15px;outline:none;resize:vertical;min-height:100px;transition:border-color var(--t);background:var(--cream)}
-.ff-textarea:focus{border-color:var(--ink)}
-.ff-row{margin-bottom:14px}
-.ff-submit{width:100%;background:var(--ink);color:#fff;border:none;padding:12px;font-family:var(--sans);font-size:14px;font-weight:700;cursor:pointer;border-radius:4px;transition:all var(--t);display:flex;align-items:center;justify-content:center;gap:8px;margin-top:6px}
-.ff-submit:hover{background:var(--red)}
-.ff-privacy{font-size:11px;color:var(--muted);text-align:center;margin-top:10px}
-.online-strip{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);margin-bottom:20px}
-.online-dot{width:8px;height:8px;background:#2d8a2d;border-radius:50%;animation:blink 2s infinite}
-.online-pill{background:#e8f5e8;color:#2d8a2d;border-radius:20px;padding:2px 9px;font-size:11px;font-weight:600}
-.topic-list{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
-.topic-tag{background:var(--paper);border:1px solid var(--border);border-radius:20px;padding:4px 12px;font-size:11px;font-weight:600;cursor:pointer;transition:all var(--t)}
-.topic-tag:hover,.topic-tag.sel{background:var(--ink);color:#fff;border-color:var(--ink)}
-.forum-search{display:flex;border:1.5px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:18px}
-.forum-search input{flex:1;border:none;padding:8px 12px;font-size:13px;font-family:var(--sans);outline:none;background:var(--cream)}
-.forum-search button{background:var(--ink);border:none;color:#fff;padding:8px 12px;cursor:pointer}
-.forum-empty{text-align:center;padding:50px 20px;font-family:var(--serif);font-style:italic;color:var(--muted);font-size:18px}
-
-footer{background:var(--ink);color:#888;margin-top:0}
-.ft{max-width:1300px;margin:0 auto;padding:40px 24px;display:grid;grid-template-columns:2.5fr 1fr 1fr;gap:40px}
-@media(max-width:700px){.ft{grid-template-columns:1fr}}
-.ft-logo{font-family:var(--display);font-size:38px;color:#fff;font-weight:700}
-.ft-logo span{color:var(--red)}
-.ft-tagline{font-family:var(--serif);font-style:italic;font-size:14px;color:#555;margin-top:6px;line-height:1.6}
-.ft-htitle{color:#ccc;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
-.ft-links{display:flex;flex-direction:column;gap:8px}
-.ft-links a{font-size:13px;color:#666;transition:color var(--t)}
-.ft-links a:hover{color:var(--red)}
-.ft-bottom{max-width:1300px;margin:0 auto;padding:18px 24px;border-top:1px solid #1f1f1f;display:flex;justify-content:space-between;flex-wrap:wrap;font-size:12px;gap:8px}
-
-.scroll-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--ink);color:#fff;border:none;border-radius:50%;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:all var(--t);box-shadow:var(--shadow2);z-index:300}
-.scroll-top.show{opacity:1;pointer-events:auto}
-.scroll-top:hover{background:var(--red);transform:translateY(-3px)}
-.notify{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:13px 22px;border-radius:8px;font-size:13px;font-weight:600;z-index:9999;opacity:0;transition:all .4s ease;pointer-events:none;white-space:nowrap;box-shadow:var(--shadow2)}
-.notify.show{opacity:1;transform:translateX(-50%) translateY(0)}
-
-@media(max-width:600px){
-  .hero-oggi{grid-template-columns:1fr}
-  .hero-main{min-height:320px;grid-row:span 1}
-  .h-title{font-size:26px}
-  .hero-side .h-title{font-size:18px}
-  .logo-name{font-size:38px}
-  .art-page{padding:18px}
-  .art-page h1{font-size:28px}
-  .mag{grid-template-columns:1fr}
-  .collab{flex-direction:column;text-align:center}
-  .collab-btn{margin-left:0}
+body{
+  font-family:var(--font-body);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  overflow-x:hidden;
 }
+
+/* ═══════════════════════════════════════
+   LOADER
+═══════════════════════════════════════ */
+#loader{
+  position:fixed;inset:0;background:var(--bg);
+  display:flex;align-items:center;justify-content:center;
+  z-index:9999;flex-direction:column;gap:24px;
+  transition:opacity .8s,visibility .8s;
+}
+#loader.out{opacity:0;visibility:hidden;pointer-events:none}
+.ld-logo{
+  font-family:var(--font-display);
+  font-size:clamp(28px,6vw,52px);
+  font-weight:800;letter-spacing:-2px;
+  background:var(--grad);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:ldPulse 1s ease infinite alternate;
+}
+.ld-bar{width:min(300px,70vw);height:2px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden}
+.ld-fill{width:0;height:100%;background:var(--grad);animation:ldFill 2.2s ease forwards}
+@keyframes ldFill{to{width:100%}}
+@keyframes ldPulse{from{opacity:.7}to{opacity:1}}
+
+/* ═══════════════════════════════════════
+   NAV
+═══════════════════════════════════════ */
+header{
+  position:fixed;top:0;width:100%;z-index:1000;
+  background:rgba(4,4,4,0.85);
+  backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--border);
+  transition:all .3s;
+}
+.nav{
+  max-width:var(--max);margin:0 auto;
+  padding:0 28px;height:72px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.logo{
+  font-family:var(--font-display);
+  font-size:1.55rem;font-weight:800;
+  letter-spacing:-1px;
+  background:var(--grad);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  text-decoration:none;
+  display:flex;align-items:center;gap:10px;
+}
+.logo-icon{
+  width:38px;height:38px;
+  background:var(--grad);
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;
+  flex-shrink:0;
+}
+.nav-links{display:flex;list-style:none;gap:4px}
+.nav-links a{
+  font-size:.9rem;font-weight:500;
+  color:var(--muted);text-decoration:none;
+  padding:8px 16px;border-radius:50px;
+  transition:all .25s;letter-spacing:.3px;
+}
+.nav-links a:hover,.nav-links a.act{color:var(--text);background:rgba(255,255,255,0.07)}
+.nav-cta{
+  background:var(--accent);color:#000;
+  padding:10px 22px;border-radius:50px;
+  font-weight:700;font-size:.88rem;
+  text-decoration:none;
+  transition:all .3s;white-space:nowrap;
+  letter-spacing:.3px;
+}
+.nav-cta:hover{background:#fff;transform:translateY(-2px)}
+
+.burger{
+  display:none;
+  background:none;border:1px solid var(--border);
+  border-radius:8px;padding:9px 11px;cursor:pointer;
+  flex-direction:column;gap:4px;
+}
+.burger span{display:block;width:20px;height:1.5px;background:var(--text);transition:all .3s;border-radius:2px}
+.burger.open span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
+
+.mob-nav{
+  display:none;position:fixed;
+  top:72px;left:0;right:0;bottom:0;
+  background:rgba(4,4,4,0.97);backdrop-filter:blur(30px);
+  z-index:990;flex-direction:column;
+  align-items:center;justify-content:center;gap:8px;
+  border-top:1px solid var(--border);
+}
+.mob-nav.open{display:flex}
+.mob-nav a{
+  font-family:var(--font-display);
+  font-size:clamp(28px,8vw,44px);
+  font-weight:700;color:var(--muted);
+  text-decoration:none;padding:10px 24px;
+  transition:all .2s;letter-spacing:-1px;
+}
+.mob-nav a:hover{color:var(--accent)}
+.mob-nav .mob-cta{
+  margin-top:24px;
+  background:var(--accent);color:#000;
+  padding:14px 40px;border-radius:50px;
+  font-size:1.1rem;font-weight:700;
+}
+.mob-nav .mob-cta:hover{color:#000;background:#fff}
+
+@media(max-width:900px){
+  .nav-links,.nav-cta{display:none}
+  .burger{display:flex}
+}
+
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+.hero{
+  min-height:100vh;
+  padding:140px 28px 80px;
+  display:flex;align-items:center;
+  position:relative;overflow:hidden;
+  max-width:var(--max);margin:0 auto;
+}
+/* Grid bg texture */
+body::before{
+  content:'';
+  position:fixed;top:0;left:0;right:0;bottom:0;
+  background-image:
+    linear-gradient(rgba(232,255,0,0.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(232,255,0,0.025) 1px,transparent 1px);
+  background-size:60px 60px;
+  pointer-events:none;z-index:0;
+}
+.hero-glow{
+  position:absolute;top:-20%;right:-10%;
+  width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle,rgba(232,255,0,0.08) 0%,transparent 65%);
+  pointer-events:none;
+}
+.hero-glow2{
+  position:absolute;bottom:-30%;left:-10%;
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,229,255,0.06) 0%,transparent 65%);
+  pointer-events:none;
+}
+.hero-content{position:relative;z-index:2;max-width:820px}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid rgba(232,255,0,0.3);
+  background:rgba(232,255,0,0.05);
+  color:var(--accent);
+  padding:7px 18px;border-radius:50px;
+  font-size:.8rem;font-weight:500;letter-spacing:2px;
+  text-transform:uppercase;margin-bottom:28px;
+}
+.hero-badge span{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:blink 1.4s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero h1{
+  font-family:var(--font-display);
+  font-size:clamp(44px,9vw,100px);
+  font-weight:800;line-height:.95;
+  letter-spacing:-4px;
+  margin-bottom:30px;
+}
+.hero h1 .outline{
+  -webkit-text-stroke:2px rgba(255,255,255,0.3);
+  color:transparent;
+}
+.hero h1 .colored{
+  background:var(--grad);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-desc{
+  font-size:clamp(16px,2.5vw,20px);
+  color:var(--muted);max-width:560px;
+  margin-bottom:44px;font-weight:300;line-height:1.8;
+}
+.hero-btns{display:flex;flex-wrap:wrap;gap:14px}
+.btn-main{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--accent);color:#000;
+  padding:16px 36px;border-radius:50px;
+  font-family:var(--font-display);
+  font-weight:700;font-size:1rem;letter-spacing:.3px;
+  text-decoration:none;transition:all .3s;
+  position:relative;overflow:hidden;
+}
+.btn-main::after{
+  content:'';position:absolute;inset:0;
+  background:rgba(255,255,255,0.2);
+  transform:translateX(-100%);transition:transform .4s;
+}
+.btn-main:hover::after{transform:translateX(0)}
+.btn-main:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(232,255,0,0.3)}
+.btn-out{
+  display:inline-flex;align-items:center;gap:10px;
+  border:1px solid rgba(255,255,255,0.2);
+  color:var(--text);
+  padding:16px 36px;border-radius:50px;
+  font-family:var(--font-display);
+  font-weight:600;font-size:1rem;
+  text-decoration:none;transition:all .3s;
+}
+.btn-out:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-3px)}
+
+.hero-stats{
+  display:flex;flex-wrap:wrap;gap:40px;
+  margin-top:64px;padding-top:48px;
+  border-top:1px solid var(--border);
+}
+.stat-item{}
+.stat-num{
+  font-family:var(--font-display);
+  font-size:clamp(32px,5vw,52px);font-weight:800;
+  letter-spacing:-2px;
+  background:var(--grad);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.stat-label{font-size:.85rem;color:var(--muted);margin-top:4px;letter-spacing:.5px}
+
+/* ═══════════════════════════════════════
+   SECTION BASE
+═══════════════════════════════════════ */
+section{padding:100px 28px;position:relative;z-index:1}
+@media(max-width:768px){section{padding:70px 20px}}
+.wrap{max-width:var(--max);margin:0 auto}
+
+.sec-kicker{
+  font-size:.75rem;letter-spacing:3px;text-transform:uppercase;
+  font-weight:600;color:var(--accent);
+  margin-bottom:16px;display:block;
+}
+.sec-title{
+  font-family:var(--font-display);
+  font-size:clamp(32px,6vw,64px);
+  font-weight:800;letter-spacing:-2px;
+  line-height:1.05;margin-bottom:18px;
+}
+.sec-title .grad{
+  background:var(--grad);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.sec-sub{color:var(--muted);font-size:clamp(15px,2vw,17px);max-width:520px;font-weight:300}
+.sec-head{margin-bottom:70px}
+
+/* ═══════════════════════════════════════
+   SERVIZI
+═══════════════════════════════════════ */
+#servizi{background:var(--bg2)}
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));
+  gap:20px;
+}
+.srv{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--r);padding:36px;
+  transition:all .4s;
+  position:relative;overflow:hidden;
+  cursor:default;
+}
+.srv::before{
+  content:'';position:absolute;
+  top:0;left:0;right:0;height:1px;
+  background:var(--grad);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .4s;
+}
+.srv:hover{border-color:rgba(232,255,0,0.2);transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,0.4)}
+.srv:hover::before{transform:scaleX(1)}
+.srv-icon{
+  width:56px;height:56px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;margin-bottom:24px;
+  flex-shrink:0;
+}
+.srv-icon.y{background:rgba(232,255,0,0.1);color:var(--accent)}
+.srv-icon.c{background:rgba(0,229,255,0.1);color:var(--accent2)}
+.srv-icon.r{background:rgba(255,61,113,0.1);color:var(--accent3)}
+.srv h3{
+  font-family:var(--font-display);
+  font-size:1.3rem;font-weight:700;
+  letter-spacing:-.5px;margin-bottom:14px;
+}
+.srv p{color:var(--muted);font-size:.95rem;line-height:1.7}
+.srv-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.srv-tag{
+  font-size:.72rem;letter-spacing:.5px;
+  padding:5px 12px;border-radius:50px;
+  border:1px solid var(--border);color:var(--muted2);
+  font-weight:500;
+}
+
+/* ═══════════════════════════════════════
+   PROCESSO
+═══════════════════════════════════════ */
+#processo{background:var(--bg)}
+.process-steps{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:2px;
+  border:1px solid var(--border);border-radius:var(--r);
+  overflow:hidden;
+}
+.step{
+  padding:40px 32px;
+  background:var(--card);
+  transition:background .3s;
+  border-right:1px solid var(--border);
+  position:relative;
+}
+.step:last-child{border-right:none}
+.step:hover{background:var(--bg3)}
+.step-num{
+  font-family:var(--font-display);
+  font-size:3.5rem;font-weight:800;
+  letter-spacing:-3px;
+  background:var(--grad);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  opacity:.4;
+  line-height:1;
+  margin-bottom:18px;
+}
+.step h3{font-family:var(--font-display);font-size:1.1rem;font-weight:700;margin-bottom:10px}
+.step p{font-size:.9rem;color:var(--muted);line-height:1.65}
+@media(max-width:768px){.process-steps{grid-template-columns:1fr 1fr}.step{border-right:none;border-bottom:1px solid var(--border)}}
+@media(max-width:480px){.process-steps{grid-template-columns:1fr}}
+
+/* ═══════════════════════════════════════
+   PORTFOLIO / SHOWCASE
+═══════════════════════════════════════ */
+#portfolio{background:var(--bg2)}
+.portfolio-grid{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  grid-template-rows:auto;
+  gap:20px;
+}
+.port-item{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  padding:40px;
+  transition:all .4s;
+  overflow:hidden;position:relative;
+}
+.port-item:hover{border-color:rgba(232,255,0,0.25);box-shadow:0 20px 60px rgba(0,0,0,0.5)}
+.port-item.big{grid-column:span 7}
+.port-item.med{grid-column:span 5}
+.port-item.wide{grid-column:span 12}
+.port-item.third{grid-column:span 4}
+@media(max-width:960px){
+  .port-item.big,.port-item.med,.port-item.wide,.port-item.third{grid-column:span 12}
+}
+.port-cat{
+  font-size:.7rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;
+  color:var(--accent);margin-bottom:16px;display:block;
+}
+.port-item h3{
+  font-family:var(--font-display);
+  font-size:clamp(20px,3vw,28px);font-weight:800;
+  letter-spacing:-1px;margin-bottom:12px;
+}
+.port-item p{color:var(--muted);font-size:.93rem;line-height:1.7;max-width:480px}
+.port-visual{
+  margin-top:28px;height:180px;border-radius:var(--r-sm);
+  display:flex;align-items:center;justify-content:center;
+  font-size:48px;
+  position:relative;overflow:hidden;
+}
+.port-visual.v1{background:linear-gradient(135deg,rgba(232,255,0,0.08),rgba(0,229,255,0.08))}
+.port-visual.v2{background:linear-gradient(135deg,rgba(0,229,255,0.08),rgba(255,61,113,0.08))}
+.port-visual.v3{background:linear-gradient(135deg,rgba(255,61,113,0.08),rgba(232,255,0,0.08))}
+.port-link{
+  display:inline-flex;align-items:center;gap:8px;margin-top:22px;
+  color:var(--accent);font-size:.88rem;font-weight:600;
+  text-decoration:none;letter-spacing:.5px;
+  transition:gap .2s;
+}
+.port-link:hover{gap:14px}
+
+/* ═══════════════════════════════════════
+   TECH STACK
+═══════════════════════════════════════ */
+#tech{background:var(--bg)}
+.tech-scroll{
+  overflow:hidden;position:relative;margin-top:50px;
+}
+.tech-scroll::before,.tech-scroll::after{
+  content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;
+}
+.tech-scroll::before{left:0;background:linear-gradient(90deg,var(--bg),transparent)}
+.tech-scroll::after{right:0;background:linear-gradient(-90deg,var(--bg),transparent)}
+.tech-track{
+  display:flex;gap:14px;
+  animation:techScroll 28s linear infinite;
+  width:max-content;
+}
+.tech-track:hover{animation-play-state:paused}
+@keyframes techScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.tech-pill{
+  display:flex;align-items:center;gap:10px;
+  background:var(--card);border:1px solid var(--border);
+  border-radius:50px;padding:12px 22px;
+  white-space:nowrap;font-size:.9rem;font-weight:500;
+  transition:border-color .3s;color:var(--muted);
+}
+.tech-pill:hover{border-color:var(--accent);color:var(--text)}
+.tech-pill i{font-size:16px}
+.tech-cats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:16px;margin-top:50px;
+}
+.tech-cat{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r-sm);padding:24px;
+}
+.tech-cat h4{
+  font-family:var(--font-display);
+  font-size:1rem;font-weight:700;margin-bottom:12px;
+  color:var(--accent);
+}
+.tech-cat ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.tech-cat li{font-size:.88rem;color:var(--muted);display:flex;align-items:center;gap:8px}
+.tech-cat li::before{content:'→';color:var(--muted2);font-size:.75rem}
+
+/* ═══════════════════════════════════════
+   PRICING
+═══════════════════════════════════════ */
+#prezzi{background:var(--bg2)}
+.pricing-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));
+  gap:20px;align-items:start;
+}
+.price-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r);padding:40px;
+  transition:all .4s;position:relative;
+}
+.price-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,0.4)}
+.price-card.featured{
+  border-color:var(--accent);
+  background:rgba(232,255,0,0.03);
+}
+.price-card.featured::after{
+  content:'Più Popolare';
+  position:absolute;top:-1px;left:50%;transform:translateX(-50%);
+  background:var(--accent);color:#000;
+  font-size:.7rem;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;
+  padding:5px 16px;border-radius:0 0 10px 10px;
+}
+.price-name{
+  font-family:var(--font-display);
+  font-size:1rem;font-weight:700;letter-spacing:1px;
+  text-transform:uppercase;color:var(--muted);
+  margin-bottom:14px;
+}
+.price-val{
+  font-family:var(--font-display);
+  font-size:clamp(42px,7vw,58px);font-weight:800;
+  letter-spacing:-3px;line-height:1;margin-bottom:8px;
+}
+.price-val span{font-size:1.2rem;font-weight:400;opacity:.5;letter-spacing:0}
+.price-desc{font-size:.88rem;color:var(--muted);margin-bottom:28px;line-height:1.6}
+.price-list{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:32px}
+.price-list li{
+  font-size:.93rem;display:flex;align-items:flex-start;gap:10px;
+  color:var(--muted);
+}
+.price-list li i{color:var(--accent);font-size:14px;margin-top:3px;flex-shrink:0}
+.price-list li.no i{color:var(--muted2)}
+.price-list li.no{opacity:.5}
+.price-btn{
+  display:block;text-align:center;
+  padding:14px;border-radius:50px;
+  font-family:var(--font-display);font-weight:700;font-size:.95rem;
+  text-decoration:none;transition:all .3s;
+}
+.price-btn.main{background:var(--accent);color:#000}
+.price-btn.main:hover{background:#fff}
+.price-btn.out{border:1px solid var(--border);color:var(--text)}
+.price-btn.out:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ═══════════════════════════════════════
+   TESTIMONIALS
+═══════════════════════════════════════ */
+#recensioni{background:var(--bg)}
+.testi-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));
+  gap:20px;
+}
+.testi{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r);padding:32px;
+  transition:all .3s;
+}
+.testi:hover{transform:translateY(-4px);border-color:rgba(232,255,0,0.15)}
+.testi-stars{color:var(--accent);font-size:13px;margin-bottom:18px;letter-spacing:2px}
+.testi-text{
+  font-size:1.05rem;color:var(--text);
+  line-height:1.75;margin-bottom:24px;
+  font-weight:300;
+}
+.testi-text::before{content:'"';font-size:2.5rem;line-height:0;color:var(--accent);opacity:.4;vertical-align:-.6em;margin-right:4px}
+.testi-author{display:flex;align-items:center;gap:14px}
+.testi-av{
+  width:42px;height:42px;border-radius:50%;
+  background:var(--grad);display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-weight:800;
+  color:#000;font-size:1rem;flex-shrink:0;
+}
+.testi-name{font-weight:600;font-size:.95rem}
+.testi-role{font-size:.8rem;color:var(--muted)}
+
+/* ═══════════════════════════════════════
+   FAQ
+═══════════════════════════════════════ */
+#faq{background:var(--bg2)}
+.faq-wrap{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.faq-item{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r-sm);overflow:hidden;
+}
+.faq-q{
+  width:100%;background:none;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px 28px;
+  font-family:var(--font-display);font-size:1.05rem;font-weight:600;
+  color:var(--text);text-align:left;gap:16px;
+  transition:background .2s;
+}
+.faq-q:hover{background:rgba(255,255,255,0.03)}
+.faq-q .faq-ico{
+  width:30px;height:30px;border-radius:50%;
+  border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;font-size:12px;color:var(--muted);
+  transition:all .3s;
+}
+.faq-item.open .faq-q .faq-ico{
+  background:var(--accent);border-color:var(--accent);
+  color:#000;transform:rotate(45deg);
+}
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height .4s ease,padding .3s;
+  padding:0 28px;color:var(--muted);font-size:.97rem;line-height:1.75;
+}
+.faq-item.open .faq-a{max-height:300px;padding:0 28px 22px}
+
+/* ═══════════════════════════════════════
+   CONTATTI
+═══════════════════════════════════════ */
+#contatti{background:var(--bg)}
+.contact-wrap{
+  display:grid;grid-template-columns:1fr 1.3fr;gap:60px;align-items:start;
+}
+@media(max-width:900px){.contact-wrap{grid-template-columns:1fr}}
+.contact-left .sec-sub{margin-bottom:40px}
+.contact-items{display:flex;flex-direction:column;gap:22px}
+.ci{
+  display:flex;align-items:flex-start;gap:16px;
+  padding:20px;background:var(--card);
+  border:1px solid var(--border);border-radius:var(--r-sm);
+  transition:border-color .3s;
+}
+.ci:hover{border-color:rgba(232,255,0,0.2)}
+.ci-icon{
+  width:44px;height:44px;border-radius:10px;
+  background:rgba(232,255,0,0.1);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--accent);font-size:18px;flex-shrink:0;
+}
+.ci h4{font-size:.85rem;font-weight:600;color:var(--muted);letter-spacing:.5px;margin-bottom:4px;text-transform:uppercase}
+.ci p,.ci a{color:var(--text);font-size:.97rem;text-decoration:none}
+.ci a:hover{color:var(--accent)}
+
+/* FORM */
+.contact-form{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r);padding:44px;
+}
+@media(max-width:600px){.contact-form{padding:28px 20px}}
+.form-title{
+  font-family:var(--font-display);
+  font-size:1.6rem;font-weight:800;letter-spacing:-.5px;
+  margin-bottom:8px;
+}
+.form-sub{color:var(--muted);font-size:.9rem;margin-bottom:32px}
+.form-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:16px;
+}
+@media(max-width:520px){.form-grid{grid-template-columns:1fr}}
+.form-group{display:flex;flex-direction:column;gap:7px}
+.form-group.full{grid-column:1/-1}
+.form-group label{font-size:.8rem;font-weight:600;letter-spacing:.5px;color:var(--muted);text-transform:uppercase}
+.form-group input,
+.form-group select,
+.form-group textarea{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:var(--r-sm);padding:13px 16px;
+  color:var(--text);font-family:var(--font-body);font-size:.97rem;
+  transition:border-color .25s,box-shadow .25s;
+  -webkit-appearance:none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+  outline:none;
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px rgba(232,255,0,0.08);
+}
+.form-group textarea{height:130px;resize:vertical}
+.form-group select option{background:var(--bg2);color:var(--text)}
+.form-submit{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;padding:16px;border:none;cursor:pointer;
+  background:var(--accent);color:#000;
+  border-radius:50px;
+  font-family:var(--font-display);font-weight:700;font-size:1.05rem;
+  margin-top:20px;transition:all .3s;
+  position:relative;overflow:hidden;
+}
+.form-submit:hover{background:#fff;transform:translateY(-2px);box-shadow:0 10px 30px rgba(232,255,0,0.25)}
+.form-submit.loading{pointer-events:none;opacity:.7}
+.form-note{font-size:.78rem;color:var(--muted2);margin-top:14px;text-align:center}
+/* Success / Error messages */
+.form-msg{
+  display:none;padding:16px 20px;border-radius:var(--r-sm);
+  font-size:.93rem;font-weight:500;margin-top:16px;text-align:center;
+}
+.form-msg.ok{background:rgba(0,229,255,0.1);border:1px solid rgba(0,229,255,0.3);color:var(--accent2);display:block}
+.form-msg.err{background:rgba(255,61,113,0.1);border:1px solid rgba(255,61,113,0.3);color:var(--accent3);display:block}
+
+/* ═══════════════════════════════════════
+   CTA BANNER
+═══════════════════════════════════════ */
+.cta-band{
+  background:var(--bg2);padding:80px 28px;
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  position:relative;overflow:hidden;
+}
+.cta-band::before{
+  content:'';position:absolute;
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  width:800px;height:300px;
+  background:radial-gradient(ellipse,rgba(232,255,0,0.06) 0%,transparent 70%);
+}
+.cta-inner{
+  max-width:var(--max);margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:30px;position:relative;z-index:1;
+}
+.cta-text .sec-title{margin-bottom:8px}
+.cta-text p{color:var(--muted);max-width:500px}
+.cta-actions{display:flex;flex-wrap:wrap;gap:14px}
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+footer{
+  background:var(--bg2);padding:80px 28px 32px;
+  border-top:1px solid var(--border);
+}
+.footer-grid{
+  max-width:var(--max);margin:0 auto;
+  display:grid;
+  grid-template-columns:1.8fr 1fr 1fr 1fr;
+  gap:50px;margin-bottom:60px;
+}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.footer-grid{grid-template-columns:1fr}}
+.ft-brand{}
+.ft-logo{
+  font-family:var(--font-display);font-size:1.5rem;font-weight:800;
+  letter-spacing:-1px;
+  background:var(--grad);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  margin-bottom:14px;display:block;
+}
+.ft-brand p{color:var(--muted);font-size:.9rem;line-height:1.7;max-width:280px;margin-bottom:22px}
+.ft-social{display:flex;gap:10px}
+.ft-soc{
+  width:38px;height:38px;border-radius:10px;
+  border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--muted);font-size:15px;
+  text-decoration:none;transition:all .3s;
+}
+.ft-soc:hover{background:var(--accent);border-color:var(--accent);color:#000}
+.ft-col h4{
+  font-family:var(--font-display);font-size:1rem;font-weight:700;
+  margin-bottom:20px;color:var(--text);
+}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-links a{
+  color:var(--muted);font-size:.9rem;text-decoration:none;
+  transition:color .2s;
+}
+.ft-links a:hover{color:var(--accent)}
+.ft-bottom{
+  max-width:var(--max);margin:0 auto;
+  padding-top:28px;border-top:1px solid var(--border);
+  display:flex;flex-wrap:wrap;gap:10px;
+  justify-content:space-between;align-items:center;
+  font-size:.82rem;color:var(--muted2);
+}
+.ft-bottom a{color:var(--muted2);text-decoration:none}
+.ft-bottom a:hover{color:var(--accent)}
+
+/* ═══════════════════════════════════════
+   FLOATING WA
+═══════════════════════════════════════ */
+.float-wa{
+  position:fixed;bottom:24px;right:24px;z-index:900;
+  width:58px;height:58px;border-radius:50%;
+  background:linear-gradient(135deg,#25D366,#128C7E);
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:26px;text-decoration:none;
+  box-shadow:0 6px 30px rgba(37,211,102,0.45);
+  transition:all .3s;animation:waGlow 3s infinite;
+}
+.float-wa:hover{transform:scale(1.1);box-shadow:0 10px 40px rgba(37,211,102,0.65)}
+@keyframes waGlow{0%,100%{box-shadow:0 6px 30px rgba(37,211,102,0.45)}50%{box-shadow:0 6px 45px rgba(37,211,102,0.7)}}
+
+/* ═══════════════════════════════════════
+   REVEAL ANIMATIONS
+═══════════════════════════════════════ */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.rv.vis{opacity:1;transform:translateY(0)}
+.rv-l{opacity:0;transform:translateX(-28px);transition:opacity .7s ease,transform .7s ease}
+.rv-l.vis{opacity:1;transform:translateX(0)}
+.rv-r{opacity:0;transform:translateX(28px);transition:opacity .7s ease,transform .7s ease}
+.rv-r.vis{opacity:1;transform:translateX(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
 </style>
 </head>
 <body>
 
-<div class="topstrip">
-  <div class="topstrip-in">
-    <div class="ts-date">Sabato, 23 Maggio 2026</div>
-    <div class="ts-links">
-      <span class="live-pill">● LIVE</span>
-      <a href="#">Politica</a>
-      <a href="#">Economia</a>
-      <a href="#">Mondo</a>
-      <a href="#">Sport</a>
-    </div>
-  </div>
+<!-- LOADER -->
+<div id="loader">
+  <div class="ld-logo">ANKOAUTO CA</div>
+  <div class="ld-bar"><div class="ld-fill"></div></div>
 </div>
 
-<div class="ticker-bar">
-  <div class="ticker-label">🔴 BREAKING</div>
-  <div class="ticker-track">
-    <div class="ticker-inner">
-      <span>IRAN · Trump studia attacco finale mentre mediatori Pakistan e Qatar sono a Teheran · accordo in bilico</span>
-      <span>GIRO D'ITALIA · Tappa 14 Aosta–Pila oggi: 5 stelle, 4.400 m di dislivello · diretta Rai 2</span>
-      <span>ISRAELE · Europa apre a sanzioni contro Ben-Gvir · Italia, UK, Francia, Germania contro gli insediamenti</span>
-      <span>FLOTILLA · Attivisti italiani ancora fermati dopo abbordaggio di martedì · trattative consolari in corso</span>
-      <span>NOTTE DEI MUSEI · Stasera musei aperti in tutta Italia a 1 euro fino all'1:00</span>
-      <span>FESTA DELL'ECONOMIA · Trento: oggi interviene Prodi e il ministro Ciriani</span>
-      <span>PAPA LEONE XIV · Visita ad Acerra: testimonianza sul disastro ambientale del «Triangolo della morte»</span>
-      <span>STRETTO DI HORMUZ · Rubio: «Dobbiamo pensare a un piano B se l'Iran non riapre» · petrolio in tensione</span>
-      <span>IRAN · Trump studia attacco finale mentre mediatori Pakistan e Qatar sono a Teheran · accordo in bilico</span>
-      <span>GIRO D'ITALIA · Tappa 14 Aosta–Pila oggi: 5 stelle, 4.400 m di dislivello · diretta Rai 2</span>
-      <span>ISRAELE · Europa apre a sanzioni contro Ben-Gvir · Italia, UK, Francia, Germania contro gli insediamenti</span>
-      <span>FLOTILLA · Attivisti italiani ancora fermati dopo abbordaggio di martedì · trattative consolari in corso</span>
-      <span>NOTTE DEI MUSEI · Stasera musei aperti in tutta Italia a 1 euro fino all'1:00</span>
-    </div>
-  </div>
-</div>
+<!-- FLOATING WA -->
+<a href="https://wa.me/+1?text=Ciao%20Ankoauto%20CA!%20Vorrei%20informazioni." class="float-wa" target="_blank" rel="noopener" aria-label="Contattaci su WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
 
-<header>
-  <div class="masthead">
-    <div class="logo-wrap" onclick="goHome()">
-      <div class="logo-name"><span>A</span>NKOAUTCA</div>
-      <div class="logo-sub">Informazione libera · 24/7</div>
-    </div>
-    <div class="header-right">
-      <div class="search-wrap">
-        <input type="text" placeholder="Cerca notizie…" id="search-input" aria-label="Cerca">
-        <button id="search-btn" aria-label="Cerca"><i class="ti ti-search"></i></button>
-      </div>
-    </div>
+<!-- HEADER -->
+<header id="hdr">
+  <div class="nav">
+    <a href="#home" class="logo">
+      <div class="logo-icon">⚡</div>
+      ANKOAUTO CA
+    </a>
+    <ul class="nav-links">
+      <li><a href="#servizi">Servizi</a></li>
+      <li><a href="#processo">Processo</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#tech">Tecnologie</a></li>
+      <li><a href="#prezzi">Prezzi</a></li>
+      <li><a href="#recensioni">Recensioni</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a href="#contatti" class="nav-cta">Contattaci →</a>
+    <button class="burger" id="burger" aria-label="Apri menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-  <nav>
-    <div class="nav-in" id="mainnav">
-      <a href="Politica.html">Politica</a>
-      <a href="Economia.html">Economia</a>
-      <a href="Mondo.html">Mondo</a>
-      <a href="Sport.html">Sport</a>
-      <a href="Tecnologia.html">Tecnologia</a>
-      <a href="opinioni.html">Opinione</a>
-      <a href="#forum-section">Forum</a>
-    </div>
-  </nav>
 </header>
 
-<div class="alert-strip">
-  <div class="alert-in">
-    <span class="alert-icon">⚠️</span>
-    <div class="alert-txt"><strong>CRISI IRAN · SABATO 23 MAGGIO:</strong> Trump «frustrato» dai negoziati studia un maxi attacco. Al Arabiya: bozza di accordo in 9 punti quasi pronta, ma il nodo nucleare è escluso. Mediatori Pakistan e Qatar a Teheran. Aggiornamenti in diretta.</div>
-  </div>
-</div>
+<!-- MOBILE NAV -->
+<nav class="mob-nav" id="mobNav">
+  <a href="#servizi">Servizi</a>
+  <a href="#processo">Processo</a>
+  <a href="#portfolio">Portfolio</a>
+  <a href="#prezzi">Prezzi</a>
+  <a href="#recensioni">Recensioni</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contatti" class="mob-cta">Contattaci →</a>
+</nav>
 
-<div id="page-root"></div>
-
-<div class="forum-section" id="forum-section">
-  <div class="forum-wrap">
-    <div class="forum-head">
-      <i class="ti ti-messages" style="font-size:28px;color:var(--red)"></i>
-      <div class="forum-title">Forum della Comunità</div>
-      <div class="forum-count" id="forum-count">0 messaggi</div>
+<!-- ═══ HERO ═══ -->
+<div style="position:relative;z-index:1" id="home">
+<section style="padding:0">
+<div class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span></span> Agenzia Digitale Italiana</div>
+    <h1>
+      Costruiamo il tuo<br>
+      <span class="colored">futuro</span> <span class="outline">digitale</span>
+    </h1>
+    <p class="hero-desc">Siti web su misura, software innovativi, applicazioni mobile e strategie di marketing digitale che trasformano la tua visione in realtà.</p>
+    <div class="hero-btns">
+      <a href="#contatti" class="btn-main"><i class="fas fa-rocket"></i> Inizia il tuo progetto</a>
+      <a href="#portfolio" class="btn-out"><i class="fas fa-eye"></i> Vedi il portfolio</a>
     </div>
-    <div class="online-strip">
-      <div class="online-dot"></div>
-      <span id="online-n">Calcolando partecipanti…</span>
-      <span class="online-pill" id="online-pill">Online</span>
-    </div>
-    <div class="forum-layout">
-      <div>
-        <div class="forum-search">
-          <input type="text" id="forum-search" placeholder="Cerca nel forum…">
-          <button onclick="searchForum()"><i class="ti ti-search"></i></button>
-        </div>
-        <div class="topic-list" id="topic-filters">
-          <div class="topic-tag sel" onclick="filterTopic('Tutti')">Tutti</div>
-          <div class="topic-tag" onclick="filterTopic('Politica')">Politica</div>
-          <div class="topic-tag" onclick="filterTopic('Economia')">Economia</div>
-          <div class="topic-tag" onclick="filterTopic('Cronaca')">Cronaca</div>
-          <div class="topic-tag" onclick="filterTopic('Sport')">Sport</div>
-          <div class="topic-tag" onclick="filterTopic('Tecnologia')">Tecnologia</div>
-          <div class="topic-tag" onclick="filterTopic('Cultura')">Cultura</div>
-          <div class="topic-tag" onclick="filterTopic('Mondo')">Mondo</div>
-        </div>
-        <div id="msgs-list"></div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num" data-target="150">0+</div>
+        <div class="stat-label">Progetti Consegnati</div>
       </div>
-      <div class="forum-form">
-        <div class="ff-title">Partecipa alla discussione</div>
-        <div class="ff-sub">Condividi la tua opinione — rispetto e civiltà per tutti.</div>
-        <div class="ff-row">
-          <label class="ff-label">Il tuo nome (facoltativo)</label>
-          <input class="ff-input" type="text" id="ff-name" placeholder="Anonimo" maxlength="30">
-        </div>
-        <div class="ff-row">
-          <label class="ff-label">Argomento</label>
-          <select class="ff-select" id="ff-topic">
-            <option>Cronaca</option><option>Politica</option><option>Economia</option>
-            <option>Sport</option><option>Tecnologia</option><option>Cultura</option>
-            <option>Mondo</option>
-          </select>
-        </div>
-        <div class="ff-row">
-          <label class="ff-label">Il tuo messaggio</label>
-          <textarea class="ff-textarea" id="ff-msg" placeholder="Scrivi qui il tuo commento…" maxlength="1000"></textarea>
-          <div style="font-size:11px;color:var(--muted);text-align:right;margin-top:3px"><span id="char-count">0</span>/1000</div>
-        </div>
-        <button class="ff-submit" onclick="submitMsg()"><i class="ti ti-send"></i> Pubblica messaggio</button>
-        <div class="ff-privacy"><i class="ti ti-shield-check" style="font-size:12px"></i> I messaggi sono pubblici e visibili a tutti i lettori.</div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="98">0%</div>
+        <div class="stat-label">Clienti Soddisfatti</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="8">0+</div>
+        <div class="stat-label">Anni di Esperienza</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="24">0/7</div>
+        <div class="stat-label">Supporto Continuo</div>
       </div>
     </div>
   </div>
 </div>
+</section>
+</div>
 
+<!-- ═══ SERVIZI ═══ -->
+<section id="servizi">
+<div class="wrap">
+  <div class="sec-head rv">
+    <span class="sec-kicker">Cosa facciamo</span>
+    <h2 class="sec-title">I Nostri <span class="grad">Servizi</span></h2>
+    <p class="sec-sub">Soluzioni digitali complete per far crescere il tuo business nel mondo moderno</p>
+  </div>
+  <div class="services-grid">
+
+    <div class="srv rv d1">
+      <div class="srv-icon y"><i class="fas fa-globe"></i></div>
+      <h3>Creazione Siti Web</h3>
+      <p>Siti web professionali, veloci e ottimizzati per la SEO. Da landing page a portali complessi, realizziamo la tua presenza online con design unico e responsive.</p>
+      <div class="srv-tags">
+        <span class="srv-tag">WordPress</span>
+        <span class="srv-tag">E-commerce</span>
+        <span class="srv-tag">Landing Page</span>
+        <span class="srv-tag">SEO</span>
+      </div>
+    </div>
+
+    <div class="srv rv d2">
+      <div class="srv-icon c"><i class="fas fa-code"></i></div>
+      <h3>Sviluppo Software</h3>
+      <p>Software personalizzati per automatizzare i tuoi processi aziendali. Gestionali, CRM, ERP, piattaforme SaaS — costruiamo esattamente ciò di cui hai bisogno.</p>
+      <div class="srv-tags">
+        <span class="srv-tag">Web App</span>
+        <span class="srv-tag">SaaS</span>
+        <span class="srv-tag">API</span>
+        <span class="srv-tag">Database</span>
+      </div>
+    </div>
+
+    <div class="srv rv d3">
+      <div class="srv-icon r"><i class="fas fa-mobile-alt"></i></div>
+      <h3>App Mobile</h3>
+      <p>Applicazioni native e cross-platform per iOS e Android. UX intuitiva, performance elevate e integrazione con i tuoi sistemi esistenti.</p>
+      <div class="srv-tags">
+        <span class="srv-tag">iOS</span>
+        <span class="srv-tag">Android</span>
+        <span class="srv-tag">React Native</span>
+        <span class="srv-tag">Flutter</span>
+      </div>
+    </div>
+
+    <div class="srv rv d1">
+      <div class="srv-icon y"><i class="fas fa-chart-line"></i></div>
+      <h3>Marketing Digitale</h3>
+      <p>Strategie SEO, Google Ads, Meta Ads e content marketing per portare traffico qualificato al tuo sito e aumentare le conversioni.</p>
+      <div class="srv-tags">
+        <span class="srv-tag">SEO/SEM</span>
+        <span class="srv-tag">Google Ads</span>
+        <span class="srv-tag">Meta Ads</span>
+        <span class="srv-tag">Analytics</span>
+      </div>
+    </div>
+
+    <div class="srv rv d2">
+      <div class="srv-icon c"><i class="fas fa-shopping-cart"></i></div>
+      <h3>E-commerce</h3>
+      <p>Negozi online completi e performanti. Integrazione pagamenti, gestione inventario, spedizioni automatizzate e dashboard di amministrazione avanzata.</p>
+      <div class="srv-tags">
+        <span class="srv-tag">WooCommerce</span>
+        <span class="srv-tag">Shopify</span>
+        <span class="srv-tag">Pagamenti</span>
+        <span class="srv-tag">Gestionale</span>
+      </div>
+    </div>
+
+    <div class="srv rv d3">
+      <div class="srv-icon r"><i class="fas fa-robot"></i></div>
+      <h3>Automazione & AI</h3>
+      <p>Integrazione di intelligenza artificiale e automazioni nei tuoi processi. Chatbot, analisi dati, raccomandazioni personalizzate e workflow intelligenti.</p>
+      <div class="srv-tags">
+        <span class="srv-tag">Chatbot AI</span>
+        <span class="srv-tag">Automazione</span>
+        <span class="srv-tag">Machine Learning</span>
+        <span class="srv-tag">Analytics</span>
+      </div>
+    </div>
+
+    <div class="srv rv d1">
+      <div class="srv-icon y"><i class="fas fa-paint-brush"></i></div>
+      <h3>UI/UX Design</h3>
+      <p>Design centrato sull'utente. Wireframe, prototipi interattivi, branding e identità visiva coerente per distinguerti dalla concorrenza.</p>
+      <div class="srv-tags">
+        <span class="srv-tag">Figma</span>
+        <span class="srv-tag">Branding</span>
+        <span class="srv-tag">Prototipi</span>
+        <span class="srv-tag">Design System</span>
+      </div>
+    </div>
+
+    <div class="srv rv d2">
+      <div class="srv-icon c"><i class="fas fa-shield-alt"></i></div>
+      <h3>Cloud & Sicurezza</h3>
+      <p>Hosting gestito, SSL, backup automatici, monitoraggio 24/7 e protezione avanzata. La tua infrastruttura digitale sempre sicura e performante.</p>
+      <div class="srv-tags">
+        <span class="srv-tag">AWS</span>
+        <span class="srv-tag">Google Cloud</span>
+        <span class="srv-tag">SSL</span>
+        <span class="srv-tag">Backup</span>
+      </div>
+    </div>
+
+    <div class="srv rv d3">
+      <div class="srv-icon r"><i class="fas fa-headset"></i></div>
+      <h3>Supporto & Manutenzione</h3>
+      <p>Supporto tecnico continuo, aggiornamenti regolari, ottimizzazione delle performance e assistenza prioritaria per tutti i nostri clienti.</p>
+      <div class="srv-tags">
+        <span class="srv-tag">Supporto 24/7</span>
+        <span class="srv-tag">Manutenzione</span>
+        <span class="srv-tag">Aggiornamenti</span>
+        <span class="srv-tag">Formazione</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- ═══ PROCESSO ═══ -->
+<section id="processo">
+<div class="wrap">
+  <div class="sec-head rv">
+    <span class="sec-kicker">Come lavoriamo</span>
+    <h2 class="sec-title">Il Nostro <span class="grad">Processo</span></h2>
+    <p class="sec-sub">Un metodo collaudato per consegnare progetti di qualità, nei tempi e nel budget</p>
+  </div>
+  <div class="process-steps">
+    <div class="step rv">
+      <div class="step-num">01</div>
+      <h3>Analisi & Strategia</h3>
+      <p>Ascoltiamo i tuoi obiettivi, analizziamo il mercato e definiamo la strategia digitale più efficace per il tuo progetto.</p>
+    </div>
+    <div class="step rv d1">
+      <div class="step-num">02</div>
+      <h3>Design & Prototipo</h3>
+      <p>Creiamo wireframe e prototipi interattivi. Presentiamo il design per feedback prima di iniziare lo sviluppo.</p>
+    </div>
+    <div class="step rv d2">
+      <div class="step-num">03</div>
+      <h3>Sviluppo</h3>
+      <p>Il nostro team sviluppa con metodologia agile. Aggiornamenti settimanali e accesso al progetto in tempo reale.</p>
+    </div>
+    <div class="step rv d3">
+      <div class="step-num">04</div>
+      <h3>Test & Lancio</h3>
+      <p>Test approfonditi su tutti i dispositivi, ottimizzazione SEO e lancio professionale con supporto post-deployment.</p>
+    </div>
+    <div class="step rv d4">
+      <div class="step-num">05</div>
+      <h3>Crescita</h3>
+      <p>Monitoraggio continuo, analisi dei dati, ottimizzazione e supporto per far crescere il tuo progetto nel tempo.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ PORTFOLIO ═══ -->
+<section id="portfolio">
+<div class="wrap">
+  <div class="sec-head rv">
+    <span class="sec-kicker">Lavori recenti</span>
+    <h2 class="sec-title">Il Nostro <span class="grad">Portfolio</span></h2>
+    <p class="sec-sub">Alcuni dei progetti realizzati per i nostri clienti in Italia e all'estero</p>
+  </div>
+  <div class="portfolio-grid">
+    <div class="port-item big rv">
+      <span class="port-cat">E-commerce / Fashion</span>
+      <h3>LuxStyle Boutique Online</h3>
+      <p>Piattaforma e-commerce completa con oltre 3.000 prodotti, sistema di raccomandazione AI, pagamenti multipli e gestione magazzino integrata.</p>
+      <div class="port-visual v1">🛍️</div>
+      <a href="#contatti" class="port-link">Scopri il progetto <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="port-item med rv d1">
+      <span class="port-cat">App Mobile / Food</span>
+      <h3>FoodRunner App</h3>
+      <p>Applicazione iOS/Android per la consegna a domicilio con tracciamento real-time, pagamenti e sistema di rating.</p>
+      <div class="port-visual v2">🍕</div>
+      <a href="#contatti" class="port-link">Scopri il progetto <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="port-item third rv">
+      <span class="port-cat">Software / Gestionale</span>
+      <h3>CRM Aziendale</h3>
+      <p>CRM personalizzato per gestione clienti, fatturazione e pipeline vendite.</p>
+      <div class="port-visual v3">📊</div>
+      <a href="#contatti" class="port-link">Scopri <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="port-item third rv d1">
+      <span class="port-cat">Web Design / Hospitality</span>
+      <h3>Hotel Bella Vista</h3>
+      <p>Sito web con prenotazioni online, gestione disponibilità e integrazione booking.</p>
+      <div class="port-visual v1">🏨</div>
+      <a href="#contatti" class="port-link">Scopri <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="port-item third rv d2">
+      <span class="port-cat">SaaS / B2B</span>
+      <h3>InvoiceCloud</h3>
+      <p>Piattaforma SaaS per fatturazione elettronica e gestione contabilità per PMI.</p>
+      <div class="port-visual v2">🧾</div>
+      <a href="#contatti" class="port-link">Scopri <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="port-item wide rv">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center">
+        <div>
+          <span class="port-cat">Marketing Digitale / Retail</span>
+          <h3>Crescita +340% per RetailMax</h3>
+          <p>Strategia completa di marketing digitale: SEO, Google Ads e social media. In 6 mesi abbiamo triplicato il traffico organico e aumentato le conversioni del 340%.</p>
+          <a href="#contatti" class="port-link" style="margin-top:18px;display:inline-flex">Leggi il caso studio <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div style="background:rgba(232,255,0,0.06);border:1px solid rgba(232,255,0,0.15);border-radius:12px;padding:20px;text-align:center">
+            <div style="font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:var(--accent)">+340%</div>
+            <div style="font-size:.8rem;color:var(--muted)">Conversioni</div>
+          </div>
+          <div style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.15);border-radius:12px;padding:20px;text-align:center">
+            <div style="font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:var(--accent2)">3×</div>
+            <div style="font-size:.8rem;color:var(--muted)">Traffico Organico</div>
+          </div>
+          <div style="background:rgba(255,61,113,0.06);border:1px solid rgba(255,61,113,0.15);border-radius:12px;padding:20px;text-align:center">
+            <div style="font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:var(--accent3)">6</div>
+            <div style="font-size:.8rem;color:var(--muted)">Mesi</div>
+          </div>
+          <div style="background:rgba(232,255,0,0.06);border:1px solid rgba(232,255,0,0.15);border-radius:12px;padding:20px;text-align:center">
+            <div style="font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:var(--accent)">€1.2M</div>
+            <div style="font-size:.8rem;color:var(--muted)">Fatturato Gen.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ TECH ═══ -->
+<section id="tech">
+<div class="wrap">
+  <div class="sec-head rv">
+    <span class="sec-kicker">Strumenti & tecnologie</span>
+    <h2 class="sec-title">Il Nostro <span class="grad">Stack</span></h2>
+    <p class="sec-sub">Utilizziamo le tecnologie più avanzate per costruire soluzioni scalabili e affidabili</p>
+  </div>
+  <div class="tech-scroll rv">
+    <div class="tech-track">
+      <!-- set 1 -->
+      <div class="tech-pill"><i class="fab fa-react" style="color:#61dafb"></i> React</div>
+      <div class="tech-pill"><i class="fab fa-node-js" style="color:#68a063"></i> Node.js</div>
+      <div class="tech-pill"><i class="fab fa-python" style="color:#ffd43b"></i> Python</div>
+      <div class="tech-pill"><i class="fab fa-swift" style="color:#ff6b35"></i> Swift</div>
+      <div class="tech-pill"><i class="fab fa-android" style="color:#3ddc84"></i> Android</div>
+      <div class="tech-pill"><i class="fab fa-aws" style="color:#ff9900"></i> AWS</div>
+      <div class="tech-pill"><i class="fab fa-google" style="color:#4285f4"></i> Google Cloud</div>
+      <div class="tech-pill"><i class="fab fa-wordpress" style="color:#21759b"></i> WordPress</div>
+      <div class="tech-pill"><i class="fab fa-shopify" style="color:#96bf48"></i> Shopify</div>
+      <div class="tech-pill"><i class="fas fa-database" style="color:#336791"></i> PostgreSQL</div>
+      <div class="tech-pill"><i class="fab fa-docker" style="color:#2496ed"></i> Docker</div>
+      <div class="tech-pill"><i class="fab fa-figma" style="color:#a259ff"></i> Figma</div>
+      <div class="tech-pill"><i class="fab fa-flutter" style="color:#54c5f8"></i> Flutter</div>
+      <div class="tech-pill"><i class="fas fa-fire" style="color:#ff6d00"></i> Firebase</div>
+      <!-- set 2 (duplicate for infinite scroll) -->
+      <div class="tech-pill"><i class="fab fa-react" style="color:#61dafb"></i> React</div>
+      <div class="tech-pill"><i class="fab fa-node-js" style="color:#68a063"></i> Node.js</div>
+      <div class="tech-pill"><i class="fab fa-python" style="color:#ffd43b"></i> Python</div>
+      <div class="tech-pill"><i class="fab fa-swift" style="color:#ff6b35"></i> Swift</div>
+      <div class="tech-pill"><i class="fab fa-android" style="color:#3ddc84"></i> Android</div>
+      <div class="tech-pill"><i class="fab fa-aws" style="color:#ff9900"></i> AWS</div>
+      <div class="tech-pill"><i class="fab fa-google" style="color:#4285f4"></i> Google Cloud</div>
+      <div class="tech-pill"><i class="fab fa-wordpress" style="color:#21759b"></i> WordPress</div>
+      <div class="tech-pill"><i class="fab fa-shopify" style="color:#96bf48"></i> Shopify</div>
+      <div class="tech-pill"><i class="fas fa-database" style="color:#336791"></i> PostgreSQL</div>
+      <div class="tech-pill"><i class="fab fa-docker" style="color:#2496ed"></i> Docker</div>
+      <div class="tech-pill"><i class="fab fa-figma" style="color:#a259ff"></i> Figma</div>
+      <div class="tech-pill"><i class="fab fa-flutter" style="color:#54c5f8"></i> Flutter</div>
+      <div class="tech-pill"><i class="fas fa-fire" style="color:#ff6d00"></i> Firebase</div>
+    </div>
+  </div>
+  <div class="tech-cats rv">
+    <div class="tech-cat">
+      <h4>Frontend</h4>
+      <ul>
+        <li>React / Next.js</li>
+        <li>Vue.js / Nuxt</li>
+        <li>TypeScript</li>
+        <li>Tailwind CSS</li>
+        <li>Three.js / WebGL</li>
+      </ul>
+    </div>
+    <div class="tech-cat">
+      <h4>Backend</h4>
+      <ul>
+        <li>Node.js / Express</li>
+        <li>Python / Django</li>
+        <li>PHP / Laravel</li>
+        <li>REST API / GraphQL</li>
+        <li>Microservizi</li>
+      </ul>
+    </div>
+    <div class="tech-cat">
+      <h4>Mobile</h4>
+      <ul>
+        <li>React Native</li>
+        <li>Flutter</li>
+        <li>Swift / iOS</li>
+        <li>Kotlin / Android</li>
+        <li>PWA</li>
+      </ul>
+    </div>
+    <div class="tech-cat">
+      <h4>Cloud & DevOps</h4>
+      <ul>
+        <li>AWS / GCP / Azure</li>
+        <li>Docker / Kubernetes</li>
+        <li>CI/CD Pipeline</li>
+        <li>MongoDB / PostgreSQL</li>
+        <li>Redis / Elasticsearch</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ PREZZI ═══ -->
+<section id="prezzi">
+<div class="wrap">
+  <div class="sec-head rv">
+    <span class="sec-kicker">Investimento</span>
+    <h2 class="sec-title">Piani & <span class="grad">Prezzi</span></h2>
+    <p class="sec-sub">Soluzioni per ogni esigenza e budget. Preventivi personalizzati gratuiti.</p>
+  </div>
+  <div class="pricing-grid">
+    <div class="price-card rv">
+      <div class="price-name">Starter</div>
+      <div class="price-val">€990 <span>una tantum</span></div>
+      <p class="price-desc">Perfetto per piccole imprese e professionisti che vogliono iniziare la propria presenza online.</p>
+      <ul class="price-list">
+        <li><i class="fas fa-check"></i> Sito web fino a 5 pagine</li>
+        <li><i class="fas fa-check"></i> Design responsive mobile</li>
+        <li><i class="fas fa-check"></i> Ottimizzazione SEO base</li>
+        <li><i class="fas fa-check"></i> Form di contatto</li>
+        <li><i class="fas fa-check"></i> Integrazione Google Maps</li>
+        <li><i class="fas fa-check"></i> 1 mese di supporto</li>
+        <li class="no"><i class="fas fa-times"></i> E-commerce</li>
+        <li class="no"><i class="fas fa-times"></i> Area riservata clienti</li>
+      </ul>
+      <a href="#contatti" class="price-btn out">Richiedi Preventivo</a>
+    </div>
+    <div class="price-card featured rv d1">
+      <div class="price-name">Business</div>
+      <div class="price-val">€2.900 <span>una tantum</span></div>
+      <p class="price-desc">La scelta ideale per aziende in crescita che vogliono una soluzione web completa e performante.</p>
+      <ul class="price-list">
+        <li><i class="fas fa-check"></i> Sito web pagine illimitate</li>
+        <li><i class="fas fa-check"></i> E-commerce integrato</li>
+        <li><i class="fas fa-check"></i> SEO avanzato + Analytics</li>
+        <li><i class="fas fa-check"></i> Area riservata clienti</li>
+        <li><i class="fas fa-check"></i> Integrazione CRM/gestionale</li>
+        <li><i class="fas fa-check"></i> Campagne Google/Meta Ads</li>
+        <li><i class="fas fa-check"></i> 6 mesi di supporto</li>
+        <li><i class="fas fa-check"></i> Hosting incluso 1 anno</li>
+      </ul>
+      <a href="#contatti" class="price-btn main">Inizia Ora →</a>
+    </div>
+    <div class="price-card rv d2">
+      <div class="price-name">Enterprise</div>
+      <div class="price-val">Custom</div>
+      <p class="price-desc">Soluzioni software su misura, app mobile, sistemi complessi e piattaforme SaaS per grandi realtà.</p>
+      <ul class="price-list">
+        <li><i class="fas fa-check"></i> Software completamente custom</li>
+        <li><i class="fas fa-check"></i> App iOS + Android</li>
+        <li><i class="fas fa-check"></i> Architettura cloud scalabile</li>
+        <li><i class="fas fa-check"></i> Integrazione AI/Machine Learning</li>
+        <li><i class="fas fa-check"></i> API e integrazioni illimitate</li>
+        <li><i class="fas fa-check"></i> Supporto dedicato 24/7</li>
+        <li><i class="fas fa-check"></i> SLA garantito</li>
+        <li><i class="fas fa-check"></i> Formazione del team</li>
+      </ul>
+      <a href="#contatti" class="price-btn out">Parliamo del Progetto</a>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ RECENSIONI ═══ -->
+<section id="recensioni">
+<div class="wrap">
+  <div class="sec-head rv">
+    <span class="sec-kicker">Cosa dicono di noi</span>
+    <h2 class="sec-title">Clienti <span class="grad">Soddisfatti</span></h2>
+    <p class="sec-sub">Oltre 150 aziende ci hanno già scelto. Ecco alcune delle loro storie.</p>
+  </div>
+  <div class="testi-grid">
+    <div class="testi rv">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">Ankoauto CA ha trasformato completamente la nostra presenza online. In 3 mesi abbiamo raddoppiato le richieste di preventivo grazie al nuovo sito e alla strategia SEO.</p>
+      <div class="testi-author">
+        <div class="testi-av">MR</div>
+        <div>
+          <div class="testi-name">Marco Rossi</div>
+          <div class="testi-role">CEO, Rossi Costruzioni Srl</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi rv d1">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">Professionalità e competenza al top. Hanno sviluppato la nostra app in tempi record e il risultato ha superato tutte le aspettative. Clienti fedeli da 4 anni!</p>
+      <div class="testi-author">
+        <div class="testi-av">LB</div>
+        <div>
+          <div class="testi-name">Laura Bianchi</div>
+          <div class="testi-role">Founder, EcoFood Italia</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi rv d2">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">Il gestionale personalizzato che ci hanno costruito ha ridotto del 60% i tempi di amministrazione. Un investimento che si è ripagato in pochi mesi.</p>
+      <div class="testi-author">
+        <div class="testi-av">GV</div>
+        <div>
+          <div class="testi-name">Giuseppe Verdi</div>
+          <div class="testi-role">Direttore, Studio Verdi & Associati</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi rv d1">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">Il nostro e-commerce ora fattura 5 volte di più grazie all'ottimizzazione del sito e alle campagne ads gestite da Ankoauto CA. Team fantastico e sempre disponibile.</p>
+      <div class="testi-author">
+        <div class="testi-av">SF</div>
+        <div>
+          <div class="testi-name">Sofia Ferrari</div>
+          <div class="testi-role">Titolare, Moda Ferrari Shop</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi rv d2">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">Eccezionali! Dalla prima consulenza al lancio del prodotto, ogni fase è stata gestita con cura e precisione. Consigliatissimi per qualsiasi progetto digitale.</p>
+      <div class="testi-author">
+        <div class="testi-av">AC</div>
+        <div>
+          <div class="testi-name">Andrea Conti</div>
+          <div class="testi-role">CMO, TechStart SpA</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi rv d3">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">Supporto impeccabile, comunicazione chiara e risultati concreti. Il nostro nuovo portale HR ha digitalizzato tutti i processi aziendali. Grazie Ankoauto CA!</p>
+      <div class="testi-author">
+        <div class="testi-av">EL</div>
+        <div>
+          <div class="testi-name">Elena Lombardi</div>
+          <div class="testi-role">HR Director, GruppoLombardi</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section id="faq">
+<div class="wrap">
+  <div class="sec-head rv">
+    <span class="sec-kicker">Hai domande?</span>
+    <h2 class="sec-title">Domande <span class="grad">Frequenti</span></h2>
+    <p class="sec-sub">Risposte chiare alle domande più comuni sui nostri servizi</p>
+  </div>
+  <div class="faq-wrap">
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Quanto tempo ci vuole per creare un sito web?
+        <div class="faq-ico"><i class="fas fa-plus"></i></div>
+      </button>
+      <div class="faq-a">I tempi variano in base alla complessità del progetto. Un sito vetrina semplice può essere pronto in 2-3 settimane. Un e-commerce completo richiede 4-8 settimane. Un'applicazione software personalizzata da 2 a 6 mesi. Dopo la prima consulenza forniamo sempre un piano di lavoro dettagliato con le tempistiche precise.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Come funziona il processo di lavoro?
+        <div class="faq-ico"><i class="fas fa-plus"></i></div>
+      </button>
+      <div class="faq-a">Iniziamo con una consulenza gratuita per capire i tuoi obiettivi. Poi elaboriamo una proposta tecnica e un preventivo dettagliato. Una volta approvato, lavoriamo con metodologia agile: ogni settimana ricevi aggiornamenti sul progresso e puoi fornire feedback. Prima del lancio eseguiamo test approfonditi su tutti i dispositivi.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Offrite supporto dopo la consegna del progetto?
+        <div class="faq-ico"><i class="fas fa-plus"></i></div>
+      </button>
+      <div class="faq-a">Assolutamente sì. Tutti i nostri pacchetti includono un periodo di supporto post-lancio (da 1 a 6 mesi a seconda del piano). Offriamo anche contratti di manutenzione mensile per aggiornamenti, sicurezza, backup e supporto tecnico continuativo. Siamo sempre raggiungibili via email, telefono e WhatsApp.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Sviluppate app sia per iOS che per Android?
+        <div class="faq-ico"><i class="fas fa-plus"></i></div>
+      </button>
+      <div class="faq-a">Sì, sviluppiamo applicazioni native per iOS e Android, ma anche app cross-platform con React Native e Flutter che girano su entrambi i sistemi operativi. La scelta della tecnologia dipende dalle esigenze specifiche del progetto: ti consigliamo sempre la soluzione più efficiente in termini di costi e performance.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Il mio sito sarà ottimizzato per Google (SEO)?
+        <div class="faq-ico"><i class="fas fa-plus"></i></div>
+      </button>
+      <div class="faq-a">Sì, tutti i siti che realizziamo includono ottimizzazione SEO di base: struttura delle URL, meta tag, velocità di caricamento, sitemap, schema.org e responsività mobile. Per chi vuole risultati più ambiziosi offriamo pacchetti SEO avanzati con analisi delle keyword, content strategy e monitoraggio mensile del posizionamento.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Posso vedere esempi del vostro lavoro?
+        <div class="faq-ico"><i class="fas fa-plus"></i></div>
+      </button>
+      <div class="faq-a">Certo! Nella sezione Portfolio trovi alcuni dei nostri lavori più recenti. Puoi anche contattarci per ricevere una presentazione completa del nostro portfolio specifico per il tuo settore. Organizziamo spesso demo video dei progetti realizzati per mostrare funzionalità e performance.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Che informazioni servono per ricevere un preventivo?
+        <div class="faq-ico"><i class="fas fa-plus"></i></div>
+      </button>
+      <div class="faq-a">Per prepararti un preventivo accurato è utile conoscere: il tipo di progetto (sito, app, software), gli obiettivi principali, il target di riferimento, eventuali riferimenti visivi o competitor, le funzionalità desiderate e il budget indicativo. Non preoccuparti se non hai tutti i dettagli: nella prima consulenza gratuita ti aiutiamo a definire tutto.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Lavorate anche con aziende fuori dall'Italia?
+        <div class="faq-ico"><i class="fas fa-plus"></i></div>
+      </button>
+      <div class="faq-a">Assolutamente sì. Lavoriamo con clienti in tutta Italia e in Europa. Le riunioni si tengono online (Zoom, Meet, Teams) e tutta la comunicazione e gestione del progetto avviene digitalmente, con la stessa qualità e efficienza indipendentemente dalla posizione geografica.</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ CTA BAND ═══ -->
+<div class="cta-band">
+  <div class="cta-inner">
+    <div class="cta-text rv">
+      <h2 class="sec-title" style="font-size:clamp(28px,5vw,52px)">Pronto a <span class="grad">iniziare</span>?</h2>
+      <p>Consulenza gratuita. Preventivo senza impegno. Risposta entro 24 ore.</p>
+    </div>
+    <div class="cta-actions rv">
+      <a href="#contatti" class="btn-main"><i class="fas fa-paper-plane"></i> Scrivici ora</a>
+      <a href="mailto:gastroboostmarketiingdegital@gmail.com" class="btn-out"><i class="fas fa-envelope"></i> Email diretta</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CONTATTI ═══ -->
+<section id="contatti">
+<div class="wrap">
+  <div class="sec-head rv">
+    <span class="sec-kicker">Parliamo</span>
+    <h2 class="sec-title">Contatta <span class="grad">Ankoauto CA</span></h2>
+    <p class="sec-sub">Siamo pronti ad ascoltare il tuo progetto. Risposta garantita entro 24 ore.</p>
+  </div>
+  <div class="contact-wrap">
+    <div class="contact-left rv-l">
+      <p class="sec-sub" style="margin-bottom:36px">Che si tratti di un sito web, un'app mobile, un software personalizzato o una strategia di marketing, siamo qui per aiutarti a raggiungere i tuoi obiettivi digitali.</p>
+      <div class="contact-items">
+        <div class="ci">
+          <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+          <div>
+            <h4>Email</h4>
+            <a href="mailto:gastroboostmarketiingdegital@gmail.com">gastroboostmarketiingdegital@gmail.com</a>
+          </div>
+        </div>
+        <div class="ci">
+          <div class="ci-icon"><i class="fab fa-whatsapp"></i></div>
+          <div>
+            <h4>WhatsApp</h4>
+            <p>Scrivici per una risposta immediata</p>
+          </div>
+        </div>
+        <div class="ci">
+          <div class="ci-icon"><i class="fas fa-clock"></i></div>
+          <div>
+            <h4>Orari</h4>
+            <p>Lun – Ven: 9:00 – 18:30<br>Sab: 9:00 – 13:00</p>
+          </div>
+        </div>
+        <div class="ci">
+          <div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <h4>Dove Siamo</h4>
+            <p>Italia — Operiamo in tutta Europa</p>
+          </div>
+        </div>
+        <div class="ci">
+          <div class="ci-icon"><i class="fas fa-rocket"></i></div>
+          <div>
+            <h4>Risposta Garantita</h4>
+            <p>Entro <strong style="color:var(--accent)">24 ore</strong> dalla tua richiesta</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form rv-r">
+      <div class="form-title">Inviaci un messaggio</div>
+      <p class="form-sub">Compila il form — ti risponderemo a <strong>gastroboostmarketiingdegital@gmail.com</strong></p>
+      <form id="contactForm" novalidate>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="f-nome">Nome *</label>
+            <input type="text" id="f-nome" name="nome" placeholder="Mario" required>
+          </div>
+          <div class="form-group">
+            <label for="f-cognome">Cognome *</label>
+            <input type="text" id="f-cognome" name="cognome" placeholder="Rossi" required>
+          </div>
+          <div class="form-group">
+            <label for="f-email">Email *</label>
+            <input type="email" id="f-email" name="email" placeholder="mario@azienda.it" required>
+          </div>
+          <div class="form-group">
+            <label for="f-tel">Telefono</label>
+            <input type="tel" id="f-tel" name="telefono" placeholder="+39 333 000 0000">
+          </div>
+          <div class="form-group">
+            <label for="f-azienda">Azienda</label>
+            <input type="text" id="f-azienda" name="azienda" placeholder="La tua azienda">
+          </div>
+          <div class="form-group">
+            <label for="f-budget">Budget Indicativo</label>
+            <select id="f-budget" name="budget">
+              <option value="" disabled selected>Seleziona...</option>
+              <option>Meno di €1.000</option>
+              <option>€1.000 – €5.000</option>
+              <option>€5.000 – €15.000</option>
+              <option>€15.000 – €50.000</option>
+              <option>Oltre €50.000</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label for="f-servizio">Servizio di Interesse *</label>
+            <select id="f-servizio" name="servizio" required>
+              <option value="" disabled selected>Seleziona il servizio...</option>
+              <option>Creazione Sito Web</option>
+              <option>E-commerce</option>
+              <option>Sviluppo Software / Gestionale</option>
+              <option>App Mobile (iOS / Android)</option>
+              <option>Marketing Digitale / SEO</option>
+              <option>UI/UX Design</option>
+              <option>Automazione & AI</option>
+              <option>Cloud & Sicurezza</option>
+              <option>Pacchetto completo</option>
+              <option>Altro</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label for="f-msg">Descrivici il tuo progetto *</label>
+            <textarea id="f-msg" name="messaggio" placeholder="Raccontaci la tua idea, gli obiettivi e qualsiasi dettaglio utile. Più informazioni ci dai, più accurato sarà il nostro preventivo..." required></textarea>
+          </div>
+        </div>
+        <button type="submit" class="form-submit" id="submitBtn">
+          <i class="fas fa-paper-plane"></i>
+          <span id="submitTxt">Invia Richiesta</span>
+        </button>
+        <p class="form-note">🔒 I tuoi dati sono al sicuro. Non condividiamo informazioni con terze parti.</p>
+      </form>
+      <div class="form-msg" id="formSuccess">✅ Messaggio inviato! Ti risponderemo entro 24 ore.</div>
+      <div class="form-msg" id="formError">⚠️ Si è verificato un errore. Scrivici direttamente a gastroboostmarketiingdegital@gmail.com</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
 <footer>
-  <div class="ft">
-    <div>
-      <div class="ft-logo"><span>A</span>NKOAUTCA</div>
-      <div class="ft-tagline">Testata indipendente. Notizie italiane in tempo reale, senza abbonamenti e senza tracciamento.</div>
-    </div>
-    <div>
-      <div class="ft-htitle">Sezioni</div>
-      <div class="ft-links">
-        <a href="#">Politica</a>
-        <a href="#">Economia</a>
-        <a href="#">Mondo</a>
-        <a href="#">Sport</a>
-        <a href="#">Tecnologia</a>
-        <a href="#">Opinione</a>
+  <div class="footer-grid">
+    <div class="ft-brand">
+      <span class="ft-logo">⚡ ANKOAUTO CA</span>
+      <p>La tua agenzia digitale di fiducia. Creiamo siti web, software, app mobile e strategie di marketing che fanno crescere il tuo business.</p>
+      <div class="ft-social">
+        <a href="#" class="ft-soc" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="ft-soc" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="ft-soc" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="mailto:gastroboostmarketiingdegital@gmail.com" class="ft-soc" aria-label="Email"><i class="fas fa-envelope"></i></a>
       </div>
     </div>
-    <div>
-      <div class="ft-htitle">Redazione</div>
-      <div class="ft-links">
-        <a href="#">Chi siamo</a>
-        <a href="mailto:gastroboostmarketingdegital@gmail.com">Collabora</a>
-        <a href="#">Privacy</a>
-        <a href="#">Contatti</a>
+    <div class="ft-col">
+      <h4>Servizi</h4>
+      <ul class="ft-links">
+        <li><a href="#servizi">Siti Web</a></li>
+        <li><a href="#servizi">Software</a></li>
+        <li><a href="#servizi">App Mobile</a></li>
+        <li><a href="#servizi">Marketing Digitale</a></li>
+        <li><a href="#servizi">E-commerce</a></li>
+        <li><a href="#servizi">UI/UX Design</a></li>
+        <li><a href="#servizi">AI & Automazione</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4>Azienda</h4>
+      <ul class="ft-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#processo">Come Lavoriamo</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#recensioni">Recensioni</a></li>
+        <li><a href="#prezzi">Prezzi</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4>Contatti</h4>
+      <ul class="ft-links">
+        <li><a href="mailto:gastroboostmarketiingdegital@gmail.com">Email</a></li>
+        <li><a href="#contatti">Invia un messaggio</a></li>
+        <li><a href="#contatti">Preventivo Gratuito</a></li>
+      </ul>
+      <div style="margin-top:20px;padding:14px;background:rgba(232,255,0,0.05);border:1px solid rgba(232,255,0,0.15);border-radius:var(--r-sm)">
+        <p style="font-size:.8rem;color:var(--muted);margin-bottom:4px">📧 Email</p>
+        <a href="mailto:gastroboostmarketiingdegital@gmail.com" style="font-size:.82rem;color:var(--accent);text-decoration:none;word-break:break-all">gastroboostmarketiingdegital<br>@gmail.com</a>
       </div>
     </div>
   </div>
   <div class="ft-bottom">
-    <span>© 2026 ANKOAUTCA — Tutti i diritti riservati</span>
-    <span>Informazione libera · Nessun tracciamento · Nessun paywall</span>
-    <span>Sabato 23 Maggio 2026</span>
+    <span>© 2025 Ankoauto CA. Tutti i diritti riservati.</span>
+    <span>Realizzato con ❤️ in Italia</span>
   </div>
 </footer>
 
-<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-  <i class="ti ti-arrow-up"></i>
-</button>
-<div class="notify" id="notify"></div>
-
+<!-- ═══════════════════════════════════════
+   JAVASCRIPT
+═══════════════════════════════════════ -->
 <script>
-const DB_OGGI = [
-  {
-    id:'o1', cat:'Mondo', urgente:true, read:5,
-    title:'Iran, Trump studia il «maxi attacco finale» mentre i mediatori volano a Teheran: bozza d\'accordo in 9 punti — nucleare escluso',
-    sub:'Il presidente USA è frustrato dai negoziati «strazianti». Aerei cisterna americani su Tel Aviv. Rubio: «Dobbiamo pensare a un piano B». Al Arabiya rivela la bozza: cessate il fuoco e Hormuz libero, ma nessun vincolo nucleare.',
-    author:'Anna Pellegrini',
-    img:'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&h=560&fit=crop&q=80',
-    body:`Donald Trump si trova sabato 23 maggio di fronte a un bivio: assecondare i mediatori che lo esortano ad aspettare, oppure ordinare quello che i suoi consiglieri chiamano il «maxi attacco finale» contro l'Iran. Secondo Axios, il presidente è «sempre più frustrato» dai negoziati «strazianti» con Teheran e ha già riunito il suo gabinetto di sicurezza per esaminare opzioni militari, con il segretario alla Difesa Pete Hegseth presente. Diversi alti ufficiali delle forze armate e dell'intelligence avrebbero cancellato i loro piani per il fine settimana.
+// LOADER
+window.addEventListener('load',()=>{
+  setTimeout(()=>document.getElementById('loader').classList.add('out'),2000);
+});
 
-Eppure la diplomazia non si è fermata: il capo dello stato maggiore dell'esercito pakistano Asim Munir è partito per Teheran, mentre i mediatori del Qatar sono già nella capitale iraniana con l'obiettivo di finalizzare un'intesa. L'emittente saudita Al Hadath afferma di aver ottenuto la bozza finale in nove punti dell'accordo: prevede un cessate il fuoco totale, la riapertura dello Stretto di Hormuz e la revoca graduale delle sanzioni americane, ma non include alcuna clausola sul programma nucleare o sui missili balistici iraniani. I negoziati su questi temi dovrebbero invece avviarsi entro sette giorni dalla firma.
+// BURGER
+const burger=document.getElementById('burger');
+const mobNav=document.getElementById('mobNav');
+burger.addEventListener('click',()=>{
+  const open=mobNav.classList.toggle('open');
+  burger.classList.toggle('open',open);
+  burger.setAttribute('aria-expanded',open);
+  document.body.style.overflow=open?'hidden':'';
+});
+mobNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  mobNav.classList.remove('open');burger.classList.remove('open');
+  burger.setAttribute('aria-expanded','false');
+  document.body.style.overflow='';
+}));
 
-Il segretario di Stato Marco Rubio, a margine del vertice dei ministri degli Esteri della NATO in Svezia, ha riconosciuto «lievi progressi» ma ha avvertito che Washington deve «elaborare un piano B» se l'Iran si rifiutasse di riaprire Hormuz o imponesse un pedaggio: «Dobbiamo cominciare a pensare a cosa faremo se, tra qualche settimana, l'Iran decidesse di tenerlo chiuso». L'ambasciatore Ettore Sequi, commentando la bozza, ha escluso una soluzione rapida: «Sul fronte del nucleare le posizioni di Washington e Teheran sono ancora molto lontane. Mi aspetto la definizione di una roadmap, non la bacchetta magica».
+// SMOOTH SCROLL
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(!t)return;e.preventDefault();
+    window.scrollTo({top:t.offsetTop-72,behavior:'smooth'});
+  });
+});
 
-In parallelo si muove la scacchiera geopolitica: Xi Jinping ha incontrato questa settimana prima Trump, poi Putin, e accoglie oggi il presidente pakistano Shehbaz Sharif, sottolineando l'interesse di Pechino a chiudere la crisi prima che il blocco navale di Hormuz paralizzi ulteriormente il commercio mondiale. Il prezzo del Brent rimane in territorio volatile intorno ai 72 dollari al barile.`
-  },
-  {
-    id:'o2', cat:'Mondo', urgente:true, read:4,
-    title:'Europa contro Israele: GB, Francia, Italia e Germania chiedono stop agli insediamenti in Cisgiordania. Aperta la strada alle sanzioni su Ben-Gvir',
-    sub:'La Repubblica riferisce di una mossa coordinata dei quattro grandi europei. Aziende europee chiamate a non prendere appalti nelle colonie. La vicenda della Flotilla rimane sullo sfondo.',
-    author:'Marco Bianchi',
-    img:'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=900&h=560&fit=crop&q=80',
-    body:`Italia, Gran Bretagna, Francia e Germania si sono coordinate in una mossa diplomatica senza precedenti, chiedendo a Israele lo stop definitivo agli insediamenti dei coloni in Cisgiordania e sollecitando le proprie aziende a non partecipare ad appalti nelle colonie. Secondo quanto riportato da La Repubblica nelle sue edizioni di oggi, i quattro governi europei starebbero valutando sanzioni personali nei confronti del ministro della Sicurezza Nazionale israeliano Itamar Ben-Gvir, considerato tra i principali fautori dell'espansione degli insediamenti.
+// ACTIVE NAV
+const sections=[...document.querySelectorAll('section[id],[id]')];
+const navAs=[...document.querySelectorAll('.nav-links a')];
+window.addEventListener('scroll',()=>{
+  let cur='';
+  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-100)cur=s.id;});
+  navAs.forEach(a=>a.classList.toggle('act',a.getAttribute('href')==='#'+cur));
+},{passive:true});
 
-La mossa si inserisce in un momento di forte tensione tra l'Europa e Israele, acuita dalla vicenda della Flotilla umanitaria intercettata martedì scorso al largo di Cipro. Diversi attivisti italiani, secondo fonti consolari, risultano ancora in stato di fermo. Le trattative diplomatiche tramite l'ambasciata italiana a Tel Aviv e il consolato di Cipro proseguono.
+// REVEAL
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');ro.unobserve(e.target);}});
+},{threshold:0.1});
+document.querySelectorAll('.rv,.rv-l,.rv-r').forEach(el=>ro.observe(el));
 
-Il governo di Giorgia Meloni si trova in una posizione delicata: da un lato la pressione delle opposizioni, guidate da Elly Schlein, che chiedono misure più dure; dall'altro la tradizionale cautela dell'esecutivo nei confronti di Gerusalemme. Il ministro degli Esteri Tajani ha finora privilegiato i canali diplomatici riservati, evitando dichiarazioni pubblicamente ostili a Israele.`
-  },
-  {
-    id:'o3', cat:'Sport', urgente:false, read:3,
-    title:'Giro d\'Italia, Tappa 14: Aosta–Pila, cinque stelle e 4.400 metri di dislivello. La battaglia per la Maglia Rosa',
-    sub:'La tappa più dura di questa edizione: cinque scalate consecutive tra cui Saint-Barthélémy e Lin Noir. Vingegaard punta a conquistare la corsa. Diretta Rai 2 dalle 13:00.',
-    author:'Pietro Greco',
-    img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&h=560&fit=crop&q=80',
-    body:`Sabato 23 maggio è il giorno del grande esame del Giro d'Italia 2026: la tappa 14 da Aosta a Pila è valutata cinque stelle, la massima difficoltà, con 4.400 metri di dislivello complessivo concentrati in 133 chilometri. Una sequenza ininterrotta di salite e discese sulle balconate della Valle d'Aosta.
+// COUNTERS
+const cro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return;
+    document.querySelectorAll('.stat-num').forEach(el=>{
+      const orig=el.getAttribute('data-target');
+      if(!orig)return;
+      const num=parseInt(orig),suffix=el.textContent.replace(/\d+/,'').replace('0','');
+      let s=0;const step=num/50;
+      const t=setInterval(()=>{
+        s+=step;if(s>=num){s=num;clearInterval(t);}
+        el.textContent=Math.round(s)+suffix;
+      },30);
+    });
+    cro.disconnect();
+  });
+},{threshold:.3});
+const heroStats=document.querySelector('.hero-stats');
+if(heroStats)cro.observe(heroStats);
 
-Il percorso prevede la scalata di cinque montagne consecutive: Saint-Barthélémy (15,8 km al 6,1%, punte al 13%), Douas (843 metri), Lin Noir (7,4 km al 7,9%), Verrogne (5,6 km al 6,9%) e infine Pila da Gressan (16,5 km, 1.173 metri di dislivello, media 7,1%). Quest'ultima sarà affrontata per la prima volta dal versante insolito di Gressan, solitamente percorso in discesa quando non è arrivo di tappa.
+// FAQ
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.closest('.faq-item');
+    const open=item.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open);
+  });
+});
 
-Jonas Vingegaard (Visma–Lease a Bike), che nella tappa 9 al Corno alle Scale aveva già dimostrato la propria superiorità sulle ascese, si presenta come il grande favorito. Il leader della classifica Afonso Eulalio (Bahrain Victorious) dovrà difendere il vantaggio su un terreno ostico. Giulio Ciccone (Lidl-Trek), che aveva indossato la Maglia Rosa nelle prime tappe italiane, è atteso tra gli attaccanti. La diretta Rai inizia alle 13:00, il gruppo dovrebbe tagliare il traguardo di Pila tra le 17:00 e le 18:00.`
-  },
-  {
-    id:'o4', cat:'Cultura', urgente:false, read:3,
-    title:'Notte Europea dei Musei: stasera aperture straordinarie in tutta Italia a 1 euro fino all\'una di notte',
-    sub:'Centinaia di musei statali, fondazioni e siti archeologici aderiscono all\'iniziativa UNESCO. A Napoli apre il Museo Ferroviario di Pietrarsa con musica dal vivo.',
-    author:'Elena Martini',
-    img:'https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=900&h=560&fit=crop&q=80',
-    body:`Questa sera, sabato 23 maggio, torna la Notte Europea dei Musei, l'iniziativa internazionale promossa dal Ministero della Cultura francese e patrocinata dall'UNESCO, dal Consiglio d'Europa e dall'ICOM. In tutta Italia, centinaia di istituzioni museali statali, fondazioni, università e spazi culturali di ogni natura apriranno le porte in orario serale al costo simbolico di un euro, salvo le gratuità previste dalla normativa vigente.
+// CONTACT FORM — redirect email to gastroboostmarketiingdegital@gmail.com
+const form=document.getElementById('contactForm');
+const submitBtn=document.getElementById('submitBtn');
+const submitTxt=document.getElementById('submitTxt');
+const formSuccess=document.getElementById('formSuccess');
+const formError=document.getElementById('formError');
 
-In Campania, una delle protagoniste della serata è il Museo Nazionale Ferroviario di Pietrarsa, che propone un'apertura straordinaria notturna organizzata dalla Fondazione FS Italiane. Il museo sarà visitabile fino alle 19:00 con le consuete modalità, mentre dalle 19:30 all'1:00 il pubblico potrà entrare con il biglietto a 1 euro. La serata includerà momenti musicali distribuiti nelle varie aree espositive, con installazioni sonore e performance, in un contesto unico affacciato sul Golfo di Napoli.
-
-La Notte dei Musei 2026 si svolge in un momento di intensa discussione sul ruolo della cultura nella società digitale, acuita dal discorso di Papa Leone XIV alla Sapienza di Roma sulla necessità di «salvaguardare le voci e i volti umani» nell'era dell'intelligenza artificiale. Molte delle istituzioni aderenti hanno quest'anno affiancato alle visite tradizionali esperienze interattive che mettono a confronto creazione umana e strumenti digitali.`
-  },
-  {
-    id:'o5', cat:'Politica', urgente:false, read:4,
-    title:'Festa dell\'Economia di Trento: Prodi, Ciriani e Renzi sul palco. Al centro il futuro dell\'eurozona e il costo dell\'energia',
-    sub:'Oggi a Trento la seconda giornata del summit promosso dal Sole 24 Ore. Previsto anche un summit europeo dell\'Ecofin a Nicosia.',
-    author:'Silvia Fabbri',
-    img:'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&h=560&fit=crop&q=80',
-    body:`La seconda giornata del Festival dell'Economia di Trento, organizzato dal Sole 24 Ore, si apre questa mattina alle 9:00 al Teatro Sociale con un incontro con Romano Prodi. Alle 9:30 è prevista un'intervista al presidente dell'Abi Antonio Patuelli a Palazzo Geremia, mentre alle 14:00 sarà la volta del ministro per i Rapporti con il Parlamento Luca Ciriani. A Brescia, al Auditorium San Barnaba, il presidente di Italia Viva Matteo Renzi parteciperà alle 10:00 al summit europeo «FPS26 – FutureProofSociety».
-
-In parallelo, a Nicosia si riunisce oggi l'Ecofin, il consiglio dei ministri dell'Economia dell'Unione Europea. Tra i temi centrali della riunione cipriota figurano la crisi energetica provocata dalla chiusura dello Stretto di Hormuz e i riflessi sul bilancio degli stati membri, i dazi USA e le misure di reazione europea, nonché la proposta della Commissione di tagliare le accise sui carburanti per mitigare l'impatto sui cittadini.
-
-Il governo Meloni si presenta all'appuntamento in una posizione di equilibrio: secondo Il Corriere della Sera, il consiglio dei ministri di questa settimana ha approvato solo un dimezzamento del taglio alle accise sul diesel, una misura considerata insufficiente da Pd e M5S ma sostenuta dalla maggioranza come prudente gestione dei conti pubblici in un momento di incertezza geopolitica.`
-  },
-  {
-    id:'o6', cat:'Cronaca', urgente:false, read:3,
-    title:'Papa Leone XIV ad Acerra: visita al cuore del «Triangolo della morte» campano per denunciare il disastro ambientale',
-    sub:'Il pontefice sceglie il simbolo dell\'inquinamento industriale italiano per il suo primo viaggio pastorale extraurbano. Attesi migliaia di fedeli.',
-    author:'Francesca Neri',
-    img:'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=900&h=560&fit=crop&q=80',
-    body:`Papa Leone XIV si reca oggi ad Acerra, nella provincia di Napoli, in visita pastorale. La scelta non è casuale: Acerra è al centro di quello che le associazioni ambientaliste definiscono da anni il «Triangolo della morte», l'area tra Napoli, Caserta e Salerno devastata dallo smaltimento illegale di rifiuti industriali tossici da parte della camorra, con conseguenze gravi sulla salute della popolazione locale.
-
-La visita del pontefice assume un carattere di testimonianza: Leone XIV, che aveva già alzato la voce all'Università La Sapienza di Roma sull'intelligenza artificiale e sulla dignità dell'uomo, intende oggi fare altrettanto sul tema della giustizia ambientale. Secondo il Vaticano, il papa incontrerà le famiglie delle vittime di tumori legati all'inquinamento, i sindaci dell'area e i rappresentanti delle associazioni che da anni denunciano la situazione.
-
-La visita si inserisce in un percorso che il papa americano aveva annunciato fin dall'inizio del suo pontificato: portare la voce della Chiesa nelle periferie geografiche e sociali, non solo nelle grandi capitali europee.`
-  },
-  {
-    id:'o7', cat:'Mondo', urgente:false, read:3,
-    title:'Stretto di Hormuz: Rubio prepara il «piano B». Il blocco navale dell\'Iran agita i mercati globali',
-    sub:'Il segretario di Stato USA alla ministeriale NATO in Svezia avverte: se l\'Iran non riapre lo stretto nelle prossime settimane, Washington agirà. Petrolio in fibrillazione.',
-    author:'Anna Pellegrini',
-    img:'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=900&h=560&fit=crop&q=80',
-    body:`Il blocco dello Stretto di Hormuz da parte dell'Iran, instaurato dopo i raid americani di inizio mese, continua a fare sentire i suoi effetti sull'economia globale. Il prezzo del petrolio Brent resta ostinatamente intorno ai 72 dollari al barile, con picchi nelle ultime sessioni che hanno allarmato i mercati europei e asiatici.
-
-Il segretario di Stato americano Marco Rubio, a Helsingborg per la ministeriale NATO, ha avvertito che Washington deve «cominciare a pensare a cosa fare» se l'Iran dovesse mantenere chiuso Hormuz ancora «per qualche settimana». Le opzioni sul tavolo, riferiscono fonti dell'amministrazione, includerebbero sia ulteriori operazioni militari sia il ricorso a percorsi alternativi per il transito del petrolio del Golfo.
-
-L'Iran, da parte sua, sta tentando di internazionalizzare il blocco: secondo fonti citate dal Wall Street Journal, Teheran starebbe cercando di convincere l'Oman ad aderire a un sistema di «pedaggio» nello stretto. Una mossa che, se concretizzata, complicherebbe ulteriormente la posizione americana.`
-  },
-  {
-    id:'o8', cat:'Sport', urgente:false, read:3,
-    title:'Serie B playoff: chi vince tra le finaliste? Palermo e Catanzaro o Monza e Juve Stabia si affrontano per la promozione',
-    sub:'Dopo le semifinali di questa settimana, si delinea il quadro delle finali per la promozione in Serie A. I calendari e le scommesse degli addetti ai lavori.',
-    author:'Carlo Venturi',
-    img:'https://images.unsplash.com/photo-1459865264687-595d652de67e?w=900&h=560&fit=crop&q=80',
-    body:`I playoff di Serie B entrano nella fase decisiva. Le semifinali di questa settimana hanno delineato il quadro delle finali per la promozione in Serie A: Monza ha superato la Juve Stabia allo U-Power Stadium in una gara decisa negli ultimi minuti, mentre Palermo ha avuto la meglio sul Catanzaro in una sfida che ha tenuto i tifosi siciliani con il fiato sospeso fino al novantesimo.
-
-La finale, che assegnerà il terzo posto nella griglia di promozione verso la massima serie, si disputerà nei prossimi giorni. Il Monza, retrocesso dalla Serie A la scorsa stagione, vuole riscattarsi immediatamente. Il Palermo si affida all'entusiasmo dei suoi tifosi e a un organico profondo.
-
-Sullo sfondo del calcio italiano, i tifosi dell'Inter continuano a festeggiare il double Scudetto-Coppa Italia conquistato la settimana scorsa, mentre la Juventus è impegnata nella riflessione su chi sarà il prossimo allenatore dopo l'addio di Thiago Motta, con il nome di Luciano Spalletti che circola con insistenza nelle ultime ore.`
-  },
-  {
-    id:'o9', cat:'Tecnologia', urgente:false, read:3,
-    title:'AI e creatività umana: dopo le parole del Papa, il settore tech si spacca tra chi teme la sostituzione e chi celebra il progresso',
-    sub:'Il discorso di Leone XIV alla Sapienza risuona nel dibattito sull\'intelligenza artificiale generativa. I casi OpenAI–Musk e la sentenza di Oakland rilanciano le domande etiche.',
-    author:'Andrea Costa',
-    img:'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&h=560&fit=crop&q=80',
-    body:`Il discorso pronunciato da Papa Leone XIV all'Università La Sapienza di Roma qualche giorno fa continua ad alimentare il dibattito internazionale sull'intelligenza artificiale. Le parole del pontefice — un invito a «salvaguardare le voci e i volti umani» nell'era della digitalizzazione crescente — hanno trovato risonanza in settori inaspettati, dai musicisti ai doppiatori, dagli scrittori agli illustratori.
-
-Il settore tech, com'era prevedibile, si è spaccato. Da un lato chi, come molti ricercatori e founder di startup, vede negli strumenti di AI generativa i nuovi mezzi di produzione culturale, destinati ad abbassare le barriere di accesso alla creatività. Dall'altro chi, come i sindacati delle professioni creative, teme che l'automazione massiva del lavoro intellettuale stia erodendo le basi economiche di intere categorie professionali.
-
-Questo dibattito si intreccia con la vicenda giudiziaria di Elon Musk contro OpenAI, chiusa questa settimana dal tribunale federale di Oakland con un verdetto di prescrizione delle accuse: anche al centro di quel caso c'era la domanda su cosa significhi sviluppare l'intelligenza artificiale «per il bene dell'umanità» quando i modelli economici spingono in tutt'altra direzione.`
-  },
-  {
-    id:'o10', cat:'Cronaca', urgente:false, read:4,
-    title:'Cannes 2026: Sorrentino nella selezione ufficiale, Driver e Bardem tra le star della Croisette. La kermesse entra nel vivo',
-    sub:'Il festival francese alla sua terza giornata. Clima complesso tra arte e proteste per Gaza. La giuria ancora senza comunicazione ufficiale sulle decisioni.',
-    author:'Elena Martini',
-    img:'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=900&h=560&fit=crop&q=80',
-    body:`Il Festival di Cannes 2026 entra nel pieno del suo svolgimento, con la Croisette animata di proiezioni in concorso, fuori concorso e sezione Un Certain Regard. Paolo Sorrentino è presente con il suo nuovo film, accolto dalla stampa internazionale con un'attenzione che conferma la statura del regista napoletano nel panorama mondiale del cinema d'autore.
-
-Tra i nomi più fotografati sul red carpet ci sono Adam Driver, Javier Bardem e Kristen Stewart, tutti legati a pellicole in gara. La composizione definitiva della giuria internazionale — e le sue prime inclinazioni — restano oggetto di speculazione da parte degli addetti ai lavori, in attesa delle prime decisioni ufficiali.
-
-Il festival si svolge in un'atmosfera culturalmente complessa: alcune delegazioni hanno scelto di ritirarsi in segno di solidarietà con le popolazioni civili coinvolte nei conflitti in corso in Medio Oriente, mentre fuori dalle sale la presenza di manifestanti legati alla causa di Gaza è costante, pur senza turbare l'ordinato svolgimento delle proiezioni. La kermesse si concluderà con la cerimonia di premiazione il 24 maggio.`
-  },
-  {
-    id:'o11', cat:'Economia', urgente:false, read:3,
-    title:'Accise diesel: il governo dimezza il taglio previsto. M5S e Pd insorgono: «Scelta incomprensibile mentre l\'energia aumenta»',
-    sub:'Il Consiglio dei ministri approva una misura più ridotta rispetto alle attese. L\'opposizione attacca, Meloni difende la prudenza nei conti pubblici.',
-    author:'Luca De Rosa',
-    img:'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&h=560&fit=crop&q=80',
-    body:`Il Consiglio dei ministri ha approvato questa settimana il decreto che interviene sulle accise sui carburanti, ma con un taglio al diesel dimezzato rispetto alle anticipazioni delle settimane precedenti. Una scelta che il governo ha giustificato con la necessità di mantenere il rigore nei conti pubblici in una fase di incertezza geopolitica legata alla crisi iraniana e al blocco dello Stretto di Hormuz.
-
-Le opposizioni hanno reagito con durezza. Il M5S ha definito la misura «insufficiente e incomprensibile» in un momento in cui il prezzo dei carburanti pesa soprattutto sui trasportatori e sulle famiglie con redditi medi e bassi. Anche il Pd ha attaccato, con la capogruppo alla Camera Chiara Braga che ha parlato di «scelta che scarica il costo della crisi internazionale sui cittadini più deboli».
-
-La premier Giorgia Meloni ha risposto che il governo sta «guardando ai conti con responsabilità», ricordando che l'Italia ha già ridotto il debito pubblico in rapporto al PIL negli ultimi due anni. Intanto il prezzo alla pompa del gasolio sfiora i 2 euro al litro in molte stazioni italiane, ai livelli più alti da tre anni.`
-  },
-  {
-    id:'o12', cat:'Cronaca', urgente:false, read:3,
-    title:'Palermo: manifestazione delle Agende Rosse al tribunale. Conte ricorda Falcone a 34 anni dalla strage di Capaci',
-    sub:'Il 23 maggio 1992 Giovanni Falcone veniva assassinato dalla mafia. Quest\'anno la commemorazione si tinge di polemica politica.',
-    author:'Redazione ANKOAUTCA',
-    img:'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=900&h=560&fit=crop&q=80',
-    body:`Oggi, 23 maggio 2026, ricorre il 34° anniversario della strage di Capaci, in cui la mafia uccise il giudice Giovanni Falcone, la moglie Francesca Morvillo e i tre agenti della scorta Vito Schifani, Rocco Dicillo e Antonio Montinaro. A Palermo, al Tribunale, è prevista per le 15:00 la manifestazione annuale delle «Agende Rosse», promossa dal presidente del M5S Giuseppe Conte.
-
-La cerimonia di quest'anno si svolge in un clima di rinnovata tensione politica sul tema della lotta alla criminalità organizzata. Le associazioni antimafia hanno criticato alcune misure dell'attuale governo in materia di intercettazioni e di regime carcerario per i mafiosi condannati. Il governo ha respinto le accuse, con il ministro della Giustizia che ha sottolineato l'aumento dei sequestri di beni alla criminalità organizzata negli ultimi 18 mesi.
-
-L'anniversario della strage di Capaci rappresenta ogni anno un momento di riflessione collettiva sull'Italia che fu e su quella che vorrebbe essere. Falcone rimane il simbolo di un'istituzione che ha cercato di combattere la mafia con le armi della legge, pagando con la vita.`
+form.addEventListener('submit',e=>{
+  e.preventDefault();
+  // Validate
+  const nome=document.getElementById('f-nome').value.trim();
+  const email=document.getElementById('f-email').value.trim();
+  const servizio=document.getElementById('f-servizio').value;
+  const msg=document.getElementById('f-msg').value.trim();
+  if(!nome||!email||!servizio||!msg){
+    formError.style.display='block';
+    formError.textContent='⚠️ Compila tutti i campi obbligatori (contrassegnati con *).';
+    setTimeout(()=>formError.style.display='none',4000);
+    return;
   }
-];
-
-const IMGS_FB = {
-  cronaca:'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=900&h=560&fit=crop&q=80',
-  politica:'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=900&h=560&fit=crop&q=80',
-  economia:'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&h=560&fit=crop&q=80',
-  sport:'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=900&h=560&fit=crop&q=80',
-  mondo:'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&h=560&fit=crop&q=80',
-  cultura:'https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=900&h=560&fit=crop&q=80',
-  tecnologia:'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&h=560&fit=crop&q=80',
-};
-function getImg(a){
-  if(a.img&&(a.img.startsWith('http')||a.img.startsWith('/')))return a.img;
-  return IMGS_FB[a.cat.toLowerCase()]||IMGS_FB.cronaca;
-}
-function esc(s){if(!s)return'';return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-
-function goHome(){
-  const arts=DB_OGGI;
-  const hero=arts[0];
-  const side1=arts[1];
-  const side2=arts[2];
-
-  document.getElementById('page-root').innerHTML=`
-  <div class="wrap">
-    <div class="hero-oggi">
-      <div class="hero-main" onclick="openArt('${esc(hero.id)}')">
-        <div class="h-bg" style="background-image:url('${getImg(hero)}')"></div>
-        <div class="h-grad"></div>
-        <div class="h-content">
-          <div class="h-urgenza">NOTIZIA URGENTE</div>
-          <div class="h-title">${esc(hero.title)}</div>
-          <div class="h-sub">${esc(hero.sub)}</div>
-          <div class="h-meta"><i class="ti ti-user" style="font-size:12px"></i>${esc(hero.author)}&nbsp;&nbsp;<i class="ti ti-clock" style="font-size:12px"></i>${hero.read} min</div>
-        </div>
-      </div>
-      <div class="hero-side" onclick="openArt('${esc(side1.id)}')">
-        <div class="h-bg" style="background-image:url('${getImg(side1)}')"></div>
-        <div class="h-grad"></div>
-        <div class="h-content">
-          <div class="h-urgenza">EUROPA</div>
-          <div class="h-title">${esc(side1.title)}</div>
-        </div>
-      </div>
-      <div class="hero-side" onclick="openArt('${esc(side2.id)}')">
-        <div class="h-bg" style="background-image:url('${getImg(side2)}')"></div>
-        <div class="h-grad"></div>
-        <div class="h-content">
-          <div class="h-cat">${esc(side2.cat)}</div>
-          <div class="h-title">${esc(side2.title)}</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="borsa-bar">
-      <div class="borsa-item"><div class="borsa-name">FTSEMib</div><div class="borsa-val">~48.220</div><div class="borsa-change neg">▼ -0,4%</div></div>
-      <div class="borsa-sep"></div>
-      <div class="borsa-item"><div class="borsa-name">EUR/USD</div><div class="borsa-val">1,131</div><div class="borsa-change pos">▲ +0,2%</div></div>
-      <div class="borsa-sep"></div>
-      <div class="borsa-item"><div class="borsa-name">BTP-Bund</div><div class="borsa-val">~79 bp</div><div class="borsa-change neg">▲</div></div>
-      <div class="borsa-sep"></div>
-      <div class="borsa-item"><div class="borsa-name">Bitcoin</div><div class="borsa-val">~$106.000</div><div class="borsa-change pos">▲ +1,1%</div></div>
-      <div class="borsa-sep"></div>
-      <div class="borsa-item"><div class="borsa-name">Oro</div><div class="borsa-val">~$3.290</div><div class="borsa-change pos">▲ +0,3%</div></div>
-      <div class="borsa-sep"></div>
-      <div class="borsa-item"><div class="borsa-name">Petrolio Brent</div><div class="borsa-val">~$72</div><div class="borsa-change neg">▼ Hormuz</div></div>
-    </div>
-
-    <div class="alert-box">
-      <div class="ab-title"><i class="ti ti-alert-triangle" style="color:var(--red)"></i> IRAN: ACCORDO O GUERRA? · 23 MAGGIO 2026</div>
-      <div class="ab-desc">Trump studia il «maxi attacco finale» mentre mediatori di Pakistan e Qatar sono a Teheran con una bozza in 9 punti. Il nodo: cessate il fuoco sì, vincoli sul nucleare no. Rubio prepara un piano B per Hormuz.</div>
-      <div class="ab-grid">
-        <div class="ab-item"><div class="ab-item-title">🛫 Sul campo</div><div class="ab-item-text">50 aerei cisterna USA sulle piste di Tel Aviv. Hegseth al vertice di sicurezza con Trump. Ufficiali delle forze armate cancellano i piani per il weekend.</div></div>
-        <div class="ab-item"><div class="ab-item-title">🤝 Diplomazia</div><div class="ab-item-text">Capo esercito Pakistan Munir a Teheran. Qatar invia mediatori. Bozza in 9 punti: cessate il fuoco + Hormuz aperto + revoca sanzioni. Nucleare: rinviato.</div></div>
-        <div class="ab-item"><div class="ab-item-title">⚡ Mercati</div><div class="ab-item-text">Petrolio Brent ~$72, volatile. Rubio: «Piano B se Hormuz chiuso ancora». Iran valuta un «pedaggio» per i transiti nello stretto.</div></div>
-      </div>
-    </div>
-
-    <div class="layout">
-      <main>
-        <div class="section-gap">
-          <div class="sec-head">
-            <div class="sec-rule"></div>
-            <div class="sec-title">Notizie di Oggi</div>
-            <span class="sec-badge">23 MAGGIO</span>
-          </div>
-          <div class="cards-3">${arts.slice(3,6).map(a=>cardHtml(a)).join('')}</div>
-          <div class="art-list">${arts.slice(6,10).map(a=>aliHtml(a)).join('')}</div>
-        </div>
-
-        <div class="section-gap">
-          <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Sport</div></div>
-          <div class="mag">
-            <div class="mag-item mag-main" onclick="openArt('o3')">
-              <div class="mag-bg" style="background-image:url('${getImg(arts[2])}')"></div>
-              <div class="mag-grad"></div>
-              <div class="mag-content"><div class="mag-cat">Giro d'Italia · Tappa 14 — 5 stelle</div><div class="mag-title">${esc(arts[2].title)}</div></div>
-            </div>
-            <div class="mag-stack">
-              <div class="mag-item" onclick="openArt('o8')">
-                <div class="mag-bg" style="background-image:url('${getImg(arts[7])}')"></div>
-                <div class="mag-grad"></div>
-                <div class="mag-content"><div class="mag-cat">Serie B · Playoff</div><div class="mag-title">${esc(arts[7].title)}</div></div>
-              </div>
-              <div class="mag-item" onclick="openArt('o3')">
-                <div class="mag-bg" style="background-image:url('https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=600&h=300&fit=crop')"></div>
-                <div class="mag-grad"></div>
-                <div class="mag-content"><div class="mag-cat">Tennis</div><div class="mag-title">Roland Garros 2026 in corso — Sinner e Musetti in tabellone, prime sorprese</div></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="section-gap">
-          <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Mondo</div></div>
-          <div class="cards-2">
-            ${cardHtml(arts[0])}
-            ${cardHtml(arts[6])}
-          </div>
-        </div>
-
-        <div class="section-gap">
-          <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Tecnologia & Cultura</div></div>
-          <div class="cards-2">
-            ${cardHtml(arts[8])}
-            ${cardHtml(arts[3])}
-          </div>
-        </div>
-
-        <div class="collab">
-          <i class="ti ti-rocket collab-icon"></i>
-          <div><div class="collab-title">Collabora con Ankoautca</div><div class="collab-desc">Hai una notizia? Invia a <strong style="color:#aaa">gastroboostmarketingdegital@gmail.com</strong></div></div>
-          <a href="mailto:gastroboostmarketingdegital@gmail.com" class="collab-btn">Proponi collaborazione</a>
-        </div>
-      </main>
-
-      <aside class="sidebar">
-        <div class="widget">
-          <div class="wh"><i class="ti ti-flame"></i> Più lette oggi</div>
-          <div class="wbody">
-            ${arts.slice(0,5).map((a,i)=>`<div class="trend-item" onclick="openArt('${esc(a.id)}')">
-              <div class="trend-num">0${i+1}</div>
-              <div><div class="trend-cat">${esc(a.cat)}</div><div class="trend-title">${esc(a.title)}</div></div>
-            </div>`).join('')}
-          </div>
-        </div>
-        <div class="widget">
-          <div class="wh"><i class="ti ti-calendar"></i> Agenda del giorno</div>
-          <div class="wbody" style="display:flex;flex-direction:column;gap:10px">
-            <div style="display:flex;gap:10px;align-items:flex-start;padding-bottom:10px;border-bottom:1px solid var(--border)">
-              <div style="background:var(--red);color:#fff;font-size:9px;font-weight:700;padding:3px 7px;border-radius:3px;white-space:nowrap">13:00</div>
-              <div style="font-family:var(--serif);font-size:13px">Giro d'Italia Tappa 14 — Aosta–Pila, 5 stelle (Rai 2)</div>
-            </div>
-            <div style="display:flex;gap:10px;align-items:flex-start;padding-bottom:10px;border-bottom:1px solid var(--border)">
-              <div style="background:var(--red);color:#fff;font-size:9px;font-weight:700;padding:3px 7px;border-radius:3px;white-space:nowrap">09:00</div>
-              <div style="font-family:var(--serif);font-size:13px">Trento: Festival Economia — Prodi, Ciriani, Patuelli</div>
-            </div>
-            <div style="display:flex;gap:10px;align-items:flex-start;padding-bottom:10px;border-bottom:1px solid var(--border)">
-              <div style="background:var(--paper);color:var(--muted);font-size:9px;font-weight:700;padding:3px 7px;border-radius:3px;white-space:nowrap;border:1px solid var(--border)">15:00</div>
-              <div style="font-family:var(--serif);font-size:13px">Palermo: Manifestazione Agende Rosse — 34° Capaci</div>
-            </div>
-            <div style="display:flex;gap:10px;align-items:flex-start;padding-bottom:10px;border-bottom:1px solid var(--border)">
-              <div style="background:var(--paper);color:var(--muted);font-size:9px;font-weight:700;padding:3px 7px;border-radius:3px;white-space:nowrap;border:1px solid var(--border)">19:30</div>
-              <div style="font-family:var(--serif);font-size:13px">Notte Europea dei Musei — aperture fino all'1:00</div>
-            </div>
-            <div style="display:flex;gap:10px;align-items:flex-start">
-              <div style="background:var(--paper);color:var(--muted);font-size:9px;font-weight:700;padding:3px 7px;border-radius:3px;white-space:nowrap;border:1px solid var(--border)">Nicosia</div>
-              <div style="font-family:var(--serif);font-size:13px">Riunione Ecofin — energia, dazi, bilancio UE</div>
-            </div>
-          </div>
-        </div>
-        <div class="widget">
-          <div class="wh"><i class="ti ti-layout-navbar"></i> Le sezioni</div>
-          <div class="wbody" style="display:flex;flex-direction:column;gap:8px">
-            ${['Politica','Economia','Mondo','Sport','Tecnologia','Opinione'].map(s=>`<a href="#" style="display:flex;align-items:center;gap:10px;padding:8px;border-radius:4px;background:var(--paper);font-size:13px;font-weight:600;transition:all .2s" onmouseover="this.style.background='var(--ink)';this.style.color='#fff'" onmouseout="this.style.background='var(--paper)';this.style.color='inherit'">${s}</a>`).join('')}
-          </div>
-        </div>
-      </aside>
-    </div>
-  </div>`;
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-
-function cardHtml(a){
-  return`<div class="card" onclick="openArt('${esc(a.id)}')">
-    <div class="card-img">
-      <img src="${getImg(a)}" alt="${esc(a.title)}" loading="lazy" onerror="this.style.display='none'">
-      <span class="card-badge">${esc(a.cat)}</span>
-      ${a.urgente?'<span class="card-new">URGENTE</span>':''}
-    </div>
-    <div class="card-body">
-      <div class="card-title">${esc(a.title)}</div>
-      <div class="card-sub">${esc(a.sub)}</div>
-      <div class="card-meta"><span>${esc(a.author)}</span><span><i class="ti ti-clock"></i> ${a.read} min</span></div>
-    </div>
-  </div>`;
-}
-
-function aliHtml(a){
-  return`<div class="ali" onclick="openArt('${esc(a.id)}')">
-    <div class="ali-img"><img src="${getImg(a)}" alt="${esc(a.title)}" loading="lazy" onerror="this.style.display='none'"></div>
-    <div>
-      <div class="ali-cat">${esc(a.cat)}${a.urgente?' · 🔴 URGENTE':''}</div>
-      <div class="ali-title">${esc(a.title)}</div>
-      <div class="ali-meta">${esc(a.author)} · ${a.read} min di lettura</div>
-    </div>
-  </div>`;
-}
-
-function openArt(id){
-  const a=DB_OGGI.find(x=>x.id===id);
-  if(!a)return;
-  const paras=(a.body||'').split('\n\n').filter(p=>p.trim());
-  document.getElementById('page-root').innerHTML=`
-  <div class="wrap">
-    <div class="layout" style="padding-top:28px">
-      <main>
-        <div class="art-page">
-          <div class="back-btn" onclick="goHome()"><i class="ti ti-arrow-left"></i> Torna alla home</div>
-          <div style="margin-bottom:10px;display:flex;gap:8px;align-items:center">
-            <span style="background:var(--red);color:#fff;font-size:10px;font-weight:700;padding:3px 9px;border-radius:2px;letter-spacing:1.5px;text-transform:uppercase">${esc(a.cat)}</span>
-            ${a.urgente?'<span style="background:#7b1111;color:#ffcdd2;font-size:10px;font-weight:700;padding:3px 9px;border-radius:2px;letter-spacing:1.5px;text-transform:uppercase;animation:blink 2s infinite">● URGENTE</span>':''}
-          </div>
-          <h1>${esc(a.title)}</h1>
-          <div class="art-sub">${esc(a.sub)}</div>
-          <div class="art-meta">
-            <span><i class="ti ti-user"></i> ${esc(a.author)}</span>
-            <span><i class="ti ti-clock"></i> ${a.read} min di lettura</span>
-            <span><i class="ti ti-calendar"></i> Sabato 23 Maggio 2026</span>
-          </div>
-          <img class="art-hero-img" src="${getImg(a)}" alt="${esc(a.title)}" onerror="this.style.display='none'">
-          <div class="art-body">${paras.map(p=>`<p>${esc(p)}</p>`).join('')}</div>
-          <div class="art-share">
-            <button class="share-btn" onclick="copyLink()"><i class="ti ti-link"></i> Copia link</button>
-            <button class="share-btn" onclick="scrollToForum()"><i class="ti ti-messages"></i> Commenta nel Forum</button>
-          </div>
-        </div>
-      </main>
-      <aside class="sidebar">
-        <div class="widget">
-          <div class="wh"><i class="ti ti-book"></i> Altre notizie di oggi</div>
-          <div class="wbody">${DB_OGGI.filter(x=>x.id!==id).slice(0,5).map(x=>aliHtml(x)).join('')}</div>
-        </div>
-      </aside>
-    </div>
-  </div>`;
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-
-function doSearch(){
-  const q=document.getElementById('search-input').value.trim().toLowerCase();
-  if(!q)return;
-  const res=DB_OGGI.filter(a=>a.title.toLowerCase().includes(q)||a.sub.toLowerCase().includes(q)||(a.body||'').toLowerCase().includes(q));
-  document.getElementById('page-root').innerHTML=`
-  <div class="wrap" style="padding-top:28px">
-    <div class="back-btn" onclick="goHome()" style="display:inline-flex;margin-bottom:16px"><i class="ti ti-arrow-left"></i> Home</div>
-    <div class="sec-head"><div class="sec-rule"></div><div class="sec-title">Risultati per: «${esc(q)}»</div></div>
-    ${res.length?`<div class="cards-3">${res.map(a=>cardHtml(a)).join('')}</div>`:'<div style="padding:50px;text-align:center;font-family:var(--serif);font-style:italic;color:var(--muted);font-size:18px">Nessun articolo trovato.</div>'}
-  </div>`;
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-document.getElementById('search-btn').onclick=doSearch;
-document.getElementById('search-input').addEventListener('keydown',e=>{if(e.key==='Enter')doSearch();});
-
-const FORUM_KEY='ankoautca_forum_23maggio_v1';
-function loadMsgs(){try{return JSON.parse(localStorage.getItem(FORUM_KEY)||'[]');}catch{return[];}}
-function saveMsgs(m){localStorage.setItem(FORUM_KEY,JSON.stringify(m.slice(-300)));}
-let currentTopic='Tutti',currentSearch='';
-
-const SEED=[
-  {id:'s1',name:'Redazione ANKOAUTCA',avatar:'RA',badge:'editor',topic:'Mondo',text:'Benvenuti nel Forum di sabato 23 maggio. Giornata densa tra la crisi Iran-USA, la tappa regina del Giro e la Notte dei Musei. Commentate con rispetto.',time:Date.now()-3600000*3,reactions:{like:8,cuore:5,bravo:3},replies:[]},
-  {id:'s2',name:'Giorgio da Milano',avatar:'GM',badge:'guest',topic:'Mondo',text:'La bozza in 9 punti senza clausola nucleare è una presa in giro. Significa che tra qualche mese si ricomincia da capo. Trump lo sa e per questo non firma. È come il gioco del gatto col topo ma con le bombe.',time:Date.now()-3600000*2,reactions:{like:21,cuore:8,bravo:7},replies:[{name:'Miriam T.',text:'Concordo. L\'accordo vero sull\'atomica è ancora lontanissimo. Questa è solo una tregua per salvare la faccia.',time:Date.now()-3600000*1.5}]},
-  {id:'s3',name:'Benedetta da Torino',avatar:'BT',badge:'guest',topic:'Sport',text:'Oggi è la tappa più bella del Giro! Aosta-Pila con quelle 5 salite è una cosa meravigliosa. Forza Vingegaard, ma tifo anche per Ciccone che è il nostro.',time:Date.now()-3600000,reactions:{like:14,cuore:19,bravo:5},replies:[]},
-  {id:'s4',name:'Antonio P.',avatar:'AP',badge:'guest',topic:'Cronaca',text:'34 anni dalla strage di Capaci. Falcone non si dimentica. Triste che ancora oggi il suo sacrificio venga strumentalizzato politicamente invece di essere un momento di unità nazionale.',time:Date.now()-1800000,reactions:{like:31,cuore:25,bravo:12},replies:[]},
-];
-
-function initForum(){
-  if(loadMsgs().length===0)saveMsgs(SEED);
-  renderForum();
-}
-
-function renderForum(){
-  let msgs=loadMsgs();
-  const q=currentSearch.toLowerCase();
-  if(currentTopic!=='Tutti')msgs=msgs.filter(m=>m.topic===currentTopic);
-  if(q)msgs=msgs.filter(m=>m.text.toLowerCase().includes(q)||m.name.toLowerCase().includes(q));
-  document.getElementById('forum-count').textContent=loadMsgs().length+' messaggi';
-  if(msgs.length===0){document.getElementById('msgs-list').innerHTML='<div class="forum-empty">Nessun messaggio trovato.</div>';return;}
-  document.getElementById('msgs-list').innerHTML=`<div class="msgs-container">${msgs.slice().reverse().map(m=>msgHtml(m)).join('')}</div>`;
-}
-
-function msgHtml(m){
-  const badges={editor:'<span class="msg-badge badge-editor">Redazione</span>',mod:'<span class="msg-badge badge-mod">Moderatore</span>',guest:'<span class="msg-badge badge-guest">Lettore</span>'};
-  const replies=(m.replies||[]).map(r=>`<div class="reply-card"><div style="flex-shrink:0"><div class="msg-avatar" style="width:28px;height:28px;font-size:11px;background:var(--paper);color:var(--ink);border:1px solid var(--border)">${esc(r.name.substring(0,2).toUpperCase())}</div></div><div><div class="reply-name">${esc(r.name)}</div><div class="reply-text">${esc(r.text)}</div></div></div>`).join('');
-  return`<div class="msg-card" id="msg-${esc(m.id)}">
-    <div class="msg-header"><div class="msg-avatar">${esc((m.avatar||m.name).substring(0,2).toUpperCase())}</div>
-    <div class="msg-info"><div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><span class="msg-author">${esc(m.name)}</span>${badges[m.badge]||badges.guest}</div><div class="msg-time">${timeAgo(m.time)} · ${esc(m.topic)}</div></div></div>
-    <div class="msg-topic">${esc(m.topic)}</div>
-    <div class="msg-text">${esc(m.text)}</div>
-    <div class="msg-footer">
-      <button class="react-btn" onclick="react('${esc(m.id)}','like')">👍 <span>${m.reactions?.like||0}</span></button>
-      <button class="react-btn" onclick="react('${esc(m.id)}','cuore')">❤️ <span>${m.reactions?.cuore||0}</span></button>
-      <button class="react-btn" onclick="react('${esc(m.id)}','bravo')">👏 <span>${m.reactions?.bravo||0}</span></button>
-      <span class="reply-btn" onclick="toggleReply('${esc(m.id)}')"><i class="ti ti-corner-down-right"></i> Rispondi</span>
-    </div>
-    <div id="reply-form-${esc(m.id)}" style="display:none;margin-top:10px">
-      <div style="display:flex;gap:8px">
-        <input class="ff-input" id="rf-name-${esc(m.id)}" placeholder="Il tuo nome" style="width:130px;font-size:12px;padding:7px 9px">
-        <input class="ff-input" id="rf-text-${esc(m.id)}" placeholder="Scrivi una risposta…" style="flex:1;font-size:12px;padding:7px 9px" onkeydown="if(event.key==='Enter')submitReply('${esc(m.id)}')">
-        <button onclick="submitReply('${esc(m.id)}')" style="background:var(--ink);color:#fff;border:none;padding:7px 13px;border-radius:4px;cursor:pointer;font-size:12px">Invia</button>
-      </div>
-    </div>
-    ${replies?`<div class="msg-replies">${replies}</div>`:''}
-  </div>`;
-}
-
-window.react=function(id,type){const msgs=loadMsgs();const m=msgs.find(x=>x.id===id);if(!m)return;if(!m.reactions)m.reactions={};m.reactions[type]=(m.reactions[type]||0)+1;saveMsgs(msgs);renderForum();};
-window.toggleReply=function(id){const el=document.getElementById('reply-form-'+id);if(el)el.style.display=el.style.display==='none'?'block':'none';};
-window.submitReply=function(id){const msgs=loadMsgs();const m=msgs.find(x=>x.id===id);if(!m)return;const t=document.getElementById('rf-text-'+id);const n=document.getElementById('rf-name-'+id);const text=(t?.value||'').trim();if(!text)return;if(!m.replies)m.replies=[];m.replies.push({name:(n?.value||'Anonimo').substring(0,30),text:text.substring(0,400),time:Date.now()});saveMsgs(msgs);renderForum();notify('✅ Risposta pubblicata!');};
-
-function submitMsg(){
-  const name=(document.getElementById('ff-name').value||'').trim();
-  const topic=document.getElementById('ff-topic').value;
-  const text=(document.getElementById('ff-msg').value||'').trim();
-  if(!text||text.length<5){notify('❌ Scrivi almeno 5 caratteri.');return;}
-  const msgs=loadMsgs();
-  msgs.push({id:'m'+Date.now(),name:name||'Anonimo',avatar:(name||'AN').substring(0,2).toUpperCase(),badge:'guest',topic,text:text.substring(0,1000),time:Date.now(),reactions:{like:0,cuore:0,bravo:0},replies:[]});
-  saveMsgs(msgs);
-  document.getElementById('ff-msg').value='';
-  document.getElementById('char-count').textContent='0';
-  renderForum();
-  notify('✅ Messaggio pubblicato!');
-}
-
-function filterTopic(t){currentTopic=t;document.querySelectorAll('.topic-tag').forEach(el=>el.classList.toggle('sel',el.textContent===t));renderForum();}
-function searchForum(){currentSearch=document.getElementById('forum-search').value.trim();renderForum();}
-document.getElementById('forum-search').addEventListener('keydown',e=>{if(e.key==='Enter')searchForum();});
-document.getElementById('ff-msg').addEventListener('input',function(){document.getElementById('char-count').textContent=this.value.length;});
-function timeAgo(ts){const d=Date.now()-ts;if(d<60000)return'Adesso';if(d<3600000)return Math.floor(d/60000)+' min fa';if(d<86400000)return Math.floor(d/3600000)+' ore fa';return Math.floor(d/86400000)+' giorni fa';}
-
-function notify(msg){const el=document.getElementById('notify');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),3000);}
-function copyLink(){navigator.clipboard?.writeText(window.location.href).catch(()=>{});notify('🔗 Link copiato!');}
-function scrollToForum(){document.getElementById('forum-section').scrollIntoView({behavior:'smooth'});}
-window.addEventListener('scroll',()=>{document.getElementById('scrollTop').classList.toggle('show',window.scrollY>400);});
-
-function updateOnline(){
-  const n=Math.floor(Math.random()*28+9);
-  const el=document.getElementById('online-n');
-  const pill=document.getElementById('online-pill');
-  if(el)el.textContent=n+' persone stanno leggendo in questo momento';
-  if(pill)pill.textContent=n+' online';
-}
-updateOnline();
-setInterval(updateOnline,15000);
-
-goHome();
-initForum();
+  // Build mailto
+  const cognome=document.getElementById('f-cognome').value.trim();
+  const tel=document.getElementById('f-tel').value.trim();
+  const azienda=document.getElementById('f-azienda').value.trim();
+  const budget=document.getElementById('f-budget').value;
+  const body=`NUOVA RICHIESTA DA SITO ANKOAUTO CA\n\n`+
+    `Nome: ${nome} ${cognome}\n`+
+    `Email: ${email}\n`+
+    `Telefono: ${tel||'Non inserito'}\n`+
+    `Azienda: ${azienda||'Non inserita'}\n`+
+    `Servizio: ${servizio}\n`+
+    `Budget: ${budget||'Non specificato'}\n\n`+
+    `MESSAGGIO:\n${msg}`;
+  const subject=encodeURIComponent(`[Ankoauto CA] Richiesta da ${nome} ${cognome} – ${servizio}`);
+  const bodyEnc=encodeURIComponent(body);
+  const mailtoLink=`mailto:gastroboostmarketiingdegital@gmail.com?subject=${subject}&body=${bodyEnc}`;
+  // Loading state
+  submitBtn.classList.add('loading');
+  submitTxt.textContent='Apertura email...';
+  // Open mail client
+  window.location.href=mailtoLink;
+  // Show success after short delay
+  setTimeout(()=>{
+    submitBtn.classList.remove('loading');
+    submitTxt.textContent='Invia Richiesta';
+    formSuccess.style.display='block';
+    form.reset();
+    setTimeout(()=>formSuccess.style.display='none',6000);
+  },1500);
+});
 </script>
 </body>
 </html>
